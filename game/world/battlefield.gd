@@ -17,6 +17,7 @@ var geometry := Geometry.new()
 var destination: MeshInstance3D
 var spell_ring: MeshInstance3D
 var spell_remaining := 0.0
+var effect_scale := 1.0
 var level_notice := ""
 var level_notice_remaining := 0.0
 var hud: Control
@@ -37,9 +38,9 @@ func _ready() -> void:
 	terrain.build(simulation)
 	if get_tree().get_meta("lane_mode", "--lanes" in OS.get_cmdline_user_args()):
 		simulation.start_match()
-		army = preload("res://presentation/army_view.gd").new()
-		add_child(army)
-		army.buildings = terrain.building_views
+	army = preload("res://presentation/army_view.gd").new()
+	add_child(army)
+	army.buildings = terrain.building_views
 	add_child(hero)
 	hero.build(Color("6f98ac"))
 	add_child(enemy)
@@ -74,7 +75,7 @@ func _physics_process(delta: float) -> void:
 	if simulation.path.is_empty(): destination.visible = false
 	spell_remaining = maxf(0, spell_remaining - delta)
 	spell_ring.visible = spell_remaining > 0
-	spell_ring.scale = Vector3.ONE * (1 - spell_remaining)
+	spell_ring.scale = Vector3.ONE * (1 - spell_remaining) * effect_scale
 
 func _sync_views(delta: float) -> void:
 	var target := simulation.current_target()
@@ -114,7 +115,7 @@ func command(action: String) -> void:
 		get_tree().reload_current_scene()
 		return
 	if paused and action not in ["menu", "edge", "quit"]: return
-	if not selected and action in ["move", "stop", "hold", "attack", "strike"]: return
+	if not selected and action in ["move", "stop", "hold", "attack", "strike", "area", "summon"]: return
 	match action:
 		"center":
 			selected = true
@@ -131,6 +132,10 @@ func command(action: String) -> void:
 			var reason := simulation.submit_strike()
 			hud.notice = "训练震击：造成 80 伤害并眩晕 1.5 秒" if reason.is_empty() else reason
 			move_mode = false
+		"area", "summon":
+			var reason := simulation.submit_skill(action)
+			hud.notice = ("范围冲击已释放" if action == "area" else "训练守卫已召唤，持续 15 秒") if reason.is_empty() else reason
+			move_mode = false
 		"edge": edge_scroll = not edge_scroll
 		"menu":
 			paused = not paused
@@ -141,7 +146,7 @@ func command(action: String) -> void:
 func _on_combat_event(event: Dictionary) -> void:
 	if army != null:
 		army.react(event)
-		if event.type in ["damage", "swing", "death", "respawn"] and event.get("target", event.actor) not in ["player", "enemy"]:
+		if event.type in ["damage", "swing", "death", "respawn"] and (event.target if event.type == "damage" else event.actor) not in ["player", "enemy"]:
 			return
 	if event.type == "damage":
 		var view := hero if event.target == "player" else enemy
@@ -149,7 +154,8 @@ func _on_combat_event(event: Dictionary) -> void:
 	elif event.type == "swing":
 		var view := hero if event.actor == "player" else enemy
 		view.react(event)
-	elif event.type == "spell":
+	elif event.type in ["spell", "area", "summon"]:
+		effect_scale = 0.3 if event.type == "summon" else 1.0
 		spell_remaining = 0.45
 		spell_ring.position = event.position + Vector3(0, 0.16, 0)
 	elif event.type == "death":

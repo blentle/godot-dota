@@ -14,7 +14,7 @@ func keyboard(battle: Node3D, event: InputEvent) -> void:
 		return
 	if battle.hud.shop.visible: return
 	var actions := {KEY_F1: "center", KEY_SPACE: "center", KEY_M: "move",
-		KEY_S: "stop", KEY_H: "hold", KEY_A: "attack", KEY_Q: "strike"}
+		KEY_S: "stop", KEY_H: "hold", KEY_A: "attack", KEY_Q: "strike", KEY_W: "area", KEY_E: "summon"}
 	if actions.has(event.physical_keycode):
 		battle.command(actions[event.physical_keycode])
 		battle.get_viewport().set_input_as_handled()

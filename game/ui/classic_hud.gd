@@ -8,6 +8,8 @@ var menu: Panel
 const Minimap = preload("res://ui/minimap_view.gd")
 var minimap_view: Control
 var skill_button: Button
+var area_button: Button
+var summon_button: Button
 var attack_button: Button
 var gold := Color("c6ab70")
 var parchment := Color("e1d7bb")
@@ -44,8 +46,10 @@ func _ready() -> void:
 	_button("镜头\nF1", Rect2(1196, 554, 62, 44), "center", "镜头返回训练单位")
 	attack_button = _button("攻击\nA", Rect2(992, 604, 62, 42), "attack", "追击当前目标；右键敌方单位或建筑可指定目标")
 	skill_button = _button("震击\nQ", Rect2(1060, 604, 62, 42), "strike", "训练技能：范围 5，伤害 80，眩晕 1.5 秒，消耗 60 魔法，冷却 6 秒。非原版英雄技能。")
-	for i in range(6):
-		var index := i + 2
+	area_button = _button("冲击\nW", Rect2(1128, 604, 62, 42), "area", "开发技能：自身周围半径 5，敌方非建筑单位受到 70 伤害；消耗 70 魔法，冷却 8 秒。")
+	summon_button = _button("召唤\nE", Rect2(1196, 604, 62, 42), "summon", "开发技能：召唤一个自动跟随和索敌的守卫，持续 15 秒；消耗 80 魔法，冷却 20 秒。")
+	for i in range(4):
+		var index := i + 4
 		var button := _button("—", Rect2(992 + (index % 4) * 68, 604 + (index / 4) * 48, 62, 42), "", "此技能槽尚未实现")
 		button.disabled = true
 	for i in range(6):
@@ -92,6 +96,10 @@ func sync_state() -> void:
 		inventory_buttons[i].tooltip_text = "空背包格" if id.is_empty() else Catalog.ITEMS[id].description
 		inventory_buttons[i].disabled = battle.paused
 	shop.sync_state()
+	area_button.disabled = area_button.disabled or not battle.simulation.skills.reason("area").is_empty()
+	summon_button.disabled = summon_button.disabled or not battle.simulation.skills.reason("summon").is_empty()
+	area_button.text = "冲击\n%.1f" % combat.player.area_cooldown if combat.player.area_cooldown > 0 else "冲击\nW"
+	summon_button.text = "召唤\n%.1f" % combat.player.summon_cooldown if combat.player.summon_cooldown > 0 else "召唤\nE"
 	minimap_view.queue_redraw()
 
 func set_paused(value: bool) -> void:
@@ -133,7 +141,7 @@ func _button(text: String, rect: Rect2, action: String, tooltip: String) -> Butt
 	button.add_theme_stylebox_override("disabled", _style(Color("1b211d"), Color("464b3e")))
 	if not action.is_empty():
 		button.pressed.connect(func(): battle.command(action))
-	if action in ["move", "stop", "hold", "attack", "strike"]:
+	if action in ["move", "stop", "hold", "attack", "strike", "area", "summon"]:
 		commands.append(button)
 	add_child(button)
 	return button
@@ -178,6 +186,8 @@ func _draw() -> void:
 		if battle.simulation.finished(): status = ("近卫胜利" if match_state.winner == 0 else "天灾胜利") + " · 菜单可重开"
 		_text(Vector2(215, 75), status, 16, gold)
 	_text(Vector2(26, 155), enemy_status, 13)
+	if not battle.simulation.summons.active_id.is_empty():
+		_text(Vector2(26, 199), "训练守卫 · 剩余 %.1f 秒" % battle.simulation.summons.remaining, 13, gold)
 
 	# 连续石质面板用砖缝和铜色分隔线组织信息。
 	draw_rect(Rect2(0, 522, 1280, 198), Color("30392f"))
@@ -218,8 +228,8 @@ func _draw() -> void:
 	_text(Vector2(588, 552), "指令与视野", 17, gold)
 	_text(Vector2(588, 582), "右键    移动 / 攻击对手", 14)
 	_text(Vector2(588, 607), "A 攻击  /  Q 训练震击", 14)
-	_text(Vector2(588, 632), "方向键 / 滚轮  控制镜头", 14)
-	_text(Vector2(588, 657), "空格    返回单位", 14)
+	_text(Vector2(588, 632), "W 范围冲击 / E 召唤守卫", 14)
+	_text(Vector2(588, 657), "空格返身 / 方向键与滚轮", 14)
 	_text(Vector2(588, 692), "小地图：左键看 / 右键走", 12, muted)
 	_text(Vector2(794, 549), "物品栏", 15, gold)
 	_text(Vector2(994, 548), "单位指令", 14, gold)
