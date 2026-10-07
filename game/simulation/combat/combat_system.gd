@@ -77,6 +77,8 @@ func step(delta: float) -> void:
 			continue
 		actor.attack_cooldown = maxf(0, actor.attack_cooldown - delta)
 		actor.skill_cooldown = maxf(0, actor.skill_cooldown - delta)
+		actor.area_cooldown = maxf(0, actor.area_cooldown - delta)
+		actor.summon_cooldown = maxf(0, actor.summon_cooldown - delta)
 		actor.stunned = maxf(0, actor.stunned - delta)
 		actor.mana = minf(actor.max_mana, actor.mana + 3.0 * delta)
 		if actor.windup > 0:
@@ -95,7 +97,7 @@ func step(delta: float) -> void:
 
 func apply_damage(actor: RefCounted, target: RefCounted, amount: float) -> void:
 	if not actor.alive() or not target.alive() or amount <= 0: return
-	_resolve_damage(actor.id, actor.team, target, amount)
+	_resolve_damage(actor.owner_id if not actor.owner_id.is_empty() else actor.id, actor.team, target, amount)
 
 func _projectile_hit(shot: Dictionary, target: RefCounted) -> void:
 	_resolve_damage(shot.actor, shot.team, target, shot.damage)
@@ -126,7 +128,7 @@ func nearest_enemy(actor: RefCounted, reach: float, prefer_creeps: bool = false)
 		if not candidate.alive() or candidate.team == actor.team or candidate.invulnerable: continue
 		var distance: float = actor.position.distance_to(candidate.position)
 		if distance > reach + candidate.radius: continue
-		if prefer_creeps and candidate.kind == "creep": distance -= 1000.0
+		if prefer_creeps and candidate.kind in ["creep", "summon"]: distance -= 1000.0
 		if distance < score:
 			score = distance
 			best = candidate

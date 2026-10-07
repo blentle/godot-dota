@@ -7,6 +7,8 @@ var routing := Navigation.new()
 var combat := Combat.new()
 var economy := preload("res://simulation/economy_system.gd").new(combat)
 var progression := preload("res://simulation/progression_system.gd").new(combat.player)
+var summons := preload("res://simulation/summon_system.gd").new(combat, routing)
+var skills := preload("res://simulation/skill_system.gd").new(combat, summons)
 var path := PackedVector3Array()
 var order := "待命"
 var elapsed := 0.0
@@ -71,6 +73,7 @@ func step(delta: float) -> void:
 	if finished(): return
 	elapsed += delta
 	if match_state != null: economy.step(delta)
+	summons.step(delta)
 	combat.step(delta)
 	if match_state != null: match_state.step(delta)
 	if finished():
@@ -139,3 +142,10 @@ func submit_buy(id: String) -> String:
 
 func submit_sell(index: int) -> String:
 	return economy.sell(index, finished())
+
+func submit_skill(kind: String) -> String:
+	if finished(): return "对局已经结束"
+	match kind:
+		"area": return skills.cast_area()
+		"summon": return skills.cast_summon()
+	return "技能不存在"

@@ -2,6 +2,7 @@ extends RefCounted
 ## 战斗单位的权威状态；当前数值仅用于训练，不代表 6.83d 英雄。
 
 var id := ""
+var owner_id := ""
 var team := 0
 var kind := "hero"
 var role := "melee"
@@ -28,6 +29,8 @@ var attack_interval := 1.0
 var attack_range := 2.4
 var attack_cooldown := 0.0
 var skill_cooldown := 0.0
+var area_cooldown := 0.0
+var summon_cooldown := 0.0
 var windup := 0.0
 var pending_target_id := ""
 var stunned := 0.0
@@ -44,6 +47,8 @@ func reset() -> void:
 	position = spawn
 	attack_cooldown = 0.0
 	skill_cooldown = 0.0
+	area_cooldown = 0.0
+	summon_cooldown = 0.0
 	windup = 0.0
 	pending_target_id = ""
 	stunned = 0.0

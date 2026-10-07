@@ -6,7 +6,7 @@ var active: Dictionary = {}
 var next_id := 1
 
 func launch(actor: RefCounted, target: RefCounted) -> void:
-	active[next_id] = {"id": next_id, "actor": actor.id, "team": actor.team,
+	active[next_id] = {"id": next_id, "actor": actor.owner_id if not actor.owner_id.is_empty() else actor.id, "team": actor.team,
 		"target": target.id, "life": target.life_id, "damage": actor.damage,
 		"speed": actor.projectile_speed, "remaining": MAX_LIFETIME,
 		"position": actor.position + Vector3.UP * (4.6 if actor.kind == "tower" else 1.5)}
