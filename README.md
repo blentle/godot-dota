@@ -49,6 +49,7 @@ godot --headless --path game --script res://tests/test_skills.gd
 godot --headless --path game --script res://tests/test_session_rules.gd
 godot --headless --path game --script res://tests/test_client_flow.gd
 godot --headless --path game --script res://tests/test_network_authority.gd
+godot --headless --path game --script res://tests/test_remote_world.gd
 godot --headless --path game -- --lanes --smoke-test
 python3 tools/validate_content.py
 python3 -m unittest discover -s tests -v
@@ -81,6 +82,6 @@ tests/                   工程工具回归测试
 
 平台将在 M5 增加 `launcher/`、`services/platform/` 和 `deploy/`，避免在游戏边界未稳定时铺开多个空工程。
 
-本机网络开发验证可执行 `python3 tools/test_network_pair.py --godot /实际路径/Godot`，自动运行独立服务端和客户端进程；目前只有单席位命令与快照验证，普通游戏窗口仍为离线模式，尚不能部署十人对战服务。
+本机网络开发验证可执行 `python3 tools/test_network_pair.py --godot /实际路径/Godot`；追加 `--scene` 验证战场、心跳和断线流程。手动启动 `godot --headless --path game --script res://tests/network_server.gd -- --port=27883` 后，可用 `godot --path game -- --connect-local=27883` 打开联网图形客户端。当前仅支持本机单席位，尚不能部署十人对战服务，默认入口仍为离线模式。
 
 版本来源：[Godot 4.7.2 官方归档](https://godotengine.org/download/archive/4.7.2-stable/)。
