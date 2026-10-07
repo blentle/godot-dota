@@ -19,6 +19,7 @@ var resume_button: Button
 var previous_focus: Control
 var inventory_buttons: Array[Button] = []
 var shop: Panel
+const Profiles = preload("res://simulation/hero_profiles.gd")
 const Catalog = preload("res://simulation/item_catalog.gd")
 
 func _ready() -> void:
@@ -61,8 +62,8 @@ func _ready() -> void:
 	shop.hud = self
 	add_child(shop)
 	menu = Panel.new()
-	menu.position = Vector2(443, 165)
-	menu.size = Vector2(394, 410)
+	menu.position = Vector2(443, 125)
+	menu.size = Vector2(394, 470)
 	menu.add_theme_stylebox_override("panel", _style(Color("202620"), gold))
 	add_child(menu)
 	var heading := Label.new()
@@ -77,7 +78,8 @@ func _ready() -> void:
 	edge.pressed.connect(func(): edge.text = "边缘滚屏：开启" if battle.edge_scroll else "边缘滚屏：关闭")
 	_menu_button("三路兵线演练 / 重新开始", 208, "lanes")
 	_menu_button("单对手训练 / 重新开始", 264, "training")
-	_menu_button("退出客户端", 320, "quit")
+	_menu_button("返回角色选择", 320, "selection")
+	_menu_button("退出客户端", 376, "quit")
 	menu.visible = false
 
 func sync_state() -> void:
@@ -215,11 +217,11 @@ func _draw() -> void:
 	_text(Vector2(218, 655), "临时外观", 12, muted)
 	_bar(Rect2(204, 676, 111, 12), Color("559346"), "%.0f / %.0f" % [combat.player.hp, combat.player.max_hp], combat.player.hp / combat.player.max_hp)
 	_bar(Rect2(204, 694, 111, 12), Color("426d9d"), "%.0f / %.0f" % [combat.player.mana, combat.player.max_mana], combat.player.mana / combat.player.max_mana)
-	_text(Vector2(346, 552), "训练卫兵 · 等级 %d" % combat.player.level if battle.selected else "未选择单位", 19, gold)
+	_text(Vector2(346, 552), "%s · %d 级" % [Profiles.PROFILES[combat.player.profile_id].name, combat.player.level] if battle.selected else "未选择单位", 19, gold)
 	_text(Vector2(346, 577), "战斗开发数值 · 非正式英雄", 12, muted)
 	_text(Vector2(346, 608), "状态    " + battle.simulation.order if battle.selected else "点击单位或按 F1 选择", 14)
 	_text(Vector2(346, 633), "移动速度    %.1f 世界单位 / 秒" % combat.player.move_speed, 13)
-	_text(Vector2(346, 658), "攻击 %.0f  /  间隔 1 秒  /  距离 2.4" % combat.player.damage, 12, muted)
+	_text(Vector2(346, 658), "攻击 %.0f / 间隔 %.1f / 距离 %.1f" % [combat.player.damage, combat.player.attack_interval, combat.player.attack_range], 12, muted)
 	var required: int = battle.simulation.progression.required_experience()
 	var xp_label := "等级已满" if required == 0 else "经验 %d / %d" % [combat.player.experience, required]
 	var xp_ratio: float = 1.0 if required == 0 else float(combat.player.experience) / required

@@ -1,5 +1,5 @@
 extends Node
-## 共用入口：校验模式只检查清单，默认打开离线训练场景。
+## 共用入口：校验模式只检查清单，默认打开训练角色选择界面。
 
 const MANIFEST_PATH := "res://content/6.83d/manifest.json"
 
@@ -27,5 +27,5 @@ func _ready() -> void:
 		push_error("Dedicated server is not implemented yet.")
 		get_tree().quit(2)
 	else:
-		var scene := preload("res://world/battlefield.gd").new()
+		var scene := preload("res://bootstrap/client_flow.gd").new()
 		add_child(scene)

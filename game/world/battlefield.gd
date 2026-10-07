@@ -1,6 +1,8 @@
 extends Node3D
 ## 场景装配入口：组合规则、地形、视图、输入和界面，避免承担具体算法。
 
+signal session_requested(action: String)
+
 const Simulation = preload("res://simulation/training_world.gd")
 const Terrain = preload("res://world/terrain_builder.gd")
 const CameraRig = preload("res://presentation/camera_rig.gd")
@@ -42,7 +44,7 @@ func _ready() -> void:
 	add_child(army)
 	army.buildings = terrain.building_views
 	add_child(hero)
-	hero.build(Color("6f98ac"))
+	hero.build(Color(preload("res://simulation/hero_profiles.gd").PROFILES[simulation.combat.player.profile_id].color))
 	add_child(enemy)
 	enemy.build(Color("b87960"))
 	enemy.visible = simulation.match_state == null
@@ -110,7 +112,11 @@ func command(action: String) -> void:
 	if hud.shop.visible and action == "menu":
 		hud.shop.close()
 		return
-	if action in ["lanes", "training"]:
+	if action in ["lanes", "training", "selection"]:
+		if not session_requested.get_connections().is_empty():
+			session_requested.emit(action)
+			return
+		if action == "selection": return
 		get_tree().set_meta("lane_mode", action == "lanes")
 		get_tree().reload_current_scene()
 		return
