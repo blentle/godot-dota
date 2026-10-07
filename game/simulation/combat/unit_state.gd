@@ -19,6 +19,7 @@ var hp := 600.0
 var max_mana := 240.0
 var mana := 240.0
 var damage := 55.0
+var move_speed := 7.0
 var attack_interval := 1.0
 var attack_range := 2.4
 var attack_cooldown := 0.0

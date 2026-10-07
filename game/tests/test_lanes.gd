@@ -29,7 +29,7 @@ func _test_lifecycle() -> void:
 	check(base.hp == 1500, "三座塔存活时基地必须受保护")
 	for lane in range(3): combat.apply_damage(combat.player, combat.units["tower_1_%d" % lane], 9999)
 	check(not base.invulnerable, "最后一座塔摧毁后基地应解除保护")
-	check(combat.gold == 300, "建筑奖励应准确结算")
+	check(combat.gold == 600, "建筑奖励应准确结算")
 	combat.apply_damage(combat.player, base, 9999)
 	check(world.finished() and world.match_state.winner == 0, "基地摧毁应判定近卫胜利")
 	var elapsed: float = world.elapsed
@@ -52,7 +52,7 @@ func _test_targeting() -> void:
 	var victim: RefCounted = combat.units.creep_1_0_1_0
 	combat.apply_damage(combat.player, victim, 9999)
 	combat.apply_damage(combat.player, victim, 9999)
-	check(combat.gold == 20 and combat.last_hits == 1, "小兵补刀奖励只能结算一次")
+	check(combat.gold == 320 and combat.last_hits == 1, "小兵补刀奖励只能结算一次")
 	for tick in range(130): world.step(1.0 / 30)
 	check(not combat.units.has(victim.id), "死亡小兵必须清理")
 

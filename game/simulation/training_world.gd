@@ -3,9 +3,9 @@ extends RefCounted
 
 const Navigation = preload("res://simulation/grid_navigation.gd")
 const Combat = preload("res://simulation/combat/combat_system.gd")
-const SPEED := 7.0
 var routing := Navigation.new()
 var combat := Combat.new()
+var economy := preload("res://simulation/economy_system.gd").new(combat)
 var path := PackedVector3Array()
 var order := "待命"
 var elapsed := 0.0
@@ -69,6 +69,7 @@ func _plan_path(target: Vector3) -> bool:
 func step(delta: float) -> void:
 	if finished(): return
 	elapsed += delta
+	if match_state != null: economy.step(delta)
 	combat.step(delta)
 	if match_state != null: match_state.step(delta)
 	if finished():
@@ -96,7 +97,7 @@ func step(delta: float) -> void:
 	if path.is_empty() and order == "移动中": order = "待命"
 
 func _move_along_path(delta: float) -> void:
-	var remaining := SPEED * delta
+	var remaining: float = combat.player.move_speed * delta
 	while remaining > 0.0 and not path.is_empty():
 		var distance := position.distance_to(path[0])
 		if distance <= remaining:
@@ -118,6 +119,7 @@ func _on_combat_event(event: Dictionary) -> void:
 func start_match() -> void:
 	assert(match_state == null, "对局不可重复初始化")
 	match_state = preload("res://simulation/lane_match.gd").new(combat, routing)
+	combat.gold = 300
 	target_id = ""
 
 func current_target() -> RefCounted:
@@ -128,3 +130,9 @@ func current_target() -> RefCounted:
 
 func finished() -> bool:
 	return match_state != null and match_state.phase == "finished"
+
+func submit_buy(id: String) -> String:
+	return economy.buy(id, finished())
+
+func submit_sell(index: int) -> String:
+	return economy.sell(index, finished())
