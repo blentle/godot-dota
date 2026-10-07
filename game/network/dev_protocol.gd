@@ -2,7 +2,7 @@ extends RefCounted
 ## 本机网络切片的白名单协议；只使用 JSON，不反序列化对象。
 
 const VERSION := 1
-const BUILD := "m2-network-1"
+const BUILD := "m2-network-2"
 const MAX_BYTES := 4096
 const MATCH_ID := "local-development"
 

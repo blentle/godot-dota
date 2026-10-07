@@ -12,6 +12,7 @@ var last_reply: Dictionary = {}
 func receive(peer_id: int, message: Dictionary) -> Dictionary:
 	if message.get("type") == "hello": return _hello(peer_id, message)
 	if peer_id != owner or owner == 0: return _error("NOT_AUTHORIZED")
+	if message.get("type") == "ping": return {"type": "pong"}
 	if message.get("type") != "command": return _error("BAD_MESSAGE")
 	var rejection := Protocol.command_error(message)
 	if not rejection.is_empty(): return _error(rejection)
@@ -32,6 +33,7 @@ func _hello(peer_id: int, message: Dictionary) -> Dictionary:
 	var profile: Variant = message.get("profile")
 	if not profile is String: return _error("BAD_PROFILE")
 	if not candidate.configure_hero(profile).is_empty(): return _error("BAD_PROFILE")
+	preload("res://simulation/terrain_layout.gd").register_trees(candidate)
 	candidate.start_match()
 	world = candidate
 	owner = peer_id

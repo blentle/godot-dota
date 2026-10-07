@@ -69,13 +69,8 @@ func _build_terrain() -> void:
 	for at in [Vector3(-37, 0, -37), Vector3.ZERO, Vector3(37, 0, 37)]:
 		var bridge := geometry.box(self, at + Vector3(0, 0.14, 0), Vector3(7, 0.25, 6), Color("8b8770"))
 		bridge.rotation.y = PI / 4
-	for index in range(330):
-		var at := Vector3(rng.randf_range(-46, 46), 0, rng.randf_range(-46, 46))
-		if absf(at.x + at.z) < 6 or absf(at.x - at.z) < 5 or absf(absf(at.x) - 37) < 5 or absf(absf(at.z) - 37) < 5:
-			continue
-		if at.distance_to(simulation.position) < 7 or at.distance_to(Vector3(-29, 0, 24)) < 5:
-			continue
-		_tree(at)
+	for tree in preload("res://simulation/terrain_layout.gd").trees():
+		_tree(tree.position, tree.height)
 	for side in [-1, 1]:
 		var color := Color("7eaaad") if side == -1 else Color("b66f57")
 		var base := Vector3(side * 37, 0, -side * 37)
@@ -100,8 +95,7 @@ func _lane(points: Array) -> void:
 		var road := geometry.box(self, (a + b) / 2 + Vector3(0, 0.015, 0), Vector3(4.8, 0.06, a.distance_to(b)), Color("7b795a"))
 		road.rotation.y = atan2(b.x - a.x, b.z - a.z)
 
-func _tree(at: Vector3) -> void:
-	var height := rng.randf_range(3.2, 5.5)
+func _tree(at: Vector3, height: float) -> void:
 	geometry.cylinder(self, at + Vector3(0, 1, 0), 0.25, 2, Color("514735"), 0.18)
 	var color := Color("294d31") if at.x < at.z else Color("3b4840")
 	for tier in range(3):
