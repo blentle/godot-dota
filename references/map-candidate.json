@@ -1,0 +1,9 @@
+{
+  "source": "https://getdota.info/maps/DotA%20v6.83d.zip",
+  "retrieved_on": "2026-10-06",
+  "bytes": 12644945,
+  "sha256": "6cfa27d8f5a684555f9def95ce7ed19193df3a6ee0639e36eedac6fbeb153fab",
+  "header_hex": "3c68746d6c3e3c626f64793e504b030414efbfbdefbfbdefbfbd08efbfbd1772",
+  "status": "rejected_not_zip",
+  "note": "URL names a zip but Python zipfile rejected the downloaded bytes. Do not import or execute."
+}
