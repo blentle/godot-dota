@@ -18,6 +18,7 @@ var last_hits := 0
 var gold := 0
 var kills := 0
 var deaths := 0
+var ended := false
 
 func _init() -> void:
 	player.id = "player"
@@ -35,6 +36,7 @@ func _init() -> void:
 	register(enemy)
 
 func attack(actor: RefCounted, target: RefCounted) -> String:
+	if ended: return "对局已经结束"
 	var reason := chain.validate({"actor": actor, "target": target, "range": actor.attack_range + (target.radius if target != null else 0.0),
 		"mana_cost": 0.0, "cooldown": actor.attack_cooldown})
 	if not reason.is_empty(): return reason
@@ -45,6 +47,7 @@ func attack(actor: RefCounted, target: RefCounted) -> String:
 	return ""
 
 func cast_strike(target: RefCounted = null) -> String:
+	if ended: return "对局已经结束"
 	if target == null: target = enemy
 	var reason := chain.validate({"actor": player, "target": target, "range": SKILL_RANGE + target.radius,
 		"mana_cost": SKILL_COST, "cooldown": player.skill_cooldown})
@@ -64,9 +67,11 @@ func cancel_attack(actor: RefCounted) -> void:
 	actor.pending_target_id = ""
 
 func step(delta: float) -> void:
+	if ended: return
 	# 已存在弹道先推进，新发射弹道从下一模拟步开始飞行。
 	projectiles.step(delta, units, _projectile_hit)
 	for actor in units.values():
+		if ended: break
 		if not actor.alive():
 			actor.corpse_time += delta
 			if not actor.can_respawn: continue
@@ -103,6 +108,7 @@ func _projectile_hit(shot: Dictionary, target: RefCounted) -> void:
 	_resolve_damage(shot.actor, shot.team, target, shot.damage)
 
 func _resolve_damage(actor_id: String, team: int, target: RefCounted, amount: float) -> void:
+	if ended: return
 	if not target.alive() or team == target.team or target.invulnerable: return
 	target.hp = maxf(0, target.hp - amount)
 	combat_event.emit({"type": "damage", "actor": actor_id, "target": target.id, "amount": amount})

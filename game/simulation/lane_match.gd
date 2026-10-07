@@ -65,3 +65,4 @@ func _on_event(event: Dictionary) -> void:
 	elif unit.kind == "base":
 		winner = 1 - unit.team
 		phase = "finished"
+		combat.ended = true

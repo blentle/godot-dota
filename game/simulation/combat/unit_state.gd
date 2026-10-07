@@ -3,6 +3,7 @@ extends RefCounted
 
 var id := ""
 var owner_id := ""
+var profile_id := "guardian"
 var team := 0
 var kind := "hero"
 var role := "melee"

@@ -16,6 +16,7 @@ var attacking := false
 var target_id := "enemy"
 var match_state: RefCounted
 var chase_refresh := 0.0
+var _result: Dictionary = {}
 var position: Vector3:
 	get: return combat.player.position
 	set(value): combat.player.position = value
@@ -149,3 +150,13 @@ func submit_skill(kind: String) -> String:
 		"area": return skills.cast_area()
 		"summon": return skills.cast_summon()
 	return "技能不存在"
+
+func configure_hero(id: String) -> String:
+	if elapsed > 0 or match_state != null or economy.slots.count("") != 6:
+		return "只能在开局前选择训练配置"
+	return preload("res://simulation/hero_profiles.gd").apply(combat.player, id)
+
+func result_snapshot() -> Dictionary:
+	if not finished(): return {}
+	if _result.is_empty(): _result = preload("res://simulation/match_result.gd").capture(self)
+	return _result.duplicate(true)
