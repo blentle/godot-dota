@@ -8,6 +8,11 @@ func keyboard(battle: Node3D, event: InputEvent) -> void:
 		battle.get_viewport().set_input_as_handled()
 		return
 	if battle.paused: return
+	if event.physical_keycode == KEY_B:
+		battle.command("shop")
+		battle.get_viewport().set_input_as_handled()
+		return
+	if battle.hud.shop.visible: return
 	var actions := {KEY_F1: "center", KEY_SPACE: "center", KEY_M: "move",
 		KEY_S: "stop", KEY_H: "hold", KEY_A: "attack", KEY_Q: "strike"}
 	if actions.has(event.physical_keycode):

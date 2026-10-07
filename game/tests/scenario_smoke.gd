@@ -4,6 +4,7 @@ extends RefCounted
 func run(battle: Node3D) -> void:
 	assert(is_instance_valid(battle.hud))
 	if battle.simulation.match_state != null:
+		await preload("res://tests/scenario_shop.gd").new().run(battle)
 		assert(is_instance_valid(battle.army) and battle.army.views.size() == 24)
 		assert(battle.army.buildings.size() == 8)
 		assert(not battle.enemy.visible)

@@ -97,6 +97,14 @@ func issue_move(at: Vector3) -> void:
 	move_mode = false
 
 func command(action: String) -> void:
+	if action == "shop":
+		if not paused:
+			if hud.shop.visible: hud.shop.close()
+			else: hud.shop.open()
+		return
+	if hud.shop.visible and action == "menu":
+		hud.shop.close()
+		return
 	if action in ["lanes", "training"]:
 		get_tree().set_meta("lane_mode", action == "lanes")
 		get_tree().reload_current_scene()

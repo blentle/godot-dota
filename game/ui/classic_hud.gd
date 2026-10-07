@@ -15,6 +15,9 @@ var muted := Color("aaa58e")
 var commands: Array[Button] = []
 var resume_button: Button
 var previous_focus: Control
+var inventory_buttons: Array[Button] = []
+var shop: Panel
+const Catalog = preload("res://simulation/item_catalog.gd")
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -46,8 +49,13 @@ func _ready() -> void:
 		var button := _button("—", Rect2(992 + (index % 4) * 68, 604 + (index / 4) * 48, 62, 42), "", "此技能槽尚未实现")
 		button.disabled = true
 	for i in range(6):
-		var slot := _button("", Rect2(792 + (i % 3) * 55, 555 + (i / 3) * 57, 49, 49), "", "背包为空；装备系统尚未实现")
-		slot.disabled = true
+		var slot := _button("", Rect2(792 + (i % 3) * 55, 555 + (i / 3) * 57, 49, 49), "", "点击查看或出售物品")
+		slot.pressed.connect(func(): shop.open(i))
+		inventory_buttons.append(slot)
+	_button("商店  B", Rect2(792, 674, 159, 30), "shop", "在基地附近购买和出售装备")
+	shop = preload("res://ui/shop_panel.gd").new()
+	shop.hud = self
+	add_child(shop)
 	menu = Panel.new()
 	menu.position = Vector2(443, 165)
 	menu.size = Vector2(394, 410)
@@ -78,10 +86,17 @@ func sync_state() -> void:
 	skill_button.disabled = skill_button.disabled or combat.player.mana < 60 or combat.player.skill_cooldown > 0 or unavailable or battle.simulation.finished()
 	attack_button.disabled = attack_button.disabled or unavailable or battle.simulation.finished()
 	skill_button.text = "震击\n%.1f" % combat.player.skill_cooldown if combat.player.skill_cooldown > 0 else "震击\nQ"
+	for i in range(6):
+		var id: String = battle.simulation.economy.slots[i]
+		inventory_buttons[i].text = "—" if id.is_empty() else Catalog.ITEMS[id].short
+		inventory_buttons[i].tooltip_text = "空背包格" if id.is_empty() else Catalog.ITEMS[id].description
+		inventory_buttons[i].disabled = battle.paused
+	shop.sync_state()
 	minimap_view.queue_redraw()
 
 func set_paused(value: bool) -> void:
 	if value:
+		shop.close()
 		previous_focus = get_viewport().gui_get_focus_owner()
 		menu.visible = true
 		resume_button.grab_focus()
@@ -193,8 +208,8 @@ func _draw() -> void:
 	_text(Vector2(346, 552), "近卫训练卫兵" if battle.selected else "未选择单位", 19, gold)
 	_text(Vector2(346, 577), "战斗开发数值 · 非正式英雄", 12, muted)
 	_text(Vector2(346, 608), "状态    " + battle.simulation.order if battle.selected else "点击单位或按 F1 选择", 14)
-	_text(Vector2(346, 633), "移动速度    7.0 世界单位 / 秒", 13)
-	_text(Vector2(346, 658), "攻击 55  /  间隔 1 秒  /  距离 2.4", 12, muted)
+	_text(Vector2(346, 633), "移动速度    %.1f 世界单位 / 秒" % combat.player.move_speed, 13)
+	_text(Vector2(346, 658), "攻击 %.0f  /  间隔 1 秒  /  距离 2.4" % combat.player.damage, 12, muted)
 	_text(Vector2(346, 696), "击杀 %d / 阵亡 %d / 补刀 %d" % [combat.kills, combat.deaths, combat.last_hits], 12, muted)
 	_text(Vector2(588, 552), "指令与视野", 17, gold)
 	_text(Vector2(588, 582), "右键    移动 / 攻击对手", 14)
@@ -203,7 +218,6 @@ func _draw() -> void:
 	_text(Vector2(588, 657), "空格    返回单位", 14)
 	_text(Vector2(588, 692), "小地图：左键看 / 右键走", 12, muted)
 	_text(Vector2(794, 549), "物品栏", 15, gold)
-	_text(Vector2(795, 694), "0 / 6   装备尚未接入", 12, muted)
 	_text(Vector2(994, 548), "单位指令", 14, gold)
 	var message: String = "选择移动目的地 · 左键确认" if battle.move_mode else notice
 	draw_rect(Rect2(194, 484, 1086, 37), Color("20281f"))
