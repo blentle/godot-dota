@@ -27,5 +27,11 @@ func _ready() -> void:
 		push_error("Dedicated server is not implemented yet.")
 		get_tree().quit(2)
 	else:
+		for argument in OS.get_cmdline_user_args():
+			if argument.begins_with("--connect-local="):
+				var network := preload("res://bootstrap/network_flow.gd").new()
+				network.port = int(argument.trim_prefix("--connect-local="))
+				add_child(network)
+				return
 		var scene := preload("res://bootstrap/client_flow.gd").new()
 		add_child(scene)

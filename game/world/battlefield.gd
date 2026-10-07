@@ -10,7 +10,8 @@ const UnitView = preload("res://presentation/unit_view.gd")
 const Geometry = preload("res://presentation/mesh_factory.gd")
 const InputAdapter = preload("res://input/battle_input.gd")
 const Hud = preload("res://ui/classic_hud.gd")
-var simulation := Simulation.new()
+var simulation: RefCounted = Simulation.new()
+var remote := false
 var camera_rig := CameraRig.new()
 var hero := UnitView.new()
 var enemy := UnitView.new()
@@ -38,7 +39,7 @@ func _ready() -> void:
 	var terrain := Terrain.new()
 	add_child(terrain)
 	terrain.build(simulation)
-	if get_tree().get_meta("lane_mode", "--lanes" in OS.get_cmdline_user_args()):
+	if not remote and get_tree().get_meta("lane_mode", "--lanes" in OS.get_cmdline_user_args()):
 		simulation.start_match()
 	army = preload("res://presentation/army_view.gd").new()
 	add_child(army)
@@ -70,7 +71,7 @@ func _ready() -> void:
 			call_deferred("_capture", argument.trim_prefix("--capture-path="))
 
 func _physics_process(delta: float) -> void:
-	if paused: return
+	if paused and not remote: return
 	level_notice_remaining = maxf(0, level_notice_remaining - delta)
 	simulation.step(delta)
 	_sync_views(delta)
@@ -80,7 +81,7 @@ func _physics_process(delta: float) -> void:
 	spell_ring.scale = Vector3.ONE * (1 - spell_remaining) * effect_scale
 
 func _sync_views(delta: float) -> void:
-	var target := simulation.current_target()
+	var target: RefCounted = simulation.current_target()
 	hero.sync(simulation.combat.player, selected, delta, target.position if target != null else simulation.position)
 	if army != null: army.sync(simulation.combat, delta)
 	enemy.sync(simulation.combat.enemy, false, delta, simulation.position)
@@ -98,7 +99,7 @@ func issue_move(at: Vector3) -> void:
 	if simulation.submit_move(at):
 		destination.position = Vector3(clampf(roundf(at.x), -48, 48), 0.15, clampf(roundf(at.z), -48, 48))
 		destination.visible = true
-		hud.notice = "移动指令已下达"
+		hud.notice = "等待服务器确认" if remote else "移动指令已下达"
 	else:
 		hud.notice = "当前无法移动，请检查单位状态或目标位置"
 	move_mode = false
@@ -131,15 +132,15 @@ func command(action: String) -> void:
 			simulation.submit_stop(action == "hold")
 			move_mode = false
 		"attack":
-			var reason := simulation.submit_attack()
+			var reason: String = simulation.submit_attack()
 			hud.notice = "追击目标，到达射程后自动攻击" if reason.is_empty() else reason
 			move_mode = false
 		"strike":
-			var reason := simulation.submit_strike()
+			var reason: String = simulation.submit_strike()
 			hud.notice = "训练震击：造成 80 伤害并眩晕 1.5 秒" if reason.is_empty() else reason
 			move_mode = false
 		"area", "summon":
-			var reason := simulation.submit_skill(action)
+			var reason: String = simulation.submit_skill(action)
 			hud.notice = ("范围冲击已释放" if action == "area" else "训练守卫已召唤，持续 15 秒") if reason.is_empty() else reason
 			move_mode = false
 		"edge": edge_scroll = not edge_scroll

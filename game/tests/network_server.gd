@@ -15,3 +15,7 @@ func _start() -> void:
 		quit(1)
 		return
 	print("NETWORK_SERVER_READY")
+	if "--shutdown-after=20" in OS.get_cmdline_user_args():
+		while server.authority.owner == 0: await process_frame
+		await create_timer(20).timeout
+		quit(0)
