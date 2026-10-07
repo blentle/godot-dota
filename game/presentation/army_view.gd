@@ -7,16 +7,13 @@ var views: Dictionary = {}
 var buildings: Dictionary = {}
 var bars: Dictionary = {}
 var geometry := Geometry.new()
-var rules: RefCounted
-var flashes: Array[Dictionary] = []
+var projectile_view := preload("res://presentation/projectile_view.gd").new()
+
+func _ready() -> void:
+	add_child(projectile_view)
 
 func sync(combat: RefCounted, delta: float) -> void:
-	rules = combat
-	for index in range(flashes.size() - 1, -1, -1):
-		flashes[index].remaining -= delta
-		if flashes[index].remaining <= 0:
-			flashes[index].view.queue_free()
-			flashes.remove_at(index)
+	projectile_view.sync(combat.projectiles.active)
 	for id in views.keys():
 		if not combat.units.has(id):
 			views[id].queue_free()
@@ -29,7 +26,9 @@ func sync(combat: RefCounted, delta: float) -> void:
 				var view := UnitView.new()
 				add_child(view)
 				view.build(Color("7eaaad") if unit.team == 0 else Color("b66f57"))
-				view.scale = Vector3.ONE * 0.65
+				view.scale = Vector3.ONE * (0.8 if unit.role == "ranged" else 0.65)
+				if unit.role == "ranged":
+					geometry.cylinder(view, Vector3(0, 2.7, 0), 0.45, 0.7, Color("d7b96b"), 0.0)
 				views[unit.id] = view
 			var target: RefCounted = combat.units.get(unit.pending_target_id)
 			views[unit.id].sync(unit, false, delta, target.position if target != null else unit.position)
@@ -48,14 +47,3 @@ func react(event: Dictionary) -> void:
 	var id: String = event.get("target", event.actor)
 	if event.type == "swing": id = event.actor
 	if views.has(id): views[id].react(event)
-
-	if event.type == "damage" and rules != null:
-		var source: RefCounted = rules.units.get(event.actor)
-		var target: RefCounted = rules.units.get(event.target)
-		if source != null and target != null and source.kind == "tower":
-			# 当前是即时命中反馈，不伪装成已有弹道碰撞模拟。
-			var start: Vector3 = source.position + Vector3(0, 4.6, 0)
-			var finish: Vector3 = target.position + Vector3(0, 1, 0)
-			var beam := geometry.box(self, (start + finish) / 2, Vector3(0.12, 0.12, start.distance_to(finish)), Color("efbf6f"))
-			beam.look_at(finish)
-			flashes.append({"view": beam, "remaining": 0.12})

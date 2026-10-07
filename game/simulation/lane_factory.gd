@@ -15,6 +15,7 @@ static func building(team: int, lane: int = -1) -> RefCounted:
 	unit.radius = 3 if lane < 0 else 2
 	unit.damage = 40
 	unit.attack_range = 10
+	unit.projectile_speed = 20 if lane >= 0 else 0
 	unit.can_respawn = false
 	unit.invulnerable = lane < 0
 	unit.reward = 0 if lane < 0 else 100
@@ -32,6 +33,13 @@ static func creep(team: int, lane: int, wave: int, slot: int) -> RefCounted:
 	unit.damage = 14
 	unit.attack_range = 1.4
 	unit.attack_interval = 1.2
+	if slot == 3:
+		unit.role = "ranged"
+		unit.max_hp = 80
+		unit.damage = 18
+		unit.attack_range = 6
+		unit.attack_interval = 1.8
+		unit.projectile_speed = 16
 	unit.radius = 0.35
 	unit.can_respawn = false
 	unit.reward = 20

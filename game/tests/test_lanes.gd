@@ -14,6 +14,7 @@ func _initialize() -> void:
 	_test_lifecycle()
 	_test_targeting()
 	_test_endurance()
+	_test_unopposed_push()
 	if failures == 0: print("兵线测试通过：三路刷兵、索敌、保护、补刀、清理、胜负与长期运行。")
 	quit(1 if failures else 0)
 
@@ -66,5 +67,17 @@ func _test_endurance() -> void:
 		check(unit.position.is_finite(), "长期模拟不得产生非法位置")
 	check(count <= 96 and world.combat.units.size() <= 129, "小兵和尸体不得无限累积")
 	check(world.match_state.wave > 1, "必须持续刷兵")
-	check(world.combat.units.tower_0_1.hp < 650 or world.combat.units.tower_1_1.hp < 650,
-		"长期兵线应推进到防御塔并造成伤害，不能卡在路线中")
+	check(not world.combat.units.has("creep_0_1_1_0") and not world.combat.units.has("creep_1_1_1_0"),
+		"双方首波中路近战兵应接战阵亡并清理，不能停在出生点")
+
+func _test_unopposed_push() -> void:
+	# 隔离路线验证与兵种平衡，避免把双方中路僵持误判为寻路失败。
+	var world := World.new()
+	world.start_match()
+	world.match_state.next_wave = 999
+	for unit in world.combat.units.values():
+		if unit.kind == "creep" and unit.team == 1:
+			world.combat.units.erase(unit.id)
+	for tick in range(2700): world.step(1.0 / 30)
+	check(world.combat.units.tower_1_1.hp < 650,
+		"没有敌兵阻拦时，兵线必须推进并攻击敌方中路塔")

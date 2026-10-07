@@ -13,6 +13,7 @@ var player := Unit.new()
 var enemy := Unit.new()
 var chain := Chain.new()
 var units: Dictionary = {}
+var projectiles := preload("res://simulation/combat/projectile_system.gd").new()
 var last_hits := 0
 var gold := 0
 var kills := 0
@@ -63,6 +64,8 @@ func cancel_attack(actor: RefCounted) -> void:
 	actor.pending_target_id = ""
 
 func step(delta: float) -> void:
+	# 已存在弹道先推进，新发射弹道从下一模拟步开始飞行。
+	projectiles.step(delta, units, _projectile_hit)
 	for actor in units.values():
 		if not actor.alive():
 			actor.corpse_time += delta
@@ -83,19 +86,28 @@ func step(delta: float) -> void:
 				actor.pending_target_id = ""
 				if target != null and target.alive() and actor.stunned == 0:
 					if actor.position.distance_to(target.position) <= actor.attack_range + target.radius:
-						apply_damage(actor, target, actor.damage)
+						if actor.projectile_speed > 0:
+							projectiles.launch(actor, target)
+						else:
+							apply_damage(actor, target, actor.damage)
 	if units.has("enemy") and enemy.alive() and player.alive() and enemy.stunned == 0:
 		attack(enemy, player)
 
 func apply_damage(actor: RefCounted, target: RefCounted, amount: float) -> void:
 	if not actor.alive() or not target.alive() or amount <= 0: return
-	if actor.team == target.team or target.invulnerable: return
+	_resolve_damage(actor.id, actor.team, target, amount)
+
+func _projectile_hit(shot: Dictionary, target: RefCounted) -> void:
+	_resolve_damage(shot.actor, shot.team, target, shot.damage)
+
+func _resolve_damage(actor_id: String, team: int, target: RefCounted, amount: float) -> void:
+	if not target.alive() or team == target.team or target.invulnerable: return
 	target.hp = maxf(0, target.hp - amount)
-	combat_event.emit({"type": "damage", "actor": actor.id, "target": target.id, "amount": amount})
+	combat_event.emit({"type": "damage", "actor": actor_id, "target": target.id, "amount": amount})
 	if not target.alive():
 		cancel_attack(target)
 		target.respawn_remaining = 5.0 if target == player else 8.0
-		if actor == player:
+		if actor_id == player.id:
 			gold += target.reward
 			if target.kind == "hero": kills += 1
 			else: last_hits += 1

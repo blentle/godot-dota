@@ -4,6 +4,9 @@ extends RefCounted
 var id := ""
 var team := 0
 var kind := "hero"
+var role := "melee"
+var projectile_speed := 0.0
+var life_id := 0
 var can_respawn := true
 var invulnerable := false
 var reward := 50
@@ -29,6 +32,7 @@ func alive() -> bool:
 	return hp > 0.0
 
 func reset() -> void:
+	life_id += 1
 	corpse_time = 0.0
 	hp = max_hp
 	mana = max_mana
