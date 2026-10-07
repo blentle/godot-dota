@@ -1,0 +1,11 @@
+.DS_Store
+.godot/
+__pycache__/
+*.pyc
+build/
+dist/
+.env
+*.log
+references/downloads/
+.tools/
+.impeccable/
