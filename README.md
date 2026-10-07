@@ -24,6 +24,7 @@
 - [经验与等级成长](docs/m2-progression.md)
 - [范围技能与召唤守卫](docs/m2-skills.md)
 - [选人、结算与重开](docs/m2-session.md)
+- [双进程网络适配验证](docs/m2-network.md)
 - [源码职责与责任链](docs/code-structure.md)
 - [永久开发约束](AGENTS.md)
 
@@ -47,6 +48,7 @@ godot --headless --path game --script res://tests/test_progression.gd
 godot --headless --path game --script res://tests/test_skills.gd
 godot --headless --path game --script res://tests/test_session_rules.gd
 godot --headless --path game --script res://tests/test_client_flow.gd
+godot --headless --path game --script res://tests/test_network_authority.gd
 godot --headless --path game -- --lanes --smoke-test
 python3 tools/validate_content.py
 python3 -m unittest discover -s tests -v
@@ -78,5 +80,7 @@ tests/                   工程工具回归测试
 ```
 
 平台将在 M5 增加 `launcher/`、`services/platform/` 和 `deploy/`，避免在游戏边界未稳定时铺开多个空工程。
+
+本机网络开发验证可执行 `python3 tools/test_network_pair.py --godot /实际路径/Godot`，自动运行独立服务端和客户端进程；目前只有单席位命令与快照验证，普通游戏窗口仍为离线模式，尚不能部署十人对战服务。
 
 版本来源：[Godot 4.7.2 官方归档](https://godotengine.org/download/archive/4.7.2-stable/)。
