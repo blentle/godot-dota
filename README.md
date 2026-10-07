@@ -22,6 +22,7 @@
 - [三路兵线、建筑与胜负演练](docs/m2-lanes.md)
 - [经济、商店与装备](docs/m2-economy.md)
 - [经验与等级成长](docs/m2-progression.md)
+- [范围技能与召唤守卫](docs/m2-skills.md)
 - [源码职责与责任链](docs/code-structure.md)
 - [永久开发约束](AGENTS.md)
 
@@ -42,12 +43,13 @@ godot --headless --path game --script res://tests/test_lanes.gd
 godot --headless --path game --script res://tests/test_projectiles.gd
 godot --headless --path game --script res://tests/test_economy.gd
 godot --headless --path game --script res://tests/test_progression.gd
+godot --headless --path game --script res://tests/test_skills.gd
 godot --headless --path game -- --lanes --smoke-test
 python3 tools/validate_content.py
 python3 -m unittest discover -s tests -v
 ```
 
-默认入口打开离线训练场景，校验参数只检查版本后退出。`--server` 单独使用明确报错，尚无可用对战服务。操作：右键移动/攻击对手、A 追击、Q 训练震击、方向键平移镜头、滚轮缩放、F1 返回单位、Esc 菜单。
+默认入口打开离线训练场景，校验参数只检查版本后退出。`--server` 单独使用明确报错，尚无可用对战服务。操作：右键移动/攻击对手、A 追击、Q 训练震击、W 范围冲击、E 召唤守卫、方向键平移镜头、滚轮缩放、F1 返回单位、Esc 菜单。
 
 Esc 菜单可切换“三路兵线演练”，体验近战/远程刷兵、追踪弹道、防御塔攻击、建筑保护和基地摧毁胜负；也可用 `python3 tools/run_client.py -- --lanes` 直接进入。按 B 打开基地商店，购买四种开发装备；点击背包物品后可出售。
 
