@@ -205,11 +205,15 @@ func _draw() -> void:
 	_text(Vector2(218, 655), "临时外观", 12, muted)
 	_bar(Rect2(204, 676, 111, 12), Color("559346"), "%.0f / %.0f" % [combat.player.hp, combat.player.max_hp], combat.player.hp / combat.player.max_hp)
 	_bar(Rect2(204, 694, 111, 12), Color("426d9d"), "%.0f / %.0f" % [combat.player.mana, combat.player.max_mana], combat.player.mana / combat.player.max_mana)
-	_text(Vector2(346, 552), "近卫训练卫兵" if battle.selected else "未选择单位", 19, gold)
+	_text(Vector2(346, 552), "训练卫兵 · 等级 %d" % combat.player.level if battle.selected else "未选择单位", 19, gold)
 	_text(Vector2(346, 577), "战斗开发数值 · 非正式英雄", 12, muted)
 	_text(Vector2(346, 608), "状态    " + battle.simulation.order if battle.selected else "点击单位或按 F1 选择", 14)
 	_text(Vector2(346, 633), "移动速度    %.1f 世界单位 / 秒" % combat.player.move_speed, 13)
 	_text(Vector2(346, 658), "攻击 %.0f  /  间隔 1 秒  /  距离 2.4" % combat.player.damage, 12, muted)
+	var required: int = battle.simulation.progression.required_experience()
+	var xp_label := "等级已满" if required == 0 else "经验 %d / %d" % [combat.player.experience, required]
+	var xp_ratio: float = 1.0 if required == 0 else float(combat.player.experience) / required
+	_bar(Rect2(346, 668, 208, 12), Color("79699e"), xp_label, xp_ratio)
 	_text(Vector2(346, 696), "击杀 %d / 阵亡 %d / 补刀 %d" % [combat.kills, combat.deaths, combat.last_hits], 12, muted)
 	_text(Vector2(588, 552), "指令与视野", 17, gold)
 	_text(Vector2(588, 582), "右键    移动 / 攻击对手", 14)
@@ -220,6 +224,7 @@ func _draw() -> void:
 	_text(Vector2(794, 549), "物品栏", 15, gold)
 	_text(Vector2(994, 548), "单位指令", 14, gold)
 	var message: String = "选择移动目的地 · 左键确认" if battle.move_mode else notice
+	if battle.level_notice_remaining > 0: message = battle.level_notice
 	draw_rect(Rect2(194, 484, 1086, 37), Color("20281f"))
 	_text(Vector2(207, 507), message, 14, Color("e3e1bc"))
 	_text(Vector2(864, 507), "开发场景 · 非原版地图 / 数值 / 美术", 12, Color("d4d4b6"))

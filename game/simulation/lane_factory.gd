@@ -27,6 +27,7 @@ static func creep(team: int, lane: int, wave: int, slot: int) -> RefCounted:
 	unit.id = "creep_%d_%d_%d_%d" % [team, lane, wave, slot]
 	unit.team = team
 	unit.kind = "creep"
+	unit.experience_reward = 30
 	unit.spawn = Layout.route(team, lane)[0] + Vector3(slot % 2, 0, floori(slot / 2.0))
 	unit.max_hp = 140
 	unit.max_mana = 0

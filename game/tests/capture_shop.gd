@@ -11,6 +11,13 @@ func _capture() -> void:
 	scene.set_physics_process(false)
 	scene.simulation.submit_buy("blade")
 	scene.simulation.submit_buy("vest")
+	if "--with-level-up" in OS.get_cmdline_user_args():
+		var target: RefCounted = scene.simulation.combat.units.creep_1_0_1_0
+		target.position = scene.simulation.position + Vector3(1, 0, 0)
+		target.experience_reward = 150
+		scene.simulation.combat.apply_damage(scene.simulation.combat.player, target, 9999)
+		assert(scene.simulation.combat.player.level == 2)
+		assert(scene.level_notice_remaining == 3.0)
 	scene.hud.shop.open(0)
 	scene.hud.sync_state()
 	for frame in range(12): await process_frame

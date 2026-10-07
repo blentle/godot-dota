@@ -21,6 +21,7 @@
 - [训练战斗操作与参数](docs/m2-combat.md)
 - [三路兵线、建筑与胜负演练](docs/m2-lanes.md)
 - [经济、商店与装备](docs/m2-economy.md)
+- [经验与等级成长](docs/m2-progression.md)
 - [源码职责与责任链](docs/code-structure.md)
 - [永久开发约束](AGENTS.md)
 
@@ -40,6 +41,7 @@ godot --headless --path game --script res://tests/test_combat.gd
 godot --headless --path game --script res://tests/test_lanes.gd
 godot --headless --path game --script res://tests/test_projectiles.gd
 godot --headless --path game --script res://tests/test_economy.gd
+godot --headless --path game --script res://tests/test_progression.gd
 godot --headless --path game -- --lanes --smoke-test
 python3 tools/validate_content.py
 python3 -m unittest discover -s tests -v

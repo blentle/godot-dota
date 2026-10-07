@@ -17,6 +17,8 @@ var geometry := Geometry.new()
 var destination: MeshInstance3D
 var spell_ring: MeshInstance3D
 var spell_remaining := 0.0
+var level_notice := ""
+var level_notice_remaining := 0.0
 var hud: Control
 var selected := true
 var move_mode := false
@@ -57,6 +59,7 @@ func _ready() -> void:
 	spell_ring = geometry.mesh(self, effect, Vector3.ZERO, Color("e8b85d"))
 	spell_ring.visible = false
 	simulation.combat.combat_event.connect(_on_combat_event)
+	simulation.progression.leveled.connect(_on_level_up)
 	_sync_views(0)
 	if "--smoke-test" in OS.get_cmdline_user_args(): call_deferred("_smoke_test")
 	for argument in OS.get_cmdline_user_args():
@@ -65,6 +68,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if paused: return
+	level_notice_remaining = maxf(0, level_notice_remaining - delta)
 	simulation.step(delta)
 	_sync_views(delta)
 	if simulation.path.is_empty(): destination.visible = false
@@ -155,6 +159,10 @@ func _on_combat_event(event: Dictionary) -> void:
 
 func _input(event: InputEvent) -> void:
 	input_adapter.keyboard(self, event)
+
+func _on_level_up(level: int) -> void:
+	level_notice = "升至 %d 级：攻击 +6，生命上限 +80，魔法上限 +30" % level
+	level_notice_remaining = 3.0
 
 func _unhandled_input(event: InputEvent) -> void:
 	input_adapter.pointer(self, event)

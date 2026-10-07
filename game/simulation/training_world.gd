@@ -6,6 +6,7 @@ const Combat = preload("res://simulation/combat/combat_system.gd")
 var routing := Navigation.new()
 var combat := Combat.new()
 var economy := preload("res://simulation/economy_system.gd").new(combat)
+var progression := preload("res://simulation/progression_system.gd").new(combat.player)
 var path := PackedVector3Array()
 var order := "待命"
 var elapsed := 0.0
@@ -109,6 +110,8 @@ func _move_along_path(delta: float) -> void:
 			remaining = 0.0
 
 func _on_combat_event(event: Dictionary) -> void:
+	if event.type == "death":
+		progression.reward_death(combat.units.get(event.actor), finished())
 	if event.type == "death" and (event.actor == "player" or (attacking and event.actor == target_id)):
 		path.clear()
 		attacking = false
