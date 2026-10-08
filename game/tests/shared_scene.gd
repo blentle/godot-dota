@@ -6,6 +6,7 @@ var signatures: Dictionary = {}
 var output_dir := ""
 var required_players := 2
 var assigned_slot := -1
+var soak_seconds := 0.0
 
 func _initialize() -> void:
 	call_deferred("_run")
@@ -15,6 +16,7 @@ func _run() -> void:
 	for argument in OS.get_cmdline_user_args():
 		if argument.begins_with("--port="): flow.port = int(argument.trim_prefix("--port="))
 		if argument.begins_with("--output-dir="): output_dir = argument.trim_prefix("--output-dir=")
+		if argument.begins_with("--soak-seconds="): soak_seconds = float(argument.trim_prefix("--soak-seconds="))
 	flow.client.received.connect(_record)
 	root.add_child(flow)
 	if not await _until(func() -> bool: return flow.phase == "playing", 10000): return
@@ -37,13 +39,15 @@ func _run() -> void:
 	battle.command("summon")
 	if not await _until(_all_summons_visible, 5000): return
 	if not await _until(func() -> bool: return battle.army.views.has(world.summons.active_id), 3000): return
-	# 给两个接收者留出共同快照窗口；只观察，不在客户端修改规则。
+	# 给所有接收者留出共同快照窗口；只观察，不在客户端修改规则。
 	var until := Time.get_ticks_msec() + 1500
 	while Time.get_ticks_msec() < until: await process_frame
+	if soak_seconds > 0:
+		if not await _soak(): return
 	if not output_dir.is_empty():
 		await RenderingServer.frame_post_draw
 		if not _check(root.get_texture().get_image().save_png(output_dir.path_join("shared-slot-%d.png" % assigned_slot)) == OK, "多人截图失败"): return
-	print("SHARED_SIGNATURES " + JSON.stringify({"team": team, "slot": assigned_slot, "entity": own_id, "states": signatures}))
+	print("SHARED_SIGNATURES " + JSON.stringify({"team": team, "slot": assigned_slot, "entity": own_id, "elapsed": world.elapsed, "states": signatures}))
 	print("SHARED_SCENE_PASS：阵营=%d，自身控制、私有背包、共同世界、所有玩家视图及共同召唤。" % team)
 	flow.client.close()
 	quit(0)
@@ -90,4 +94,21 @@ func _all_summons_visible() -> bool:
 	for slot in range(required_players):
 		var id := "player" if slot == 0 else "player_%d" % (slot + 1)
 		if not flow.world.combat.units.has(id + "_summon_1"): return false
+	return true
+
+func _soak() -> bool:
+	var world: RefCounted = flow.world
+	var deadline := Time.get_ticks_msec() + int((soak_seconds * 3 + 30) * 1000)
+	var finish: float = world.elapsed + soak_seconds
+	var next_command: float = world.elapsed
+	while world.elapsed < finish:
+		if flow.phase != "playing": return _check(false, "持续联机时会话意外结束：" + flow.phase)
+		if Time.get_ticks_msec() > deadline: return _check(false, "持续联机模拟时钟未按期推进")
+		if world.elapsed >= next_command:
+			world.submit_stop(true)
+			next_command += 5
+		await process_frame
+	if not await _until(func() -> bool: return world.pending.is_empty(), 5000): return false
+	if soak_seconds >= 20 and not _check(world.summons.active_id.is_empty(), "召唤物到期后未清理"): return false
+	if soak_seconds >= 60 and not _check(world.match_state.wave >= 3, "持续运行没有推进兵线波次"): return false
 	return true

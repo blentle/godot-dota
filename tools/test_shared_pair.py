@@ -15,7 +15,7 @@ from udp_impairment import UdpImpairment
 from test_network_pair import _client_command, _run_client, _stop, _wait_ready
 
 
-def run(engine: Path, capture: Path | None = None, players: int = 2, impaired: bool = False) -> None:
+def run(engine: Path, capture: Path | None = None, players: int = 2, impaired: bool = False, soak_seconds: int = 0) -> None:
     root = Path(__file__).resolve().parents[1]
     base = [str(engine.resolve()), "--headless", "--path", str(root / "game")]
     if capture:
@@ -38,7 +38,9 @@ def run(engine: Path, capture: Path | None = None, players: int = 2, impaired: b
                     client_port = relay.port
                 output = tempfile.TemporaryFile(mode="w+", encoding="utf-8")
                 try:
-                    process = subprocess.Popen(_client_command(base, client_port, "shared_scene", capture),
+                    command = _client_command(base, client_port, "shared_scene", capture)
+                    command.append(f"--soak-seconds={soak_seconds}")
+                    process = subprocess.Popen(command,
                                                stdout=output, stderr=subprocess.STDOUT)
                 except BaseException:
                     output.close()
@@ -46,7 +48,7 @@ def run(engine: Path, capture: Path | None = None, players: int = 2, impaired: b
                 running.append((process, output))
             records = []
             for process, output in running:
-                code = process.wait(timeout=45)
+                code = process.wait(timeout=45 + soak_seconds * 3)
                 output.seek(0)
                 text = output.read()
                 if code or "SHARED_SCENE_PASS" not in text or "ERROR:" in text:
@@ -81,6 +83,14 @@ def run(engine: Path, capture: Path | None = None, players: int = 2, impaired: b
             if server.poll() is not None or "ERROR:" in server_output:
                 raise RuntimeError("共享服务端异常：\n" + server_output)
             print(f"{players} 玩家 / {players + 1} 进程验证通过，共同世界摘要一致：{len(common)} 个 tick。")
+        except (RuntimeError, subprocess.TimeoutExpired):
+            for index, (_, output) in enumerate(running):
+                output.seek(0)
+                print(f"失败现场 客户端 {index}:\n" + output.read()[-3000:])
+            log.seek(0)
+            server_text = log.read()
+            print("失败现场 服务端首尾:\n" + server_text[:7000] + "\n...\n" + server_text[-1000:])
+            raise
         finally:
             # 即使其中一次清理抛错，也继续回收其余资源。
             with ExitStack() as cleanup:
@@ -96,12 +106,15 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--godot", required=True, type=Path)
     parser.add_argument("--capture", type=Path, help="打开所选人数的真实窗口并按席位保存截图")
-    parser.add_argument("--players", type=int, choices=[2, 4], default=2, help="共享对局席位数")
+    parser.add_argument("--players", type=int, choices=[2, 4, 10], default=2, help="共享对局席位数")
     parser.add_argument("--impaired", action="store_true", help="双向 UDP 延迟、抖动、丢包和重复注入")
+    parser.add_argument("--soak-seconds", type=int, default=0, help="额外持续运行的模拟秒数（0～300）")
     args = parser.parse_args()
+    if not 0 <= args.soak_seconds <= 300:
+        parser.error("持续运行秒数必须在 0～300 之间")
     if not args.godot.is_file():
         parser.error("Godot 可执行文件不存在")
-    run(args.godot, args.capture, args.players, args.impaired)
+    run(args.godot, args.capture, args.players, args.impaired, args.soak_seconds)
 
 
 if __name__ == "__main__":
