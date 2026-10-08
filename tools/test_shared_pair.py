@@ -3,16 +3,19 @@
 from __future__ import annotations
 
 import argparse
+from contextlib import ExitStack
 import json
 from pathlib import Path
 import socket
 import subprocess
 import tempfile
 
+from udp_impairment import UdpImpairment
+
 from test_network_pair import _client_command, _run_client, _stop, _wait_ready
 
 
-def run(engine: Path, capture: Path | None = None, players: int = 2) -> None:
+def run(engine: Path, capture: Path | None = None, players: int = 2, impaired: bool = False) -> None:
     root = Path(__file__).resolve().parents[1]
     base = [str(engine.resolve()), "--headless", "--path", str(root / "game")]
     if capture:
@@ -21,15 +24,21 @@ def run(engine: Path, capture: Path | None = None, players: int = 2) -> None:
         reservation.bind(("127.0.0.1", 0))
         port = reservation.getsockname()[1]
     running = []
+    relays = []
     with tempfile.TemporaryFile(mode="w+", encoding="utf-8") as log:
         server = subprocess.Popen(base + ["--script", "res://tests/network_server.gd", "--",
                                           f"--port={port}", "--shared", f"--players={players}"], stdout=log, stderr=subprocess.STDOUT)
         try:
             _wait_ready(log, server)
             for _ in range(players):
+                client_port = port
+                if impaired:
+                    relay = UdpImpairment(port)
+                    relays.append(relay)
+                    client_port = relay.port
                 output = tempfile.TemporaryFile(mode="w+", encoding="utf-8")
                 try:
-                    process = subprocess.Popen(_client_command(base, port, "shared_scene", capture),
+                    process = subprocess.Popen(_client_command(base, client_port, "shared_scene", capture),
                                                stdout=output, stderr=subprocess.STDOUT)
                 except BaseException:
                     output.close()
@@ -59,6 +68,13 @@ def run(engine: Path, capture: Path | None = None, players: int = 2) -> None:
             for tick in common:
                 if len({row["states"][tick] for row in records}) != 1:
                     raise RuntimeError(f"tick {tick} 的各客户端世界状态不一致")
+            if impaired:
+                for relay in relays:
+                    stats = relay.statistics()
+                    for direction in ["up", "down"]:
+                        if any(stats[direction][key] == 0 for key in ["dropped", "duplicated", "forwarded"]):
+                            raise RuntimeError("未实际覆盖双向丢包、重复与转发：" + str(stats))
+                    print("UDP_IMPAIRMENT " + json.dumps(stats))
             _run_client(base, port, "shared_waiting", 20, "SHARED_WAITING_PASS", "共享局清理后新会话")
             log.seek(0)
             server_output = log.read()
@@ -66,10 +82,14 @@ def run(engine: Path, capture: Path | None = None, players: int = 2) -> None:
                 raise RuntimeError("共享服务端异常：\n" + server_output)
             print(f"{players} 玩家 / {players + 1} 进程验证通过，共同世界摘要一致：{len(common)} 个 tick。")
         finally:
-            for process, output in running:
-                _stop(process)
-                output.close()
-            _stop(server)
+            # 即使其中一次清理抛错，也继续回收其余资源。
+            with ExitStack() as cleanup:
+                cleanup.callback(_stop, server)
+                for relay in relays:
+                    cleanup.callback(relay.close)
+                for process, output in running:
+                    cleanup.callback(output.close)
+                    cleanup.callback(_stop, process)
 
 
 def main() -> None:
@@ -77,10 +97,11 @@ def main() -> None:
     parser.add_argument("--godot", required=True, type=Path)
     parser.add_argument("--capture", type=Path, help="打开所选人数的真实窗口并按席位保存截图")
     parser.add_argument("--players", type=int, choices=[2, 4], default=2, help="共享对局席位数")
+    parser.add_argument("--impaired", action="store_true", help="双向 UDP 延迟、抖动、丢包和重复注入")
     args = parser.parse_args()
     if not args.godot.is_file():
         parser.error("Godot 可执行文件不存在")
-    run(args.godot, args.capture, args.players)
+    run(args.godot, args.capture, args.players, args.impaired)
 
 
 if __name__ == "__main__":
