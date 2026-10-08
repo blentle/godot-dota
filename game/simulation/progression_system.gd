@@ -1,5 +1,5 @@
 extends RefCounted
-## 单英雄开发成长规则：按死亡生命代次结算附近经验，与补刀金币独立。
+## 单英雄开发成长规则：接收已分配经验并升级；离线死亡入口复用统一分配策略。
 
 signal leveled(level: int)
 
@@ -17,16 +17,11 @@ func required_experience() -> int:
 	return 0 if player.level >= MAX_LEVEL else player.level * 100
 
 func reward_death(victim: RefCounted, ended: bool) -> void:
-	if victim == null or victim.alive(): return
-	if victim.team == player.team: return
-	if victim.experience_claimed_life == victim.life_id: return
-	# 无论是否有人能拿经验，本次死亡都只能处理一次。
-	victim.experience_claimed_life = victim.life_id
-	if ended or not player.alive() or player.level >= MAX_LEVEL: return
-	if victim.team == player.team or victim.kind not in ["hero", "creep"]: return
-	if player.position.distance_to(victim.position) > EXPERIENCE_RANGE: return
-	if victim.experience_reward <= 0: return
-	player.experience += victim.experience_reward
+	preload("res://simulation/experience_distribution.gd").distribute(victim, [self], ended)
+
+func grant(amount: int) -> void:
+	if amount <= 0 or player.level >= MAX_LEVEL: return
+	player.experience += amount
 	while player.level < MAX_LEVEL and player.experience >= required_experience():
 		player.experience -= required_experience()
 		player.level += 1

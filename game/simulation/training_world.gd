@@ -7,6 +7,7 @@ var routing: RefCounted
 var combat: RefCounted
 var economy: RefCounted
 var progression: RefCounted
+var shared_rewards := false
 var summons: RefCounted
 var skills: RefCounted
 var path := PackedVector3Array()
@@ -123,7 +124,7 @@ func _move_along_path(delta: float) -> void:
 			remaining = 0.0
 
 func _on_combat_event(event: Dictionary) -> void:
-	if event.type == "death":
+	if event.type == "death" and not shared_rewards:
 		progression.reward_death(combat.units.get(event.actor), finished())
 	if event.type == "death" and (event.actor == combat.player.id or (attacking and event.actor == target_id)):
 		path.clear()
