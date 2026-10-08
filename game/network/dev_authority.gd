@@ -45,3 +45,6 @@ func release_peer(peer_id: int) -> void:
 
 func _error(code: String) -> Dictionary:
 	return {"type": "error", "code": code, "ack": 0}
+
+func status_packet() -> Dictionary:
+	return {}

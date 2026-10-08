@@ -47,8 +47,12 @@ func _physics_process(_delta: float) -> void:
 		if now - state.seen > 10000 or (not authority.sessions.has(id) and now - state.joined > 5000): _drop(id)
 	authority.step()
 	for id in authority.sessions.keys():
-		if authority.sessions[id].tick % 6 == 0 and not _send(id, authority.snapshot(id)):
-			_drop(id)
+		if authority.sessions[id].tick % 6 == 0:
+			if not _send(id, authority.snapshot(id)):
+				_drop(id)
+				continue
+			var status: Dictionary = authority.status_packet()
+			if not status.is_empty(): _send(id, status)
 
 func _send(id: int, message: Dictionary) -> bool:
 	if message.is_empty() or not connections.has(id): return false

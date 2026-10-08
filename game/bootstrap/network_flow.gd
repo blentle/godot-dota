@@ -36,7 +36,7 @@ func _process(_delta: float) -> void:
 		client.send(hello)
 	if phase == "loading" and now - started > 8000: _fail("服务器未完成装载，请返回后重试")
 	elif phase == "connecting" and now - started > 8000: _fail("连接超时，请先启动本机开发服务器")
-	elif phase in ["playing", "result"]:
+	elif phase in ["waiting", "playing", "result"]:
 		if client.peer.get_connection_status() != MultiplayerPeer.CONNECTION_CONNECTED or now - last_seen > 5000:
 			_fail("与服务器的连接已断开，本局已停止接收操作")
 		elif now - last_ping >= 1000:
@@ -48,6 +48,16 @@ func _receive(message: Dictionary) -> void:
 	if message.get("type") == "welcome": shared_network = message.get("mode") == "shared"
 	if message.get("type") == "error":
 		_fail("服务器拒绝连接或操作：" + str(message.get("code", "UNKNOWN")))
+	elif message.get("type") == "lobby":
+		if message.phase == "aborted":
+			_fail("对局装载已取消：有玩家退出或装载超时，请返回后重试")
+		elif phase == "waiting":
+			if message.phase == "running":
+				phase = "playing"
+				_clear_panel()
+				battle.process_mode = Node.PROCESS_MODE_INHERIT
+			else:
+				status.text = "等待玩家装载：%d/%d 已连接，%d/%d 已就绪" % [message.connected, message.required, message.ready, message.required]
 	elif message.get("type") == "snapshot":
 		if phase == "loading": _enter_battle()
 		if phase == "playing" and world.finished(): _show_result()
@@ -67,6 +77,11 @@ func _enter_battle() -> void:
 			if battle.hud.shop.visible: battle.hud.shop.feedback.text = message)
 	add_child(battle)
 	battle.focus = world.position
+	if shared_network:
+		phase = "waiting"
+		battle.process_mode = Node.PROCESS_MODE_DISABLED
+		_show_status("战场已装载，等待其他玩家就绪…")
+		client.send({"type": "ready", "match": preload("res://network/dev_protocol.gd").MATCH_ID})
 
 func _show_result() -> void:
 	phase = "result"
