@@ -55,7 +55,7 @@ def run(engine: Path, capture: Path | None = None) -> None:
             for tick in common:
                 if records[0]["states"][tick] != records[1]["states"][tick]:
                     raise RuntimeError(f"tick {tick} 的双方世界状态不一致")
-            _run_client(base, port, "network_client", 18, "NETWORK_CLIENT_PASS", "共享局清理后新会话")
+            _run_client(base, port, "shared_waiting", 20, "SHARED_WAITING_PASS", "共享局清理后新会话")
             log.seek(0)
             server_output = log.read()
             if server.poll() is not None or "ERROR:" in server_output:

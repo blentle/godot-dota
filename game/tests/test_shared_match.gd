@@ -11,6 +11,8 @@ func _initialize() -> void:
 	var first: Dictionary = authority.receive(10, hello)
 	for frame in range(12): authority.step()
 	var second: Dictionary = authority.receive(20, hello)
+	authority.receive(10, {"type": "ready", "match": Protocol.MATCH_ID})
+	authority.receive(20, {"type": "ready", "match": Protocol.MATCH_ID})
 	var a: RefCounted = authority.session(10).world
 	var b: RefCounted = authority.session(20).world
 	var core: RefCounted = authority.shared.core
