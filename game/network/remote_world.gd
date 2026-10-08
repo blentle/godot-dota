@@ -39,7 +39,7 @@ func apply(snapshot: Dictionary) -> void:
 	motion.begin()
 	for record in snapshot.units:
 		var unit: RefCounted = combat.units.get(record.id)
-		if record.id == "player": unit = combat.player
+		if record.id == snapshot.get("controlled_entity", "player"): unit = combat.player
 		var fresh := not combat.units.has(record.id)
 		if unit == null: unit = Unit.new()
 		var snap: bool = fresh or unit.life_id != int(record.life_id) or (unit.hp > 0) != (record.hp > 0)

@@ -12,6 +12,7 @@ const InputAdapter = preload("res://input/battle_input.gd")
 const Hud = preload("res://ui/classic_hud.gd")
 var simulation: RefCounted = Simulation.new()
 var remote := false
+var shared_network := false
 var camera_rig := CameraRig.new()
 var hero := UnitView.new()
 var enemy := UnitView.new()
@@ -151,15 +152,16 @@ func command(action: String) -> void:
 		"quit": get_tree().quit()
 
 func _on_combat_event(event: Dictionary) -> void:
+	var local_id: String = simulation.combat.player.id
 	if army != null:
 		army.react(event)
-		if event.type in ["damage", "swing", "death", "respawn"] and (event.target if event.type == "damage" else event.actor) not in ["player", "enemy"]:
+		if event.type in ["damage", "swing", "death", "respawn"] and (event.target if event.type == "damage" else event.actor) not in [local_id, "enemy"]:
 			return
 	if event.type == "damage":
-		var view := hero if event.target == "player" else enemy
+		var view := hero if event.target == local_id else enemy
 		view.react(event)
 	elif event.type == "swing":
-		var view := hero if event.actor == "player" else enemy
+		var view := hero if event.actor == local_id else enemy
 		view.react(event)
 	elif event.type in ["spell", "area", "summon"]:
 		effect_scale = 0.3 if event.type == "summon" else 1.0

@@ -19,9 +19,12 @@ func open_world(profile: String) -> bool:
 	if not candidate.configure_hero(profile).is_empty(): return false
 	preload("res://simulation/terrain_layout.gd").register_trees(candidate)
 	candidate.start_match()
+	attach_world(candidate)
+	return true
+
+func attach_world(candidate: RefCounted) -> void:
 	world = candidate
 	world.combat.combat_event.connect(_record_event)
-	return true
 
 func step() -> void:
 	if world == null: return
@@ -47,6 +50,7 @@ func receive_command(message: Dictionary) -> Dictionary:
 	return last_reply.duplicate(true)
 
 func close() -> void:
+	if world != null: world.combat.combat_event.disconnect(_record_event)
 	world = null
 	sequence = 0
 	tick = 0

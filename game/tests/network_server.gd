@@ -7,6 +7,8 @@ func _initialize() -> void:
 func _start() -> void:
 	var port := 27883
 	var server := preload("res://network/dev_server.gd").new()
+	if "--shared" in OS.get_cmdline_user_args():
+		server.authority = preload("res://network/shared_authority.gd").new()
 	for argument in OS.get_cmdline_user_args():
 		if argument.begins_with("--port="): port = int(argument.trim_prefix("--port="))
 		if argument.begins_with("--delay-ms="): server.frame_delay_ms = int(argument.trim_prefix("--delay-ms="))

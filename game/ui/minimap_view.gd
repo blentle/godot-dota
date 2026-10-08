@@ -50,6 +50,6 @@ func _draw() -> void:
 		draw_circle(map_point(battle.simulation.combat.enemy.position), 3, Color("e1816b"))
 
 	for unit in battle.simulation.combat.units.values():
-		if not unit.alive() or unit.id in ["player", "enemy"]: continue
+		if not unit.alive() or unit.id in [battle.simulation.combat.player.id, battle.simulation.combat.enemy.id]: continue
 		var color := Color("7ecb9a") if unit.team == 0 else Color("d8735d")
 		draw_circle(map_point(unit.position), 2 if unit.kind == "creep" else 3, color)

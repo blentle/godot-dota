@@ -22,6 +22,7 @@ static func capture(world: RefCounted, tick: int, acknowledged: int, events: Arr
 	for id in preload("res://simulation/item_catalog.gd").ITEMS:
 		reasons.buy[id] = world.economy.buy_reason(id, world.finished())
 	return {"type": "snapshot", "tick": tick, "ack": acknowledged, "events": events.duplicate(true),
+		"controlled_entity": world.combat.player.id,
 		"gold": world.combat.gold, "inventory": world.economy.slots.duplicate(),
 		"units": units, "projectiles": shots, "result": world.result_snapshot(), "reasons": reasons,
 		"elapsed": world.elapsed, "order": world.order, "kills": world.combat.kills, "deaths": world.combat.deaths,

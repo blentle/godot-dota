@@ -167,12 +167,12 @@ func _draw() -> void:
 	if not is_instance_valid(battle): return
 	draw_rect(Rect2(0, 0, 1280, 38), Color("1b221d"))
 	draw_line(Vector2(0, 37), Vector2(1280, 37), gold.darkened(0.3), 2)
-	_text(Vector2(142, 25), "DotA 6.83d / 本机联网验证" if battle.remote else "DotA 6.83d  /  离线训练原型", 16, gold)
+	_text(Vector2(142, 25), "DotA 6.83d / 双玩家同局" if battle.shared_network else "DotA 6.83d / 本机联网验证" if battle.remote else "DotA 6.83d  /  离线训练原型", 16, gold)
 	var seconds: int = int(battle.simulation.elapsed)
 	_text(Vector2(593, 25), "%02d : %02d" % [seconds / 60, seconds % 60], 17)
 	var combat: RefCounted = battle.simulation.combat
 	_text(Vector2(910, 25), "训练金币  %d" % combat.gold, 14, gold)
-	_text(Vector2(1130, 25), "近卫军团", 15, Color("98b98a"))
+	_text(Vector2(1130, 25), "近卫军团" if combat.player.team == 0 else "天灾军团", 15, Color("98b98a") if combat.player.team == 0 else Color("d8735d"))
 	draw_rect(Rect2(16, 108, 184, 70), Color("20281f"))
 	var target: RefCounted = battle.simulation.current_target()
 	var enemy_status := "没有可攻击目标"

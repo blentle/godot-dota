@@ -13,6 +13,7 @@ var layer := CanvasLayer.new()
 var last_seen := 0
 var last_ping := 0
 var started := 0
+var shared_network := false
 
 func _ready() -> void:
 	layer.layer = 4
@@ -44,6 +45,7 @@ func _process(_delta: float) -> void:
 
 func _receive(message: Dictionary) -> void:
 	last_seen = Time.get_ticks_msec()
+	if message.get("type") == "welcome": shared_network = message.get("mode") == "shared"
 	if message.get("type") == "error":
 		_fail("服务器拒绝连接或操作：" + str(message.get("code", "UNKNOWN")))
 	elif message.get("type") == "snapshot":
@@ -55,6 +57,7 @@ func _enter_battle() -> void:
 	phase = "playing"
 	battle = preload("res://world/battlefield.gd").new()
 	battle.remote = true
+	battle.shared_network = shared_network
 	battle.simulation = world
 	battle.session_requested.connect(func(action: String) -> void:
 		if action == "selection": leave())
@@ -100,7 +103,7 @@ func _show_status(message: String) -> void:
 	Style.background(panel)
 	Style.label(panel, "DotA 6.83d / 本机联网验证", Vector2(80, 90), 26, Color("c6ab70"))
 	status = Style.label(panel, message, Vector2(80, 210), 22)
-	Style.label(panel, "单席位开发对局 · 服务器决定移动、战斗和资源", Vector2(80, 265), 16)
+	Style.label(panel, "本机开发对局 · 服务器决定移动、战斗和资源", Vector2(80, 265), 16)
 	var back: Button = Style.button(panel, "返回离线角色选择", Rect2(80, 350, 280, 52))
 	back.pressed.connect(leave)
 	back.grab_focus()

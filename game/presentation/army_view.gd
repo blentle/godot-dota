@@ -21,12 +21,12 @@ func sync(combat: RefCounted, delta: float) -> void:
 	for unit in combat.units.values():
 		if unit.kind in ["tower", "base"]:
 			_sync_building(unit)
-		elif unit.kind in ["creep", "summon"]:
+		elif unit.kind in ["creep", "summon"] or (unit.kind == "hero" and unit.id not in [combat.player.id, combat.enemy.id]):
 			if not views.has(unit.id):
 				var view := UnitView.new()
 				add_child(view)
 				view.build(Color("b5a77d") if unit.kind == "summon" else Color("7eaaad") if unit.team == 0 else Color("b66f57"))
-				view.scale = Vector3.ONE * (1.1 if unit.kind == "summon" else 0.8 if unit.role == "ranged" else 0.65)
+				view.scale = Vector3.ONE * (1.0 if unit.kind == "hero" else 1.1 if unit.kind == "summon" else 0.8 if unit.role == "ranged" else 0.65)
 				if unit.role == "ranged":
 					geometry.cylinder(view, Vector3(0, 2.7, 0), 0.45, 0.7, Color("d7b96b"), 0.0)
 				views[unit.id] = view
