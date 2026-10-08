@@ -3,12 +3,12 @@ extends RefCounted
 
 const Navigation = preload("res://simulation/grid_navigation.gd")
 const Combat = preload("res://simulation/combat/combat_system.gd")
-var routing := Navigation.new()
-var combat := Combat.new()
-var economy := preload("res://simulation/economy_system.gd").new(combat)
-var progression := preload("res://simulation/progression_system.gd").new(combat.player)
-var summons := preload("res://simulation/summon_system.gd").new(combat, routing)
-var skills := preload("res://simulation/skill_system.gd").new(combat, summons)
+var routing: RefCounted
+var combat: RefCounted
+var economy: RefCounted
+var progression: RefCounted
+var summons: RefCounted
+var skills: RefCounted
 var path := PackedVector3Array()
 var order := "待命"
 var elapsed := 0.0
@@ -23,7 +23,13 @@ var position: Vector3:
 var obstacles: Array[Vector3]:
 	get: return routing.obstacles
 
-func _init() -> void:
+func _init(rules: RefCounted = null, navigation: RefCounted = null) -> void:
+	routing = Navigation.new() if navigation == null else navigation
+	combat = Combat.new() if rules == null else rules
+	economy = preload("res://simulation/economy_system.gd").new(combat)
+	progression = preload("res://simulation/progression_system.gd").new(combat.player)
+	summons = preload("res://simulation/summon_system.gd").new(combat, routing)
+	skills = preload("res://simulation/skill_system.gd").new(combat, summons)
 	combat.combat_event.connect(_on_combat_event)
 
 func block(at: Vector3, radius: int = 1) -> void:
@@ -47,7 +53,7 @@ func submit_attack(id: String = "") -> String:
 	var reason: String = combat.chain.check_target({"actor": combat.player, "target": target})
 	if not reason.is_empty(): return reason
 	target_id = target.id
-	var approach := routing.find_approach(position, target.position, combat.player.attack_range + target.radius)
+	var approach: PackedVector3Array = routing.find_approach(position, target.position, combat.player.attack_range + target.radius)
 	if approach.is_empty(): return "无法到达目标"
 	path = approach.slice(1)
 	attacking = true
@@ -65,7 +71,7 @@ func submit_stop(hold: bool = false) -> void:
 	if combat.player.alive(): order = "保持位置" if hold else "停止"
 
 func _plan_path(target: Vector3) -> bool:
-	var result := routing.find_path(position, target)
+	var result: PackedVector3Array = routing.find_path(position, target)
 	if result.is_empty(): return false
 	path = result.slice(1)
 	return true
@@ -77,6 +83,9 @@ func step(delta: float) -> void:
 	summons.step(delta)
 	combat.step(delta)
 	if match_state != null: match_state.step(delta)
+	step_orders(delta)
+
+func step_orders(delta: float) -> void:
 	if finished():
 		submit_stop()
 		order = "对局结束"
@@ -116,11 +125,11 @@ func _move_along_path(delta: float) -> void:
 func _on_combat_event(event: Dictionary) -> void:
 	if event.type == "death":
 		progression.reward_death(combat.units.get(event.actor), finished())
-	if event.type == "death" and (event.actor == "player" or (attacking and event.actor == target_id)):
+	if event.type == "death" and (event.actor == combat.player.id or (attacking and event.actor == target_id)):
 		path.clear()
 		attacking = false
-		order = "倒下 · 等待复活" if event.actor == "player" else "待命"
-	if event.type == "respawn" and event.actor == "player":
+		order = "倒下 · 等待复活" if event.actor == combat.player.id else "待命"
+	if event.type == "respawn" and event.actor == combat.player.id:
 		order = "待命"
 
 func start_match() -> void:

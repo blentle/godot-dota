@@ -26,7 +26,7 @@ func spawn_point() -> Variant:
 func create(at: Vector3) -> void:
 	serial += 1
 	var unit := Unit.new()
-	unit.id = "summon_%d" % serial
+	unit.id = "%s_summon_%d" % [combat.player.id, serial]
 	unit.owner_id = combat.player.id
 	unit.team = combat.player.team
 	unit.kind = "summon"

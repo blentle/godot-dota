@@ -18,6 +18,7 @@ func required_experience() -> int:
 
 func reward_death(victim: RefCounted, ended: bool) -> void:
 	if victim == null or victim.alive(): return
+	if victim.team == player.team: return
 	if victim.experience_claimed_life == victim.life_id: return
 	# 无论是否有人能拿经验，本次死亡都只能处理一次。
 	victim.experience_claimed_life = victim.life_id

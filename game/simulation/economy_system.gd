@@ -15,7 +15,8 @@ func _init(rules: RefCounted) -> void:
 func availability(ended: bool) -> String:
 	if ended: return "对局已经结束"
 	if not combat.player.alive(): return "阵亡期间不能交易"
-	if combat.player.position.distance_to(SHOP_POSITION) > SHOP_RANGE: return "请返回近卫基地附近交易"
+	var shop := SHOP_POSITION if combat.player.team == 0 else -SHOP_POSITION
+	if combat.player.position.distance_to(shop) > SHOP_RANGE: return "请返回己方基地附近交易"
 	return ""
 
 func buy_reason(id: String, ended: bool) -> String:

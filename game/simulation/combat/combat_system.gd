@@ -14,10 +14,20 @@ var enemy := Unit.new()
 var chain := Chain.new()
 var units: Dictionary = {}
 var projectiles := preload("res://simulation/combat/projectile_system.gd").new()
-var last_hits := 0
-var gold := 0
-var kills := 0
-var deaths := 0
+var accounts: Dictionary = {}
+var score := {"gold": 0, "kills": 0, "deaths": 0, "last_hits": 0}
+var gold: int:
+	get: return score.gold
+	set(value): score.gold = value
+var kills: int:
+	get: return score.kills
+	set(value): score.kills = value
+var deaths: int:
+	get: return score.deaths
+	set(value): score.deaths = value
+var last_hits: int:
+	get: return score.last_hits
+	set(value): score.last_hits = value
 var ended := false
 
 func _init() -> void:
@@ -32,6 +42,7 @@ func _init() -> void:
 	enemy.damage = 45
 	enemy.attack_interval = 1.4
 	enemy.reset()
+	accounts[player.id] = score
 	register(player)
 	register(enemy)
 
@@ -46,17 +57,18 @@ func attack(actor: RefCounted, target: RefCounted) -> String:
 	combat_event.emit({"type": "swing", "actor": actor.id, "target": target.id})
 	return ""
 
-func cast_strike(target: RefCounted = null) -> String:
+func cast_strike(target: RefCounted = null, actor: RefCounted = null) -> String:
+	if actor == null: actor = player
 	if ended: return "对局已经结束"
 	if target == null: target = enemy
-	var reason := chain.validate({"actor": player, "target": target, "range": SKILL_RANGE + target.radius,
-		"mana_cost": SKILL_COST, "cooldown": player.skill_cooldown})
+	var reason := chain.validate({"actor": actor, "target": target, "range": SKILL_RANGE + target.radius,
+		"mana_cost": SKILL_COST, "cooldown": actor.skill_cooldown})
 	if not reason.is_empty(): return reason
-	player.mana -= SKILL_COST
-	player.skill_cooldown = SKILL_COOLDOWN
-	cancel_attack(player)
-	combat_event.emit({"type": "spell", "actor": player.id, "position": player.position})
-	apply_damage(player, target, 80)
+	actor.mana -= SKILL_COST
+	actor.skill_cooldown = SKILL_COOLDOWN
+	cancel_attack(actor)
+	combat_event.emit({"type": "spell", "actor": actor.id, "position": actor.position})
+	apply_damage(actor, target, 80)
 	if target.alive() and target.kind not in ["base", "tower"]:
 		target.stunned = 1.5
 		cancel_attack(target)
@@ -114,13 +126,13 @@ func _resolve_damage(actor_id: String, team: int, target: RefCounted, amount: fl
 	combat_event.emit({"type": "damage", "actor": actor_id, "target": target.id, "amount": amount})
 	if not target.alive():
 		cancel_attack(target)
-		target.respawn_remaining = 5.0 if target == player else 8.0
-		if actor_id == player.id:
-			gold += target.reward
-			if target.kind == "hero": kills += 1
-			else: last_hits += 1
-		elif target == player:
-			deaths += 1
+		target.respawn_remaining = 5.0 if accounts.has(target.id) else 8.0
+		if accounts.has(actor_id):
+			var credit: Dictionary = accounts[actor_id]
+			credit.gold += target.reward
+			if target.kind == "hero": credit.kills += 1
+			else: credit.last_hits += 1
+		if accounts.has(target.id): accounts[target.id].deaths += 1
 		combat_event.emit({"type": "death", "actor": target.id})
 
 func register(unit: RefCounted) -> void:
