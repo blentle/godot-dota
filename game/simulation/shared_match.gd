@@ -1,6 +1,8 @@
 extends RefCounted
-## 共享规则世界；按阵营表创建英雄，网络入口支持两席或四席，战斗每步只推进一次。
+## 共享规则世界；按阵营表创建英雄，网络入口支持两席、四席或十席，战斗每步只推进一次。
 
+const SPAWNS := [Vector3(-32, 0, 30), Vector3(-34, 0, 32), Vector3(-32, 0, 34),
+	Vector3(-30, 0, 34), Vector3(-30, 0, 32)]
 const World = preload("res://simulation/training_world.gd")
 var core := preload("res://simulation/combat/combat_system.gd").new()
 var navigation := preload("res://simulation/grid_navigation.gd").new()
@@ -24,11 +26,11 @@ func join(slot: int, profile: String) -> RefCounted:
 	var hero := preload("res://simulation/combat/unit_state.gd").new()
 	hero.id = "player" if slot == 0 else "player_%d" % (slot + 1)
 	hero.team = teams[slot]
-	hero.spawn = Vector3(-32, 0, 30) if hero.team == 0 else Vector3(32, 0, -30)
 	var teammate_index := 0
 	for previous in range(slot):
 		if teams[previous] == hero.team: teammate_index += 1
-	hero.spawn += Vector3(-2, 0, 2) * teammate_index * (1 if hero.team == 0 else -1)
+	if teammate_index >= SPAWNS.size(): return null
+	hero.spawn = SPAWNS[teammate_index] * (1 if hero.team == 0 else -1)
 	if not preload("res://simulation/hero_profiles.gd").apply(hero, profile).is_empty(): return null
 	core.register(hero)
 	core.accounts[hero.id] = {"gold": 300, "kills": 0, "deaths": 0, "last_hits": 0}

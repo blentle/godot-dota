@@ -8,7 +8,7 @@ var teams: Array = []
 var lobby: RefCounted
 
 func _init(player_count: int = 2) -> void:
-	assert(player_count in [2, 4], "开发对局仅支持两席或四席")
+	assert(player_count in [2, 4, 10], "开发对局仅支持两席、四席或十席")
 	for slot in range(player_count): teams.append(slot % 2)
 	lobby = preload("res://network/match_lobby.gd").new(teams)
 

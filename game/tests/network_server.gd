@@ -12,8 +12,8 @@ func _start() -> void:
 		if argument.begins_with("--port="): port = int(argument.trim_prefix("--port="))
 		if argument.begins_with("--delay-ms="): server.frame_delay_ms = int(argument.trim_prefix("--delay-ms="))
 		if argument.begins_with("--players="): players = int(argument.trim_prefix("--players="))
-	if players not in [2, 4] or (players != 2 and "--shared" not in OS.get_cmdline_user_args()):
-		push_error("--players 仅允许共享模式的 2 或 4 席")
+	if players not in [2, 4, 10] or (players != 2 and "--shared" not in OS.get_cmdline_user_args()):
+		push_error("--players 仅允许共享模式的 2、4 或 10 席")
 		quit(2)
 		return
 	if "--shared" in OS.get_cmdline_user_args():
