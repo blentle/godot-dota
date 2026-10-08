@@ -30,6 +30,8 @@
 
 ## 当前骨架运行
 
+完整工程检查使用 `python3 tools/check_project.py --godot /实际路径/Godot`，追加 `--network` 覆盖四种网络测试。最近检查结果及未完成项见 [工程检查记录](docs/audit-2026-10-08.md)。
+
 安装指定版本后，在仓库根目录执行：
 
 ```sh
@@ -82,6 +84,6 @@ tests/                   工程工具回归测试
 
 平台将在 M5 增加 `launcher/`、`services/platform/` 和 `deploy/`，避免在游戏边界未稳定时铺开多个空工程。
 
-本机网络开发验证可执行 `python3 tools/test_network_pair.py --godot /实际路径/Godot`；追加 `--scene` 验证战场、心跳和断线流程。手动启动 `godot --headless --path game --script res://tests/network_server.gd -- --port=27883` 后，可用 `godot --path game -- --connect-local=27883` 打开联网图形客户端。当前仅支持本机单席位，尚不能部署十人对战服务，默认入口仍为离线模式。
+本机网络开发验证可执行 `python3 tools/test_network_pair.py --godot /实际路径/Godot`；追加 `--scene` 验证战场、心跳和断线流程。手动启动 `godot --headless --path game --script res://tests/network_server.gd -- --port=27883` 后，可用 `godot --path game -- --connect-local=27883` 打开联网图形客户端。客户端按服务器快照插值单位与弹道，并呈现受击、挥砍和技能光环事件。当前最多支持四个本机独立训练会话，尚非同一局多人，也不能部署十人对战服务，默认入口仍为离线模式。
 
 版本来源：[Godot 4.7.2 官方归档](https://godotengine.org/download/archive/4.7.2-stable/)。
