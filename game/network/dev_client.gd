@@ -17,10 +17,9 @@ func poll() -> void:
 	while peer.get_available_packet_count() > 0:
 		var sender := peer.get_packet_peer()
 		var packet := peer.get_packet()
-		if sender != 1 or packet.size() > 262144: continue
-		var parser := JSON.new()
-		if parser.parse(packet.get_string_from_utf8()) != OK or not parser.data is Dictionary: continue
-		var message: Dictionary = parser.data
+		if sender != 1: continue
+		var message := preload("res://network/packet_codec.gd").decode(packet)
+		if message.is_empty(): continue
 		if message.get("type") == "snapshot":
 			if message.get("tick", -1) <= latest.get("tick", -1): continue
 			latest = message.duplicate(true)

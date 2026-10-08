@@ -25,6 +25,11 @@ func _physics_process(_delta: float) -> void:
 	if not started: return
 	if frame_delay_ms > 0: OS.delay_msec(frame_delay_ms)
 	peer.poll()
+	if peer.get_connection_status() == MultiplayerPeer.CONNECTION_DISCONNECTED:
+		started = false
+		for id in connections.keys(): _disconnected(id)
+		push_error("开发服务器传输已关闭，停止轮询并释放会话")
+		return
 	var now := Time.get_ticks_msec()
 	for ignored in range(128):
 		if peer.get_available_packet_count() == 0: break
@@ -58,7 +63,8 @@ func _send(id: int, message: Dictionary) -> bool:
 	if message.is_empty() or not connections.has(id): return false
 	peer.set_target_peer(id)
 	peer.transfer_mode = MultiplayerPeer.TRANSFER_MODE_RELIABLE
-	return peer.put_packet(JSON.stringify(message).to_utf8_buffer()) == OK
+	var packet := preload("res://network/packet_codec.gd").encode(message)
+	return not packet.is_empty() and peer.put_packet(packet) == OK
 
 func _drop(id: int) -> void:
 	peer.disconnect_peer(id, true)
