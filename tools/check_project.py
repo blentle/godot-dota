@@ -42,6 +42,7 @@ def main() -> int:
             command = [sys.executable, "tools/test_network_pair.py", "--godot", engine]
             for mode in [[], ["--concurrent"], ["--anomaly"], ["--scene"]]:
                 execute("网络 " + (" ".join(mode) or "串行"), command + mode)
+            execute("同局双玩家三进程", [sys.executable, "tools/test_shared_pair.py", "--godot", engine])
     except (RuntimeError, subprocess.TimeoutExpired, OSError) as error:
         print(error, file=sys.stderr)
         return 1
