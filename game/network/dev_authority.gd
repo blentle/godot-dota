@@ -48,3 +48,6 @@ func _error(code: String) -> Dictionary:
 
 func status_packet() -> Dictionary:
 	return {}
+
+func connection_capacity() -> int:
+	return MAX_SEATS

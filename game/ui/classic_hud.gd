@@ -167,7 +167,7 @@ func _draw() -> void:
 	if not is_instance_valid(battle): return
 	draw_rect(Rect2(0, 0, 1280, 38), Color("1b221d"))
 	draw_line(Vector2(0, 37), Vector2(1280, 37), gold.darkened(0.3), 2)
-	_text(Vector2(142, 25), "DotA 6.83d / 双玩家同局" if battle.shared_network else "DotA 6.83d / 本机联网验证" if battle.remote else "DotA 6.83d  /  离线训练原型", 16, gold)
+	_text(Vector2(142, 25), "DotA 6.83d / 多人开发对局" if battle.shared_network else "DotA 6.83d / 本机联网验证" if battle.remote else "DotA 6.83d  /  离线训练原型", 16, gold)
 	var seconds: int = int(battle.simulation.elapsed)
 	_text(Vector2(593, 25), "%02d : %02d" % [seconds / 60, seconds % 60], 17)
 	var combat: RefCounted = battle.simulation.combat

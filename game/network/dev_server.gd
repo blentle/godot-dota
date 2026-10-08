@@ -11,7 +11,7 @@ var frame_delay_ms := 0
 
 func start(port: int) -> Error:
 	peer.set_bind_ip("127.0.0.1")
-	var error := peer.create_server(port, 4)
+	var error := peer.create_server(port, authority.connection_capacity())
 	if error != OK: return error
 	# 服务端进程必须与规则步长一致，不能继承离线场景的 30 Hz 配置。
 	Engine.physics_ticks_per_second = preload("res://network/dev_session.gd").TICK_RATE
