@@ -4,6 +4,7 @@ extends RefCounted
 signal feedback(message: String)
 const State = preload("res://network/remote_state.gd")
 const Snapshot = preload("res://network/world_snapshot.gd")
+const Unit = preload("res://simulation/combat/unit_state.gd")
 var combat := State.Combat.new()
 var economy := State.Availability.new()
 var skills := economy
@@ -20,6 +21,9 @@ var sequence := 0
 var pending: Dictionary = {}
 var result: Dictionary = {}
 var client: RefCounted
+var motion := preload("res://presentation/remote_motion.gd").new()
+var closed := false
+var last_event := 0
 var position: Vector3:
 	get: return combat.player.position
 
@@ -29,20 +33,26 @@ func _init(connection: RefCounted) -> void:
 	client.received.connect(_receive)
 
 func apply(snapshot: Dictionary) -> void:
-	if int(snapshot.tick) <= tick: return
+	if closed or int(snapshot.tick) <= tick: return
 	tick = int(snapshot.tick)
 	var units: Dictionary = {}
+	motion.begin()
 	for record in snapshot.units:
 		var unit: RefCounted = combat.units.get(record.id)
 		if record.id == "player": unit = combat.player
-		if unit == null: unit = preload("res://simulation/combat/unit_state.gd").new()
+		var fresh := not combat.units.has(record.id)
+		if unit == null: unit = Unit.new()
+		var snap: bool = fresh or unit.life_id != int(record.life_id) or (unit.hp > 0) != (record.hp > 0)
 		for field in Snapshot.UNIT_FIELDS: unit.set(field, record[field])
-		unit.position = Vector3(record.position[0], 0, record.position[1])
+		var destination := Vector3(record.position[0], 0, record.position[1])
+		motion.track(unit, destination, snap)
 		units[unit.id] = unit
 	combat.units = units
 	combat.projectiles.active.clear()
 	for shot in snapshot.projectiles:
-		combat.projectiles.active[shot.id] = {"team": shot.team, "position": Vector3(shot.position[0], shot.position[1], shot.position[2])}
+		combat.projectiles.active[shot.id] = {"team": shot.team,
+			"position": Vector3(shot.position[0], shot.position[1], shot.position[2]),
+			"target": shot.get("target", ""), "life": int(shot.get("life", -1)), "speed": float(shot.get("speed", 0.0))}
 	for field in ["gold", "kills", "deaths", "last_hits"]: combat.set(field, snapshot[field])
 	economy.slots.assign(snapshot.inventory)
 	economy.reasons = snapshot.reasons.duplicate(true)
@@ -55,6 +65,23 @@ func apply(snapshot: Dictionary) -> void:
 	summons.remaining = snapshot.summon_remaining
 	result = snapshot.result.duplicate(true)
 	if not result.is_empty(): match_state.winner = result.winner
+	_emit_events(snapshot.get("events", []))
+
+func _emit_events(events: Array) -> void:
+	# 事件在状态更新后转发，保证受击闪烁读到的生命值已经是服务器结果。
+	for raw in events:
+		var serial := int(raw.get("sequence", 0))
+		if serial <= last_event: continue
+		last_event = serial
+		var relevant: String = raw.get("target", "") if raw.get("type") == "damage" else raw.get("actor", "")
+		var unit: RefCounted = combat.units.get(relevant)
+		var generation_key := "target_life" if raw.get("type") == "damage" else "actor_life"
+		if unit == null or unit.life_id != int(raw.get(generation_key, -1)): continue
+		var event := {"type": raw.get("type", ""), "actor": raw.get("actor", ""), "target": raw.get("target", "")}
+		if raw.has("amount"): event["amount"] = raw.amount
+		if raw.has("position"):
+			event["position"] = Vector3(raw.position[0], raw.position[1], raw.position[2])
+		combat.combat_event.emit(event)
 
 func _receive(message: Dictionary) -> void:
 	if message.get("type") == "snapshot": apply(message)
@@ -117,8 +144,8 @@ func current_target() -> RefCounted:
 func block(at: Vector3, _radius: int = 1) -> void:
 	obstacles.append(at)
 
-func step(_delta: float) -> void:
-	pass
+func step(delta: float) -> void:
+	if not closed: motion.advance(combat, delta)
 
 func finished() -> bool:
 	return not result.is_empty()
@@ -127,5 +154,7 @@ func result_snapshot() -> Dictionary:
 	return result.duplicate(true)
 
 func disable() -> void:
+	closed = true
+	motion.clear()
 	economy.enabled = false
 	pending.clear()

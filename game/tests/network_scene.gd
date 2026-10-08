@@ -42,6 +42,8 @@ func _run() -> void:
 	if not _check(battle.hud.menu.visible and battle.paused, "联网菜单应保持开启且继续消费快照"): return
 	battle.command("menu")
 	battle.command("summon")
+	if not await _until(func() -> bool: return battle.spell_remaining > 0.0 and battle.spell_ring.visible, 3000): return
+	if not _check(battle.spell_ring.visible, "召唤事件应驱动技能光环特效"): return
 	if not await _until(func() -> bool: return not world.summons.active_id.is_empty(), 3000): return
 	if not await _until(func() -> bool: return battle.army.views.has(world.summons.active_id), 2000): return
 	await _capture("network-playing.png")

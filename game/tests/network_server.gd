@@ -6,9 +6,10 @@ func _initialize() -> void:
 
 func _start() -> void:
 	var port := 27883
+	var server := preload("res://network/dev_server.gd").new()
 	for argument in OS.get_cmdline_user_args():
 		if argument.begins_with("--port="): port = int(argument.trim_prefix("--port="))
-	var server := preload("res://network/dev_server.gd").new()
+		if argument.begins_with("--delay-ms="): server.frame_delay_ms = int(argument.trim_prefix("--delay-ms="))
 	root.add_child(server)
 	if server.start(port) != OK:
 		push_error("开发服务器端口不可用")
@@ -16,6 +17,6 @@ func _start() -> void:
 		return
 	print("NETWORK_SERVER_READY")
 	if "--shutdown-after=20" in OS.get_cmdline_user_args():
-		while server.authority.owner == 0: await process_frame
+		while server.authority.sessions.is_empty(): await process_frame
 		await create_timer(20).timeout
 		quit(0)

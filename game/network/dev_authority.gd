@@ -1,74 +1,47 @@
 extends RefCounted
-## 单席位开发权威端：连接绑定控制权，严格序号保证命令至多执行一次。
+## 开发权威端：管理多个席位会话，每个传输连接至多绑定一个独立训练世界。
 
 const Protocol = preload("res://network/dev_protocol.gd")
-const Snapshot = preload("res://network/world_snapshot.gd")
-var world: RefCounted
-var owner := 0
-var sequence := 0
-var tick := 0
-var last_reply: Dictionary = {}
+const Session = preload("res://network/dev_session.gd")
+const MAX_SEATS := 4
+var sessions: Dictionary = {}
 
 func receive(peer_id: int, message: Dictionary) -> Dictionary:
 	if message.get("type") == "hello": return _hello(peer_id, message)
-	if peer_id != owner or owner == 0: return _error("NOT_AUTHORIZED")
+	var session: RefCounted = sessions.get(peer_id)
+	if session == null: return _error("NOT_AUTHORIZED")
 	if message.get("type") == "ping": return {"type": "pong"}
 	if message.get("type") != "command": return _error("BAD_MESSAGE")
-	var rejection := Protocol.command_error(message)
-	if not rejection.is_empty(): return _error(rejection)
-	var requested := int(message.sequence)
-	if requested == sequence: return last_reply.duplicate(true)
-	if requested != sequence + 1: return _error("SEQUENCE_MISMATCH")
-	sequence = requested
-	var reason := _execute(message)
-	last_reply = {"type": "ack", "sequence": sequence, "ok": reason.is_empty(), "reason": reason}
-	return last_reply.duplicate(true)
+	return session.receive_command(message)
 
 func _hello(peer_id: int, message: Dictionary) -> Dictionary:
 	var expected := Protocol.identity()
 	for key in expected:
 		if message.get(key) != expected[key]: return _error("VERSION_MISMATCH")
-	if owner != 0: return _error("SEAT_OCCUPIED")
-	var candidate := preload("res://simulation/training_world.gd").new()
+	if sessions.has(peer_id): return _error("SEAT_OCCUPIED")
+	if sessions.size() >= MAX_SEATS: return _error("SERVER_FULL")
 	var profile: Variant = message.get("profile")
 	if not profile is String: return _error("BAD_PROFILE")
-	if not candidate.configure_hero(profile).is_empty(): return _error("BAD_PROFILE")
-	preload("res://simulation/terrain_layout.gd").register_trees(candidate)
-	candidate.start_match()
-	world = candidate
-	owner = peer_id
-	sequence = 0
-	tick = 0
-	last_reply = {}
-	return {"type": "welcome", "match": Protocol.MATCH_ID, "entity": "player", "tick_rate": 60}
-
-func release_peer(peer_id: int) -> void:
-	if owner != peer_id: return
-	owner = 0
-	world = null
-	sequence = 0
-	tick = 0
-	last_reply = {}
+	var session := Session.new()
+	if not session.open_world(profile): return _error("BAD_PROFILE")
+	sessions[peer_id] = session
+	return {"type": "welcome", "match": Protocol.MATCH_ID, "entity": "player", "tick_rate": Session.TICK_RATE}
 
 func step() -> void:
-	if world == null: return
-	world.step(1.0 / 60.0)
-	tick += 1
+	for session in sessions.values(): session.step()
 
-func snapshot() -> Dictionary:
-	return {} if world == null else Snapshot.capture(world, tick, sequence)
+func session(peer_id: int) -> RefCounted:
+	return sessions.get(peer_id)
 
-func _execute(message: Dictionary) -> String:
-	if world.finished(): return "对局已经结束"
-	var target: Variant = message.get("target")
-	match message.command:
-		"move": return "" if world.submit_move(Vector3(target[0], 0, target[1])) else "无法移动"
-		"attack": return world.submit_attack(target)
-		"buy": return world.submit_buy(target)
-		"sell": return world.submit_sell(int(target))
-		"cast": return world.submit_strike() if target == "strike" else world.submit_skill(target)
-		"stop", "hold": world.submit_stop(message.command == "hold")
-	return ""
+func snapshot(peer_id: int) -> Dictionary:
+	var session: RefCounted = sessions.get(peer_id)
+	return {} if session == null else session.snapshot()
+
+func release_peer(peer_id: int) -> void:
+	var session: RefCounted = sessions.get(peer_id)
+	if session == null: return
+	session.close()
+	sessions.erase(peer_id)
 
 func _error(code: String) -> Dictionary:
-	return {"type": "error", "code": code, "ack": sequence if owner != 0 else 0}
+	return {"type": "error", "code": code, "ack": 0}

@@ -6,11 +6,15 @@ var peer := ENetMultiplayerPeer.new()
 var authority := preload("res://network/dev_authority.gd").new()
 var connections: Dictionary = {}
 var started := false
+# 仅测试脚本使用：每物理帧人为阻塞，模拟慢服务器。
+var frame_delay_ms := 0
 
 func start(port: int) -> Error:
 	peer.set_bind_ip("127.0.0.1")
 	var error := peer.create_server(port, 4)
 	if error != OK: return error
+	# 服务端进程必须与规则步长一致，不能继承离线场景的 30 Hz 配置。
+	Engine.physics_ticks_per_second = preload("res://network/dev_session.gd").TICK_RATE
 	peer.peer_connected.connect(func(id: int) -> void:
 		connections[id] = {"joined": Time.get_ticks_msec(), "seen": Time.get_ticks_msec(), "window": Time.get_ticks_msec(), "count": 0})
 	peer.peer_disconnected.connect(_disconnected)
@@ -19,6 +23,7 @@ func start(port: int) -> Error:
 
 func _physics_process(_delta: float) -> void:
 	if not started: return
+	if frame_delay_ms > 0: OS.delay_msec(frame_delay_ms)
 	peer.poll()
 	var now := Time.get_ticks_msec()
 	for ignored in range(128):
@@ -35,18 +40,21 @@ func _physics_process(_delta: float) -> void:
 			_drop(sender)
 			continue
 		state.seen = now
-		_send(sender, authority.receive(sender, Protocol.decode(packet)))
+		var reply: Dictionary = authority.receive(sender, Protocol.decode(packet))
+		_send(sender, reply)
 	for id in connections.keys():
 		var state: Dictionary = connections[id]
-		if now - state.seen > 10000 or (id != authority.owner and now - state.joined > 5000): _drop(id)
+		if now - state.seen > 10000 or (not authority.sessions.has(id) and now - state.joined > 5000): _drop(id)
 	authority.step()
-	if authority.owner != 0 and authority.tick % 6 == 0:
-		_send(authority.owner, authority.snapshot())
+	for id in authority.sessions.keys():
+		if authority.sessions[id].tick % 6 == 0 and not _send(id, authority.snapshot(id)):
+			_drop(id)
 
-func _send(id: int, message: Dictionary) -> void:
+func _send(id: int, message: Dictionary) -> bool:
+	if message.is_empty() or not connections.has(id): return false
 	peer.set_target_peer(id)
 	peer.transfer_mode = MultiplayerPeer.TRANSFER_MODE_RELIABLE
-	peer.put_packet(JSON.stringify(message).to_utf8_buffer())
+	return peer.put_packet(JSON.stringify(message).to_utf8_buffer()) == OK
 
 func _drop(id: int) -> void:
 	peer.disconnect_peer(id, true)
