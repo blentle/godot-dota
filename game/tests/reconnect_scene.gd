@@ -1,5 +1,5 @@
 extends SceneTree
-## 两个真实客户端：一方被转发器隔离，另一方持续在线；恢复后验证原席位与交易状态。
+## 真实客户端恢复原席位，也可作为保持在线的观察者；恢复后验证原席位与交易状态。
 
 var flow: Node
 var observer := false
@@ -43,7 +43,8 @@ func _run() -> void:
 		flow.battle.issue_move(before + Vector3(3 if world.combat.player.team == 0 else -3, 0, 0))
 		if not await _until(func() -> bool: return world.position.distance_to(before) > 1, 5000): return
 		print("RECONNECT_CLIENT_PASS")
-	flow.client.close()
+	flow.phase = "leaving"
+	await flow.client.leave()
 	quit(0)
 
 func _until(condition: Callable, timeout: int) -> bool:

@@ -49,7 +49,8 @@ func _run() -> void:
 		if not _check(root.get_texture().get_image().save_png(output_dir.path_join("shared-slot-%d.png" % assigned_slot)) == OK, "多人截图失败"): return
 	print("SHARED_SIGNATURES " + JSON.stringify({"team": team, "slot": assigned_slot, "entity": own_id, "elapsed": world.elapsed, "states": signatures}))
 	print("SHARED_SCENE_PASS：阵营=%d，自身控制、私有背包、共同世界、所有玩家视图及共同召唤。" % team)
-	flow.client.close()
+	flow.phase = "leaving"
+	await flow.client.leave()
 	quit(0)
 
 func _record(message: Dictionary) -> void:
