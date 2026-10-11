@@ -6,6 +6,7 @@ var peer := ENetMultiplayerPeer.new()
 var authority := preload("res://network/dev_authority.gd").new()
 var connections: Dictionary = {}
 var started := false
+var dispatch := preload("res://network/snapshot_dispatch.gd").new()
 # 仅测试脚本使用：每物理帧人为阻塞，模拟慢服务器。
 var frame_delay_ms := 0
 
@@ -53,20 +54,21 @@ func _physics_process(_delta: float) -> void:
 	authority.step()
 	for id in authority.sessions.keys():
 		if authority.sessions[id].tick % 6 == 0:
-			if not _send(id, authority.snapshot(id)):
-				_drop(id)
-				continue
-			var status: Dictionary = authority.status_packet()
-			if not status.is_empty(): _send(id, status)
+			dispatch.enqueue(id, authority.snapshot(id), authority.status_packet())
+	dispatch.drain(_send_bytes, _drop)
 
 func _send(id: int, message: Dictionary) -> bool:
-	if message.is_empty() or not connections.has(id): return false
+	if message.is_empty(): return false
+	return _send_bytes(id, preload("res://network/packet_codec.gd").encode(message))
+
+func _send_bytes(id: int, packet: PackedByteArray) -> bool:
+	if packet.is_empty() or not connections.has(id): return false
 	peer.set_target_peer(id)
 	peer.transfer_mode = MultiplayerPeer.TRANSFER_MODE_RELIABLE
-	var packet := preload("res://network/packet_codec.gd").encode(message)
-	return not packet.is_empty() and peer.put_packet(packet) == OK
+	return peer.put_packet(packet) == OK
 
 func _drop(id: int) -> void:
+	if not connections.has(id): return
 	peer.disconnect_peer(id, true)
 	_disconnected(id)
 
