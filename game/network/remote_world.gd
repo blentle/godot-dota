@@ -158,3 +158,14 @@ func disable() -> void:
 	motion.clear()
 	economy.enabled = false
 	pending.clear()
+
+func restore(acknowledged: int, event_sequence: int) -> void:
+	# 丢弃未确认意图，不自动重放交易；由恢复快照说明最终是否成交。
+	pending.clear()
+	sequence = acknowledged
+	last_event = event_sequence
+	tick = -1
+	closed = false
+	economy.enabled = false
+	motion.clear()
+	combat.units.clear()

@@ -14,6 +14,7 @@ var last_seen := 0
 var last_ping := 0
 var started := 0
 var shared_network := false
+var recovery := preload("res://network/client_recovery.gd").new()
 
 func _ready() -> void:
 	layer.layer = 4
@@ -29,6 +30,9 @@ func _process(_delta: float) -> void:
 	if phase in ["failed", "leaving"]: return
 	client.poll()
 	var now := Time.get_ticks_msec()
+	if phase in ["reconnecting", "restoring"]:
+		if not recovery.step(client, now): _fail("重连超时，请返回角色选择")
+		return
 	if phase == "connecting" and client.peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED:
 		phase = "loading"
 		var hello: Dictionary = preload("res://network/dev_protocol.gd").identity()
@@ -38,14 +42,22 @@ func _process(_delta: float) -> void:
 	elif phase == "connecting" and now - started > 8000: _fail("连接超时，请先启动本机开发服务器")
 	elif phase in ["waiting", "playing", "result"]:
 		if client.peer.get_connection_status() != MultiplayerPeer.CONNECTION_CONNECTED or now - last_seen > 5000:
-			_fail("与服务器的连接已断开，本局已停止接收操作")
+			if phase == "playing" and shared_network and not recovery.token.is_empty():
+				_begin_recovery(now)
+			else:
+				_fail("与服务器的连接已断开，本局已停止接收操作")
 		elif now - last_ping >= 1000:
 			last_ping = now
 			client.send({"type": "ping"})
 
 func _receive(message: Dictionary) -> void:
 	last_seen = Time.get_ticks_msec()
-	if message.get("type") == "welcome": shared_network = message.get("mode") == "shared"
+	if message.get("type") == "welcome":
+		shared_network = message.get("mode") == "shared"
+		recovery.token = message.get("resume_token", "")
+		if message.get("resumed", false):
+			world.restore(int(message.ack), int(message.event_sequence))
+			phase = "restoring"
 	if message.get("type") == "error":
 		_fail("服务器拒绝连接或操作：" + str(message.get("code", "UNKNOWN")))
 	elif message.get("type") == "lobby":
@@ -60,6 +72,11 @@ func _receive(message: Dictionary) -> void:
 				status.text = "等待玩家装载：%d/%d 已连接，%d/%d 已就绪" % [message.connected, message.required, message.ready, message.required]
 	elif message.get("type") == "snapshot":
 		if phase == "loading": _enter_battle()
+		elif phase == "restoring":
+			phase = "playing"
+			battle.process_mode = Node.PROCESS_MODE_INHERIT
+			battle.focus = world.position
+			_clear_panel()
 		if phase == "playing" and world.finished(): _show_result()
 
 func _enter_battle() -> void:
@@ -139,3 +156,10 @@ func leave() -> void:
 
 func _exit_tree() -> void:
 	client.close()
+
+func _begin_recovery(now: int) -> void:
+	phase = "reconnecting"
+	world.disable()
+	battle.process_mode = Node.PROCESS_MODE_DISABLED
+	_show_status("连接中断，正在恢复原席位…")
+	recovery.begin(client, port, now)
