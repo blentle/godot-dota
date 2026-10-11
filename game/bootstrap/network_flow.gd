@@ -51,6 +51,7 @@ func _process(_delta: float) -> void:
 			client.send({"type": "ping"})
 
 func _receive(message: Dictionary) -> void:
+	if phase in ["leaving", "failed"]: return
 	last_seen = Time.get_ticks_msec()
 	if message.get("type") == "welcome":
 		shared_network = message.get("mode") == "shared"
@@ -147,9 +148,10 @@ func _clear_panel() -> void:
 	panel = null
 
 func leave() -> void:
+	if phase == "leaving": return
 	phase = "leaving"
-	client.close()
 	world.disable()
+	await client.leave()
 	var offline := preload("res://bootstrap/client_flow.gd").new()
 	get_parent().add_child(offline)
 	queue_free()
