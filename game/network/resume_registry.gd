@@ -26,3 +26,8 @@ func bind(slot: int) -> void:
 
 func token_for(slot: int) -> String:
 	return records[slot].token
+
+func has_recoverable(now: int) -> bool:
+	for record in records.values():
+		if record.deadline == 0 or now < record.deadline: return true
+	return false

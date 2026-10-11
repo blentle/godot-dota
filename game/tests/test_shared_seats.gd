@@ -47,13 +47,13 @@ func _test_seats(count: int) -> void:
 	for frame in range(30): authority.step()
 	_check(authority.session(100).world.position == before, "同队第三席不能移动第一席英雄")
 	_check(authority.session(102).world.position != spawns[2], "第三席自身应移动")
-	authority.release_peer(102)
+	authority.depart_peer(102)
 	_check(authority.lobby.phase == "running" and authority.sessions.size() == count - 1, "断线不能停止其他玩家")
 	_check(authority.receive(201, hello).code == "SERVER_FULL", "开局后不能接管断线席位")
-	for peer in authority.sessions.keys(): authority.release_peer(peer)
+	for peer in authority.sessions.keys(): authority.depart_peer(peer)
 	authority.receive(300, hello)
 	_check(authority.lobby.seats.size() == count and authority.lobby.phase == "waiting", "新局必须保留人数配置并清空就绪")
-	authority.release_peer(300)
+	authority.depart_peer(300)
 
 func _command(kind: String, target: Variant) -> Dictionary:
 	return {"type": "command", "match": Protocol.MATCH_ID, "sequence": 1, "command": kind, "target": target}

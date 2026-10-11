@@ -39,13 +39,13 @@ func _initialize() -> void:
 	authority.release_peer(40)
 	now += 30000
 	_check(authority.receive(50, _resume(token)).code == "INVALID_RESUME", "到期边界不得恢复")
-	authority.release_peer(20)
+	authority.depart_peer(20)
 	_check(authority.shared == null and authority.retained.is_empty(), "全员离开应清除保留会话")
 	authority.receive(60, hello)
 	authority.receive(70, hello)
 	for peer in [60, 70]: authority.receive(peer, {"type": "ready", "match": Protocol.MATCH_ID})
 	_check(authority.receive(80, _resume(token)).code == "INVALID_RESUME", "旧局凭据不能进入新局")
-	for peer in [60, 70]: authority.release_peer(peer)
+	for peer in [60, 70]: authority.depart_peer(peer)
 	if failures == 0: print("重连权威规则通过。")
 	quit(1 if failures else 0)
 

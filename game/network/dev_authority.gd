@@ -7,6 +7,10 @@ const MAX_SEATS := 4
 var sessions: Dictionary = {}
 
 func receive(peer_id: int, message: Dictionary) -> Dictionary:
+	if message.get("type") == "leave":
+		if message.size() != 2 or message.get("match") != Protocol.MATCH_ID: return _error("BAD_LEAVE")
+		depart_peer(peer_id)
+		return {"type": "left"}
 	if message.get("type") == "hello": return _hello(peer_id, message)
 	var session: RefCounted = sessions.get(peer_id)
 	if session == null: return _error("NOT_AUTHORIZED")
@@ -51,3 +55,6 @@ func status_packet() -> Dictionary:
 
 func connection_capacity() -> int:
 	return MAX_SEATS
+
+func depart_peer(peer_id: int) -> void:
+	release_peer(peer_id)

@@ -26,7 +26,7 @@ func _initialize() -> void:
 	for world in authority.shared.players.values():
 		_check(world.summons.active_id.is_empty(), "最后一轮召唤物到期必须清理")
 		_check(world.combat.gold == 600, "持续收入应只按世界时间发放一次")
-	for peer in authority.sessions.keys(): authority.release_peer(peer)
+	for peer in authority.sessions.keys(): authority.depart_peer(peer)
 	_check(authority.shared == null and authority.sessions.is_empty(), "长局退出必须释放所有会话")
 	if failures == 0: print("十席五分钟规则模拟通过：时钟、收入、波次、快照边界与清理。")
 	quit(1 if failures else 0)

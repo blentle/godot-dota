@@ -34,6 +34,7 @@ func status_packet() -> Dictionary:
 	return lobby.snapshot()
 
 func _hello(peer_id: int, message: Dictionary) -> Dictionary:
+	_clear_if_abandoned()
 	for key in Protocol.identity():
 		if message.get(key) != Protocol.identity()[key]: return _error("VERSION_MISMATCH")
 	if sessions.has(peer_id): return _error("SEAT_OCCUPIED")
@@ -62,9 +63,10 @@ func _welcome(slot: int, resumed: bool) -> Dictionary:
 		"team": world.combat.player.team, "slot": slot, "required_players": teams.size(), "tick_rate": Session.TICK_RATE, "mode": "shared"}
 
 func step() -> void:
+	_clear_if_abandoned()
 	if shared == null: return
 	lobby.step(1.0 / Session.TICK_RATE)
-	if lobby.phase == "running": shared.step(1.0 / Session.TICK_RATE)
+	if lobby.phase == "running" and not sessions.is_empty(): shared.step(1.0 / Session.TICK_RATE)
 	tick += 1
 	for connection in sessions.values(): connection.tick = tick
 
@@ -83,14 +85,22 @@ func release_peer(peer_id: int) -> void:
 	resumes.detach(slot, clock.call())
 	slots.erase(peer_id)
 	sessions.erase(peer_id)
-	if sessions.is_empty():
-		for connection in retained.values(): connection.close()
-		retained.clear()
-		resumes.records.clear()
-		shared.dispose()
-		shared = null
-		tick = 0
-		lobby = preload("res://network/match_lobby.gd").new(teams)
+	_clear_if_abandoned()
+
+func depart_peer(peer_id: int) -> void:
+	if slots.has(peer_id): resumes.records.erase(slots[peer_id])
+	release_peer(peer_id)
+
+func _clear_if_abandoned() -> void:
+	if shared == null or not sessions.is_empty(): return
+	if lobby.phase == "running" and resumes.has_recoverable(clock.call()): return
+	for connection in retained.values(): connection.close()
+	retained.clear()
+	resumes.records.clear()
+	shared.dispose()
+	shared = null
+	tick = 0
+	lobby = preload("res://network/match_lobby.gd").new(teams)
 
 func _resume(peer_id: int, message: Dictionary) -> Dictionary:
 	if sessions.has(peer_id): return _error("SEAT_OCCUPIED")
