@@ -64,6 +64,8 @@ class UdpImpairment:
         self.queue = []
         self.serial = 0
         self.error = None
+        self.partition = threading.Event()
+        self.partition_dropped = 0
         self.stopping = threading.Event()
         self.thread = threading.Thread(target=self._run, name="udp-impairment", daemon=True)
         self.thread.start()
@@ -74,6 +76,9 @@ class UdpImpairment:
                 now = time.monotonic()
                 while self.queue and self.queue[0][0] <= now:
                     _, _, sock, destination, payload, direction = heapq.heappop(self.queue)
+                    if self.partition.is_set():
+                        self.partition_dropped += 1
+                        continue
                     sock.sendto(payload, destination)
                     self.forwarded[direction] += 1
                 timeout = min(0.01, max(0, self.queue[0][0] - now)) if self.queue else 0.01
@@ -86,6 +91,9 @@ class UdpImpairment:
                         if address != self.server or self.client is None:
                             continue
                         direction, target, destination = "down", self.front, self.client
+                    if self.partition.is_set():
+                        self.partition_dropped += 1
+                        continue
                     for deadline in self.policies[direction].schedule(time.monotonic()):
                         if len(self.queue) >= self.MAX_QUEUE:
                             raise RuntimeError("故障转发队列超限，不能悄悄改变测试丢包模型")

@@ -45,6 +45,7 @@ def main() -> int:
             for players in [2, 4]:
                 execute(f"同局 {players} 玩家", [sys.executable, "tools/test_shared_pair.py", "--godot", engine, "--players", str(players)])
             execute("十玩家持续联机", [sys.executable, "tools/test_shared_pair.py", "--godot", engine, "--players", "10", "--soak-seconds", "60"], timeout=240)
+            execute("网络分区与原席位重连", [sys.executable, "tools/test_reconnect_pair.py", "--godot", engine])
             execute("四玩家 UDP 故障注入", [sys.executable, "tools/test_shared_pair.py", "--godot", engine, "--players", "4", "--impaired"])
     except (RuntimeError, subprocess.TimeoutExpired, OSError) as error:
         print(error, file=sys.stderr)
