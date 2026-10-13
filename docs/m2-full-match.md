@@ -42,4 +42,4 @@ python3 tools/check_project.py --godot .tools/Godot.app/Contents/MacOS/Godot --f
 
 2026-10-11，macOS Apple Silicon、Godot 4.7.2：规则层两种胜方分别在约 331.00 秒和 331.65 秒达成。最终十客户端 / 十一个进程实跑通过，共同世界摘要一致 338 个 tick，全部席位取得结算并收到离场确认，旧局清理后新局等待验证通过。完整规则与网络回归也已通过。2026-10-13 复核保存日志确认上述结果。
 
-未验收：真人均衡对抗、正式 6.83d 英雄和装备、战争迷雾、平台战果归属、十席同时跨进程恢复、Windows/Linux/macOS Intel。可选存档的双客户端重启恢复已另行验证，详见 [重启恢复](m2-server-restart.md)。
+未验收：真人均衡对抗、正式 6.83d 英雄和装备、战争迷雾、平台战果归属、重启叠加网络故障、Windows/Linux/macOS Intel。可选存档的双席与十席重启恢复已另行验证，详见 [重启恢复](m2-server-restart.md)。

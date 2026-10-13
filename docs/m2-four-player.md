@@ -45,4 +45,4 @@ python3 tools/check_project.py --godot /实际路径/Godot --network
 
 ## 后续缺口
 
-十席持续联机已完成开发验证；完整胜负长局和双客户端服务器重启恢复已另行验证（见 m2-full-match.md、m2-server-restart.md）；仍需十席同时跨进程恢复、更多网络故障模型、战争迷雾、正式内容校对以及平台身份与匹配。当前仍仅监听本机回环地址；正式服务器入口未开放。Windows、Linux 与 macOS Intel 尚未验收。
+十席持续联机已完成开发验证；完整胜负长局和双席与十席服务器重启恢复已另行验证（见 m2-full-match.md、m2-server-restart.md）；仍需重启叠加网络故障、更多网络故障模型、战争迷雾、正式内容校对以及平台身份与匹配。当前仍仅监听本机回环地址；正式服务器入口未开放。Windows、Linux 与 macOS Intel 尚未验收。
