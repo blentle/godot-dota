@@ -23,6 +23,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--godot", required=True, type=Path)
     parser.add_argument("--network", action="store_true", help="额外验证串行、并发、异常与网络场景")
+    parser.add_argument("--full-match", action="store_true", help="额外运行十客户端五分钟完整胜负长局")
     args = parser.parse_args()
     if not args.godot.is_file():
         parser.error("Godot 可执行文件不存在")
@@ -45,9 +46,12 @@ def main() -> int:
             for players in [2, 4]:
                 execute(f"同局 {players} 玩家", [sys.executable, "tools/test_shared_pair.py", "--godot", engine, "--players", str(players)])
             execute("十玩家持续联机", [sys.executable, "tools/test_shared_pair.py", "--godot", engine, "--players", "10", "--soak-seconds", "60"], timeout=240)
+            execute("十玩家终局短测", [sys.executable, "tools/test_shared_pair.py", "--godot", engine, "--players", "10", "--full-match", "--warmup-seconds", "0"], timeout=180)
             execute("网络分区与原席位重连", [sys.executable, "tools/test_reconnect_pair.py", "--godot", engine])
             execute("全员分区与原局恢复", [sys.executable, "tools/test_reconnect_pair.py", "--godot", engine, "--all-disconnected"])
             execute("四玩家 UDP 故障注入", [sys.executable, "tools/test_shared_pair.py", "--godot", engine, "--players", "4", "--impaired"])
+        if args.full_match:
+            execute("十玩家完整胜负长局", [sys.executable, "tools/test_shared_pair.py", "--godot", engine, "--players", "10", "--full-match"], timeout=1100)
     except (RuntimeError, subprocess.TimeoutExpired, OSError) as error:
         print(error, file=sys.stderr)
         return 1

@@ -15,7 +15,7 @@ from udp_impairment import UdpImpairment
 from test_network_pair import _client_command, _run_client, _stop, _wait_ready
 
 
-def run(engine: Path, capture: Path | None = None, players: int = 2, impaired: bool = False, soak_seconds: int = 0) -> None:
+def run(engine: Path, capture: Path | None = None, players: int = 2, impaired: bool = False, soak_seconds: int = 0, full_match: bool = False, warmup_seconds: int = 300) -> None:
     root = Path(__file__).resolve().parents[1]
     base = [str(engine.resolve()), "--headless", "--path", str(root / "game")]
     if capture:
@@ -38,8 +38,8 @@ def run(engine: Path, capture: Path | None = None, players: int = 2, impaired: b
                     client_port = relay.port
                 output = tempfile.TemporaryFile(mode="w+", encoding="utf-8")
                 try:
-                    command = _client_command(base, client_port, "shared_scene", capture)
-                    command.append(f"--soak-seconds={soak_seconds}")
+                    command = _client_command(base, client_port, "full_match_scene" if full_match else "shared_scene", capture)
+                    command.extend([f"--soak-seconds={soak_seconds}", f"--warmup-seconds={warmup_seconds}"])
                     process = subprocess.Popen(command,
                                                stdout=output, stderr=subprocess.STDOUT)
                 except BaseException:
@@ -47,14 +47,17 @@ def run(engine: Path, capture: Path | None = None, players: int = 2, impaired: b
                     raise
                 running.append((process, output))
             records = []
+            results = []
             for process, output in running:
-                code = process.wait(timeout=45 + soak_seconds * 3)
+                code = process.wait(timeout=960 if full_match else 45 + soak_seconds * 3)
                 output.seek(0)
                 text = output.read()
                 if code or "SHARED_SCENE_PASS" not in text or "ERROR:" in text:
                     raise RuntimeError("多人客户端失败：\n" + text)
                 for line in text.splitlines():
-                    if line.startswith("SHARED_SIGNATURES "):
+                    if line.startswith("FULL_MATCH_RESULT "):
+                        results.append(json.loads(line.removeprefix("FULL_MATCH_RESULT ")))
+                    elif line.startswith("SHARED_SIGNATURES "):
                         records.append(json.loads(line.removeprefix("SHARED_SIGNATURES ")))
                     elif "SHARED_SCENE_PASS" in line:
                         print(line)
@@ -70,6 +73,14 @@ def run(engine: Path, capture: Path | None = None, players: int = 2, impaired: b
             for tick in common:
                 if len({row["states"][tick] for row in records}) != 1:
                     raise RuntimeError(f"tick {tick} 的各客户端世界状态不一致")
+            if full_match:
+                if len(results) != players or {row["slot"] for row in results} != set(range(players)):
+                    raise RuntimeError("缺少完整结算席位")
+                if any(row["result"]["winner"] != 0 or row["result"]["seconds"] < warmup_seconds for row in results):
+                    raise RuntimeError("胜方或长局时长不符合预期")
+                if any(row["public"] != results[0]["public"] for row in results):
+                    raise RuntimeError("各客户端终局世界不一致")
+                print(("完整长局结算：" if warmup_seconds == 300 else "终局短测结算：") + json.dumps(results, ensure_ascii=False))
             if impaired:
                 for relay in relays:
                     stats = relay.statistics()
@@ -109,12 +120,18 @@ def main() -> None:
     parser.add_argument("--players", type=int, choices=[2, 4, 10], default=2, help="共享对局席位数")
     parser.add_argument("--impaired", action="store_true", help="双向 UDP 延迟、抖动、丢包和重复注入")
     parser.add_argument("--soak-seconds", type=int, default=0, help="额外持续运行的模拟秒数（0～300）")
+    parser.add_argument("--full-match", action="store_true", help="五分钟兵线后正常推塔到结算，核对终局冻结")
+    parser.add_argument("--warmup-seconds", type=int, choices=[0, 300], default=300, help="完整长局默认观察 300 秒；0 仅用于终局短测")
     args = parser.parse_args()
     if not 0 <= args.soak_seconds <= 300:
         parser.error("持续运行秒数必须在 0～300 之间")
+    if args.warmup_seconds != 300 and not args.full_match:
+        parser.error("终局短测需要 --full-match")
+    if args.full_match and (args.players != 10 or args.capture or args.soak_seconds):
+        parser.error("完整长局当前仅支持十席无窗口验证，不与截图或持续运行参数组合")
     if not args.godot.is_file():
         parser.error("Godot 可执行文件不存在")
-    run(args.godot, args.capture, args.players, args.impaired, args.soak_seconds)
+    run(args.godot, args.capture, args.players, args.impaired, args.soak_seconds, args.full_match, args.warmup_seconds)
 
 
 if __name__ == "__main__":
