@@ -19,6 +19,7 @@ var resume_button: Button
 var previous_focus: Control
 var inventory_buttons: Array[Button] = []
 var shop: Panel
+var upgrades := preload("res://ui/skill_upgrade_controls.gd").new()
 const Profiles = preload("res://simulation/hero_profiles.gd")
 const Catalog = preload("res://simulation/item_catalog.gd")
 
@@ -49,10 +50,7 @@ func _ready() -> void:
 	skill_button = _button("震击\nQ", Rect2(1060, 604, 62, 42), "strike", "训练技能：范围 5，伤害 80，眩晕 1.5 秒，消耗 60 魔法，冷却 6 秒。非原版英雄技能。")
 	area_button = _button("冲击\nW", Rect2(1128, 604, 62, 42), "area", "开发技能：自身周围半径 5，敌方非建筑单位受到 70 伤害；消耗 70 魔法，冷却 8 秒。")
 	summon_button = _button("召唤\nE", Rect2(1196, 604, 62, 42), "summon", "开发技能：召唤一个自动跟随和索敌的守卫，持续 15 秒；消耗 80 魔法，冷却 20 秒。")
-	for i in range(4):
-		var index := i + 4
-		var button := _button("—", Rect2(992 + (index % 4) * 68, 604 + (index / 4) * 48, 62, 42), "", "此技能槽尚未实现")
-		button.disabled = true
+	upgrades.build(self)
 	for i in range(6):
 		var slot := _button("", Rect2(792 + (i % 3) * 55, 555 + (i / 3) * 57, 49, 49), "", "点击查看或出售物品")
 		slot.pressed.connect(func(): shop.open(i))
@@ -102,6 +100,7 @@ func sync_state() -> void:
 	summon_button.disabled = summon_button.disabled or not battle.simulation.skills.reason("summon").is_empty()
 	area_button.text = "冲击\n%.1f" % combat.player.area_cooldown if combat.player.area_cooldown > 0 else "冲击\nW"
 	summon_button.text = "召唤\n%.1f" % combat.player.summon_cooldown if combat.player.summon_cooldown > 0 else "召唤\nE"
+	upgrades.sync()
 	minimap_view.queue_redraw()
 
 func set_paused(value: bool) -> void:
