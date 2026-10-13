@@ -1,6 +1,6 @@
 # DotA 6.83d · Godot 重制工程
 
-当前阶段：离线训练原型，已加入单对手战斗与三路兵线演练，并在 macOS 运行；尚未完成原版 UI、正式英雄全集、完整对局或平台服务。
+当前阶段：M2 开发原型，含离线训练、三路兵线与本机十席完整胜负验证；新增双客户端服务器重启恢复。已在 macOS Apple Silicon 验证，尚未完成原版 UI、正式英雄全集、正式对战或平台服务。
 
 目标：先完成经典 Warcraft III DotA 6.83d 客户端与完整规则，再完成注册登录、房间、10 人匹配、本地启动和服务器部署。
 
@@ -26,12 +26,14 @@
 - [选人、结算与重开](docs/m2-session.md)
 - [双进程网络适配验证](docs/m2-network.md)
 - [同一世界双玩家对局](docs/m2-shared-match.md)
+- [十客户端完整胜负验证](docs/m2-full-match.md)
+- [服务器进程重启恢复](docs/m2-server-restart.md)
 - [源码职责与责任链](docs/code-structure.md)
 - [永久开发约束](AGENTS.md)
 
 ## 当前骨架运行
 
-完整工程检查使用 `python3 tools/check_project.py --godot /实际路径/Godot`，追加 `--network` 覆盖独立会话和同局双玩家网络测试。工程检查基线见 [工程检查记录](docs/audit-2026-10-08.md)。
+完整工程检查使用 `python3 tools/check_project.py --godot /实际路径/Godot`，追加 `--network` 覆盖独立会话、共享 2/4/10 席、网络故障及双客户端服务器重启恢复测试；追加 `--full-match` 运行十客户端五分钟后推塔至结算的长局。工程检查基线见 [工程检查记录](docs/audit-2026-10-08.md)。
 
 安装指定版本后，在仓库根目录执行：
 
@@ -85,8 +87,8 @@ tests/                   工程工具回归测试
 
 平台将在 M5 增加 `launcher/`、`services/platform/` 和 `deploy/`，避免在游戏边界未稳定时铺开多个空工程。
 
-本机网络开发验证可执行 `python3 tools/test_network_pair.py --godot /实际路径/Godot`；追加 `--scene` 验证战场、心跳和断线流程。手动启动 `godot --headless --path game --script res://tests/network_server.gd -- --port=27883` 后，可用 `godot --path game -- --connect-local=27883` 打开联网图形客户端。客户端按服务器快照插值单位与弹道，并呈现受击、挥砍和技能光环事件。当前最多支持四个本机独立训练会话，尚非同一局多人，也不能部署十人对战服务，默认入口仍为离线模式。
+本机网络开发验证可执行 `python3 tools/test_network_pair.py --godot /实际路径/Godot`；追加 `--scene` 验证战场、心跳和断线流程。手动启动 `godot --headless --path game --script res://tests/network_server.gd -- --port=27883` 后，可用 `godot --path game -- --connect-local=27883` 打开联网图形客户端。客户端按服务器快照插值单位与弹道，并呈现受击、挥砍和技能光环事件。默认服务器模式最多支持四个本机独立训练会话；同局多人使用下述共享模式。当前不能部署正式十人对战服务，默认游戏入口仍为离线模式。
 
 版本来源：[Godot 4.7.2 官方归档](https://godotengine.org/download/archive/4.7.2-stable/)。
 
-同局双玩家模式：服务端追加 `--shared`，再启动两个 `--connect-local=27883` 客户端。双方分别控制近卫和天灾英雄，共享兵线、建筑及胜负；详见 [双玩家运行说明](docs/m2-shared-match.md)。尚无十人匹配、平台身份或装载屏障。
+同局双玩家模式：服务端追加 `--shared`，再启动两个 `--connect-local=27883` 客户端。双方分别控制近卫和天灾英雄，共享兵线、建筑及胜负；详见 [双玩家运行说明](docs/m2-shared-match.md)。服务端追加 `--players=10` 可验证十席共享世界和装载屏障；尚无十人匹配或平台身份。

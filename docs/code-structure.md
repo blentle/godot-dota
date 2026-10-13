@@ -47,6 +47,8 @@
 
 ## 交付检查
 
+权威存档位于 `network/checkpoint/`：`state_fields.gd` 定义字段白名单，`world_state.gd` 装配规则世界，`checkpoint_schema.gd` 先校验结构和引用，`authority_state.gd` 协调席位与期限，`checkpoint_file.gd` 处理文件完整性和替换，`checkpoint_service.gd` 管理保存与载入。服务端在响应命令前调用存档服务；表现层不参与恢复或修改存档。运行方式与验收边界见 [服务器重启恢复](m2-server-restart.md)。
+
 ```sh
 python3 tools/check_source_limits.py
 python3 -m unittest discover -s tests -v
