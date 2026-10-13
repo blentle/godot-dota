@@ -21,7 +21,6 @@ func _run() -> void:
 			if not _check(flow.phase == "playing", "另一玩家断网不应冻结在线者"): return
 			await process_frame
 		if not _check(flow.world.elapsed > before + 25, "在线世界必须持续推进"): return
-		print("RECONNECT_OBSERVER_PASS")
 	else:
 		var world: RefCounted = flow.world
 		var entity: String = world.combat.player.id
@@ -42,9 +41,10 @@ func _run() -> void:
 		var before: Vector3 = world.position
 		flow.battle.issue_move(before + Vector3(3 if world.combat.player.team == 0 else -3, 0, 0))
 		if not await _until(func() -> bool: return world.position.distance_to(before) > 1, 5000): return
-		print("RECONNECT_CLIENT_PASS")
 	flow.phase = "leaving"
 	await flow.client.leave()
+	if not _check(flow.client.departed, "恢复后主动离场必须收到服务端确认"): return
+	print("RECONNECT_OBSERVER_PASS" if observer else "RECONNECT_CLIENT_PASS")
 	quit(0)
 
 func _until(condition: Callable, timeout: int) -> bool:

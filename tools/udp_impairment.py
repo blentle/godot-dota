@@ -38,27 +38,24 @@ class DatagramPolicy:
 
 
 class UdpImpairment:
-    """每个客户端独享一对回环套接字，确保服务器仍看到独立连接。"""
+    """每个客户端源地址独享上游套接字，重连不会复用旧传输的服务器地址。"""
 
     MAX_QUEUE = 4096
 
     def __init__(self, server_port: int):
         self.server = ("127.0.0.1", server_port)
         self.front = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self.back = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        self.upstreams = {}
         self.selector = selectors.DefaultSelector()
         try:
-            for sock in (self.front, self.back):
-                sock.bind(("127.0.0.1", 0))
-                sock.setblocking(False)
-                self.selector.register(sock, selectors.EVENT_READ)
+            self.front.bind(("127.0.0.1", 0))
+            self.front.setblocking(False)
+            self.selector.register(self.front, selectors.EVENT_READ)
         except BaseException:
             self.selector.close()
             self.front.close()
-            self.back.close()
             raise
         self.port = self.front.getsockname()[1]
-        self.client = None
         self.policies = {"up": DatagramPolicy(), "down": DatagramPolicy()}
         self.forwarded = {"up": 0, "down": 0}
         self.queue = []
@@ -85,12 +82,11 @@ class UdpImpairment:
                 for key, _ in self.selector.select(timeout):
                     payload, address = key.fileobj.recvfrom(65535)
                     if key.fileobj is self.front:
-                        self.client = address
-                        direction, target, destination = "up", self.back, self.server
+                        direction, target, destination = "up", self._upstream(address), self.server
                     else:
-                        if address != self.server or self.client is None:
+                        if address != self.server:
                             continue
-                        direction, target, destination = "down", self.front, self.client
+                        direction, target, destination = "down", self.front, key.data
                     if self.partition.is_set():
                         self.partition_dropped += 1
                         continue
@@ -102,6 +98,22 @@ class UdpImpairment:
                                                    destination, payload, direction))
         except BaseException as error:
             self.error = error
+
+    def _upstream(self, client: tuple) -> socket.socket:
+        """返回包按原源地址路由；旧连接迟到的数据不得转发给重连后的客户端。"""
+        if client not in self.upstreams:
+            if len(self.upstreams) >= 64:
+                raise RuntimeError("故障转发器客户端地址数量超限")
+            sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            try:
+                sock.bind(("127.0.0.1", 0))
+                sock.setblocking(False)
+                self.selector.register(sock, selectors.EVENT_READ, client)
+            except BaseException:
+                sock.close()
+                raise
+            self.upstreams[client] = sock
+        return self.upstreams[client]
 
     def statistics(self) -> dict:
         if self.error:
@@ -117,6 +129,6 @@ class UdpImpairment:
             raise RuntimeError("UDP 故障转发线程未停止")
         self.selector.close()
         self.front.close()
-        self.back.close()
+        for sock in self.upstreams.values(): sock.close()
         if self.error:
             raise RuntimeError("UDP 故障转发线程失败") from self.error
