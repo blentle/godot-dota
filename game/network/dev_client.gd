@@ -51,4 +51,11 @@ func leave() -> void:
 		while not departed and Time.get_ticks_msec() < deadline:
 			poll()
 			await Engine.get_main_loop().process_frame
+	if departed and started and peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED:
+		# 应用确认之后完成 ENet 断开握手，避免直接销毁仍有可靠数据的连接。
+		peer.disconnect_peer(1)
+		var deadline := Time.get_ticks_msec() + 1500
+		while started and Time.get_ticks_msec() < deadline:
+			poll()
+			await Engine.get_main_loop().process_frame
 	close()

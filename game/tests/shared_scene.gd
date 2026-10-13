@@ -51,6 +51,7 @@ func _run() -> void:
 	print("SHARED_SCENE_PASS：阵营=%d，自身控制、私有背包、共同世界、所有玩家视图及共同召唤。" % team)
 	flow.phase = "leaving"
 	await flow.client.leave()
+	if not _check(flow.client.departed, "主动离场未收到服务器确认"): return
 	quit(0)
 
 func _record(message: Dictionary) -> void:

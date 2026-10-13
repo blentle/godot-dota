@@ -46,14 +46,25 @@ func _physics_process(_delta: float) -> void:
 			_drop(sender)
 			continue
 		state.seen = now
+		if state.has("leaving"):
+			_send(sender, {"type": "left"})
+			continue
 		var reply: Dictionary = authority.receive(sender, Protocol.decode(packet))
+		if reply.get("type") == "left":
+			# 规则席位已释放，传输暂留以送达确认，不能套用最初的握手期限。
+			state["leaving"] = now
+			dispatch.cancel(sender)
 		_send(sender, reply)
 	for id in connections.keys():
 		var state: Dictionary = connections[id]
-		if now - state.seen > 10000 or (not authority.sessions.has(id) and now - state.joined > 5000): _drop(id)
+		if state.has("leaving"):
+			if now - state.leaving > 2000: _drop(id)
+		elif now - state.seen > 10000 or (not authority.sessions.has(id) and now - state.joined > 5000): _drop(id)
 	authority.step()
 	for id in authority.sessions.keys():
-		if authority.sessions[id].tick % 6 == 0:
+		# 终局状态已冻结，每秒重发一次；继续提供恢复依据，避免重复推送十份全量世界。
+		var interval := 60 if authority.sessions[id].world.finished() else 6
+		if authority.sessions[id].tick % interval == 0:
 			dispatch.enqueue(id, authority.snapshot(id), authority.status_packet())
 	dispatch.drain(_send_bytes, _drop)
 
@@ -73,6 +84,7 @@ func _drop(id: int) -> void:
 	_disconnected(id)
 
 func _disconnected(id: int) -> void:
+	dispatch.cancel(id)
 	connections.erase(id)
 	authority.release_peer(id)
 

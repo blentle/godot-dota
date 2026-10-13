@@ -17,6 +17,10 @@ func _initialize() -> void:
 	for message in received:
 		if message.type == "snapshot":
 			_check(message.tick == 60 and message.units[0].hp == 100, "分批发送必须保持同一采集 tick 的状态")
+	dispatch.enqueue(10, snapshot, {})
+	dispatch.enqueue(11, snapshot, {})
+	dispatch.cancel(10)
+	_check(dispatch.batches.size() == 1 and dispatch.batches[0].peer == 11, "离场只取消本席位排队快照")
 	if failures == 0: print("快照发送节奏测试通过。")
 	quit(1 if failures else 0)
 

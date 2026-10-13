@@ -17,3 +17,7 @@ func drain(sender: Callable, failed: Callable) -> void:
 			if packet.is_empty() or not sender.call(batch.peer, packet):
 				failed.call(batch.peer)
 				break
+
+func cancel(peer_id: int) -> void:
+	# 离场确认之后不能再排出该席位的旧快照。
+	batches = batches.filter(func(batch: Dictionary) -> bool: return batch.peer != peer_id)
