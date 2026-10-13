@@ -122,6 +122,12 @@ func submit_strike() -> String:
 func submit_skill(kind: String) -> String:
 	return _send("cast", kind)
 
+func upgrade_reason(kind: String) -> String:
+	return economy.reason("upgrade_" + kind)
+
+func submit_upgrade(kind: String) -> String:
+	return _send("upgrade", kind)
+
 func submit_buy(id: String) -> String:
 	return _send("buy", id)
 

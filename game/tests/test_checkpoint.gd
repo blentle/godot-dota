@@ -27,6 +27,8 @@ func _initialize() -> void:
 	authority.shared.core.projectiles.launch(hero, authority.shared.core.units.tower_1_1)
 	var victim: RefCounted = authority.shared.players[1].combat.player
 	authority.shared.core.apply_damage(hero, victim, 9999)
+	authority.shared.players[0].progression.grant(100)
+	authority.shared.players[0].submit_upgrade("area")
 	var data := State.capture(authority, 100.0)
 	_check(Schema.valid(data), "完整权威状态必须符合存档结构")
 	var clone: RefCounted = WorldState.restore(data.state.world, authority.teams)
@@ -45,6 +47,7 @@ func _initialize() -> void:
 	request.merge({"type": "resume", "match": Protocol.MATCH_ID, "token": first.resume_token})
 	var welcome: Dictionary = restored.receive(30, request)
 	_check(welcome.get("resumed", false) and welcome.get("ack") == 3, "原凭据必须恢复原席位和命令序号")
+	_check(restored.session(30).world.combat.player.skill_levels.area == 2, "重启应保留已升级技能")
 	var gold: int = restored.session(30).world.combat.gold
 	var last := {"type": "command", "match": Protocol.MATCH_ID, "sequence": 3, "command": "buy", "target": "vest"}
 	restored.receive(30, last)
@@ -61,6 +64,9 @@ func _initialize() -> void:
 	broken = data.duplicate(true)
 	broken.state.world.units[0].hp = INF
 	_check(not Schema.valid(broken), "非有限数值不能进入恢复世界")
+	broken = data.duplicate(true)
+	broken.state.world.units[0].skill_points = 999
+	_check(not Schema.valid(broken), "技能点账本不平衡必须拒绝恢复")
 	var service := preload("res://network/checkpoint/checkpoint_service.gd").new()
 	service.path = "user://missing-%d/authority.bin" % OS.get_process_id()
 	_check(not service.save(authority) and not service.error.is_empty(), "保存失败必须显式返回，不能伪造已持久化")

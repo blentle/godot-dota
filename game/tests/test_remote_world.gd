@@ -73,6 +73,16 @@ func _initialize() -> void:
 	var before: Vector3 = flying.position
 	remote.step(0.1)
 	_check(before.distance_to(flying.position) > 0.5 and before.distance_to(flying.position) <= 2.01, "弹道必须在快照间隔内外推飞行")
+	world.progression.grant(2000)
+	authority.step()
+	remote.apply(JSON.parse_string(JSON.stringify(authority.snapshot(2))))
+	var points: int = remote.combat.player.skill_points
+	remote.submit_upgrade("area")
+	_check(remote.combat.player.skill_levels.area == 1 and remote.combat.player.skill_points == points, "发送升级命令不得预测扣点或本地升级")
+	connection.received.emit(authority.receive(2, connection.sent.back()))
+	authority.step()
+	remote.apply(JSON.parse_string(JSON.stringify(authority.snapshot(2))))
+	_check(remote.combat.player.skill_levels.area == 2 and remote.combat.player.skill_points == points - 1, "升级结果必须由服务端快照确认")
 	remote.disable()
 	_check(not remote.submit_move(position) and remote.submit_buy("blade") == "连接不可用", "断线后不能继续发命令")
 	if failures == 0: print("远程世界测试通过：只读状态、命令确认、快照替换、障碍、冷却、召唤、弹道与表现平滑。")

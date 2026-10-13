@@ -68,7 +68,7 @@ func cast_strike(target: RefCounted = null, actor: RefCounted = null) -> String:
 	actor.skill_cooldown = SKILL_COOLDOWN
 	cancel_attack(actor)
 	combat_event.emit({"type": "spell", "actor": actor.id, "position": actor.position})
-	apply_damage(actor, target, 80)
+	apply_damage(actor, target, 80 + 30 * preload("res://simulation/skill_training.gd").bonus(actor, "strike"))
 	if target.alive() and target.kind not in ["base", "tower"]:
 		target.stunned = 1.5
 		cancel_attack(target)

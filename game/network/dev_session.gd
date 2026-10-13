@@ -66,6 +66,7 @@ func _execute(message: Dictionary) -> String:
 		"move": return "" if world.submit_move(Vector3(target[0], 0, target[1])) else "无法移动"
 		"attack": return world.submit_attack(target)
 		"buy": return world.submit_buy(target)
+		"upgrade": return world.submit_upgrade(target)
 		"sell": return world.submit_sell(int(target))
 		"cast": return world.submit_strike() if target == "strike" else world.submit_skill(target)
 		"stop", "hold": world.submit_stop(message.command == "hold")

@@ -161,6 +161,12 @@ func submit_skill(kind: String) -> String:
 		"summon": return skills.cast_summon()
 	return "技能不存在"
 
+func upgrade_reason(kind: String) -> String:
+	return preload("res://simulation/skill_training.gd").reason(combat.player, kind, finished())
+
+func submit_upgrade(kind: String) -> String:
+	return preload("res://simulation/skill_training.gd").upgrade(combat.player, kind, finished())
+
 func configure_hero(id: String) -> String:
 	if elapsed > 0 or match_state != null or economy.slots.count("") != 6:
 		return "只能在开局前选择训练配置"

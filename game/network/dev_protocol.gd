@@ -2,7 +2,7 @@ extends RefCounted
 ## 本机网络切片的白名单协议；只使用 JSON，不反序列化对象。
 
 const VERSION := 1
-const BUILD := "m2-network-10"
+const BUILD := "m2-network-11"
 const MAX_BYTES := 4096
 const MATCH_ID := "local-development"
 
@@ -35,7 +35,7 @@ static func command_error(message: Dictionary) -> String:
 			if not target is String or target.is_empty() or target.length() > 64: return "BAD_TARGET"
 		"sell":
 			if not integer(target, 0, 5): return "BAD_TARGET"
-		"cast":
+		"cast", "upgrade":
 			if target not in ["strike", "area", "summon"]: return "BAD_TARGET"
 		"stop", "hold":
 			if target != null: return "BAD_TARGET"

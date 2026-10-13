@@ -39,7 +39,7 @@ func cast_area() -> String:
 		if unit.alive() and unit.team != actor.team and unit.kind not in ["tower", "base"]:
 			if unit.position.distance_to(center) <= AREA_RADIUS: targets.append(unit)
 	combat.combat_event.emit({"type": "area", "actor": actor.id, "position": center})
-	for unit in targets: combat.apply_damage(actor, unit, AREA_DAMAGE)
+	for unit in targets: combat.apply_damage(actor, unit, AREA_DAMAGE + 25 * preload("res://simulation/skill_training.gd").bonus(actor, "area"))
 	return ""
 
 func cast_summon() -> String:

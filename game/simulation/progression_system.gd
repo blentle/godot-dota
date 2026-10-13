@@ -25,6 +25,7 @@ func grant(amount: int) -> void:
 	while player.level < MAX_LEVEL and player.experience >= required_experience():
 		player.experience -= required_experience()
 		player.level += 1
+		player.skill_points += 1
 		player.damage += DAMAGE_GROWTH
 		player.max_hp += HEALTH_GROWTH
 		player.max_mana += MANA_GROWTH

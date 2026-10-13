@@ -47,6 +47,7 @@ static func _world(world: Dictionary, teams: Array) -> bool:
 	var sample := preload("res://simulation/combat/unit_state.gd").new()
 	for record in world.units:
 		if not Fields.matches(sample, Fields.UNIT, record): return false
+		if not preload("res://simulation/skill_training.gd").valid_record(record): return false
 		if record.id.is_empty() or units.has(record.id) or record.team not in [0, 1]: return false
 		if record.hp < 0 or record.max_hp <= 0 or record.hp > record.max_hp or record.life_id < 0: return false
 		if record.mana < 0 or record.mana > record.max_mana: return false

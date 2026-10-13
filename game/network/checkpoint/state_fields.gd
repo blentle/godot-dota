@@ -2,7 +2,7 @@ extends RefCounted
 ## 权威存档字段白名单；不保存对象、脚本或信号连接。
 
 const UNIT := ["id", "owner_id", "profile_id", "team", "kind", "role", "projectile_speed", "life_id",
-	"level", "experience", "experience_reward", "experience_claimed_life", "can_respawn", "invulnerable",
+	"level", "experience", "skill_points", "skill_levels", "experience_reward", "experience_claimed_life", "can_respawn", "invulnerable",
 	"reward", "radius", "corpse_time", "position", "spawn", "max_hp", "hp", "max_mana", "mana", "damage",
 	"move_speed", "attack_interval", "attack_range", "attack_cooldown", "skill_cooldown", "area_cooldown",
 	"summon_cooldown", "windup", "pending_target_id", "stunned", "respawn_remaining"]
@@ -27,6 +27,7 @@ static func apply(object: RefCounted, fields: Array, data: Dictionary) -> void:
 	for field in fields:
 		# 赋值时保留 GDScript 的带类型数组声明。
 		if object.get(field) is Array: object.get(field).assign(data[field])
+		elif data[field] is Dictionary: object.set(field, data[field].duplicate(true))
 		else: object.set(field, data[field])
 
 static func values_safe(value: Variant, depth: int = 0) -> bool:
