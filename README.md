@@ -23,6 +23,7 @@
 - [经济、商店与装备](docs/m2-economy.md)
 - [经验与等级成长](docs/m2-progression.md)
 - [范围技能与召唤守卫](docs/m2-skills.md)
+- [技能点与技能升级](docs/m2-skill-upgrades.md)
 - [选人、结算与重开](docs/m2-session.md)
 - [双进程网络适配验证](docs/m2-network.md)
 - [同一世界双玩家对局](docs/m2-shared-match.md)
