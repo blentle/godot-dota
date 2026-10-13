@@ -49,7 +49,8 @@ def main() -> int:
             execute("十玩家终局短测", [sys.executable, "tools/test_shared_pair.py", "--godot", engine, "--players", "10", "--full-match", "--warmup-seconds", "0"], timeout=180)
             execute("网络分区与原席位重连", [sys.executable, "tools/test_reconnect_pair.py", "--godot", engine])
             execute("全员分区与原局恢复", [sys.executable, "tools/test_reconnect_pair.py", "--godot", engine, "--all-disconnected"])
-            execute("服务器进程重启恢复", [sys.executable, "tools/test_server_restart.py", "--godot", engine])
+            for players in [2, 10]:
+                execute(f"{players} 席服务器进程重启恢复", [sys.executable, "tools/test_server_restart.py", "--godot", engine, "--players", str(players)], timeout=180)
             execute("四玩家 UDP 故障注入", [sys.executable, "tools/test_shared_pair.py", "--godot", engine, "--players", "4", "--impaired"])
         if args.full_match:
             execute("十玩家完整胜负长局", [sys.executable, "tools/test_shared_pair.py", "--godot", engine, "--players", "10", "--full-match"], timeout=1100)

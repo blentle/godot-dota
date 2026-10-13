@@ -1,4 +1,4 @@
-"""终止真实开发服务器，读取同一权威存档重启，验证双客户端原席位恢复。"""
+"""终止真实开发服务器，读取同一权威存档重启，验证多客户端原席位恢复。"""
 
 from __future__ import annotations
 
@@ -26,7 +26,7 @@ def wait_marker(process, path: Path, marker: str, timeout: int) -> None:
     raise RuntimeError("等待客户端状态超时：" + marker + "\n" + path.read_text())
 
 
-def run(engine: Path) -> None:
+def run(engine: Path, players: int = 2) -> None:
     root = Path(__file__).resolve().parents[1]
     base = [str(engine.resolve()), "--headless", "--path", str(root / "game")]
     with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as reservation:
@@ -35,16 +35,17 @@ def run(engine: Path) -> None:
     with tempfile.TemporaryDirectory(prefix="dota-restart-") as directory, ExitStack() as cleanup:
         folder = Path(directory)
         checkpoint = folder / "authority.bin"
-        command = base + ["--script", "res://tests/network_server.gd", "--", f"--port={port}", "--shared", f"--checkpoint={checkpoint}"]
+        command = base + ["--script", "res://tests/network_server.gd", "--", f"--port={port}", "--shared", f"--players={players}", f"--checkpoint={checkpoint}"]
         log = cleanup.enter_context((folder / "before.log").open("w+"))
         server = subprocess.Popen(command, stdout=log, stderr=subprocess.STDOUT)
         cleanup.callback(_stop, server)
         _wait_ready(log, server)
         clients = []
-        for index in range(2):
+        for index in range(players):
             path = folder / f"client-{index}.log"
             output = cleanup.enter_context(path.open("w"))
-            process = subprocess.Popen(_client_command(base, port, "restart_scene"), stdout=output, stderr=subprocess.STDOUT)
+            client_command = _client_command(base, port, "restart_scene") + [f"--index={index}", f"--players={players}", f"--release-file={folder / 'release'}"]
+            process = subprocess.Popen(client_command, stdout=output, stderr=subprocess.STDOUT)
             cleanup.callback(_stop, process)
             clients.append((process, path))
         for process, path in clients:
@@ -61,6 +62,9 @@ def run(engine: Path) -> None:
         cleanup.callback(_stop, restarted)
         _wait_ready(restarted_log, restarted)
         for process, path in clients:
+            wait_marker(process, path, "RESTART_RESTORED", 30)
+        (folder / "release").write_text("所有席位恢复，允许离场")
+        for process, path in clients:
             code = process.wait(timeout=35)
             text = path.read_text()
             if code or "RESTART_CLIENT_PASS" not in text or "ERROR:" in text:
@@ -69,16 +73,17 @@ def run(engine: Path) -> None:
         _run_client(base, port, "shared_waiting", 20, "SHARED_WAITING_PASS", "恢复局清理后新局")
         if restarted.poll() is not None or "ERROR:" in (folder / "after.log").read_text():
             raise RuntimeError("恢复后的服务器异常：\n" + (folder / "after.log").read_text())
-        print("双客户端真实服务器进程重启恢复通过。")
+        print(f"{players} 客户端真实服务器进程重启恢复通过。")
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--godot", type=Path, required=True)
+    parser.add_argument("--players", type=int, choices=[2, 4, 10], default=2)
     args = parser.parse_args()
     if not args.godot.is_file():
         parser.error("Godot 可执行文件不存在")
-    run(args.godot)
+    run(args.godot, args.players)
 
 
 if __name__ == "__main__":
