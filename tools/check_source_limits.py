@@ -7,7 +7,7 @@ import sys
 
 LIMIT = 500
 EXTENSIONS = {
-    ".gd", ".gdshader", ".py", ".cs", ".go", ".js", ".jsx", ".ts", ".tsx",
+    ".gd", ".gdshader", ".py", ".cs", ".go", ".js", ".cjs", ".mjs", ".jsx", ".ts", ".tsx",
     ".c", ".cpp", ".cc", ".h", ".hpp", ".rs", ".java", ".swift", ".sh",
     ".ps1", ".bat", ".cmd", ".html", ".css", ".scss", ".sql",
 }

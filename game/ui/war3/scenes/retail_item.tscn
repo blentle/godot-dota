@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="PackedScene" path="res://ui/war3/scenes/icon_button.tscn" id="icon"]
+
+[node name="Icon" instance=ExtResource("icon")]
+offset_right = 42.0
+offset_bottom = 42.0
+
+[node name="BTN" parent="." index="0"]
+offset_right = 42.0
+offset_bottom = 42.0
+
+[node name="AHK" parent="." index="1"]
+offset_right = 42.0
+offset_bottom = 42.0
+
+[node name="DISBTN" parent="." index="2"]
+offset_right = 42.0
+offset_bottom = 42.0
+
+[node name="CooldownText" parent="." index="3"]
+offset_right = 42.0
+offset_bottom = 42.0

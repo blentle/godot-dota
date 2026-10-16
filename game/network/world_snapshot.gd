@@ -2,10 +2,10 @@ extends RefCounted
 ## 开发全量快照；不作为带战争迷雾的正式对战可见性协议。
 
 const UNIT_FIELDS := ["id", "team", "kind", "role", "profile_id", "hp", "max_hp", "mana", "max_mana",
-	"level", "experience", "life_id", "damage", "move_speed", "attack_interval", "attack_range", "radius",
+	"level", "experience", "skill_points", "skill_levels", "life_id", "damage", "move_speed", "attack_interval", "attack_range", "radius",
 	"windup", "pending_target_id", "skill_cooldown", "area_cooldown", "summon_cooldown", "stunned", "respawn_remaining", "invulnerable"]
 
-static func capture(world: RefCounted, tick: int, acknowledged: int) -> Dictionary:
+static func capture(world: RefCounted, tick: int, acknowledged: int, events: Array = []) -> Dictionary:
 	var units: Array = []
 	for unit in world.combat.units.values():
 		var record := {"position": [unit.position.x, unit.position.z]}
@@ -14,12 +14,17 @@ static func capture(world: RefCounted, tick: int, acknowledged: int) -> Dictiona
 	var shots: Array = []
 	for id in world.combat.projectiles.active:
 		var shot: Dictionary = world.combat.projectiles.active[id]
-		shots.append({"id": id, "team": shot.team, "position": [shot.position.x, shot.position.y, shot.position.z]})
+		# 目标与速度供客户端在快照间隔内外推弹道，只影响表现不影响结算。
+		shots.append({"id": id, "team": shot.team, "position": [shot.position.x, shot.position.y, shot.position.z],
+			"target": shot.target, "life": shot.life, "speed": shot.speed})
 	var reasons := {"area": world.skills.reason("area"), "summon": world.skills.reason("summon"),
 		"shop": world.economy.availability(world.finished()), "buy": {}}
+	for kind in preload("res://simulation/skill_training.gd").KINDS:
+		reasons["upgrade_" + kind] = world.upgrade_reason(kind)
 	for id in preload("res://simulation/item_catalog.gd").ITEMS:
 		reasons.buy[id] = world.economy.buy_reason(id, world.finished())
-	return {"type": "snapshot", "tick": tick, "ack": acknowledged,
+	return {"type": "snapshot", "tick": tick, "ack": acknowledged, "events": events.duplicate(true),
+		"controlled_entity": world.combat.player.id,
 		"gold": world.combat.gold, "inventory": world.economy.slots.duplicate(),
 		"units": units, "projectiles": shots, "result": world.result_snapshot(), "reasons": reasons,
 		"elapsed": world.elapsed, "order": world.order, "kills": world.combat.kills, "deaths": world.combat.deaths,

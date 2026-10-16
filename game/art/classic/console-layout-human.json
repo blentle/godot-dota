@@ -1,0 +1,144 @@
+{
+  "basis": [
+    1024,
+    768
+  ],
+  "fdf": "references/downloads/war3-original/ui/framedef/ui/consoleui.fdf",
+  "regions": [
+    {
+      "texture": "01",
+      "source": [
+        0,
+        0,
+        512,
+        64
+      ],
+      "destination": [
+        0,
+        0,
+        328,
+        41
+      ]
+    },
+    {
+      "texture": "02",
+      "source": [
+        0,
+        0,
+        174,
+        64
+      ],
+      "destination": [
+        328,
+        0,
+        111,
+        41
+      ]
+    },
+    {
+      "texture": "02",
+      "source": [
+        406,
+        0,
+        512,
+        64
+      ],
+      "destination": [
+        587,
+        0,
+        68,
+        41
+      ]
+    },
+    {
+      "texture": "03",
+      "source": [
+        0,
+        0,
+        512,
+        64
+      ],
+      "destination": [
+        655,
+        0,
+        328,
+        41
+      ]
+    },
+    {
+      "texture": "04",
+      "source": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "destination": [
+        983,
+        0,
+        41,
+        41
+      ]
+    },
+    {
+      "texture": "01",
+      "source": [
+        0,
+        160,
+        512,
+        512
+      ],
+      "destination": [
+        0,
+        543,
+        328,
+        225
+      ]
+    },
+    {
+      "texture": "02",
+      "source": [
+        0,
+        212,
+        512,
+        512
+      ],
+      "destination": [
+        328,
+        576,
+        328,
+        192
+      ]
+    },
+    {
+      "texture": "03",
+      "source": [
+        0,
+        160,
+        512,
+        512
+      ],
+      "destination": [
+        655,
+        543,
+        328,
+        225
+      ]
+    },
+    {
+      "texture": "04",
+      "source": [
+        0,
+        160,
+        64,
+        512
+      ],
+      "destination": [
+        983,
+        543,
+        41,
+        225
+      ]
+    }
+  ]
+}

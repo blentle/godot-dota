@@ -15,7 +15,7 @@ func _ready() -> void:
 	position = Vector2(256, 82)
 	size = Vector2(768, 382)
 	add_theme_stylebox_override("panel", hud._style(Color("202620"), hud.gold))
-	_label("近卫军需商店", Vector2(24, 20), 24, hud.gold)
+	_label("近卫军需商店" if hud.battle.simulation.combat.player.team == 0 else "天灾军需商店", Vector2(24, 20), 24, hud.gold)
 	_label("开发物品 · 交易期间战场继续运行", Vector2(24, 53), 13, hud.muted)
 	close_button = _button("关闭  B / Esc", Rect2(604, 18, 140, 34))
 	close_button.pressed.connect(close)

@@ -22,6 +22,15 @@ func run(battle: Node3D) -> bool:
 	if not _check(battle.simulation.summons.remaining == 15 and player.summon_cooldown == 20, "暂停必须冻结技能冷却和守卫寿命"): return false
 	if not _check(player.mana == mana - 150, "暂停不得施法或扣费"): return false
 	battle.command("menu")
+	battle.simulation.progression.grant(1000)
+	battle.hud.sync_state()
+	var points: int = player.skill_points
+	await _click(battle, Vector2(1159, 673))
+	if not _check(player.skill_levels.area == 2 and player.skill_points == points - 1, "升级按钮必须通过规则入口消费技能点"): return false
+	if not _check(player.area_cooldown == 8, "升级按钮不得刷新已有冷却"): return false
+	battle.command("menu")
+	if not _check(battle.hud.upgrades.buttons.area.disabled, "暂停中升级入口必须禁用"): return false
+	battle.command("menu")
 	battle.set_physics_process(processing)
 	print("技能场景通过：按钮施法、守卫视图、冷却禁用与暂停冻结。")
 	return true

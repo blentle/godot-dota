@@ -1,0 +1,4241 @@
+{
+  "source_map_sha256": "326d7ea8fb2bf20bd540259ebc3e80d398cf1be79fe1827691927c9008107495",
+  "status": "地图配置提取目录；不表示全部模型已接入、动画已验收或英雄玩法已实现",
+  "heroes": [
+    {
+      "id": "H008",
+      "name": "Bristleback",
+      "proper_names": [
+        "Rigwarl"
+      ],
+      "model": "units/creeps/razormane/razormane.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnrazorback.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.65,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0FV",
+          "icon": "replaceabletextures/passivebuttons/btnhire.blp"
+        },
+        {
+          "id": "A0M3",
+          "icon": "replaceabletextures/passivebuttons/btnquillsprayoff.blp"
+        },
+        {
+          "id": "A0GP",
+          "icon": "replaceabletextures/commandbuttons/btnfanofknives.blp"
+        },
+        {
+          "id": "A0FW",
+          "icon": "replaceabletextures/commandbuttons/btnbristlegoo.blp"
+        }
+      ]
+    },
+    {
+      "id": "E005",
+      "name": "Moon Rider",
+      "proper_names": [
+        "Luna Moonfang"
+      ],
+      "model": "units/nightelf/huntress/huntress.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnhuntress.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 2.25,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A062",
+          "icon": "replaceabletextures/passivebuttons/btnadvancedstrengthofthemoon.blp"
+        },
+        {
+          "id": "A042",
+          "icon": "replaceabletextures/commandbuttons/btnmoonstone.blp"
+        },
+        {
+          "id": "A054",
+          "icon": "replaceabletextures/commandbuttons/btnelunesblessing.blp"
+        },
+        {
+          "id": "A041",
+          "icon": "replaceabletextures/commandbuttons/btnupgrademoonglaive.blp"
+        }
+      ]
+    },
+    {
+      "id": "Npbm",
+      "name": "Pandaren Brewmaster",
+      "proper_names": [
+        "Mangix"
+      ],
+      "model": "units/creeps/pandarenbrewmaster/pandarenbrewmaster.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnpandarenbrewmaster.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 2.0,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A06M",
+          "icon": "replaceabletextures/commandbuttons/btnthunderclappanda.blp"
+        },
+        {
+          "id": "Acdh",
+          "icon": "replaceabletextures/commandbuttons/btnstrongdrink.blp"
+        },
+        {
+          "id": "A0MX",
+          "icon": "replaceabletextures/passivebuttons/pasbtndrunkendodge.blp"
+        },
+        {
+          "id": "A0MQ",
+          "icon": "replaceabletextures/commandbuttons/btnstormearth&fire.blp"
+        }
+      ]
+    },
+    {
+      "id": "H000",
+      "name": "Centaur Warchief",
+      "proper_names": [
+        "Bradwarden"
+      ],
+      "model": "units/creeps/centaurkhan/centaurkhan.mdx",
+      "icon": "replaceabletextures/commandbuttons/btncentaurkhan.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.75,
+      "selection_scale": 1.75,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A2ON",
+          "icon": "replaceabletextures/commandbuttons/btnarcanitemelee.blp"
+        },
+        {
+          "id": "A00V",
+          "icon": "replaceabletextures/passivebuttons/pasbtnthorns.blp"
+        },
+        {
+          "id": "A00S",
+          "icon": "replaceabletextures/commandbuttons/btnwarstomp.blp"
+        },
+        {
+          "id": "A2O6",
+          "icon": "replaceabletextures/commandbuttons/btnstampede.blp"
+        }
+      ]
+    },
+    {
+      "id": "Nbrn",
+      "name": "Drow Ranger",
+      "proper_names": [
+        "Traxex"
+      ],
+      "model": "units/creeps/bansheeranger/bansheeranger.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnbansheeranger.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A2WF",
+          "icon": "replaceabletextures/commandbuttons/btndrowsilence.blp"
+        },
+        {
+          "id": "A2O2",
+          "icon": "replaceabletextures/passivebuttons/pasbtntrueshot.blp"
+        },
+        {
+          "id": "A026",
+          "icon": "replaceabletextures/commandbuttons/btncoldarrowson.blp"
+        },
+        {
+          "id": "A0VC",
+          "icon": "replaceabletextures/passivebuttons/btnmarksmanship.blp"
+        }
+      ]
+    },
+    {
+      "id": "Hlgr",
+      "name": "Dragon Knight",
+      "proper_names": [
+        "Knight Davion",
+        "Trogdor"
+      ],
+      "model": "units/human/thecaptain/thecaptain.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnthecaptain.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.35,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A03G",
+          "icon": "replaceabletextures/commandbuttons/btnazuredragon.blp"
+        },
+        {
+          "id": "A03F",
+          "icon": "replaceabletextures/commandbuttons/btndkbreathefire.blp"
+        },
+        {
+          "id": "A2AI",
+          "icon": "replaceabletextures/commandbuttons/btnhumanarmorupthree.blp"
+        },
+        {
+          "id": "A0CL",
+          "icon": "replaceabletextures/passivebuttons/pasbtnincinerate.blp"
+        }
+      ]
+    },
+    {
+      "id": "Edem",
+      "name": "Anti-Mage",
+      "proper_names": [
+        "Magina",
+        "BurNIng"
+      ],
+      "model": "units/nightelf/herodemonhunter/herodemonhunter.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnherodemonhunter.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0KY",
+          "icon": "replaceabletextures/commandbuttons/btnneutralmanashield.blp"
+        },
+        {
+          "id": "A022",
+          "icon": "replaceabletextures/commandbuttons/btnfeedback.blp"
+        },
+        {
+          "id": "AEbl",
+          "icon": "replaceabletextures/commandbuttons/btnblink.blp"
+        },
+        {
+          "id": "A2WE",
+          "icon": "replaceabletextures/commandbuttons/btnmanavoid.blp"
+        }
+      ]
+    },
+    {
+      "id": "Usyl",
+      "name": "Dwarven Sniper",
+      "proper_names": [
+        "Kardel Sharpeye",
+        "Vasilij Zajcev"
+      ],
+      "model": "units/human/rifleman/rifleman.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnrifleman.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.1,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A04P",
+          "icon": "replaceabletextures/commandbuttons/btndwarvenlongrifle.blp"
+        },
+        {
+          "id": "A03U",
+          "icon": "replaceabletextures/commandbuttons/btnhumanmissileuptwo.blp"
+        },
+        {
+          "id": "A03S",
+          "icon": "replaceabletextures/passivebuttons/btnhumanmissileupone.blp"
+        },
+        {
+          "id": "A2ZO",
+          "icon": "replaceabletextures/commandbuttons/btnfragmentationbombs.blp"
+        }
+      ]
+    },
+    {
+      "id": "Harf",
+      "name": "Omniknight",
+      "proper_names": [
+        "Purist Thunderwrath"
+      ],
+      "model": "units/human/arthas/arthas.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnarthas.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.1,
+      "selection_scale": 1.1,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A08N",
+          "icon": "replaceabletextures/commandbuttons/btnresurrection.blp"
+        },
+        {
+          "id": "A08V",
+          "icon": "replaceabletextures/commandbuttons/btnrepel.blp"
+        },
+        {
+          "id": "A0ER",
+          "icon": "replaceabletextures/commandbuttons/btndivineintervention.blp"
+        },
+        {
+          "id": "A06A",
+          "icon": "replaceabletextures/passivebuttons/btnspiritlink.blp"
+        }
+      ]
+    },
+    {
+      "id": "N016",
+      "name": "Troll Warlord",
+      "proper_names": [
+        "Jah'rakal"
+      ],
+      "model": "units/creeps/foresttrolltrapper/foresttrolltrapper.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnforesttroll.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.25,
+      "selection_scale": 1.15,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0BE",
+          "icon": "replaceabletextures/commandbuttons/btnorcmeleeupthree.blp"
+        },
+        {
+          "id": "A21L",
+          "icon": "replaceabletextures/commandbuttons/btnwhirlingaxesranged.blp"
+        },
+        {
+          "id": "A0O0",
+          "icon": "replaceabletextures/passivebuttons/pasbtncommand.blp"
+        },
+        {
+          "id": "A1EJ",
+          "icon": "replaceabletextures/commandbuttons/btnberserkfortrolls.blp"
+        }
+      ]
+    },
+    {
+      "id": "Naka",
+      "name": "Bounty Hunter",
+      "proper_names": [
+        "Gondar"
+      ],
+      "model": "units/other/dranaiakama/dranaiakama.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnakama.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.2,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A1IQ",
+          "icon": "replaceabletextures/passivebuttons/btnjinada.blp"
+        },
+        {
+          "id": "A07A",
+          "icon": "replaceabletextures/commandbuttons/btnwindwalkon.blp"
+        },
+        {
+          "id": "A004",
+          "icon": "replaceabletextures/commandbuttons/btnupgrademoonglaive.blp"
+        },
+        {
+          "id": "A0B4",
+          "icon": "replaceabletextures/commandbuttons/btntrack.blp"
+        }
+      ]
+    },
+    {
+      "id": "Orkn",
+      "name": "Shadow Shaman",
+      "proper_names": [
+        "Rhasta"
+      ],
+      "model": "units/orc/heroshadowhunter/heroshadowhunter.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnshadowhunter.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.2,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A00P",
+          "icon": "replaceabletextures/commandbuttons/btnmagiclariet.blp"
+        },
+        {
+          "id": "A0RX",
+          "icon": "replaceabletextures/commandbuttons/btnhex.blp"
+        },
+        {
+          "id": "A010",
+          "icon": "replaceabletextures/commandbuttons/btnrhastaforkedlightning.blp"
+        },
+        {
+          "id": "A00H",
+          "icon": "replaceabletextures/commandbuttons/btnserpentward.blp"
+        }
+      ]
+    },
+    {
+      "id": "U006",
+      "name": "Broodmother",
+      "proper_names": [
+        "Black Arachnia"
+      ],
+      "model": "units/creeps/spiderblack/spiderblack.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnspiderblack.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.36,
+      "selection_scale": 1.85,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0WQ",
+          "icon": "replaceabletextures/commandbuttons/btnspiderling.blp"
+        },
+        {
+          "id": "A0BK",
+          "icon": ""
+        },
+        {
+          "id": "A0BH",
+          "icon": "replaceabletextures/commandbuttons/btnspidergreen.blp"
+        },
+        {
+          "id": "A2ZS",
+          "icon": "replaceabletextures/commandbuttons/btnweb.blp"
+        }
+      ]
+    },
+    {
+      "id": "Hvsh",
+      "name": "Bloodseeker",
+      "proper_names": [
+        "Strygwyr"
+      ],
+      "model": "units/orc/shaman/shaman.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnshaman.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.25,
+      "selection_scale": 1.15,
+      "color": [
+        250,
+        150,
+        150
+      ],
+      "abilities": [
+        {
+          "id": "A311",
+          "icon": "replaceabletextures/commandbuttons/btnspellsteal.blp"
+        },
+        {
+          "id": "A0LH",
+          "icon": "replaceabletextures/commandbuttons/btnmarkoffire.blp"
+        },
+        {
+          "id": "A0I8",
+          "icon": ""
+        },
+        {
+          "id": "A2X9",
+          "icon": "replaceabletextures/commandbuttons/btnbloodbath.blp"
+        }
+      ]
+    },
+    {
+      "id": "E01B",
+      "name": "Spectre",
+      "proper_names": [
+        "Mercurial",
+        "qwerty-"
+      ],
+      "model": "units/nightelf/spiritofvengeance/spiritofvengeance.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnvengeanceincarnate.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 0.8,
+      "selection_scale": 0.95,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0FX",
+          "icon": "replaceabletextures/commandbuttons/btncripplingfear.blp"
+        },
+        {
+          "id": "A0NA",
+          "icon": ""
+        },
+        {
+          "id": "A0HW",
+          "icon": "replaceabletextures/commandbuttons/btnability_spectral_dagger.blp"
+        },
+        {
+          "id": "A0H9",
+          "icon": "replaceabletextures/commandbuttons/btnhaunt.blp"
+        }
+      ]
+    },
+    {
+      "id": "EC77",
+      "name": "Netherdrake",
+      "proper_names": [
+        "Viper"
+      ],
+      "model": "units/creeps/netherdragon/netherdragon.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnnetherdragon.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.2,
+      "selection_scale": 1.2,
+      "color": [
+        75,
+        255,
+        25
+      ],
+      "abilities": [
+        {
+          "id": "A1A3",
+          "icon": "replaceabletextures/passivebuttons/pasbtncorrosivebreath.blp"
+        },
+        {
+          "id": "A080",
+          "icon": "replaceabletextures/commandbuttons/btnshadowstrike.blp"
+        },
+        {
+          "id": "A09V",
+          "icon": "replaceabletextures/autocastbuttons/btnslowpoison.blp"
+        },
+        {
+          "id": "A0MM",
+          "icon": "replaceabletextures/commandbuttons/btnmagicimmunity.blp"
+        }
+      ]
+    },
+    {
+      "id": "Ewar",
+      "name": "Phantom Assassin",
+      "proper_names": [
+        "Mortred"
+      ],
+      "model": "units/nightelf/herowarden/herowarden.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnherowarden.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0YM",
+          "icon": "replaceabletextures/commandbuttons/btnthoriumranged.blp"
+        },
+        {
+          "id": "A0PL",
+          "icon": "replaceabletextures/commandbuttons/btnbearblink.blp"
+        },
+        {
+          "id": "A03P",
+          "icon": "replaceabletextures/passivebuttons/btnpablur.blp"
+        },
+        {
+          "id": "A03Q",
+          "icon": "replaceabletextures/passivebuttons/btncoupdegrace.blp"
+        }
+      ]
+    },
+    {
+      "id": "U000",
+      "name": "Nerubian Assassin",
+      "proper_names": [
+        "Anub'arak",
+        "A'noob Arak"
+      ],
+      "model": "units/undead/herocryptlord/herocryptlord.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnherocryptlord.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 0.8,
+      "selection_scale": 1.85,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0X7",
+          "icon": "replaceabletextures/commandbuttons/btnimpalena.blp"
+        },
+        {
+          "id": "A09U",
+          "icon": "replaceabletextures/commandbuttons/btnwindwalkon.blp"
+        },
+        {
+          "id": "A1H5",
+          "icon": "replaceabletextures/commandbuttons/btnmanaburn.blp"
+        },
+        {
+          "id": "A2KO",
+          "icon": "replaceabletextures/commandbuttons/btnthornshield.blp"
+        }
+      ]
+    },
+    {
+      "id": "E004",
+      "name": "Bone Fletcher",
+      "proper_names": [
+        "Clinkz",
+        "Clinkz Eastwood"
+      ],
+      "model": "units/creeps/burningarcher/burningarcher.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnskeletonmage.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.75,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A04Q",
+          "icon": "replaceabletextures/commandbuttons/btndeathpact.blp"
+        },
+        {
+          "id": "A025",
+          "icon": "replaceabletextures/commandbuttons/btnwindwalkon.blp"
+        },
+        {
+          "id": "A030",
+          "icon": "replaceabletextures/commandbuttons/btnclinkzstrafe.blp"
+        },
+        {
+          "id": "A2UO",
+          "icon": "replaceabletextures/commandbuttons/btnsearingarrows.blp"
+        }
+      ]
+    },
+    {
+      "id": "Ubal",
+      "name": "Nerubian Weaver",
+      "proper_names": [
+        "Anub'seran"
+      ],
+      "model": "units/creeps/nerubianqueen/nerubianqueen.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnnerubianqueen.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.4,
+      "color": [
+        255,
+        200,
+        200
+      ],
+      "abilities": [
+        {
+          "id": "A1QW",
+          "icon": "replaceabletextures/commandbuttons/btncarrionswarm.blp"
+        },
+        {
+          "id": "A0CA",
+          "icon": "replaceabletextures/commandbuttons/btnweavershukuchi.blp"
+        },
+        {
+          "id": "A0CG",
+          "icon": ""
+        },
+        {
+          "id": "A0CT",
+          "icon": "replaceabletextures/commandbuttons/btnorboffrost.blp"
+        }
+      ]
+    },
+    {
+      "id": "EC57",
+      "name": "Venomancer",
+      "proper_names": [
+        "Lesale Deathbringer"
+      ],
+      "model": "units/critters/hydralisk/hydralisk.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnhydralisk.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.55,
+      "color": [
+        150,
+        200,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A173",
+          "icon": "replaceabletextures/commandbuttons/btnorbofvenom.blp"
+        },
+        {
+          "id": "A0MY",
+          "icon": "replaceabletextures/commandbuttons/btnenvenomedspear.blp"
+        },
+        {
+          "id": "A0MS",
+          "icon": "replaceabletextures/commandbuttons/btnvenomwards.blp"
+        },
+        {
+          "id": "A013",
+          "icon": "replaceabletextures/commandbuttons/btncorrosivebreath.blp"
+        }
+      ]
+    },
+    {
+      "id": "Eevi",
+      "name": "Soul Keeper",
+      "proper_names": [
+        "Terrorblade"
+      ],
+      "model": "units/nightelf/evilillidan/illidanevil.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnevilillidan.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A07Q",
+          "icon": "replaceabletextures/commandbuttons/btnsunder.blp"
+        },
+        {
+          "id": "A1RI",
+          "icon": "replaceabletextures/commandbuttons/btnmetamorphosis.blp"
+        },
+        {
+          "id": "A2KZ",
+          "icon": "replaceabletextures/commandbuttons/btnsoulsteal.blp"
+        },
+        {
+          "id": "A0H4",
+          "icon": "replaceabletextures/commandbuttons/btnconjure.blp"
+        }
+      ]
+    },
+    {
+      "id": "Nfir",
+      "name": "Shadow Fiend",
+      "proper_names": [
+        "Nevermore",
+        "YaphetS"
+      ],
+      "model": "units/creeps/heroflamelord/heroflamelord.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnshade.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.15,
+      "selection_scale": 2.0,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0FU",
+          "icon": "replaceabletextures/passivebuttons/pasbtnregenerationaura.blp"
+        },
+        {
+          "id": "A0BR",
+          "icon": ""
+        },
+        {
+          "id": "A29J",
+          "icon": ""
+        },
+        {
+          "id": "A0EY",
+          "icon": "replaceabletextures/commandbuttons/btndeathcoil.blp"
+        },
+        {
+          "id": "A0NR",
+          "icon": "replaceabletextures/passivebuttons/pasbtnstatup.blp"
+        }
+      ]
+    },
+    {
+      "id": "H00I",
+      "name": "Geomancer",
+      "proper_names": [
+        "Meepo",
+        "MeePwn"
+      ],
+      "model": "units/creeps/koboldgeomancer/koboldgeomancer.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnkoboldgeomancer.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.4,
+      "selection_scale": 1.0,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0N8",
+          "icon": "replaceabletextures/commandbuttons/btndispelmagic.blp"
+        },
+        {
+          "id": "A0NB",
+          "icon": "replaceabletextures/commandbuttons/btnearthbind.blp"
+        },
+        {
+          "id": "A0N7",
+          "icon": "replaceabletextures/commandbuttons/btngeostrike.blp"
+        },
+        {
+          "id": "A0MW",
+          "icon": "replaceabletextures/passivebuttons/btndividedwestand.blp"
+        }
+      ]
+    },
+    {
+      "id": "Hmbr",
+      "name": "Lord of Olympus",
+      "proper_names": [
+        "Merlini",
+        "Zeus"
+      ],
+      "model": "units/human/heromountainking/heromountainking.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnavatar.blp",
+      "animation_tags": [
+        "alternate"
+      ],
+      "model_scale": 1.3,
+      "selection_scale": 1.3,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A020",
+          "icon": "replaceabletextures/commandbuttons/btnchainlightning.blp"
+        },
+        {
+          "id": "A0N5",
+          "icon": ""
+        },
+        {
+          "id": "A2WQ",
+          "icon": "replaceabletextures/commandbuttons/btnblue_lightning.blp"
+        },
+        {
+          "id": "A29G",
+          "icon": "replaceabletextures/commandbuttons/btnspell_holy_sealofmight.blp"
+        }
+      ]
+    },
+    {
+      "id": "Hjai",
+      "name": "Crystal Maiden",
+      "proper_names": [
+        "Rylai Crestfall"
+      ],
+      "model": "units/human/jaina/jaina.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnjaina.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A1E9",
+          "icon": "replaceabletextures/commandbuttons/btncrystalnova.blp"
+        },
+        {
+          "id": "A04C",
+          "icon": "replaceabletextures/commandbuttons/btnfrost.blp"
+        },
+        {
+          "id": "AHab",
+          "icon": "replaceabletextures/passivebuttons/pasbtnbrilliance.blp"
+        },
+        {
+          "id": "A03R",
+          "icon": "replaceabletextures/commandbuttons/btn_cmff.blp"
+        }
+      ]
+    },
+    {
+      "id": "H004",
+      "name": "Slayer",
+      "proper_names": [
+        "Lina Inverse"
+      ],
+      "model": "units/human/sorceress/sorceress.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnsorceress.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.2,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        120,
+        120
+      ],
+      "abilities": [
+        {
+          "id": "A01F",
+          "icon": "replaceabletextures/commandbuttons/btnsearingarrows.blp"
+        },
+        {
+          "id": "A027",
+          "icon": "replaceabletextures/commandbuttons/btn_lightstrikearray.blp"
+        },
+        {
+          "id": "A18X",
+          "icon": "replaceabletextures/passivebuttons/btndisenchant.blp"
+        },
+        {
+          "id": "A01P",
+          "icon": "replaceabletextures/commandbuttons/btnmanaflare.blp"
+        }
+      ]
+    },
+    {
+      "id": "Hblm",
+      "name": "Keeper of the Light",
+      "proper_names": [
+        "Ezalor",
+        "Gandalf"
+      ],
+      "model": "units/human/heroarchmage/heroarchmage.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnheroarchmage.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.2,
+      "selection_scale": 1.3,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A085",
+          "icon": "replaceabletextures/commandbuttons/btnorboflightning.blp"
+        },
+        {
+          "id": "A10X",
+          "icon": "replaceabletextures/commandbuttons/btncharm.blp"
+        },
+        {
+          "id": "A2XQ",
+          "icon": "replaceabletextures/commandbuttons/btnghostmage.blp"
+        },
+        {
+          "id": "A112",
+          "icon": "replaceabletextures/commandbuttons/btnpriestadept.blp"
+        },
+        {
+          "id": "A0NR",
+          "icon": "replaceabletextures/passivebuttons/pasbtnstatup.blp"
+        }
+      ]
+    },
+    {
+      "id": "N00B",
+      "name": "Faerie Dragon",
+      "proper_names": [
+        "Puck",
+        "Kupu-Kupu"
+      ],
+      "model": "units/nightelf/faeriedragon/faeriedragon.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnfaeriedragon.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.1,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0S8",
+          "icon": "replaceabletextures/commandbuttons/btnmanaflare.blp"
+        },
+        {
+          "id": "A0SC",
+          "icon": "replaceabletextures/commandbuttons/btnwanningrift.blp"
+        },
+        {
+          "id": "A0SB",
+          "icon": "replaceabletextures/commandbuttons/btnphaseshift.blp"
+        },
+        {
+          "id": "A0S9",
+          "icon": "replaceabletextures/commandbuttons/btnillusory.blp"
+        }
+      ]
+    },
+    {
+      "id": "N0EG",
+      "name": "Windrunner",
+      "proper_names": [
+        "Alleria"
+      ],
+      "model": "units/creeps/sylvanuswindrunner/sylvanuswindrunner.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnsylvanuswindrunner.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.1,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A12P",
+          "icon": "replaceabletextures/commandbuttons/btnfocusfire.blp"
+        },
+        {
+          "id": "A12K",
+          "icon": "replaceabletextures/commandbuttons/btnpowershot.blp"
+        },
+        {
+          "id": "A14I",
+          "icon": "replaceabletextures/commandbuttons/btncyclone.blp"
+        },
+        {
+          "id": "A12J",
+          "icon": "replaceabletextures/commandbuttons/btnshackleshot.blp"
+        }
+      ]
+    },
+    {
+      "id": "H00A",
+      "name": "Holy Knight",
+      "proper_names": [
+        "Jackie Chen",
+        "Chen",
+        "Chechen"
+      ],
+      "model": "units/orc/herofarseer/herofarseer.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnherofarseer.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.25,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0LV",
+          "icon": "replaceabletextures/commandbuttons/btnstaffofpreservation.blp"
+        },
+        {
+          "id": "A28T",
+          "icon": "replaceabletextures/commandbuttons/btnscepterofmastery.blp"
+        },
+        {
+          "id": "A0LT",
+          "icon": "replaceabletextures/commandbuttons/btnheal.blp"
+        },
+        {
+          "id": "A0KM",
+          "icon": "replaceabletextures/commandbuttons/btnholybolt.blp"
+        }
+      ]
+    },
+    {
+      "id": "Emoo",
+      "name": "Enchantress",
+      "proper_names": [
+        "Aiushtha",
+        "Bambi"
+      ],
+      "model": "units/nightelf/dryad/dryad.mdx",
+      "icon": "replaceabletextures/commandbuttons/btndryad.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.25,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0DX",
+          "icon": "replaceabletextures/commandbuttons/btnslow.blp"
+        },
+        {
+          "id": "A01B",
+          "icon": "replaceabletextures/commandbuttons/btnnaturesattendants.blp"
+        },
+        {
+          "id": "A0DW",
+          "icon": "replaceabletextures/passivebuttons/pasbtnmagicimmunity.blp"
+        },
+        {
+          "id": "A0DY",
+          "icon": "replaceabletextures/commandbuttons/btndryaddispelmagicon.blp"
+        }
+      ]
+    },
+    {
+      "id": "Emns",
+      "name": "Prophet",
+      "proper_names": [
+        "Furion"
+      ],
+      "model": "units/nightelf/malfurion/malfurionnostag.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnfurion.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.2,
+      "selection_scale": 2.25,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A21E",
+          "icon": "replaceabletextures/commandbuttons/btneattree.blp"
+        },
+        {
+          "id": "A01O",
+          "icon": "replaceabletextures/commandbuttons/btnwispsplode.blp"
+        },
+        {
+          "id": "AEfn",
+          "icon": "replaceabletextures/commandbuttons/btnent.blp"
+        },
+        {
+          "id": "A1W8",
+          "icon": "replaceabletextures/commandbuttons/btntreeofeternity.blp"
+        }
+      ]
+    },
+    {
+      "id": "H00S",
+      "name": "Storm Spirit",
+      "proper_names": [
+        "Raijin Thunderkeg"
+      ],
+      "model": "units/creeps/stormpandarenbrewmaster/stormpandarenbrewmaster.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnstorm.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A14R",
+          "icon": "replaceabletextures/commandbuttons/btnmanaflare.blp"
+        },
+        {
+          "id": "A14P",
+          "icon": "replaceabletextures/commandbuttons/btnability_druid_catform.blp"
+        },
+        {
+          "id": "A14O",
+          "icon": "replaceabletextures/commandbuttons/btnstormreach.blp"
+        },
+        {
+          "id": "A0QW",
+          "icon": "replaceabletextures/passivebuttons/btnoverload.blp"
+        }
+      ]
+    },
+    {
+      "id": "N01A",
+      "name": "Silencer",
+      "proper_names": [
+        "Nortrom"
+      ],
+      "model": "units/human/bloodelfspellthief/bloodelfspellthief.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnspellbreaker.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.15,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0LZ",
+          "icon": "replaceabletextures/commandbuttons/btn_glaviesofwisdom.blp"
+        },
+        {
+          "id": "A2NT",
+          "icon": "replaceabletextures/commandbuttons/btnbansheemaster.blp"
+        },
+        {
+          "id": "A14L",
+          "icon": "replaceabletextures/commandbuttons/btncontrolmagic.blp"
+        },
+        {
+          "id": "A0L3",
+          "icon": "replaceabletextures/commandbuttons/btnsilencersilence.blp"
+        }
+      ]
+    },
+    {
+      "id": "E02J",
+      "name": "Disruptor",
+      "proper_names": [
+        "Thrall"
+      ],
+      "model": "units/orc/thrall/thrall.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnthrall.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.1,
+      "selection_scale": 2.0,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A1SU",
+          "icon": "replaceabletextures/commandbuttons/btnthrallicon1.blp"
+        },
+        {
+          "id": "A1TV",
+          "icon": "replaceabletextures/commandbuttons/btnthrallicon4.blp"
+        },
+        {
+          "id": "A1SW",
+          "icon": "replaceabletextures/commandbuttons/btnthrallicon3.blp"
+        },
+        {
+          "id": "A1U6",
+          "icon": "replaceabletextures/commandbuttons/btnstaticfield.blp"
+        }
+      ]
+    },
+    {
+      "id": "Hamg",
+      "name": "Treant Protector",
+      "proper_names": [
+        "Rooftrellen"
+      ],
+      "model": "buildings/nightelf/ancientprotector/ancientprotector.mdx",
+      "icon": "replaceabletextures/commandbuttons/btntreant.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 0.72,
+      "selection_scale": 2.2,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A07Z",
+          "icon": "replaceabletextures/commandbuttons/btnovergrowth.blp"
+        },
+        {
+          "id": "A01Z",
+          "icon": "replaceabletextures/commandbuttons/btnnaturesguise.blp"
+        },
+        {
+          "id": "A26N",
+          "icon": "replaceabletextures/commandbuttons/btnleechseed.blp"
+        },
+        {
+          "id": "A2ML",
+          "icon": "replaceabletextures/commandbuttons/btnlivingarmor.blp"
+        }
+      ]
+    },
+    {
+      "id": "Ucrl",
+      "name": "Stone Giant",
+      "proper_names": [
+        "Tiny"
+      ],
+      "model": "units/nightelf/mountaingiant/mountaingiant.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnmountaingiant.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 0.5,
+      "selection_scale": 1.0,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A19Q",
+          "icon": "replaceabletextures/passivebuttons/pasbtnresistantskin.blp"
+        },
+        {
+          "id": "A0CY",
+          "icon": "replaceabletextures/passivebuttons/btntinygrow.blp"
+        },
+        {
+          "id": "A0LL",
+          "icon": "replaceabletextures/commandbuttons/btngolemstormbolt.blp"
+        },
+        {
+          "id": "A0BZ",
+          "icon": "replaceabletextures/commandbuttons/btntoss.blp"
+        }
+      ]
+    },
+    {
+      "id": "Otch",
+      "name": "Earthshaker",
+      "proper_names": [
+        "Raigor Stonehoof"
+      ],
+      "model": "units/orc/tauren/tauren.mdx",
+      "icon": "replaceabletextures/commandbuttons/btntauren.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.1,
+      "selection_scale": 2.0,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0DH",
+          "icon": "replaceabletextures/commandbuttons/btnearthquake.blp"
+        },
+        {
+          "id": "A0DL",
+          "icon": "replaceabletextures/commandbuttons/btnsmash.blp"
+        },
+        {
+          "id": "A0SK",
+          "icon": "replaceabletextures/commandbuttons/btnshockwave.blp"
+        },
+        {
+          "id": "A0DJ",
+          "icon": "replaceabletextures/passivebuttons/btnaftershock.blp"
+        }
+      ]
+    },
+    {
+      "id": "H00D",
+      "name": "Beastmaster",
+      "proper_names": [
+        "Rexxar"
+      ],
+      "model": "units/creeps/beastmaster/beastmaster.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnbeastmaster.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.2,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0OO",
+          "icon": "replaceabletextures/commandbuttons/btnwareagle.blp"
+        },
+        {
+          "id": "A0O1",
+          "icon": "replaceabletextures/commandbuttons/btnability_warrior_savageblow.blp"
+        },
+        {
+          "id": "A0BD",
+          "icon": "replaceabletextures/passivebuttons/btnenchantedbears.blp"
+        },
+        {
+          "id": "A0O2",
+          "icon": "replaceabletextures/commandbuttons/btnbattleroar.blp"
+        }
+      ]
+    },
+    {
+      "id": "H06S",
+      "name": "Admiral",
+      "proper_names": [
+        "Daelin Proudmoore",
+        "Kunkka",
+        "CoCo",
+        "Captain Obvious"
+      ],
+      "model": "units/other/proudmoore/proudmoore.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnproudmoore.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.1,
+      "selection_scale": 1.1,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A136",
+          "icon": "replaceabletextures/commandbuttons/btntorrent.blp"
+        },
+        {
+          "id": "A13T",
+          "icon": "replaceabletextures/passivebuttons/btntidebringer.blp"
+        },
+        {
+          "id": "A11N",
+          "icon": "replaceabletextures/commandbuttons/btnspy.blp"
+        },
+        {
+          "id": "A11K",
+          "icon": "replaceabletextures/commandbuttons/btnundeaddestroyer.blp"
+        }
+      ]
+    },
+    {
+      "id": "H001",
+      "name": "Rogue Knight",
+      "proper_names": [
+        "Sven"
+      ],
+      "model": "units/demon/felgaurdblue/felgaurdblue.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnfelguardblue.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.1,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A190",
+          "icon": "replaceabletextures/commandbuttons/btnstormbolt.blp"
+        },
+        {
+          "id": "A01K",
+          "icon": "replaceabletextures/passivebuttons/pasbtncleavingattack.blp"
+        },
+        {
+          "id": "A2IS",
+          "icon": "replaceabletextures/commandbuttons/btnancestralspirit.blp"
+        },
+        {
+          "id": "A1WH",
+          "icon": "replaceabletextures/commandbuttons/btnsvengs.blp"
+        }
+      ]
+    },
+    {
+      "id": "O015",
+      "name": "Tauren Chieftain",
+      "proper_names": [
+        "Taur Thunderhorn",
+        "Kaz Stonebul",
+        "Cairne Bloodhoof"
+      ],
+      "model": "units/orc/herotaurenchieftain/herotaurenchieftain.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnherotaurenchieftain.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.1,
+      "selection_scale": 2.0,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A1CD",
+          "icon": "replaceabletextures/commandbuttons/pasbtnnaturalorder.blp"
+        },
+        {
+          "id": "A1AA",
+          "icon": "replaceabletextures/commandbuttons/btngreatstomp.blp"
+        },
+        {
+          "id": "A1A8",
+          "icon": "replaceabletextures/commandbuttons/btnancestralcharge.blp"
+        },
+        {
+          "id": "A1A1",
+          "icon": "replaceabletextures/commandbuttons/btnearthsplitter.blp"
+        }
+      ]
+    },
+    {
+      "id": "N01I",
+      "name": "Alchemist",
+      "proper_names": [
+        "Razzil Darkbrew"
+      ],
+      "model": "units/creeps/herogoblinalchemist/herogoblinalchemist.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnheroalchemist.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 2.0,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A1NI",
+          "icon": "replaceabletextures/commandbuttons/btnunstableconcoction.blp"
+        },
+        {
+          "id": "A0IL",
+          "icon": "replaceabletextures/commandbuttons/btnhealingspray.blp"
+        },
+        {
+          "id": "A0O3",
+          "icon": "replaceabletextures/passivebuttons/btnmgexchange.blp"
+        },
+        {
+          "id": "ANcr",
+          "icon": "replaceabletextures/commandbuttons/btnchemicalrage.blp"
+        }
+      ]
+    },
+    {
+      "id": "O01F",
+      "name": "Guardian Wisp",
+      "proper_names": [
+        "Io",
+        "Santelmo",
+        "Weird Ball"
+      ],
+      "model": "units/nightelf/wisp/wisp.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnwisphero.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.3,
+      "selection_scale": 1.15,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0NR",
+          "icon": "replaceabletextures/passivebuttons/pasbtnstatup.blp"
+        },
+        {
+          "id": "A1T8",
+          "icon": "replaceabletextures/commandbuttons/btnspirits.blp"
+        },
+        {
+          "id": "A1TA",
+          "icon": "replaceabletextures/commandbuttons/btntether.blp"
+        },
+        {
+          "id": "A1TB",
+          "icon": "replaceabletextures/commandbuttons/btnrelocate.blp"
+        },
+        {
+          "id": "A28Q",
+          "icon": "replaceabletextures/commandbuttons/btnovercharge.blp"
+        }
+      ]
+    },
+    {
+      "id": "Uktl",
+      "name": "Enigma",
+      "proper_names": [
+        "Darchrow"
+      ],
+      "model": "voidwalker.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnspell_shadow_summonvoidwalker.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.5,
+      "selection_scale": 1.75,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0I7",
+          "icon": "replaceabletextures/commandbuttons/btnmalefice.blp"
+        },
+        {
+          "id": "A180",
+          "icon": "replaceabletextures/commandbuttons/btn_conversion.blp"
+        },
+        {
+          "id": "A0B1",
+          "icon": "replaceabletextures/commandbuttons/btndeathanddecay.blp"
+        },
+        {
+          "id": "A1BX",
+          "icon": "replaceabletextures/commandbuttons/btngenericspellimmunity.blp"
+        }
+      ]
+    },
+    {
+      "id": "Ulic",
+      "name": "Lich",
+      "proper_names": [
+        "Kel'Thuzad"
+      ],
+      "model": "units/undead/herolich/herolich_v1.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnlichversion2.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.3,
+      "selection_scale": 1.25,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A053",
+          "icon": "replaceabletextures/commandbuttons/btndarkritual.blp"
+        },
+        {
+          "id": "A07F",
+          "icon": "replaceabletextures/commandbuttons/btnglacier.blp"
+        },
+        {
+          "id": "A08R",
+          "icon": "replaceabletextures/commandbuttons/btnfrostarmoron.blp"
+        },
+        {
+          "id": "A05T",
+          "icon": "replaceabletextures/commandbuttons/btnbreathoffrost.blp"
+        }
+      ]
+    },
+    {
+      "id": "UC76",
+      "name": "Death Prophet",
+      "proper_names": [
+        "Krobelus"
+      ],
+      "model": "units/undead/banshee/banshee.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnbanshee.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.35,
+      "selection_scale": 1.25,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A02C",
+          "icon": "replaceabletextures/passivebuttons/btnkrobwitchcraft.blp"
+        },
+        {
+          "id": "A02M",
+          "icon": "replaceabletextures/commandbuttons/btncarrionswarm.blp"
+        },
+        {
+          "id": "A0P6",
+          "icon": "replaceabletextures/commandbuttons/btnsilence.blp"
+        },
+        {
+          "id": "A073",
+          "icon": "replaceabletextures/commandbuttons/btnexorcism.blp"
+        }
+      ]
+    },
+    {
+      "id": "UC18",
+      "name": "Demon Witch",
+      "proper_names": [
+        "Lion"
+      ],
+      "model": "units/demon/chaoswarlock/chaoswarlock.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnlion.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.3,
+      "selection_scale": 1.25,
+      "color": [
+        50,
+        100,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0X5",
+          "icon": "replaceabletextures/commandbuttons/btnimpale.blp"
+        },
+        {
+          "id": "A0MN",
+          "icon": "replaceabletextures/commandbuttons/btnhex.blp"
+        },
+        {
+          "id": "A02N",
+          "icon": "replaceabletextures/commandbuttons/btnmanadrain.blp"
+        },
+        {
+          "id": "A095",
+          "icon": "replaceabletextures/commandbuttons/btncorpseexplode.blp"
+        }
+      ]
+    },
+    {
+      "id": "UC01",
+      "name": "Queen of Pain",
+      "proper_names": [
+        "Akasha"
+      ],
+      "model": "units/demon/demonessblue/demonessblue.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnbluedemoness.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.3,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0Q7",
+          "icon": "replaceabletextures/commandbuttons/btnshadowstrike.blp"
+        },
+        {
+          "id": "A0ME",
+          "icon": "replaceabletextures/commandbuttons/btnblink.blp"
+        },
+        {
+          "id": "A04A",
+          "icon": "replaceabletextures/commandbuttons/btnpossession.blp"
+        },
+        {
+          "id": "A306",
+          "icon": "replaceabletextures/commandbuttons/btntornado.blp"
+        }
+      ]
+    },
+    {
+      "id": "H00H",
+      "name": "Oblivion",
+      "proper_names": [
+        "Pugna"
+      ],
+      "model": "units/undead/skeletonmage/skeletonmage.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnpugna.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A09D",
+          "icon": "replaceabletextures/commandbuttons/btnentrapmentward.blp"
+        },
+        {
+          "id": "A0MT",
+          "icon": "replaceabletextures/commandbuttons/btnorboflightning.blp"
+        },
+        {
+          "id": "A2TD",
+          "icon": "replaceabletextures/commandbuttons/btncripple.blp"
+        },
+        {
+          "id": "A0CC",
+          "icon": "replaceabletextures/commandbuttons/btnlifedrain.blp"
+        }
+      ]
+    },
+    {
+      "id": "U00E",
+      "name": "Necrolyte",
+      "proper_names": [
+        "Rotund'jere",
+        "A Phoe Gyi"
+      ],
+      "model": "units/undead/kelthuzadghost/kelthuzadghost.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnghostofkelthuzad.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.3,
+      "selection_scale": 1.35,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A067",
+          "icon": "replaceabletextures/commandbuttons/btnreapersscythe.blp"
+        },
+        {
+          "id": "A05V",
+          "icon": "replaceabletextures/commandbuttons/btndeathnova.blp"
+        },
+        {
+          "id": "A060",
+          "icon": "replaceabletextures/passivebuttons/btnorbofcorruption.blp"
+        },
+        {
+          "id": "A01N",
+          "icon": "replaceabletextures/passivebuttons/btnspell_holy_sealofrighteousness.blp"
+        }
+      ]
+    },
+    {
+      "id": "H00N",
+      "name": "Dark Seer",
+      "proper_names": [
+        "Ish'kafel"
+      ],
+      "model": "units/other/dranaimage/dranaimage.mdx",
+      "icon": "replaceabletextures/commandbuttons/btndranaimage.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.15,
+      "selection_scale": 1.35,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0QK",
+          "icon": "replaceabletextures/commandbuttons/btnwallrep.blp"
+        },
+        {
+          "id": "A0R7",
+          "icon": "replaceabletextures/commandbuttons/btnspell_nature_astralrecal.blp"
+        },
+        {
+          "id": "A0QG",
+          "icon": "replaceabletextures/commandbuttons/btnspell_shadow_haunting.blp"
+        },
+        {
+          "id": "A0QE",
+          "icon": "replaceabletextures/commandbuttons/btnspell_shadow_teleport.blp"
+        }
+      ]
+    },
+    {
+      "id": "U00P",
+      "name": "Obsidian Destroyer",
+      "proper_names": [
+        "Harbinger"
+      ],
+      "model": "units/undead/obsidianstatue/obsidianstatue.mdx",
+      "icon": "replaceabletextures/commandbuttons/btndestroyer.blp",
+      "animation_tags": [
+        "alternate"
+      ],
+      "model_scale": 0.85,
+      "selection_scale": 1.0,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0OK",
+          "icon": "replaceabletextures/commandbuttons/btnspell_shadow_impphaseshift.blp"
+        },
+        {
+          "id": "A0OJ",
+          "icon": "replaceabletextures/commandbuttons/btnspell_shadow_antishadow.blp"
+        },
+        {
+          "id": "A0OI",
+          "icon": "replaceabletextures/commandbuttons/btnorbofdeathon.blp"
+        },
+        {
+          "id": "A0IF",
+          "icon": "replaceabletextures/passivebuttons/btnessenceaura.blp"
+        }
+      ]
+    },
+    {
+      "id": "Oshd",
+      "name": "Bane Elemental",
+      "proper_names": [
+        "Atropos"
+      ],
+      "model": "units/creeps/voidwalker/voidwalker.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnvoidwalker.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.5,
+      "selection_scale": 1.5,
+      "color": [
+        150,
+        255,
+        150
+      ],
+      "abilities": [
+        {
+          "id": "A02Q",
+          "icon": "replaceabletextures/commandbuttons/btnamuletofthewild.blp"
+        },
+        {
+          "id": "A0GK",
+          "icon": "replaceabletextures/commandbuttons/btndevourmagic.blp"
+        },
+        {
+          "id": "A2OI",
+          "icon": "replaceabletextures/commandbuttons/btncurse.blp"
+        },
+        {
+          "id": "A04Y",
+          "icon": "replaceabletextures/commandbuttons/btnwandofshadowsight.blp"
+        }
+      ]
+    },
+    {
+      "id": "E01C",
+      "name": "Warlock",
+      "proper_names": [
+        "Demnok Lannik"
+      ],
+      "model": "units/orc/orcwarlockguldan/orcwarlockguldan.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnguldan.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.5,
+      "selection_scale": 1.25,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0J5",
+          "icon": "replaceabletextures/commandbuttons/btnfatalbonds.blp"
+        },
+        {
+          "id": "A0AS",
+          "icon": "replaceabletextures/commandbuttons/btnspell_shadow_shadowwordpain.blp"
+        },
+        {
+          "id": "A06P",
+          "icon": "replaceabletextures/commandbuttons/btnunsummonbuilding.blp"
+        },
+        {
+          "id": "S008",
+          "icon": "replaceabletextures/commandbuttons/btninfernal.blp"
+        }
+      ]
+    },
+    {
+      "id": "E02H",
+      "name": "Shadow Demon",
+      "proper_names": [
+        "Eredar",
+        "Giblet"
+      ],
+      "model": "units/demon/warlock/warlock.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnarchimonde.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.25,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A1S4",
+          "icon": "replaceabletextures/commandbuttons/btnshadowpoison.blp"
+        },
+        {
+          "id": "A1S8",
+          "icon": "replaceabletextures/commandbuttons/btnpicture12.blp"
+        },
+        {
+          "id": "A2XI",
+          "icon": "replaceabletextures/commandbuttons/btndemonicpurge.blp"
+        },
+        {
+          "id": "A1SB",
+          "icon": "replaceabletextures/commandbuttons/btnsoulcatcher.blp"
+        }
+      ]
+    },
+    {
+      "id": "Huth",
+      "name": "Ursa Warrior",
+      "proper_names": [
+        "Ulfsaar",
+        "Fuzzy Wuzzy"
+      ],
+      "model": "units/creeps/furbolgtracker/furbolgtracker.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnfurbolgtracker.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.2,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A1P9",
+          "icon": "replaceabletextures/commandbuttons/btnbloodlust.blp"
+        },
+        {
+          "id": "A0LC",
+          "icon": "replaceabletextures/commandbuttons/btnimprovedstrengthofthewild.blp"
+        },
+        {
+          "id": "A03Y",
+          "icon": "replaceabletextures/commandbuttons/btnearthquake.blp"
+        },
+        {
+          "id": "A2X2",
+          "icon": "replaceabletextures/passivebuttons/btnfuryswipes.blp"
+        }
+      ]
+    },
+    {
+      "id": "E01Y",
+      "name": "Templar Assassin",
+      "proper_names": [
+        "Lanaya"
+      ],
+      "model": "units/creeps/assassin/assassin.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnassassin.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.2,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0RP",
+          "icon": "replaceabletextures/commandbuttons/btntrap.blp"
+        },
+        {
+          "id": "A0RO",
+          "icon": "replaceabletextures/passivebuttons/btnvorpal.blp"
+        },
+        {
+          "id": "A1EA",
+          "icon": "replaceabletextures/commandbuttons/btnrefraction.blp"
+        },
+        {
+          "id": "A0RV",
+          "icon": "replaceabletextures/commandbuttons/btnwardenhide.blp"
+        }
+      ]
+    },
+    {
+      "id": "Hvwd",
+      "name": "Vengeful Spirit",
+      "proper_names": [
+        "Shendelzare Silkwood",
+        "820"
+      ],
+      "model": "units/nightelf/vengeance/vengeance.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnavengingwatcher.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.35,
+      "selection_scale": 1.15,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A02A",
+          "icon": "replaceabletextures/commandbuttons/btnfrostbolt.blp"
+        },
+        {
+          "id": "ACac",
+          "icon": "replaceabletextures/commandbuttons/btngnollcommandaura.blp"
+        },
+        {
+          "id": "A17O",
+          "icon": "replaceabletextures/commandbuttons/btnhowlofterror.blp"
+        },
+        {
+          "id": "A0IN",
+          "icon": "replaceabletextures/commandbuttons/btnwandofneutralization.blp"
+        }
+      ]
+    },
+    {
+      "id": "N0M0",
+      "name": "Ember Spirit",
+      "proper_names": [
+        "Xin"
+      ],
+      "model": "units/creeps/firepandarenbrewmaster/firepandarenbrewmaster.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnfirebrewmaster.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.7,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A2H0",
+          "icon": "replaceabletextures/commandbuttons/btnsleightoffist.blp"
+        },
+        {
+          "id": "A2H3",
+          "icon": "replaceabletextures/commandbuttons/btnsearingchains.blp"
+        },
+        {
+          "id": "A2HS",
+          "icon": "replaceabletextures/commandbuttons/btnflameguard.blp"
+        },
+        {
+          "id": "A2JK",
+          "icon": "replaceabletextures/commandbuttons/btnfireremnant.blp"
+        }
+      ]
+    },
+    {
+      "id": "N01V",
+      "name": "Priestess of the Moon",
+      "proper_names": [
+        "Mirana Nightshade",
+        "Jumong"
+      ],
+      "model": "units/nightelf/heromoonpriestess/heromoonpriestess.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnpriestessofthemoon.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.85,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0L8",
+          "icon": "replaceabletextures/commandbuttons/btnimprovedstrengthofthemoon.blp"
+        },
+        {
+          "id": "A0LN",
+          "icon": "replaceabletextures/commandbuttons/btnadvancedstrengthofthewild.blp"
+        },
+        {
+          "id": "A0KV",
+          "icon": "replaceabletextures/commandbuttons/btnstarfall.blp"
+        },
+        {
+          "id": "A0KU",
+          "icon": "replaceabletextures/commandbuttons/btnambush.blp"
+        }
+      ]
+    },
+    {
+      "id": "N01O",
+      "name": "Lone Druid",
+      "proper_names": [
+        "Syllabear"
+      ],
+      "model": "units/nightelf/druidoftheclaw/druidoftheclaw.mdx",
+      "icon": "replaceabletextures/commandbuttons/btndruidoftheclaw.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 2.0,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0NR",
+          "icon": "replaceabletextures/passivebuttons/pasbtnstatup.blp"
+        },
+        {
+          "id": "A0A5",
+          "icon": "replaceabletextures/commandbuttons/btngrizzlybear.blp"
+        },
+        {
+          "id": "A0A8",
+          "icon": "replaceabletextures/passivebuttons/btn_syllasynergy.blp"
+        },
+        {
+          "id": "A1EF",
+          "icon": "replaceabletextures/commandbuttons/btndocmastertraining.blp"
+        },
+        {
+          "id": "A0AG",
+          "icon": "replaceabletextures/commandbuttons/btnbearform.blp"
+        }
+      ]
+    },
+    {
+      "id": "Nbbc",
+      "name": "Juggernaut",
+      "proper_names": [
+        "Yurnero"
+      ],
+      "model": "units/demon/herochaosblademaster/herochaosblademaster.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnchaosblademaster.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.15,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A047",
+          "icon": "replaceabletextures/commandbuttons/btnhealingward.blp"
+        },
+        {
+          "id": "A05G",
+          "icon": "replaceabletextures/commandbuttons/btnwhirlwind.blp"
+        },
+        {
+          "id": "A00K",
+          "icon": "replaceabletextures/passivebuttons/btnbladedance.blp"
+        },
+        {
+          "id": "A0M1",
+          "icon": "replaceabletextures/commandbuttons/btnomnislash.blp"
+        }
+      ]
+    },
+    {
+      "id": "Ogrh",
+      "name": "Phantom Lancer",
+      "proper_names": [
+        "Azwraith"
+      ],
+      "model": "units/orc/hellscream/hellscream.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnhellscream.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.15,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0DB",
+          "icon": "replaceabletextures/passivebuttons/btnjuxtapose.blp"
+        },
+        {
+          "id": "A10D",
+          "icon": "replaceabletextures/commandbuttons/btnwindsarrows.blp"
+        },
+        {
+          "id": "A30C",
+          "icon": "replaceabletextures/commandbuttons/btndoppelwalk.blp"
+        },
+        {
+          "id": "A0YK",
+          "icon": "replaceabletextures/commandbuttons/btnphantomedge.blp"
+        }
+      ]
+    },
+    {
+      "id": "HC92",
+      "name": "Stealth Assassin",
+      "proper_names": [
+        "Rikimaru",
+        "Riki Martin"
+      ],
+      "model": "units/creeps/satyrtrickster/satyrtrickster.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnsatyrtrickster.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.1,
+      "color": [
+        130,
+        100,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0DZ",
+          "icon": "replaceabletextures/passivebuttons/btntheblackarrow.blp"
+        },
+        {
+          "id": "A0K9",
+          "icon": "replaceabletextures/commandbuttons/btnblinkstrikesa.blp"
+        },
+        {
+          "id": "A00J",
+          "icon": "replaceabletextures/commandbuttons/btnrikiinv.blp"
+        },
+        {
+          "id": "A0RG",
+          "icon": "replaceabletextures/commandbuttons/btncloudoffog.blp"
+        }
+      ]
+    },
+    {
+      "id": "HC49",
+      "name": "Naga Siren",
+      "proper_names": [
+        "Slithice"
+      ],
+      "model": "units/naga/nagasiren/nagasiren.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnseawitch.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A2KU",
+          "icon": "replaceabletextures/commandbuttons/btnriptide.blp"
+        },
+        {
+          "id": "A24D",
+          "icon": "replaceabletextures/commandbuttons/btnensnare.blp"
+        },
+        {
+          "id": "A063",
+          "icon": "replaceabletextures/commandbuttons/btnsirenmirrorimage.blp"
+        },
+        {
+          "id": "A07U",
+          "icon": "replaceabletextures/commandbuttons/btnpenguin.blp"
+        }
+      ]
+    },
+    {
+      "id": "O00P",
+      "name": "Morphling",
+      "proper_names": [
+        "Morphling"
+      ],
+      "model": "units/creeps/seaelemental/seaelemental.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnseaelemental.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.15,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0G6",
+          "icon": "replaceabletextures/commandbuttons/btnshimmerweed.blp"
+        },
+        {
+          "id": "A0G8",
+          "icon": ""
+        },
+        {
+          "id": "A0NR",
+          "icon": "replaceabletextures/passivebuttons/pasbtnstatup.blp"
+        },
+        {
+          "id": "A0KX",
+          "icon": "replaceabletextures/commandbuttons/btnreplenishmana.blp"
+        },
+        {
+          "id": "A0FN",
+          "icon": "replaceabletextures/commandbuttons/btncrushingwave.blp"
+        }
+      ]
+    },
+    {
+      "id": "E02N",
+      "name": "Gyrocopter",
+      "proper_names": [
+        "Aurel Vlaicu"
+      ],
+      "model": "units/human/gyrocopter/gyrocopter_v1.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnflyingmachine.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.1,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A1SO",
+          "icon": "replaceabletextures/commandbuttons/btnflakcannons.blp"
+        },
+        {
+          "id": "A1SQ",
+          "icon": "replaceabletextures/commandbuttons/btnhumanartilleryupone.blp"
+        },
+        {
+          "id": "A229",
+          "icon": "replaceabletextures/commandbuttons/btnfragmentationbombs.blp"
+        },
+        {
+          "id": "A1T5",
+          "icon": "replaceabletextures/commandbuttons/btncalldown.blp"
+        }
+      ]
+    },
+    {
+      "id": "H00Q",
+      "name": "Sacred Warrior",
+      "proper_names": [
+        "Huskar"
+      ],
+      "model": "units/orc/headhunter/headhunter.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnheadhunterberserker.blp",
+      "animation_tags": [
+        "alternate"
+      ],
+      "model_scale": 1.15,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0QR",
+          "icon": "replaceabletextures/commandbuttons/btnsouleater.blp"
+        },
+        {
+          "id": "A0QQ",
+          "icon": "replaceabletextures/commandbuttons/btnberserkerblood.blp"
+        },
+        {
+          "id": "A0QN",
+          "icon": "replaceabletextures/commandbuttons/btnautoflamingarrows.blp"
+        },
+        {
+          "id": "A0QP",
+          "icon": "replaceabletextures/commandbuttons/btnregenerate.blp"
+        }
+      ]
+    },
+    {
+      "id": "H00T",
+      "name": "Clockwerk Goblin",
+      "proper_names": [
+        "Rattletrap"
+      ],
+      "model": "units/creeps/herotinkerrobot/herotinkerrobot.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnclockwerkgoblin.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.5,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0Z8",
+          "icon": "replaceabletextures/commandbuttons/btnstrengthofthemoon.blp"
+        },
+        {
+          "id": "A0Z6",
+          "icon": "replaceabletextures/commandbuttons/btnflare.blp"
+        },
+        {
+          "id": "A0Z5",
+          "icon": "replaceabletextures/commandbuttons/btnpowergenerator.blp"
+        },
+        {
+          "id": "A0Z4",
+          "icon": "replaceabletextures/commandbuttons/btnflakcannons.blp"
+        }
+      ]
+    },
+    {
+      "id": "E02I",
+      "name": "Tuskarr",
+      "proper_names": [
+        "Ymir"
+      ],
+      "model": "units/creeps/tuskarlord/tuskarlord.mdx",
+      "icon": "replaceabletextures/commandbuttons/btntuskaarbrown.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A1YO",
+          "icon": "replaceabletextures/commandbuttons/btniceshards.blp"
+        },
+        {
+          "id": "A1YQ",
+          "icon": "replaceabletextures/commandbuttons/btnchillingtouch.blp"
+        },
+        {
+          "id": "A1S7",
+          "icon": "replaceabletextures/commandbuttons/btnsnowball2.blp"
+        },
+        {
+          "id": "A1YR",
+          "icon": "replaceabletextures/commandbuttons/btnfrozensigil.blp"
+        }
+      ]
+    },
+    {
+      "id": "E02F",
+      "name": "Phoenix",
+      "proper_names": [
+        "Icarus"
+      ],
+      "model": "units/human/phoenix/phoenix.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnphoenix.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.05,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0NR",
+          "icon": "replaceabletextures/passivebuttons/pasbtnstatup.blp"
+        },
+        {
+          "id": "A1YX",
+          "icon": "replaceabletextures/commandbuttons/btnfirespirits.blp"
+        },
+        {
+          "id": "A1RK",
+          "icon": "replaceabletextures/commandbuttons/btnphoenix2.blp"
+        },
+        {
+          "id": "A1YY",
+          "icon": "replaceabletextures/commandbuttons/btnsunray.blp"
+        },
+        {
+          "id": "A1RJ",
+          "icon": "replaceabletextures/commandbuttons/btndash.blp"
+        }
+      ]
+    },
+    {
+      "id": "E02K",
+      "name": "Legion Commander",
+      "proper_names": [
+        "Tresdin"
+      ],
+      "model": "units/creeps/lordgarithos/lordgarithos.mdx",
+      "icon": "replaceabletextures/commandbuttons/btngarithos.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.3,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A2CI",
+          "icon": "replaceabletextures/commandbuttons/btnduel.blp"
+        },
+        {
+          "id": "A2EY",
+          "icon": "replaceabletextures/passivebuttons/btnmomentofcourage.blp"
+        },
+        {
+          "id": "A2J2",
+          "icon": "replaceabletextures/commandbuttons/btnpresstheattack.blp"
+        },
+        {
+          "id": "A2JB",
+          "icon": "replaceabletextures/commandbuttons/btnanimalwartraining.blp"
+        }
+      ]
+    },
+    {
+      "id": "E032",
+      "name": "Goblin Shredder",
+      "proper_names": [
+        "Rizzrak",
+        "Oroku Saki"
+      ],
+      "model": "units/creeps/irongolem/irongolem.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnjunkgolem.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A2FK",
+          "icon": "replaceabletextures/commandbuttons/btnwhirlingdeath.blp"
+        },
+        {
+          "id": "A2E3",
+          "icon": "replaceabletextures/commandbuttons/btntimberchain.blp"
+        },
+        {
+          "id": "A2E4",
+          "icon": "replaceabletextures/passivebuttons/btnreactivearmor.blp"
+        },
+        {
+          "id": "A2E5",
+          "icon": "replaceabletextures/commandbuttons/btnshredder_chakram.blp"
+        }
+      ]
+    },
+    {
+      "id": "N0MU",
+      "name": "Earth Spirit",
+      "proper_names": [
+        "Kaolin"
+      ],
+      "model": "units/creeps/earthpandarenbrewmaster/earthpandarenbrewmaster.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnearthbrewmaster.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 2.0,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A2TJ",
+          "icon": "replaceabletextures/commandbuttons/btnrollingboulder.blp"
+        },
+        {
+          "id": "A2QI",
+          "icon": "replaceabletextures/commandbuttons/btnscourgebuild.blp"
+        },
+        {
+          "id": "A2UU",
+          "icon": "replaceabletextures/commandbuttons/btnbouldersmash.blp"
+        },
+        {
+          "id": "A0NR",
+          "icon": "replaceabletextures/passivebuttons/pasbtnstatup.blp"
+        },
+        {
+          "id": "A2TI",
+          "icon": "replaceabletextures/commandbuttons/btnmagnetize.blp"
+        }
+      ]
+    },
+    {
+      "id": "Ntin",
+      "name": "Tinker",
+      "proper_names": [
+        "Boush",
+        "X!!"
+      ],
+      "model": "units/creeps/herotinker/herotinker.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnherotinker.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 2.0,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A065",
+          "icon": "replaceabletextures/commandbuttons/btnengineeringupgrade.blp"
+        },
+        {
+          "id": "A049",
+          "icon": "replaceabletextures/commandbuttons/btntinkerlaser.blp"
+        },
+        {
+          "id": "A05E",
+          "icon": "replaceabletextures/commandbuttons/btnclusterrockets.blp"
+        },
+        {
+          "id": "A0BQ",
+          "icon": "replaceabletextures/commandbuttons/btnmarchofthemachines.blp"
+        }
+      ]
+    },
+    {
+      "id": "H00K",
+      "name": "Goblin Techies",
+      "proper_names": [
+        "Squee Spleen and Spoon",
+        "Double Joker"
+      ],
+      "model": "units/creeps/goblinsapper/goblinsapper.mdx",
+      "icon": "replaceabletextures/commandbuttons/btngoblinsapper.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0NR",
+          "icon": "replaceabletextures/passivebuttons/pasbtnstatup.blp"
+        },
+        {
+          "id": "A06H",
+          "icon": "replaceabletextures/commandbuttons/btnstasistrap.blp"
+        },
+        {
+          "id": "A05J",
+          "icon": ""
+        },
+        {
+          "id": "A06B",
+          "icon": "replaceabletextures/commandbuttons/btnselfdestructon.blp"
+        },
+        {
+          "id": "A0AK",
+          "icon": "replaceabletextures/commandbuttons/btnremote.blp"
+        }
+      ]
+    },
+    {
+      "id": "Hmkg",
+      "name": "Ogre Magi",
+      "proper_names": [
+        "Aggron Stonebreaker"
+      ],
+      "model": "units/creeps/ogremagi/ogremagi.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnogremagi.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.4,
+      "selection_scale": 1.2,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A011",
+          "icon": "replaceabletextures/commandbuttons/btnliquidfire.blp"
+        },
+        {
+          "id": "A04W",
+          "icon": "replaceabletextures/commandbuttons/btnfirebolt.blp"
+        },
+        {
+          "id": "A083",
+          "icon": "replaceabletextures/commandbuttons/btnbloodlust.blp"
+        },
+        {
+          "id": "A088",
+          "icon": "replaceabletextures/passivebuttons/btnwitchdoctormaster.blp"
+        }
+      ]
+    },
+    {
+      "id": "E00P",
+      "name": "Twin Head Dragon",
+      "proper_names": [
+        "Jakiro",
+        "Double Dragon"
+      ],
+      "model": "units/nightelf/chimaera/chimaera.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnchimaera.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.0,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0O7",
+          "icon": "replaceabletextures/commandbuttons/btndualbreath.blp"
+        },
+        {
+          "id": "A0O6",
+          "icon": "replaceabletextures/commandbuttons/btnfreezingbreath.blp"
+        },
+        {
+          "id": "A2VO",
+          "icon": "replaceabletextures/commandbuttons/btnautofire.blp"
+        },
+        {
+          "id": "A0O5",
+          "icon": "replaceabletextures/commandbuttons/btnbreathoffirenew.blp"
+        }
+      ]
+    },
+    {
+      "id": "E02X",
+      "name": "Grand Magus",
+      "proper_names": [
+        "Rubick"
+      ],
+      "model": "units/creeps/medivh/medivh.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnmedivh.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.15,
+      "selection_scale": 1.2,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0NR",
+          "icon": "replaceabletextures/passivebuttons/pasbtnstatup.blp"
+        },
+        {
+          "id": "A27F",
+          "icon": "replaceabletextures/commandbuttons/btntelekinesis.blp"
+        },
+        {
+          "id": "A27G",
+          "icon": "replaceabletextures/commandbuttons/btnfadebolt.blp"
+        },
+        {
+          "id": "A27H",
+          "icon": "replaceabletextures/commandbuttons/btnspellsteal2.blp"
+        },
+        {
+          "id": "A27V",
+          "icon": "replaceabletextures/passivebuttons/btnnullfield.blp"
+        }
+      ]
+    },
+    {
+      "id": "H0DO",
+      "name": "Skywrath Mage",
+      "proper_names": [
+        "Dragonus"
+      ],
+      "model": "units/creeps/windserpent/windserpent.mdx",
+      "icon": "replaceabletextures/commandbuttons/btndragonhawk.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.1,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A2BE",
+          "icon": "replaceabletextures/commandbuttons/btnarcanebolt.blp"
+        },
+        {
+          "id": "A2HN",
+          "icon": "replaceabletextures/commandbuttons/btnancientseal.blp"
+        },
+        {
+          "id": "A2BG",
+          "icon": "replaceabletextures/commandbuttons/btnmysticflare.blp"
+        },
+        {
+          "id": "A2IT",
+          "icon": "replaceabletextures/commandbuttons/btnconcussiveshot.blp"
+        }
+      ]
+    },
+    {
+      "id": "N0MD",
+      "name": "Oracle",
+      "proper_names": [
+        "Nerif"
+      ],
+      "model": "units/human/priest/priest_v1.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnpriest.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.25,
+      "selection_scale": 1.85,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A2TF",
+          "icon": "replaceabletextures/commandbuttons/btnfalsepromise.blp"
+        },
+        {
+          "id": "A2QT",
+          "icon": "replaceabletextures/commandbuttons/btnfortunesend.blp"
+        },
+        {
+          "id": "A2T5",
+          "icon": "replaceabletextures/commandbuttons/btnfatesedict.blp"
+        },
+        {
+          "id": "A2SG",
+          "icon": "replaceabletextures/commandbuttons/btnpurifyingflames.blp"
+        }
+      ]
+    },
+    {
+      "id": "U00A",
+      "name": "Chaos Knight",
+      "proper_names": [
+        "Nessaj"
+      ],
+      "model": "units/demon/chaoswarlord/chaoswarlord.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnchaoswarlord.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.05,
+      "selection_scale": 1.85,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A03O",
+          "icon": "replaceabletextures/commandbuttons/btnphantasm.blp"
+        },
+        {
+          "id": "A03N",
+          "icon": "replaceabletextures/passivebuttons/btncriticalstrikeck.blp"
+        },
+        {
+          "id": "A0RW",
+          "icon": "replaceabletextures/commandbuttons/btnrealityrift.blp"
+        },
+        {
+          "id": "A055",
+          "icon": "replaceabletextures/commandbuttons/btnchaosbolt.blp"
+        }
+      ]
+    },
+    {
+      "id": "U008",
+      "name": "Lycanthrope",
+      "proper_names": [
+        "Banehallow"
+      ],
+      "model": "units/demon/kiljaeden/kiljaeden.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnkiljaedin.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.2,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        75,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A03E",
+          "icon": "replaceabletextures/passivebuttons/btnferalheart.blp"
+        },
+        {
+          "id": "A0ZF",
+          "icon": "replaceabletextures/commandbuttons/btnhowlofterror.blp"
+        },
+        {
+          "id": "A093",
+          "icon": "replaceabletextures/commandbuttons/btndirewolf.blp"
+        },
+        {
+          "id": "A03D",
+          "icon": "replaceabletextures/commandbuttons/btnspiritwolf.blp"
+        }
+      ]
+    },
+    {
+      "id": "NC00",
+      "name": "Skeleton King",
+      "proper_names": [
+        "King Leoric"
+      ],
+      "model": "units/undead/skeleton/skeleton.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnskeletonarcher.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.8,
+      "selection_scale": 2.0,
+      "color": [
+        100,
+        125,
+        100
+      ],
+      "abilities": [
+        {
+          "id": "AHtb",
+          "icon": "replaceabletextures/commandbuttons/btnadvancedunholystrength.blp"
+        },
+        {
+          "id": "AOcr",
+          "icon": "replaceabletextures/passivebuttons/btnskeletoncriticalstrike.blp"
+        },
+        {
+          "id": "AUav",
+          "icon": "replaceabletextures/passivebuttons/pasbtnvampiricaura.blp"
+        },
+        {
+          "id": "A01Y",
+          "icon": "replaceabletextures/passivebuttons/btnre.blp"
+        }
+      ]
+    },
+    {
+      "id": "Udea",
+      "name": "Lord of Avernus",
+      "proper_names": [
+        "Abaddon"
+      ],
+      "model": "units/undead/herodeathknight/herodeathknight.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnherodeathknight.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.85,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0NS",
+          "icon": "replaceabletextures/commandbuttons/btnanimatedead.blp"
+        },
+        {
+          "id": "A0MG",
+          "icon": "replaceabletextures/commandbuttons/btniceblade.blp"
+        },
+        {
+          "id": "A0I3",
+          "icon": "replaceabletextures/commandbuttons/btndeathcoil.blp"
+        },
+        {
+          "id": "A0MF",
+          "icon": "replaceabletextures/commandbuttons/btnlightningshield.blp"
+        }
+      ]
+    },
+    {
+      "id": "UC91",
+      "name": "Slithereen Guard",
+      "proper_names": [
+        "Slardar"
+      ],
+      "model": "units/naga/nagaroyalguard/nagaroyalguard.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnnagamyrmidon.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.5,
+      "color": [
+        175,
+        75,
+        200
+      ],
+      "abilities": [
+        {
+          "id": "A05C",
+          "icon": "replaceabletextures/commandbuttons/btnsirenmaster.blp"
+        },
+        {
+          "id": "A29K",
+          "icon": "replaceabletextures/commandbuttons/btnhydrawarstomp.blp"
+        },
+        {
+          "id": "A0JJ",
+          "icon": "replaceabletextures/passivebuttons/btnslardarbash.blp"
+        },
+        {
+          "id": "A034",
+          "icon": "replaceabletextures/commandbuttons/btnamplifydamage.blp"
+        }
+      ]
+    },
+    {
+      "id": "Opgh",
+      "name": "Axe",
+      "proper_names": [
+        "Mogul Kahn",
+        "Mogul Kahnt Touch This"
+      ],
+      "model": "units/demon/chaoshellscream/chaoshellscream.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnchaosgrom.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.0,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0I6",
+          "icon": "replaceabletextures/commandbuttons/btn_berserkercall.blp"
+        },
+        {
+          "id": "A0S1",
+          "icon": "replaceabletextures/commandbuttons/btnincinerate.blp"
+        },
+        {
+          "id": "A0C6",
+          "icon": "replaceabletextures/passivebuttons/btnstaffofsanctuary.blp"
+        },
+        {
+          "id": "A0E2",
+          "icon": "replaceabletextures/commandbuttons/btnorcmeleeupthree.blp"
+        }
+      ]
+    },
+    {
+      "id": "N00R",
+      "name": "Pit Lord",
+      "proper_names": [
+        "Azgalor"
+      ],
+      "model": "units/demon/heropitlord/heropitlord.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnpitlord.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 0.95,
+      "selection_scale": 2.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0RA",
+          "icon": "replaceabletextures/commandbuttons/btngrave.blp"
+        },
+        {
+          "id": "A01I",
+          "icon": "replaceabletextures/commandbuttons/btnfire.blp"
+        },
+        {
+          "id": "A0R0",
+          "icon": "replaceabletextures/commandbuttons/btndarkportal.blp"
+        },
+        {
+          "id": "AIcd",
+          "icon": ""
+        }
+      ]
+    },
+    {
+      "id": "H00R",
+      "name": "Undying",
+      "proper_names": [
+        "Dirge"
+      ],
+      "model": "units/creeps/zombie/zombie.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnzombie.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 2.0,
+      "selection_scale": 2.0,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A15S",
+          "icon": "replaceabletextures/commandbuttons/btndecay.blp"
+        },
+        {
+          "id": "A0R5",
+          "icon": "replaceabletextures/commandbuttons/btnheartstopper.blp"
+        },
+        {
+          "id": "A15V",
+          "icon": "replaceabletextures/commandbuttons/btntombstone.blp"
+        },
+        {
+          "id": "A15J",
+          "icon": "replaceabletextures/commandbuttons/btnfleshgolem.blp"
+        },
+        {
+          "id": "A0NR",
+          "icon": "replaceabletextures/passivebuttons/pasbtnstatup.blp"
+        }
+      ]
+    },
+    {
+      "id": "U00F",
+      "name": "Butcher",
+      "proper_names": [
+        "Pudge"
+      ],
+      "model": "units/undead/abomination/abomination.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnabomination.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.95,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A06I",
+          "icon": "replaceabletextures/commandbuttons/btnimpale.blp"
+        },
+        {
+          "id": "A06D",
+          "icon": "replaceabletextures/commandbuttons/btnexhumecorpses.blp"
+        },
+        {
+          "id": "A0FL",
+          "icon": "replaceabletextures/commandbuttons/btncannibalize.blp"
+        },
+        {
+          "id": "A06K",
+          "icon": "replaceabletextures/commandbuttons/btnplaguecloud.blp"
+        }
+      ]
+    },
+    {
+      "id": "Udre",
+      "name": "Night Stalker",
+      "proper_names": [
+        "Balanar"
+      ],
+      "model": "units/undead/tichondrius/tichondrius.mdx",
+      "icon": "replaceabletextures/commandbuttons/btntichondrius.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 2.0,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A086",
+          "icon": "replaceabletextures/commandbuttons/btnherodreadlord.blp"
+        },
+        {
+          "id": "A08E",
+          "icon": "replaceabletextures/commandbuttons/btnpossession.blp"
+        },
+        {
+          "id": "A03K",
+          "icon": ""
+        },
+        {
+          "id": "A02H",
+          "icon": "replaceabletextures/commandbuttons/btnvoid.blp"
+        }
+      ]
+    },
+    {
+      "id": "U00C",
+      "name": "Lifestealer",
+      "proper_names": [
+        "N'aix",
+        "Gollum"
+      ],
+      "model": "units/undead/ghoul/ghoul.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnghoul.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.5,
+      "selection_scale": 1.25,
+      "color": [
+        100,
+        100,
+        100
+      ],
+      "abilities": [
+        {
+          "id": "A0SW",
+          "icon": "replaceabletextures/commandbuttons/btnorbofcorruption.blp"
+        },
+        {
+          "id": "A0SS",
+          "icon": "passivebuttons/btncannibalize.blp"
+        },
+        {
+          "id": "A2TT",
+          "icon": "replaceabletextures/commandbuttons/btnunholyfrenzy.blp"
+        },
+        {
+          "id": "A194",
+          "icon": "replaceabletextures/commandbuttons/btnghoulfrenzy.blp"
+        }
+      ]
+    },
+    {
+      "id": "UC42",
+      "name": "Doom Bringer",
+      "proper_names": [
+        "Lucifer"
+      ],
+      "model": "units/demon/doomguard/doomguard.mdx",
+      "icon": "replaceabletextures/commandbuttons/btndoomguard.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.1,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0NR",
+          "icon": "replaceabletextures/passivebuttons/pasbtnstatup.blp"
+        },
+        {
+          "id": "A094",
+          "icon": "replaceabletextures/commandbuttons/btnsoulburn.blp"
+        },
+        {
+          "id": "A10R",
+          "icon": "replaceabletextures/commandbuttons/btnreddragondevour.blp"
+        },
+        {
+          "id": "A1OP",
+          "icon": "replaceabletextures/commandbuttons/btnwalloffire.blp"
+        },
+        {
+          "id": "A0MU",
+          "icon": "replaceabletextures/commandbuttons/btndoom.blp"
+        }
+      ]
+    },
+    {
+      "id": "N0HP",
+      "name": "Ancient Apparition",
+      "proper_names": [
+        "Kaldr"
+      ],
+      "model": "war3mapimported/icyghost.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnicyghost.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.2,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A1HS",
+          "icon": "replaceabletextures/commandbuttons/btnicevortex.blp"
+        },
+        {
+          "id": "A1MG",
+          "icon": "replaceabletextures/commandbuttons/btncoldfeet.blp"
+        },
+        {
+          "id": "A1MI",
+          "icon": "replaceabletextures/commandbuttons/btniceblast.blp"
+        },
+        {
+          "id": "A1HQ",
+          "icon": "replaceabletextures/commandbuttons/btnchillingtouch.blp"
+        }
+      ]
+    },
+    {
+      "id": "Ekee",
+      "name": "Tormented Soul",
+      "proper_names": [
+        "Leshrac the Malicious"
+      ],
+      "model": "units/nightelf/herokeeperofthegroveghost/herokeeperofthegroveghost.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnkeeperghostblue.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 2.25,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A20T",
+          "icon": "replaceabletextures/commandbuttons/btnguldanskull.blp"
+        },
+        {
+          "id": "A06W",
+          "icon": "replaceabletextures/commandbuttons/btnearthquake.blp"
+        },
+        {
+          "id": "A06V",
+          "icon": "replaceabletextures/commandbuttons/btnleshlightstorm.blp"
+        },
+        {
+          "id": "A21F",
+          "icon": "replaceabletextures/commandbuttons/pasbtnshadetruesight.blp"
+        }
+      ]
+    },
+    {
+      "id": "UC60",
+      "name": "Necro'lic",
+      "proper_names": [
+        "Visage"
+      ],
+      "model": "units/orc/spiritwyvern/spiritwyvern.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnspiritwyvern.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.25,
+      "color": [
+        150,
+        150,
+        150
+      ],
+      "abilities": [
+        {
+          "id": "A0NR",
+          "icon": "replaceabletextures/passivebuttons/pasbtnstatup.blp"
+        },
+        {
+          "id": "A08X",
+          "icon": "replaceabletextures/commandbuttons/btnabsorbmagic.blp"
+        },
+        {
+          "id": "A1NE",
+          "icon": "replaceabletextures/commandbuttons/btngargoyle.blp"
+        },
+        {
+          "id": "A0VX",
+          "icon": ""
+        },
+        {
+          "id": "A1NA",
+          "icon": "replaceabletextures/commandbuttons/btnsoulassumption.blp"
+        }
+      ]
+    },
+    {
+      "id": "E01A",
+      "name": "Witch Doctor",
+      "proper_names": [
+        "Vol'Jin",
+        "Moose"
+      ],
+      "model": "units/orc/witchdoctor/witchdoctor.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnwitchdoctor.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.25,
+      "selection_scale": 1.25,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A0NO",
+          "icon": "replaceabletextures/commandbuttons/btnshadowpact.blp"
+        },
+        {
+          "id": "A0NM",
+          "icon": "replaceabletextures/commandbuttons/btnacidbomb.blp"
+        },
+        {
+          "id": "A0NT",
+          "icon": "replaceabletextures/commandbuttons/btndeathward.blp"
+        },
+        {
+          "id": "A0NE",
+          "icon": "replaceabletextures/commandbuttons/btnbigbadvoodoospell.blp"
+        }
+      ]
+    },
+    {
+      "id": "N01W",
+      "name": "Shadow Priest",
+      "proper_names": [
+        "Dazzle"
+      ],
+      "model": "units/creeps/darktrollshadowpriest/darktrollshadowpriest.mdx",
+      "icon": "replaceabletextures/commandbuttons/btndarktrollshadowpriest.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.2,
+      "selection_scale": 1.0,
+      "color": [
+        190,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A10L",
+          "icon": "replaceabletextures/commandbuttons/btnankh.blp"
+        },
+        {
+          "id": "A0OR",
+          "icon": "replaceabletextures/commandbuttons/btnshadowwave.blp"
+        },
+        {
+          "id": "A10Q",
+          "icon": "replaceabletextures/commandbuttons/btnspell_shadow_shadowward.blp"
+        },
+        {
+          "id": "A2X6",
+          "icon": "replaceabletextures/commandbuttons/btninv_wand_12.blp"
+        }
+      ]
+    },
+    {
+      "id": "H00U",
+      "name": "Invoker",
+      "proper_names": [
+        "Kael",
+        "Carl",
+        "Kal-El"
+      ],
+      "model": "units/human/herobloodelf/herobloodelf.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnherobloodelfprince.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.25,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A21Y",
+          "icon": "replaceabletextures/commandbuttons/btnsorceressmaster.blp"
+        },
+        {
+          "id": "A21X",
+          "icon": "replaceabletextures/commandbuttons/btnorboflightning.blp"
+        },
+        {
+          "id": "A21W",
+          "icon": "replaceabletextures/commandbuttons/btnorboffrost.blp"
+        },
+        {
+          "id": "A21V",
+          "icon": "replaceabletextures/commandbuttons/btnorboffire.blp"
+        }
+      ]
+    },
+    {
+      "id": "O016",
+      "name": "Batrider",
+      "proper_names": [
+        "Jin'zakk"
+      ],
+      "model": "units/orc/battroll/battroll.mdx",
+      "icon": "replaceabletextures/commandbuttons/btntrollbatrider.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.2,
+      "selection_scale": 1.75,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A1EL",
+          "icon": "replaceabletextures/commandbuttons/btnlocustswarm.blp"
+        },
+        {
+          "id": "A19V",
+          "icon": "replaceabletextures/commandbuttons/btnflamebreak.blp"
+        },
+        {
+          "id": "A19Z",
+          "icon": "replaceabletextures/commandbuttons/btnfirefly.blp"
+        },
+        {
+          "id": "A19O",
+          "icon": "replaceabletextures/commandbuttons/btnmagiclariet.blp"
+        },
+        {
+          "id": "A0NR",
+          "icon": "replaceabletextures/passivebuttons/pasbtnstatup.blp"
+        }
+      ]
+    },
+    {
+      "id": "N0M7",
+      "name": "Winter Wyvern",
+      "proper_names": [
+        "Auroth"
+      ],
+      "model": "units/undead/frostwyrm/frostwyrm.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnfrostwyrm.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 0.9,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A2LA",
+          "icon": "replaceabletextures/commandbuttons/btnsplinterblast.blp"
+        },
+        {
+          "id": "A2LB",
+          "icon": "replaceabletextures/commandbuttons/btncoldembrace.blp"
+        },
+        {
+          "id": "A0Z0",
+          "icon": "replaceabletextures/commandbuttons/btnwinterscurse.blp"
+        },
+        {
+          "id": "A2NE",
+          "icon": "replaceabletextures/commandbuttons/btnarcticsiege.blp"
+        }
+      ]
+    },
+    {
+      "id": "H071",
+      "name": "Murloc Nightcrawler",
+      "proper_names": [
+        "Slark"
+      ],
+      "model": "units/creeps/murlocnightcrawler/murlocnightcrawler.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnmurgulshadowcaster.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.25,
+      "selection_scale": 1.1,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A1IM",
+          "icon": "replaceabletextures/commandbuttons/btnorbofdarkness.blp"
+        },
+        {
+          "id": "A1HR",
+          "icon": "replaceabletextures/passivebuttons/pasbtnscatterrockets.blp"
+        },
+        {
+          "id": "A1IN",
+          "icon": "replaceabletextures/commandbuttons/btnshadowdance.blp"
+        },
+        {
+          "id": "A1J7",
+          "icon": "replaceabletextures/commandbuttons/btnquillspray.blp"
+        }
+      ]
+    },
+    {
+      "id": "H00V",
+      "name": "Gorgon",
+      "proper_names": [
+        "Medusa"
+      ],
+      "model": "units/naga/ladyvashj/ladyvashj.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnnagaseawitch.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A1AT",
+          "icon": "replaceabletextures/commandbuttons/btnstonegazenew.blp"
+        },
+        {
+          "id": "A0G2",
+          "icon": "replaceabletextures/commandbuttons/btnmysticsnakenew.blp"
+        },
+        {
+          "id": "A0MP",
+          "icon": "replaceabletextures/commandbuttons/btnneutralmanashield.blp"
+        },
+        {
+          "id": "A1C0",
+          "icon": "replaceabletextures/commandbuttons/btnsplitshot.blp"
+        }
+      ]
+    },
+    {
+      "id": "EC45",
+      "name": "Faceless Void",
+      "proper_names": [
+        "Gorzerk",
+        "Darkterror"
+      ],
+      "model": "units/creeps/facelessone/facelessone.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnfacelessone.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.3,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        150
+      ],
+      "abilities": [
+        {
+          "id": "A081",
+          "icon": "replaceabletextures/passivebuttons/btntimelock.blp"
+        },
+        {
+          "id": "A0CZ",
+          "icon": "replaceabletextures/passivebuttons/btnbacktrack.blp"
+        },
+        {
+          "id": "A0LK",
+          "icon": "replaceabletextures/commandbuttons/btntimewalk.blp"
+        },
+        {
+          "id": "A0J1",
+          "icon": "replaceabletextures/commandbuttons/btnchronosphere.blp"
+        }
+      ]
+    },
+    {
+      "id": "E002",
+      "name": "Lightning Revenant",
+      "proper_names": [
+        "Razor",
+        "Gillette"
+      ],
+      "model": "units/creeps/revenant/revenant.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnrevenant.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.2,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A1E7",
+          "icon": "replaceabletextures/commandbuttons/btnplasmafield.blp"
+        },
+        {
+          "id": "A1DP",
+          "icon": "replaceabletextures/commandbuttons/btnrazorchain.blp"
+        },
+        {
+          "id": "A1E6",
+          "icon": "replaceabletextures/passivebuttons/btnunstablecurrent.blp"
+        },
+        {
+          "id": "A1AO",
+          "icon": "replaceabletextures/commandbuttons/btnmonsoon.blp"
+        }
+      ]
+    },
+    {
+      "id": "N0MK",
+      "name": "Arc Warden",
+      "proper_names": [
+        "Zet"
+      ],
+      "model": "units/creeps/gnollwarden/gnollwarden.mdx",
+      "icon": "replaceabletextures/commandbuttons/btngnollwarden.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.1,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A2LL",
+          "icon": "replaceabletextures/commandbuttons/btnsparkwraith.blp"
+        },
+        {
+          "id": "A2LM",
+          "icon": "replaceabletextures/commandbuttons/btnmagneticfield.blp"
+        },
+        {
+          "id": "A2M0",
+          "icon": "replaceabletextures/commandbuttons/btntempestdouble.blp"
+        },
+        {
+          "id": "A2M1",
+          "icon": "replaceabletextures/commandbuttons/btnpurge.blp"
+        }
+      ]
+    },
+    {
+      "id": "UC11",
+      "name": "Magnataur",
+      "proper_names": [
+        "Magnus"
+      ],
+      "model": "units/creeps/magnataurblue/magnataurblue.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnbluemagnataur.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.25,
+      "color": [
+        150,
+        150,
+        100
+      ],
+      "abilities": [
+        {
+          "id": "A02S",
+          "icon": "replaceabletextures/commandbuttons/btnshockwave.blp"
+        },
+        {
+          "id": "A037",
+          "icon": "replaceabletextures/commandbuttons/btnempower.blp"
+        },
+        {
+          "id": "A1RD",
+          "icon": "replaceabletextures/commandbuttons/btnskewer.blp"
+        },
+        {
+          "id": "A29L",
+          "icon": "replaceabletextures/commandbuttons/btnreversepolarity.blp"
+        }
+      ]
+    },
+    {
+      "id": "O00J",
+      "name": "Spiritbreaker",
+      "proper_names": [
+        "Barathrum",
+        "Roadrunner"
+      ],
+      "model": "units/orc/spiritwalker/spiritwalker.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnspiritwalker.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.2,
+      "selection_scale": 1.5,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A1P8",
+          "icon": "replaceabletextures/commandbuttons/btnspell_shadow_gathershadows.blp"
+        },
+        {
+          "id": "A0G4",
+          "icon": "replaceabletextures/commandbuttons/btnnetherstrike.blp"
+        },
+        {
+          "id": "A0G5",
+          "icon": "replaceabletextures/passivebuttons/btngreaterbash.blp"
+        },
+        {
+          "id": "A30F",
+          "icon": "replaceabletextures/commandbuttons/btnetherealformon.blp"
+        }
+      ]
+    },
+    {
+      "id": "Ofar",
+      "name": "Tidehunter",
+      "proper_names": [
+        "Leviathan"
+      ],
+      "model": "units/creeps/seagiantgreen/seagiantgreen.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnseagiantgreen.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 2.0,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A29I",
+          "icon": "replaceabletextures/commandbuttons/btnseagiantwarstomp.blp"
+        },
+        {
+          "id": "A226",
+          "icon": "replaceabletextures/commandbuttons/btnanchorsmash.blp"
+        },
+        {
+          "id": "A046",
+          "icon": "replaceabletextures/commandbuttons/btnsummonwaterelemental.blp"
+        },
+        {
+          "id": "A04E",
+          "icon": "replaceabletextures/commandbuttons/btnnagaarmorup3.blp"
+        }
+      ]
+    },
+    {
+      "id": "U00K",
+      "name": "Sand King",
+      "proper_names": [
+        "Crixalis"
+      ],
+      "model": "units/creeps/archnathidgreen/archnathidgreen.mdx",
+      "icon": "replaceabletextures/commandbuttons/btnarachnathidgreen.blp",
+      "animation_tags": [
+        ""
+      ],
+      "model_scale": 1.0,
+      "selection_scale": 1.85,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "abilities": [
+        {
+          "id": "A06R",
+          "icon": "replaceabletextures/commandbuttons/btnearthquake.blp"
+        },
+        {
+          "id": "A0H0",
+          "icon": "replaceabletextures/commandbuttons/btnsandstorm.blp"
+        },
+        {
+          "id": "A06O",
+          "icon": "replaceabletextures/commandbuttons/btnimpale.blp"
+        },
+        {
+          "id": "A0FA",
+          "icon": "replaceabletextures/passivebuttons/pasbtnpoisonsting.blp"
+        }
+      ]
+    }
+  ]
+}

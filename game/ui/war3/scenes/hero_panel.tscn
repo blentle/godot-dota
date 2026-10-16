@@ -1,0 +1,277 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Texture2D" path="res://ui/war3/assets/panel.png" id="1"]
+[ext_resource type="LabelSettings" path="res://ui/war3/assets/text_yellow.tres" id="2"]
+[ext_resource type="Texture2D" path="res://ui/war3/assets/BTN_test.png" id="3"]
+[ext_resource type="Texture2D" path="res://ui/war3/assets/frame.png" id="4"]
+[ext_resource type="PackedScene" path="res://ui/war3/scenes/health_bar.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://ui/war3/scenes/mana_bar.tscn" id="6"]
+[ext_resource type="PackedScene" path="res://ui/war3/scenes/attributes.tscn" id="7"]
+[ext_resource type="PackedScene" path="res://ui/war3/scenes/experience_bar.tscn" id="8"]
+[ext_resource type="PackedScene" path="res://ui/war3/scenes/icon_button.tscn" id="9"]
+
+[node name="HeroPanel" type="Control"]
+layout_mode = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 196.0
+offset_top = 552.0
+offset_right = 1024.0
+offset_bottom = 768.0
+mouse_filter = 2
+texture_filter = 1
+texture_repeat = 1
+
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 828.0
+offset_bottom = 216.0
+mouse_filter = 2
+texture_filter = 1
+texture_repeat = 1
+texture = ExtResource("1")
+expand_mode = 1
+stretch_mode = 0
+
+
+[node name="HeroName" type="Label" parent="."]
+layout_mode = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 16.0
+offset_top = 4.0
+offset_right = 546.0
+offset_bottom = 24.0
+mouse_filter = 2
+text = "英雄名称"
+label_settings = ExtResource("2")
+clip_text = true
+
+
+[node name="Portrait" type="TextureRect" parent="."]
+layout_mode = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 20.0
+offset_top = 32.0
+offset_right = 140.0
+offset_bottom = 152.0
+mouse_filter = 2
+texture_filter = 1
+texture_repeat = 1
+texture = ExtResource("3")
+expand_mode = 1
+stretch_mode = 0
+
+
+[node name="PortraitFrame" type="TextureRect" parent="."]
+layout_mode = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 16.0
+offset_top = 28.0
+offset_right = 144.0
+offset_bottom = 156.0
+mouse_filter = 2
+texture_filter = 1
+texture_repeat = 1
+texture = ExtResource("4")
+expand_mode = 1
+stretch_mode = 0
+
+
+[node name="Health" parent="." instance=ExtResource("5")]
+layout_mode = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 156.0
+offset_top = 28.0
+offset_right = 412.0
+offset_bottom = 44.0
+mouse_filter = 2
+
+
+[node name="Mana" parent="." instance=ExtResource("6")]
+layout_mode = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 156.0
+offset_top = 50.0
+offset_right = 412.0
+offset_bottom = 66.0
+mouse_filter = 2
+
+
+[node name="Attributes" parent="." instance=ExtResource("7")]
+layout_mode = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 156.0
+offset_top = 82.0
+offset_right = 412.0
+offset_bottom = 114.0
+mouse_filter = 2
+
+
+[node name="Experience" parent="." instance=ExtResource("8")]
+layout_mode = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 16.0
+offset_top = 196.0
+offset_right = 812.0
+offset_bottom = 204.0
+mouse_filter = 2
+
+
+[node name="Skill0" parent="." instance=ExtResource("9")]
+layout_mode = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 568.0
+offset_top = 20.0
+offset_right = 616.0
+offset_bottom = 68.0
+mouse_filter = 0
+
+
+[node name="Skill1" parent="." instance=ExtResource("9")]
+layout_mode = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 628.0
+offset_top = 20.0
+offset_right = 676.0
+offset_bottom = 68.0
+mouse_filter = 0
+
+
+[node name="Skill2" parent="." instance=ExtResource("9")]
+layout_mode = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 688.0
+offset_top = 20.0
+offset_right = 736.0
+offset_bottom = 68.0
+mouse_filter = 0
+
+
+[node name="Skill3" parent="." instance=ExtResource("9")]
+layout_mode = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 748.0
+offset_top = 20.0
+offset_right = 796.0
+offset_bottom = 68.0
+mouse_filter = 0
+
+
+[node name="Item0" parent="." instance=ExtResource("9")]
+layout_mode = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 568.0
+offset_top = 80.0
+offset_right = 616.0
+offset_bottom = 128.0
+mouse_filter = 0
+
+
+[node name="Item1" parent="." instance=ExtResource("9")]
+layout_mode = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 628.0
+offset_top = 80.0
+offset_right = 676.0
+offset_bottom = 128.0
+mouse_filter = 0
+
+
+[node name="Item2" parent="." instance=ExtResource("9")]
+layout_mode = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 688.0
+offset_top = 80.0
+offset_right = 736.0
+offset_bottom = 128.0
+mouse_filter = 0
+
+
+[node name="Item3" parent="." instance=ExtResource("9")]
+layout_mode = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 568.0
+offset_top = 140.0
+offset_right = 616.0
+offset_bottom = 188.0
+mouse_filter = 0
+
+
+[node name="Item4" parent="." instance=ExtResource("9")]
+layout_mode = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 628.0
+offset_top = 140.0
+offset_right = 676.0
+offset_bottom = 188.0
+mouse_filter = 0
+
+
+[node name="Item5" parent="." instance=ExtResource("9")]
+layout_mode = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 688.0
+offset_top = 140.0
+offset_right = 736.0
+offset_bottom = 188.0
+mouse_filter = 0

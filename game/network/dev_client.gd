@@ -5,6 +5,7 @@ signal received(message: Dictionary)
 var peer := ENetMultiplayerPeer.new()
 var latest: Dictionary = {}
 var started := false
+var departed := false
 
 func start(port: int) -> Error:
 	var error := peer.create_client("127.0.0.1", port)
@@ -13,17 +14,23 @@ func start(port: int) -> Error:
 
 func poll() -> void:
 	if not started: return
+	if peer.get_connection_status() == MultiplayerPeer.CONNECTION_DISCONNECTED:
+		started = false
+		return
 	peer.poll()
-	while peer.get_available_packet_count() > 0:
+	if peer.get_connection_status() == MultiplayerPeer.CONNECTION_DISCONNECTED:
+		started = false
+		return
+	while started and peer.get_available_packet_count() > 0:
 		var sender := peer.get_packet_peer()
 		var packet := peer.get_packet()
-		if sender != 1 or packet.size() > 262144: continue
-		var parser := JSON.new()
-		if parser.parse(packet.get_string_from_utf8()) != OK or not parser.data is Dictionary: continue
-		var message: Dictionary = parser.data
+		if sender != 1: continue
+		var message := preload("res://network/packet_codec.gd").decode(packet)
+		if message.is_empty(): continue
 		if message.get("type") == "snapshot":
 			if message.get("tick", -1) <= latest.get("tick", -1): continue
 			latest = message.duplicate(true)
+		if message.get("type") == "left": departed = true
 		received.emit(message)
 
 func send(message: Dictionary) -> Error:
@@ -36,3 +43,19 @@ func close() -> void:
 	if started: peer.close()
 	started = false
 	latest = {}
+
+func leave() -> void:
+	departed = false
+	if send({"type": "leave", "match": preload("res://network/dev_protocol.gd").MATCH_ID}) == OK:
+		var deadline := Time.get_ticks_msec() + 1500
+		while not departed and Time.get_ticks_msec() < deadline:
+			poll()
+			await Engine.get_main_loop().process_frame
+	if departed and started and peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED:
+		# 应用确认之后完成 ENet 断开握手，避免直接销毁仍有可靠数据的连接。
+		peer.disconnect_peer(1)
+		var deadline := Time.get_ticks_msec() + 1500
+		while started and Time.get_ticks_msec() < deadline:
+			poll()
+			await Engine.get_main_loop().process_frame
+	close()

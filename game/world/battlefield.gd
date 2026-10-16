@@ -10,8 +10,10 @@ const UnitView = preload("res://presentation/unit_view.gd")
 const Geometry = preload("res://presentation/mesh_factory.gd")
 const InputAdapter = preload("res://input/battle_input.gd")
 const Hud = preload("res://ui/classic_hud.gd")
+@export var classic_art := false
 var simulation: RefCounted = Simulation.new()
 var remote := false
+var shared_network := false
 var camera_rig := CameraRig.new()
 var hero := UnitView.new()
 var enemy := UnitView.new()
@@ -44,6 +46,11 @@ func _ready() -> void:
 	army = preload("res://presentation/army_view.gd").new()
 	add_child(army)
 	army.buildings = terrain.building_views
+	if classic_art:
+		hero.visual_resource = "res://art/classic/units/human/heromountainking/heromountainking.json"
+		hero.visual_tags = ["alternate"]
+		hero.visual_scale = 1.3
+		enemy.visual_resource = "res://art/classic/units/human/jaina/jaina.json"
 	add_child(hero)
 	hero.build(Color(preload("res://simulation/hero_profiles.gd").PROFILES[simulation.combat.player.profile_id].color))
 	add_child(enemy)
@@ -151,17 +158,19 @@ func command(action: String) -> void:
 		"quit": get_tree().quit()
 
 func _on_combat_event(event: Dictionary) -> void:
+	var local_id: String = simulation.combat.player.id
 	if army != null:
 		army.react(event)
-		if event.type in ["damage", "swing", "death", "respawn"] and (event.target if event.type == "damage" else event.actor) not in ["player", "enemy"]:
+		if event.type in ["damage", "swing", "death", "respawn"] and (event.target if event.type == "damage" else event.actor) not in [local_id, "enemy"]:
 			return
 	if event.type == "damage":
-		var view := hero if event.target == "player" else enemy
+		var view := hero if event.target == local_id else enemy
 		view.react(event)
 	elif event.type == "swing":
-		var view := hero if event.actor == "player" else enemy
+		var view := hero if event.actor == local_id else enemy
 		view.react(event)
 	elif event.type in ["spell", "area", "summon"]:
+		if classic_art: hero.react(event)
 		effect_scale = 0.3 if event.type == "summon" else 1.0
 		spell_remaining = 0.45
 		spell_ring.position = event.position + Vector3(0, 0.16, 0)
