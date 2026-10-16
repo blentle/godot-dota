@@ -5,6 +5,7 @@ const BTN = preload("res://ui/war3/assets/BTN_test.png")
 const AHK = preload("res://ui/war3/assets/AHK_test.png")
 const DIS = preload("res://ui/war3/assets/DISBTN_test.png")
 const Catalog = preload("res://simulation/item_catalog.gd")
+const Training = preload("res://simulation/skill_training.gd")
 const Profiles = preload("res://simulation/hero_profiles.gd")
 
 func read(world: RefCounted, selected: bool, paused: bool) -> Dictionary:
@@ -17,11 +18,11 @@ func read(world: RefCounted, selected: bool, paused: bool) -> Dictionary:
 	if target != null:
 		strike_blocked = not combat.chain.validate({"actor": actor, "target": target,
 			"range": 5.0 + target.radius, "mana_cost": 60.0, "cooldown": actor.skill_cooldown}).is_empty()
-	skills.append(_icon("训练震击 Q", "开发技能，非原版技能。消耗 60 魔法。", actor.skill_cooldown,
+	skills.append(_icon("训练震击 Q", _description(actor, "strike"), actor.skill_cooldown,
 		blocked or strike_blocked or actor.mana < 60))
-	skills.append(_icon("训练冲击 W", "开发范围技能，消耗 70 魔法。", actor.area_cooldown,
+	skills.append(_icon("训练冲击 W", _description(actor, "area"), actor.area_cooldown,
 		blocked or not world.skills.reason("area").is_empty()))
-	skills.append(_icon("训练召唤 E", "开发召唤技能，消耗 80 魔法。", actor.summon_cooldown,
+	skills.append(_icon("训练召唤 E", _description(actor, "summon"), actor.summon_cooldown,
 		blocked or not world.skills.reason("summon").is_empty()))
 	skills.append(_icon("未实现", "当前训练角色没有第四技能。", 0, true))
 	var items: Array = []
@@ -41,3 +42,12 @@ func read(world: RefCounted, selected: bool, paused: bool) -> Dictionary:
 func _icon(title: String, description: String, cooldown: float, disabled: bool) -> Dictionary:
 	return {"btn": BTN, "ahk": AHK, "disbtn": DIS, "title": title,
 		"description": description, "cooldown": cooldown, "disabled": disabled}
+
+func _description(actor: RefCounted, kind: String) -> String:
+	var bonus := Training.bonus(actor, kind)
+	var details := ""
+	match kind:
+		"strike": details = "伤害 %d；魔法 60；冷却 6 秒；眩晕 1.5 秒。" % (80 + 30 * bonus)
+		"area": details = "伤害 %d；半径 5；魔法 70；冷却 8 秒。" % (70 + 25 * bonus)
+		"summon": details = "新守卫生命 %d，攻击 %d。\n魔法 80；冷却 20 秒；持续 15 秒。" % [180 + 60 * bonus, 20 + 8 * bonus]
+	return "训练技能 %d/4 级\n%s\n开发数值，非原版英雄技能。" % [bonus + 1, details]

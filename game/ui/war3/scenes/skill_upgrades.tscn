@@ -1,0 +1,124 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://ui/war3/scripts/skill_upgrades.gd" id="script"]
+[ext_resource type="PackedScene" path="res://ui/war3/scenes/upgrade_action.tscn" id="button"]
+[ext_resource type="LabelSettings" path="res://ui/war3/assets/text_yellow.tres" id="yellow"]
+[ext_resource type="LabelSettings" path="res://ui/war3/assets/text_white.tres" id="white"]
+
+[node name="SkillUpgrades" type="Control"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 620.0
+offset_top = 574.0
+offset_right = 748.0
+offset_bottom = 686.0
+mouse_filter = 2
+texture_filter = 1
+texture_repeat = 1
+script = ExtResource("script")
+
+[node name="Points" type="Label" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 128.0
+offset_bottom = 20.0
+mouse_filter = 2
+label_settings = ExtResource("yellow")
+text = "技能点：0"
+
+[node name="Upgrade0" parent="." instance=ExtResource("button")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 24.0
+offset_right = 36.0
+offset_bottom = 60.0
+mouse_filter = 0
+
+
+[node name="Rank0" type="Label" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 64.0
+offset_right = 36.0
+offset_bottom = 84.0
+mouse_filter = 2
+label_settings = ExtResource("white")
+text = "Q1/4"
+horizontal_alignment = 1
+
+[node name="Upgrade1" parent="." instance=ExtResource("button")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 44.0
+offset_top = 24.0
+offset_right = 80.0
+offset_bottom = 60.0
+mouse_filter = 0
+
+
+[node name="Rank1" type="Label" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 44.0
+offset_top = 64.0
+offset_right = 80.0
+offset_bottom = 84.0
+mouse_filter = 2
+label_settings = ExtResource("white")
+text = "W1/4"
+horizontal_alignment = 1
+
+[node name="Upgrade2" parent="." instance=ExtResource("button")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 88.0
+offset_top = 24.0
+offset_right = 124.0
+offset_bottom = 60.0
+mouse_filter = 0
+
+
+[node name="Rank2" type="Label" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 88.0
+offset_top = 64.0
+offset_right = 124.0
+offset_bottom = 84.0
+mouse_filter = 2
+label_settings = ExtResource("white")
+text = "E1/4"
+horizontal_alignment = 1
+
+[node name="Feedback" type="Label" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 86.0
+offset_right = 128.0
+offset_bottom = 106.0
+mouse_filter = 2
+label_settings = ExtResource("yellow")
+clip_text = true

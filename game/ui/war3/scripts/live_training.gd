@@ -6,6 +6,7 @@ var adapter := Snapshot.new()
 @onready var battle: Node3D = $Battle
 @onready var hud: Control = $Interface/HUD
 @onready var shop: Control = $Interface/Shop
+@onready var upgrades: Control = $Interface/SkillUpgrades
 
 func _ready() -> void:
 	get_window().content_scale_size = Vector2i(1024, 768)
@@ -18,6 +19,9 @@ func _ready() -> void:
 	# 旧界面只保留命令兼容对象，不显示旧面板或接收键盘事件。
 	battle.hud.hide()
 	battle.set_process_input(false)
+	upgrades.bind(battle, hud.get_node("Tooltip"))
+	upgrades.state_changed.connect(_refresh)
+	upgrades.result_reported.connect(func(message: String): $Interface/Notice.text = "训练技能：" + message)
 	shop.battle = battle
 	shop.state_changed.connect(_refresh)
 	$Interface/ShopToggle.get_node("Text").text = "商店 B"
@@ -36,6 +40,8 @@ func _process(_delta: float) -> void:
 func _refresh() -> void:
 	hud.apply_state(adapter.read(battle.simulation, battle.selected, battle.paused or shop.visible))
 	shop.sync_state()
+	upgrades.blocked = shop.visible
+	upgrades.sync_state()
 	var minimap: Control = hud.get_node("Minimap/MapTexture")
 	minimap.input_blocked = shop.visible
 	if shop.visible: minimap.dragging = false

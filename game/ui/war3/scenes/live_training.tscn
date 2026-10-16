@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://ui/war3/scripts/live_training.gd" id="1"]
 [ext_resource type="Script" path="res://world/battlefield.gd" id="2"]
@@ -7,6 +7,8 @@
 
 [ext_resource type="PackedScene" path="res://ui/war3/scenes/shop.tscn" id="5"]
 [ext_resource type="PackedScene" path="res://ui/war3/scenes/text_action.tscn" id="6"]
+
+[ext_resource type="PackedScene" path="res://ui/war3/scenes/skill_upgrades.tscn" id="7"]
 
 [node name="LiveTraining" type="Control"]
 anchor_left = 0.0
@@ -40,6 +42,16 @@ offset_bottom = 544.0
 mouse_filter = 2
 text = "真实训练 · 占位美术 · Q/W/E 施法 · Esc 暂停 · B 商店 · 小地图已接入"
 label_settings = ExtResource("4")
+
+[node name="SkillUpgrades" parent="Interface" instance=ExtResource("7")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 620.0
+offset_top = 574.0
+offset_right = 748.0
+offset_bottom = 686.0
 
 [node name="ShopToggle" parent="Interface" instance=ExtResource("6")]
 anchor_left = 0.0
