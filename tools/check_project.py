@@ -32,6 +32,7 @@ def main() -> int:
     try:
         execute("源码行数", [sys.executable, "tools/check_source_limits.py"])
         execute("Python 工具测试", [sys.executable, "-m", "unittest", "discover", "-s", "tests", "-v"])
+        execute("经典 HUD 资源", [sys.executable, "tools/check_war3_hud_assets.py"])
         execute("开发内容清单", [sys.executable, "tools/validate_content.py"])
         for test in sorted((ROOT / "game/tests").glob("test_*.gd")):
             execute(test.name, base + ["--script", "res://tests/" + test.name])
