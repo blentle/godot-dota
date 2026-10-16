@@ -25,6 +25,8 @@ func run() -> void:
 	world.progression.grant(100)
 	scene._refresh()
 	check(actor.level == 2 and upgrades.get_node("Points").text == "技能点：1", "英雄成长应同步点数")
+	await click(scene.hud.get_node("HeroPanel/Learn"))
+	check(upgrades.visible, "原版命令卡技能加点入口必须打开学习菜单")
 	actor.area_cooldown = 4
 	var mana: float = actor.mana
 	var gold: int = world.combat.gold
@@ -35,6 +37,8 @@ func run() -> void:
 	check(scene.hud.get_node("HeroPanel/Skill1").description.contains("伤害 95"), "升级后施法提示必须反映实际伤害")
 	await click(area)
 	check(actor.skill_levels.area == 2 and actor.skill_points == 0, "重复点击不能升级或出现负点数")
+	await click(upgrades.get_node("Cancel"))
+	check(not upgrades.visible, "取消应返回普通命令卡")
 	actor.area_cooldown = 0
 	world.combat.enemy.position = actor.position + Vector3(1, 0, 0)
 	var health: float = world.combat.enemy.hp
@@ -44,6 +48,7 @@ func run() -> void:
 	world.progression.grant(200)
 	scene._refresh()
 	check(actor.level == 3 and actor.skill_points == 1, "三级应保留一个可用点")
+	await click(scene.hud.get_node("HeroPanel/Learn"))
 	check(area.description.contains("需要英雄 4 级"), "等级不足必须显示准确门槛")
 	await click(area)
 	upgrades._upgrade("area")
@@ -71,6 +76,7 @@ func run() -> void:
 	check(actor.skill_points == 1 and actor.skill_levels.strike == 1, "商店打开时不能升级")
 	scene.shop.close()
 	scene._refresh()
+	await click(scene.hud.get_node("HeroPanel/Learn"))
 	var strike: Control = upgrades.get_node("Upgrade0")
 	await click(strike)
 	check(actor.skill_levels.strike == 2 and actor.skill_points == 0, "恢复可用状态后允许正常升级")

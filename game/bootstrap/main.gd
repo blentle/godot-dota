@@ -1,5 +1,5 @@
 extends Node
-## 共用入口：校验模式只检查清单，默认打开训练角色选择界面。
+## 共用入口：校验模式只检查清单，默认打开当前经典美术训练场。
 
 const MANIFEST_PATH := "res://content/6.83d/manifest.json"
 
@@ -26,8 +26,13 @@ func _ready() -> void:
 	elif role == "server":
 		push_error("正式专用服务器尚未实现。")
 		get_tree().quit(2)
-	elif "--war3-training" in OS.get_cmdline_user_args():
-		add_child(preload("res://ui/war3/scenes/live_training.tscn").instantiate())
+	elif OS.get_cmdline_user_args().is_empty() or "--war3-training" in OS.get_cmdline_user_args() or "--classic-gallery" in OS.get_cmdline_user_args():
+		var training := preload("res://ui/war3/scenes/live_training.tscn").instantiate()
+		add_child(training)
+		if "--classic-gallery" in OS.get_cmdline_user_args():
+			var gallery := preload("res://presentation/classic/gallery.gd").new()
+			training.add_child(gallery)
+			gallery.bind(training)
 	elif "--war3-hud" in OS.get_cmdline_user_args():
 		add_child(preload("res://ui/war3/scenes/preview.tscn").instantiate())
 	else:

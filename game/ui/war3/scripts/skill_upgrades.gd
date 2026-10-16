@@ -3,6 +3,7 @@ extends Control
 
 signal state_changed
 signal result_reported(message: String)
+const Art = preload("res://ui/war3/scripts/classic_art.gd")
 const Training = preload("res://simulation/skill_training.gd")
 const Icons = preload("res://ui/war3/scripts/training_snapshot.gd")
 const HOTKEYS := ["Q", "W", "E"]
@@ -11,6 +12,14 @@ var battle: Node3D
 var blocked := false
 
 func _ready() -> void:
+	if has_node("Clear"):
+		$Clear.texture = Art.texture("black.png")
+		var grid := AtlasTexture.new()
+		grid.atlas = Art.texture("console-nightelf.png")
+		grid.region = Rect2(790, 596, 218, 164)
+		$Grid.texture = grid
+		$Cancel.set_icon(Art.icon("btncancel"), Art.highlight(), Art.icon("btncancel", true), "返回", "返回普通命令卡")
+		$Cancel.activated.connect(hide)
 	for index in range(3):
 		get_node("Upgrade%d" % index).activated.connect(_upgrade.bind(Training.KINDS[index]))
 
@@ -38,7 +47,8 @@ func sync_state() -> void:
 		var reason := _reason(kind)
 		var button: Control = get_node("Upgrade%d" % index)
 		get_node("Rank%d" % index).text = "%s%d/%d" % [HOTKEYS[index], rank, Training.MAX_RANK]
-		button.set_icon(Icons.BTN, Icons.AHK, Icons.DIS, "升级训练" + NAMES[kind],
+		var icon_name: String = ["btnstormbolt", "btnthunderclap", "btnsummonwaterelemental"][index]
+		button.set_icon(Art.icon(icon_name), Art.highlight(), Art.icon(icon_name, true), "升级训练" + NAMES[kind],
 			"当前 %d/%d 级。\n%s\n升级不回魔、不刷新冷却。\n开发成长规则，非原版英雄。" %
 			[rank, Training.MAX_RANK, reason if not reason.is_empty() else "消耗 1 技能点"])
 		button.set_state(0, not reason.is_empty())

@@ -20,8 +20,8 @@ func run() -> void:
 	var shop: Control = scene.shop
 	world.combat.gold = 1000
 	var original_damage: float = actor.damage
-	await click(scene.get_node("Interface/ShopToggle"))
-	check(shop.visible and not scene.battle.paused, "商店按钮应打开商店并保持对局运行")
+	await key(KEY_B)
+	check(shop.visible and not scene.battle.paused, "B 应打开商店并保持对局运行")
 	var elapsed: float = world.elapsed
 	scene.battle.set_physics_process(true)
 	await physics_frame

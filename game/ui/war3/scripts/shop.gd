@@ -3,7 +3,7 @@ extends Control
 
 signal state_changed
 const Catalog = preload("res://simulation/item_catalog.gd")
-const Icons = preload("res://ui/war3/scripts/training_snapshot.gd")
+const Art = preload("res://ui/war3/scripts/classic_art.gd")
 const IDS := ["blade", "vest", "charm", "boots"]
 var battle: Node3D
 var selected_slot := -1
@@ -12,6 +12,10 @@ var previous_focus: WeakRef
 var buy_buttons: Dictionary = {}
 
 func _ready() -> void:
+	$Panel/Background.texture = Art.region("shop.png", 640, 440)
+	$Panel/Frame.hide()
+	$Tooltip/Background.texture = Art.region("tooltip.png", 320, 160)
+	$Panel/Close.set_icon(Art.menu(0), Art.menu(1), Art.menu(2), "关闭", "关闭商店")
 	$Panel/Close.get_node("Text").text = "关闭 B / Esc"
 	$Panel/Close.activated.connect(close)
 	$Panel/Sell.activated.connect(_sell)
@@ -74,14 +78,14 @@ func sync_state() -> void:
 	for id in buy_buttons:
 		var rejection: String = "训练已暂停" if battle.paused else economy.buy_reason(id, world.finished())
 		var button: Control = buy_buttons[id]
-		button.set_icon(Icons.BTN, Icons.AHK, Icons.DIS, Catalog.ITEMS[id].name,
+		button.set_icon(Art.menu(0), Art.menu(1), Art.menu(2), Catalog.ITEMS[id].name,
 			Catalog.ITEMS[id].description + ("\n" + rejection if not rejection.is_empty() else ""))
 		button.set_state(0, not rejection.is_empty())
 	for index in range(6):
 		var id: String = economy.slots[index]
 		var item: Dictionary = Catalog.ITEMS.get(id, {})
 		var button: Control = $Panel/Inventory.get_node("Slot%d" % index)
-		button.set_icon(Icons.BTN, Icons.AHK, Icons.DIS, str(item.get("name", "空背包格")), str(item.get("description", "")))
+		button.set_icon(Art.icon(Art.item_name(id)), Art.highlight(), Art.icon(Art.item_name(id), true), str(item.get("name", "空背包格")), str(item.get("description", "")))
 		button.set_state(0, id.is_empty() or battle.paused)
 	# 选中后槽位被外部状态替换时清空选择，不能出售未经再次确认的装备。
 	if selected_slot >= 0 and economy.slots[selected_slot] != selected_id:
@@ -90,7 +94,7 @@ func sync_state() -> void:
 	var item: Dictionary = Catalog.ITEMS.get(selected_id, {})
 	$Panel/Selection.text = str(item.get("name", "未选择物品"))
 	$Panel/Sell.get_node("Text").text = "出售 +%d 金" % int(item.price / 2) if not item.is_empty() else "选择物品"
-	$Panel/Sell.set_icon(Icons.BTN, Icons.AHK, Icons.DIS, "出售装备", reason if not reason.is_empty() else "出售返还原价的 50%")
+	$Panel/Sell.set_icon(Art.menu(0), Art.menu(1), Art.menu(2), "出售装备", reason if not reason.is_empty() else "出售返还原价的 50%")
 	$Panel/Sell.set_state(0, item.is_empty() or not reason.is_empty())
 
 func _buy(id: String) -> void:

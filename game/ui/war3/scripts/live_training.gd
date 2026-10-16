@@ -22,6 +22,9 @@ func _ready() -> void:
 	upgrades.bind(battle, hud.get_node("Tooltip"))
 	upgrades.state_changed.connect(_refresh)
 	upgrades.result_reported.connect(func(message: String): $Interface/Notice.text = "训练技能：" + message)
+	adapter.use_original_art = true
+	hud.command_requested.connect(_hud_command)
+	hud.learn_requested.connect(_toggle_learning)
 	shop.battle = battle
 	shop.state_changed.connect(_refresh)
 	$Interface/ShopToggle.get_node("Text").text = "商店 B"
@@ -41,6 +44,8 @@ func _refresh() -> void:
 	hud.apply_state(adapter.read(battle.simulation, battle.selected, battle.paused or shop.visible))
 	shop.sync_state()
 	upgrades.blocked = shop.visible
+	if shop.visible or battle.paused or not battle.selected: upgrades.hide()
+	hud.get_node("HeroPanel/Portrait").paused = battle.paused
 	upgrades.sync_state()
 	var minimap: Control = hud.get_node("Minimap/MapTexture")
 	minimap.input_blocked = shop.visible
@@ -55,7 +60,7 @@ func _refresh() -> void:
 	hud.get_node("FloatingTextPool").set_health_targets(targets)
 
 func _skill(index: int) -> void:
-	if not shop.visible and index >= 0 and index < 3:
+	if not shop.visible and not upgrades.visible and index >= 0 and index < 3:
 		battle.command(["strike", "area", "summon"][index])
 		_refresh()
 
@@ -65,6 +70,14 @@ func _input(event: InputEvent) -> void:
 		_toggle_shop()
 		get_viewport().set_input_as_handled()
 		return
+	if event.physical_keycode == KEY_ESCAPE and upgrades.visible:
+		upgrades.hide()
+		get_viewport().set_input_as_handled()
+		return
+	if upgrades.visible and event.physical_keycode in [KEY_Q, KEY_W, KEY_E]:
+		upgrades._upgrade({KEY_Q: "strike", KEY_W: "area", KEY_E: "summon"}[event.physical_keycode])
+		get_viewport().set_input_as_handled()
+		return
 	if event.physical_keycode == KEY_ESCAPE and shop.visible:
 		shop.close()
 		get_viewport().set_input_as_handled()
@@ -72,7 +85,7 @@ func _input(event: InputEvent) -> void:
 	if event.physical_keycode in [KEY_ESCAPE, KEY_F10]:
 		shop.close()
 		battle.paused = not battle.paused
-		$Interface/Notice.text = "训练已暂停 · Esc 继续" if battle.paused else "真实训练 · 占位美术 · Q/W/E 施法 · Esc 暂停 · B 商店 · 小地图已接入"
+		$Interface/Notice.text = "训练已暂停 · Esc 继续" if battle.paused else ""
 		_refresh()
 		get_viewport().set_input_as_handled()
 		return
@@ -99,3 +112,17 @@ func _toggle_shop() -> void:
 func _inspect_item(index: int) -> void:
 	hud.get_node("Tooltip").clear()
 	shop.open(index)
+
+func _hud_command(action: String) -> void:
+	if shop.visible: return
+	if action == "menu":
+		battle.paused = not battle.paused
+		_refresh()
+	elif action == "info":
+		$Interface/Notice.text = "经典原始美术校对中，训练规则尚未替换为正式英雄。"
+	else: battle.command(action)
+
+func _toggle_learning() -> void:
+	if shop.visible or battle.paused or not battle.selected: return
+	upgrades.visible = not upgrades.visible
+	hud.get_node("Tooltip").clear()

@@ -7,7 +7,7 @@
 - 引擎锁定：**Godot 4.7.2 Standard / GDScript**。
 - 首发目标：Windows x86_64、macOS（Apple Silicon / Intel）、Linux x86_64 均提供游戏客户端和平台启动器；对战服务器部署于 Linux x86_64。
 - 游戏采用 3D 地形与单位、固定俯视相机和 2D HUD。
-- 本仓库不包含 Warcraft III / DotA 原始地图、美术、音频或已校对的英雄数据。
+- 已接入带来源摘要的经典控制台、英雄模型及图标转换资源，详见 [第三方美术说明](game/art/classic/NOTICE.md)。原始地图缓存不入库；正式英雄规则和音频尚未完成。
 
 ## 文档
 
@@ -18,7 +18,8 @@
 - [素材与参考来源](docs/sources.md)
 - [三平台交付矩阵](docs/platforms.md)
 - [M1 操作说明与限制](docs/m1-progress.md)
-- [Godot 4.7.2 经典 HUD 场景、脚本与坐标](docs/war3-hud-472.md)
+- [经典原始美术、112 位英雄外观目录与当前验收边界](docs/classic-art-restoration.md)
+- [Godot 4.7.2 经典 HUD 组件夹具](docs/war3-hud-472.md)
 - [训练战斗操作与参数](docs/m2-combat.md)
 - [三路兵线、建筑与胜负演练](docs/m2-lanes.md)
 - [经济、商店与装备](docs/m2-economy.md)
@@ -62,7 +63,7 @@ python3 tools/validate_content.py
 python3 -m unittest discover -s tests -v
 ```
 
-默认入口打开角色与模式选择页，提供近战卫兵、远程射手、施法学徒三种开发配置；它们不是正式英雄。三路演练基地摧毁后显示结算，可同角色重开或返回选人；单对手模式没有基地结算。`--training` 或 `--lanes` 可使用近战卫兵直接进入对应模式。
+默认入口打开 1024×768 原始暗夜精灵 HUD 训练场，当前训练规则不是正式英雄技能。`--classic-gallery` 可通过 PageUp/PageDown 切换 112 位英雄的地图外观，详见 [美术还原说明](docs/classic-art-restoration.md)。`--legacy-client` 保留旧角色与模式选择页，提供近战卫兵、远程射手、施法学徒三种开发配置；它们不是正式英雄。三路演练基地摧毁后显示结算，可同角色重开或返回选人；单对手模式没有基地结算。`--training` 或 `--lanes` 可使用近战卫兵直接进入对应模式。
 
 校验参数只检查版本后退出。`--server` 单独使用明确报错，尚无可用对战服务。操作：右键移动/攻击对手、A 追击、Q 训练震击、W 范围冲击、E 召唤守卫、方向键平移镜头、滚轮缩放、F1 返回单位、Esc 菜单。
 
@@ -95,4 +96,4 @@ tests/                   工程工具回归测试
 
 同局双玩家模式：服务端追加 `--shared`，再启动两个 `--connect-local=27883` 客户端。双方分别控制近卫和天灾英雄，共享兵线、建筑及胜负；详见 [双玩家运行说明](docs/m2-shared-match.md)。服务端追加 `--players=10` 可验证十席共享世界和装载屏障；尚无十人匹配或平台身份。
 
-经典 HUD 真实训练入口：`godot --path game -- --war3-training`。支持三种开发技能与真实状态同步；小地图已接入真实单位、地形和镜头交互；B 键商店、背包出售及技能点升级按钮已接入，原版素材尚待校对，详见 [HUD 交付说明](docs/war3-hud-472.md)。
+经典 HUD 真实训练入口：`godot --path game -- --war3-training`。支持三种开发技能与真实状态同步；小地图已接入真实单位、地形和镜头交互；B 键商店、背包出售及命令卡技能学习菜单已接入；使用原始种族控制台、模型及图标，但地形和建筑仍是占位美术，完整视觉还原尚未验收，详见 [美术还原说明](docs/classic-art-restoration.md)。
