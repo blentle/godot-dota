@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="PackedScene" path="res://ui/war3/scenes/text_action.tscn" id="button"]
+[ext_resource type="LabelSettings" path="res://ui/war3/assets/text_white.tres" id="white"]
+[ext_resource type="LabelSettings" path="res://ui/war3/assets/text_yellow.tres" id="yellow"]
+
+[node name="ShopRow" type="Control"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 380.0
+offset_bottom = 52.0
+mouse_filter = 2
+
+
+[node name="Name" type="Label" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 252.0
+offset_bottom = 20.0
+mouse_filter = 2
+label_settings = ExtResource("yellow")
+text = ""
+clip_text = true
+
+[node name="Description" type="Label" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 22.0
+offset_right = 252.0
+offset_bottom = 50.0
+mouse_filter = 2
+label_settings = ExtResource("white")
+text = ""
+clip_text = true
+
+[node name="Buy" parent="." instance=ExtResource("button")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 268.0
+offset_top = 4.0
+offset_right = 380.0
+offset_bottom = 40.0
+mouse_filter = 0

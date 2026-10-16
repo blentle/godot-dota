@@ -6,17 +6,17 @@ const MANIFEST_PATH := "res://content/6.83d/manifest.json"
 func _ready() -> void:
 	var manifest: Variant = JSON.parse_string(FileAccess.get_file_as_string(MANIFEST_PATH))
 	if not manifest is Dictionary:
-		push_error("Missing or invalid content manifest")
+		push_error("内容清单缺失或无效")
 		get_tree().quit(1)
 		return
 	var engine := Engine.get_version_info()
 	var actual := "%s.%s.%s" % [engine.major, engine.minor, engine.patch]
 	if actual != manifest.get("engine_version", ""):
-		push_error("Engine mismatch: expected %s, got %s" % [manifest.get("engine_version"), actual])
+		push_error("引擎版本不匹配：要求 %s，实际 %s" % [manifest.get("engine_version"), actual])
 		get_tree().quit(1)
 		return
 	if manifest.get("ruleset_id") != "dota-6.83d" or manifest.get("players_per_match") != 10:
-		push_error("Invalid ruleset identity or player count")
+		push_error("规则版本或玩家数量无效")
 		get_tree().quit(1)
 		return
 	var role := "server" if "--server" in OS.get_cmdline_user_args() else "client"
@@ -24,8 +24,12 @@ func _ready() -> void:
 	if "--validate-content" in OS.get_cmdline_user_args():
 		get_tree().quit(0)
 	elif role == "server":
-		push_error("Dedicated server is not implemented yet.")
+		push_error("正式专用服务器尚未实现。")
 		get_tree().quit(2)
+	elif "--war3-training" in OS.get_cmdline_user_args():
+		add_child(preload("res://ui/war3/scenes/live_training.tscn").instantiate())
+	elif "--war3-hud" in OS.get_cmdline_user_args():
+		add_child(preload("res://ui/war3/scenes/preview.tscn").instantiate())
 	else:
 		for argument in OS.get_cmdline_user_args():
 			if argument.begins_with("--connect-local="):

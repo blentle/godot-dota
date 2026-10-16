@@ -58,9 +58,8 @@ func _build_terrain() -> void:
 		geometry.box(self, Vector3(edge * 49, 0.25, 0), Vector3(0.8, 0.6, 98), Color("4c5648"))
 		geometry.box(self, Vector3(0, 0.25, edge * 49), Vector3(98, 0.6, 0.8), Color("4c5648"))
 	# 三条示意通路用于验证操作和寻路，尚非原版地图。
-	_lane([Vector3(-37, 0, 37), Vector3(-37, 0, -37), Vector3(37, 0, -37)])
-	_lane([Vector3(-37, 0, 37), Vector3(37, 0, -37)])
-	_lane([Vector3(-37, 0, 37), Vector3(37, 0, 37), Vector3(37, 0, -37)])
+	for route in preload("res://simulation/terrain_layout.gd").paths():
+		_lane(route)
 	var river := geometry.box(self, Vector3(0, 0.035, 0), Vector3(126, 0.08, 5.4), Color("416c72"))
 	river.rotation.y = -PI / 4
 	for index in range(7):
