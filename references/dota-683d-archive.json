@@ -1,0 +1,205 @@
+{
+  "source": "https://gaming-tools.com/warcraft-3/?ddownload=1418",
+  "sha256": "326d7ea8fb2bf20bd540259ebc3e80d398cf1be79fe1827691927c9008107495",
+  "bytes": 8218959,
+  "title": "DotA v6.83d",
+  "mpq_blocks": 1298,
+  "files": [
+    {
+      "path": "war3map.w3i",
+      "bytes": 639,
+      "sha256": "91613c2a26945ee795a080e4ea3504869d352498ef5c972e2200fe97e6d0b60d"
+    },
+    {
+      "path": "war3map.wts",
+      "bytes": 3763,
+      "sha256": "3d3420c6f8febaa5135c5bdda02c8736937a81df204a99cb91d5c8e33983b156"
+    },
+    {
+      "path": "scripts/war3map.j",
+      "bytes": 3026043,
+      "sha256": "0cae7bde83b19b40f810b936a923112188cb1ff9b69632bde1cb6cbded127347"
+    },
+    {
+      "path": "units/unitui.slk",
+      "bytes": 759625,
+      "sha256": "93aaaf2c92223b392a8e2131e566cd39eb19c98ad21975128b23aa0d298fdc3d"
+    },
+    {
+      "path": "units/unitdata.slk",
+      "bytes": 390056,
+      "sha256": "adb6028f404d9e2b3d0f128f023cea501da166ac2fda37be8ddc62fe591fa90a"
+    },
+    {
+      "path": "units/unitbalance.slk",
+      "bytes": 603499,
+      "sha256": "a7802ca9d607d1a68eeeaa4f2a23e9b87267778a42c63f06c5cfd9af01eb05cf"
+    },
+    {
+      "path": "units/unitweapons.slk",
+      "bytes": 712364,
+      "sha256": "d6e98a9e95f2462bcc14e2af0d38bfde1e597e443b22b4bc86aaa4ca0cfe3ab3"
+    },
+    {
+      "path": "units/unitabilities.slk",
+      "bytes": 93483,
+      "sha256": "ed1e90cebe02020e33dd1797bdffe9fbfb08735c16dd2c3656957e9c72a4c3d2"
+    },
+    {
+      "path": "units/abilitydata.slk",
+      "bytes": 1247984,
+      "sha256": "78177bba2a5d9ec8cce9a626287ba14d79daf99af0a5af312de1fa6c093cf1ef"
+    },
+    {
+      "path": "war3mapmisc.txt",
+      "bytes": 1758,
+      "sha256": "75d1a959a5ca1469df1531eb3837f1b5abc61f2fb031bcc4d61d7a3068a55ab8"
+    },
+    {
+      "path": "units/humanabilityfunc.txt",
+      "bytes": 105964,
+      "sha256": "e704266c1db80df0b6a57c00256600353d76e8580cca477795af08dbc7b36e32"
+    },
+    {
+      "path": "units/orcabilityfunc.txt",
+      "bytes": 97083,
+      "sha256": "4baf369ae23d1f92b628a3d1c35c92746989808d2e98a3d2fb37e6ffd1077ca6"
+    },
+    {
+      "path": "units/nightelfabilityfunc.txt",
+      "bytes": 113048,
+      "sha256": "8dfbc98ef9776f4eeb974805f8cbddb925b40e974af4678d129c5bc1323eaa7d"
+    },
+    {
+      "path": "units/undeadabilityfunc.txt",
+      "bytes": 62558,
+      "sha256": "efebd45082efcbd5b707a68ce2e7532b85732113be835ad265218124238c4197"
+    },
+    {
+      "path": "units/neutralabilityfunc.txt",
+      "bytes": 196599,
+      "sha256": "aa6948f096fb9bf68528ec893aa93778ca6ed86b7289dd61cb4338d27bf19e25"
+    },
+    {
+      "path": "units/commonabilityfunc.txt",
+      "bytes": 12355,
+      "sha256": "be78118cda741b7f0d41dad993983acd737b9466340f4b7a2c16fc642b28694a"
+    },
+    {
+      "path": "units/campaignabilityfunc.txt",
+      "bytes": 134665,
+      "sha256": "9bf2cd41bb924154378ecb9bf90bb854177a1d55e0fdf757cad5bf43af2dcb5a"
+    },
+    {
+      "path": "units/humanunitfunc.txt",
+      "bytes": 107012,
+      "sha256": "8527f5564d7a2e548853f3c560b3bd0b45f63357fd31638aca47192aad4863f0"
+    },
+    {
+      "path": "units/orcunitfunc.txt",
+      "bytes": 18665,
+      "sha256": "d40c6e55d3085ac7b106e700cfbc5cfebd7b6aa3a33ffe73e1948fb9d4f20606"
+    },
+    {
+      "path": "units/nightelfunitfunc.txt",
+      "bytes": 38361,
+      "sha256": "70410cbc850127ab688811610f28075357d95ed4acba4b68dfda598e4ae52a75"
+    },
+    {
+      "path": "units/undeadunitfunc.txt",
+      "bytes": 26733,
+      "sha256": "db440ae3193afd70560f0c17453f7a3ace360dcfbc8ab29d872cb36e00274d4f"
+    },
+    {
+      "path": "units/neutralunitfunc.txt",
+      "bytes": 40471,
+      "sha256": "4cee965a58fcda099ef2f4156c437dee0b3be2e73f4d61a9f2a168678566a5b9"
+    },
+    {
+      "path": "units/campaignunitfunc.txt",
+      "bytes": 53399,
+      "sha256": "0cdecc1fbd9fe944f4e4b91ad65b1abf894eeb5750b885880579a430adc1896c"
+    },
+    {
+      "path": "units/campaignunitstrings.txt",
+      "bytes": 113340,
+      "sha256": "b8e45b7d4be7080564d82216f4efce44af5cc288a674697d0cedde2b12633aff"
+    },
+    {
+      "path": "units/humanunitstrings.txt",
+      "bytes": 99993,
+      "sha256": "2d2d5d500e1d15b3e35df68b1b12d0b455a755a4117cd5094f95f51a3c0894b3"
+    },
+    {
+      "path": "units/orcunitstrings.txt",
+      "bytes": 17377,
+      "sha256": "20e5ac2f32bb9da8b167e02233efbcfb18e9bbb9a96458c84e0a07411510abb2"
+    },
+    {
+      "path": "units/nightelfunitstrings.txt",
+      "bytes": 34574,
+      "sha256": "7938e8796d71942e8e712e5d1550abffe6a4958bbbe4b0202846dbc6b3436204"
+    },
+    {
+      "path": "units/undeadunitstrings.txt",
+      "bytes": 24169,
+      "sha256": "86c0db9170dd1727d9a49506d25fb97c5b96a16c4e92af17fc7a778edc8ed30c"
+    },
+    {
+      "path": "units/neutralunitstrings.txt",
+      "bytes": 40210,
+      "sha256": "537d4d04f8b169cbe73c7c97d9423eba564c5d19401783724616dd43be2f0f06"
+    }
+  ],
+  "status": "结构及所列配置可读，地图脚本未执行；尚未完成官方发行副本比对",
+  "ui_profile": {
+    "player_races": [
+      {
+        "slot": 1,
+        "race": "nightelf"
+      },
+      {
+        "slot": 2,
+        "race": "nightelf"
+      },
+      {
+        "slot": 3,
+        "race": "nightelf"
+      },
+      {
+        "slot": 4,
+        "race": "nightelf"
+      },
+      {
+        "slot": 5,
+        "race": "nightelf"
+      },
+      {
+        "slot": 7,
+        "race": "undead"
+      },
+      {
+        "slot": 8,
+        "race": "undead"
+      },
+      {
+        "slot": 9,
+        "race": "undead"
+      },
+      {
+        "slot": 10,
+        "race": "undead"
+      },
+      {
+        "slot": 11,
+        "race": "undead"
+      }
+    ],
+    "initial_time_candidates": [
+      6,
+      6,
+      6
+    ],
+    "note": "只读调用文本证据，未解释条件分支；训练近卫使用 nightelf 控制台"
+  }
+}
