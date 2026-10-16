@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="PackedScene" path="res://ui/war3/scenes/text_action.tscn" id="button"]
+
+[node name="MenuAction" instance=ExtResource("button")]
+offset_right = 109.0
+offset_bottom = 28.0
+
+[node name="BTN" parent="." index="0"]
+offset_right = 109.0
+offset_bottom = 28.0
+
+[node name="AHK" parent="." index="1"]
+offset_right = 109.0
+offset_bottom = 28.0
+
+[node name="DISBTN" parent="." index="2"]
+offset_right = 109.0
+offset_bottom = 28.0
+
+[node name="CooldownText" parent="." index="3"]
+offset_right = 109.0
+offset_bottom = 28.0
+
+[node name="Text" parent="." index="4"]
+offset_right = 109.0
+offset_bottom = 28.0

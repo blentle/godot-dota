@@ -1,5 +1,5 @@
 extends RefCounted
-## 图形地形与无界面服务端共用的固定树木布局，避免障碍只存在于客户端。
+## 图形地形与无界面服务端共用的固定地形布局，避免障碍只存在于客户端。
 
 static func trees() -> Array[Dictionary]:
 	var random := RandomNumberGenerator.new()
@@ -14,3 +14,10 @@ static func trees() -> Array[Dictionary]:
 
 static func register_trees(world: RefCounted) -> void:
 	for tree in trees(): world.block(tree.position)
+
+static func paths() -> Array:
+	# 场景地面与小地图共用三条开发通路，避免单对手模式显示不同地形。
+	return [
+		[Vector3(-37, 0, 37), Vector3(-37, 0, -37), Vector3(37, 0, -37)],
+		[Vector3(-37, 0, 37), Vector3(37, 0, -37)],
+		[Vector3(-37, 0, 37), Vector3(37, 0, 37), Vector3(37, 0, -37)]]

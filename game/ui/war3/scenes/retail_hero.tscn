@@ -1,0 +1,407 @@
+[gd_scene load_steps=10 format=3]
+[ext_resource type="PackedScene" path="res://ui/war3/scenes/retail_portrait.tscn" id="portrait"]
+[ext_resource type="PackedScene" path="res://ui/war3/scenes/health_bar.tscn" id="health"]
+[ext_resource type="PackedScene" path="res://ui/war3/scenes/mana_bar.tscn" id="mana"]
+[ext_resource type="PackedScene" path="res://ui/war3/scenes/experience_bar.tscn" id="xp"]
+[ext_resource type="PackedScene" path="res://ui/war3/scenes/retail_command.tscn" id="icon"]
+[ext_resource type="PackedScene" path="res://ui/war3/scenes/retail_attributes.tscn" id="attributes"]
+[ext_resource type="LabelSettings" path="res://ui/war3/assets/text_yellow.tres" id="yellow"]
+[ext_resource type="LabelSettings" path="res://ui/war3/assets/text_white.tres" id="white"]
+
+[ext_resource type="PackedScene" path="res://ui/war3/scenes/retail_item.tscn" id="item"]
+
+[node name="HeroPanel" type="Control"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1024.0
+offset_bottom = 768.0
+mouse_filter = 2
+
+
+[node name="Portrait" parent="." instance=ExtResource("portrait")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 270.0
+offset_top = 625.0
+offset_right = 378.0
+offset_bottom = 728.0
+mouse_filter = 2
+z_index = -2
+
+[node name="HeroName" type="Label" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 396.0
+offset_top = 608.0
+offset_right = 626.0
+offset_bottom = 628.0
+mouse_filter = 2
+label_settings = ExtResource("white")
+text = ""
+clip_text = true
+
+[node name="Health" parent="." instance=ExtResource("health")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 270.0
+offset_top = 729.0
+offset_right = 378.0
+offset_bottom = 745.0
+mouse_filter = 2
+
+
+[node name="Background" parent="Health" index="0"]
+visible = false
+
+[node name="Fill" parent="Health/Clip" index="0"]
+visible = false
+
+[node name="Value" parent="Health" index="2"]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 108.0
+offset_bottom = 16.0
+
+[node name="Mana" parent="." instance=ExtResource("mana")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 270.0
+offset_top = 748.0
+offset_right = 378.0
+offset_bottom = 764.0
+mouse_filter = 2
+
+
+[node name="Background" parent="Mana" index="0"]
+visible = false
+
+[node name="Fill" parent="Mana/Clip" index="0"]
+visible = false
+
+[node name="Value" parent="Mana" index="2"]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 108.0
+offset_bottom = 16.0
+
+[node name="Experience" parent="." instance=ExtResource("xp")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 396.0
+offset_top = 630.0
+offset_right = 626.0
+offset_bottom = 640.0
+mouse_filter = 2
+
+
+[node name="Attributes" parent="." instance=ExtResource("attributes")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 531.0
+offset_top = 658.0
+offset_right = 631.0
+offset_bottom = 744.0
+mouse_filter = 2
+
+
+[node name="Damage" type="Label" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 446.0
+offset_top = 662.0
+offset_right = 524.0
+offset_bottom = 682.0
+mouse_filter = 2
+label_settings = ExtResource("white")
+text = "—"
+clip_text = true
+
+[node name="Armor" type="Label" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 446.0
+offset_top = 702.0
+offset_right = 524.0
+offset_bottom = 722.0
+mouse_filter = 2
+label_settings = ExtResource("white")
+text = "—"
+clip_text = true
+
+[node name="Class" type="Label" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 397.0
+offset_top = 640.0
+offset_right = 627.0
+offset_bottom = 658.0
+mouse_filter = 2
+label_settings = ExtResource("white")
+text = "英雄 · 外观校对"
+clip_text = true
+
+[node name="Skill0" parent="." instance=ExtResource("icon")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 790.0
+offset_top = 710.0
+offset_right = 840.0
+offset_bottom = 760.0
+mouse_filter = 0
+
+
+[node name="Skill1" parent="." instance=ExtResource("icon")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 846.0
+offset_top = 710.0
+offset_right = 896.0
+offset_bottom = 760.0
+mouse_filter = 0
+
+
+[node name="Skill2" parent="." instance=ExtResource("icon")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 902.0
+offset_top = 710.0
+offset_right = 952.0
+offset_bottom = 760.0
+mouse_filter = 0
+
+
+[node name="Skill3" parent="." instance=ExtResource("icon")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 958.0
+offset_top = 710.0
+offset_right = 1008.0
+offset_bottom = 760.0
+mouse_filter = 0
+
+
+[node name="Item0" parent="." instance=ExtResource("item")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 659.0
+offset_top = 623.0
+offset_right = 701.0
+offset_bottom = 665.0
+mouse_filter = 0
+
+
+[node name="Item1" parent="." instance=ExtResource("item")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 709.0
+offset_top = 623.0
+offset_right = 751.0
+offset_bottom = 665.0
+mouse_filter = 0
+
+
+[node name="Item2" parent="." instance=ExtResource("item")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 659.0
+offset_top = 672.0
+offset_right = 701.0
+offset_bottom = 714.0
+mouse_filter = 0
+
+
+[node name="Item3" parent="." instance=ExtResource("item")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 709.0
+offset_top = 672.0
+offset_right = 751.0
+offset_bottom = 714.0
+mouse_filter = 0
+
+
+[node name="Item4" parent="." instance=ExtResource("item")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 659.0
+offset_top = 721.0
+offset_right = 701.0
+offset_bottom = 763.0
+mouse_filter = 0
+
+
+[node name="Item5" parent="." instance=ExtResource("item")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 709.0
+offset_top = 721.0
+offset_right = 751.0
+offset_bottom = 763.0
+mouse_filter = 0
+
+[node name="Background" parent="Experience" index="0"]
+offset_right = 230.0
+offset_bottom = 10.0
+
+[node name="Clip" parent="Experience" index="1"]
+offset_right = 230.0
+offset_bottom = 10.0
+
+[node name="Fill" parent="Experience/Clip" index="0"]
+offset_right = 230.0
+offset_bottom = 10.0
+[node name="Command0" parent="." instance=ExtResource("icon")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 790.0
+offset_top = 596.0
+offset_right = 840.0
+offset_bottom = 646.0
+mouse_filter = 0
+
+
+[node name="Command1" parent="." instance=ExtResource("icon")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 846.0
+offset_top = 596.0
+offset_right = 896.0
+offset_bottom = 646.0
+mouse_filter = 0
+
+
+[node name="Command2" parent="." instance=ExtResource("icon")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 902.0
+offset_top = 596.0
+offset_right = 952.0
+offset_bottom = 646.0
+mouse_filter = 0
+
+
+[node name="Command3" parent="." instance=ExtResource("icon")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 958.0
+offset_top = 596.0
+offset_right = 1008.0
+offset_bottom = 646.0
+mouse_filter = 0
+
+
+[node name="Attack" parent="." instance=ExtResource("icon")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 790.0
+offset_top = 652.0
+offset_right = 840.0
+offset_bottom = 702.0
+mouse_filter = 0
+
+
+[node name="Learn" parent="." instance=ExtResource("icon")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 958.0
+offset_top = 652.0
+offset_right = 1008.0
+offset_bottom = 702.0
+mouse_filter = 0
+
+
+[node name="AttackIcon" type="TextureRect" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 401.0
+offset_top = 664.0
+offset_right = 441.0
+offset_bottom = 704.0
+mouse_filter = 2
+expand_mode = 1
+texture_filter = 1
+texture_repeat = 1
+
+[node name="ArmorIcon" type="TextureRect" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 401.0
+offset_top = 710.0
+offset_right = 441.0
+offset_bottom = 750.0
+mouse_filter = 2
+expand_mode = 1
+texture_filter = 1
+texture_repeat = 1
+
+[node name="InventoryTitle" type="Label" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 660.0
+offset_top = 599.0
+offset_right = 752.0
+offset_bottom = 619.0
+mouse_filter = 2
+label_settings = ExtResource("yellow")
+text = "物品栏"
+clip_text = true

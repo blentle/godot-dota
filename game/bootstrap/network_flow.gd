@@ -13,6 +13,8 @@ var layer := CanvasLayer.new()
 var last_seen := 0
 var last_ping := 0
 var started := 0
+var shared_network := false
+var recovery := preload("res://network/client_recovery.gd").new()
 
 func _ready() -> void:
 	layer.layer = 4
@@ -28,6 +30,9 @@ func _process(_delta: float) -> void:
 	if phase in ["failed", "leaving"]: return
 	client.poll()
 	var now := Time.get_ticks_msec()
+	if phase in ["reconnecting", "restoring"]:
+		if not recovery.step(client, now): _fail("重连超时，请返回角色选择")
+		return
 	if phase == "connecting" and client.peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED:
 		phase = "loading"
 		var hello: Dictionary = preload("res://network/dev_protocol.gd").identity()
@@ -35,19 +40,44 @@ func _process(_delta: float) -> void:
 		client.send(hello)
 	if phase == "loading" and now - started > 8000: _fail("服务器未完成装载，请返回后重试")
 	elif phase == "connecting" and now - started > 8000: _fail("连接超时，请先启动本机开发服务器")
-	elif phase in ["playing", "result"]:
+	elif phase in ["waiting", "playing", "result"]:
 		if client.peer.get_connection_status() != MultiplayerPeer.CONNECTION_CONNECTED or now - last_seen > 5000:
-			_fail("与服务器的连接已断开，本局已停止接收操作")
+			if phase == "playing" and shared_network and not recovery.token.is_empty():
+				_begin_recovery(now)
+			else:
+				_fail("与服务器的连接已断开，本局已停止接收操作")
 		elif now - last_ping >= 1000:
 			last_ping = now
 			client.send({"type": "ping"})
 
 func _receive(message: Dictionary) -> void:
+	if phase in ["leaving", "failed"]: return
 	last_seen = Time.get_ticks_msec()
+	if message.get("type") == "welcome":
+		shared_network = message.get("mode") == "shared"
+		recovery.token = message.get("resume_token", "")
+		if message.get("resumed", false):
+			world.restore(int(message.ack), int(message.event_sequence))
+			phase = "restoring"
 	if message.get("type") == "error":
 		_fail("服务器拒绝连接或操作：" + str(message.get("code", "UNKNOWN")))
+	elif message.get("type") == "lobby":
+		if message.phase == "aborted":
+			_fail("对局装载已取消：有玩家退出或装载超时，请返回后重试")
+		elif phase == "waiting":
+			if message.phase == "running":
+				phase = "playing"
+				_clear_panel()
+				battle.process_mode = Node.PROCESS_MODE_INHERIT
+			else:
+				status.text = "等待玩家装载：%d/%d 已连接，%d/%d 已就绪" % [message.connected, message.required, message.ready, message.required]
 	elif message.get("type") == "snapshot":
 		if phase == "loading": _enter_battle()
+		elif phase == "restoring":
+			phase = "playing"
+			battle.process_mode = Node.PROCESS_MODE_INHERIT
+			battle.focus = world.position
+			_clear_panel()
 		if phase == "playing" and world.finished(): _show_result()
 
 func _enter_battle() -> void:
@@ -55,6 +85,7 @@ func _enter_battle() -> void:
 	phase = "playing"
 	battle = preload("res://world/battlefield.gd").new()
 	battle.remote = true
+	battle.shared_network = shared_network
 	battle.simulation = world
 	battle.session_requested.connect(func(action: String) -> void:
 		if action == "selection": leave())
@@ -64,6 +95,11 @@ func _enter_battle() -> void:
 			if battle.hud.shop.visible: battle.hud.shop.feedback.text = message)
 	add_child(battle)
 	battle.focus = world.position
+	if shared_network:
+		phase = "waiting"
+		battle.process_mode = Node.PROCESS_MODE_DISABLED
+		_show_status("战场已装载，等待其他玩家就绪…")
+		client.send({"type": "ready", "match": preload("res://network/dev_protocol.gd").MATCH_ID})
 
 func _show_result() -> void:
 	phase = "result"
@@ -100,7 +136,7 @@ func _show_status(message: String) -> void:
 	Style.background(panel)
 	Style.label(panel, "DotA 6.83d / 本机联网验证", Vector2(80, 90), 26, Color("c6ab70"))
 	status = Style.label(panel, message, Vector2(80, 210), 22)
-	Style.label(panel, "单席位开发对局 · 服务器决定移动、战斗和资源", Vector2(80, 265), 16)
+	Style.label(panel, "本机开发对局 · 服务器决定移动、战斗和资源", Vector2(80, 265), 16)
 	var back: Button = Style.button(panel, "返回离线角色选择", Rect2(80, 350, 280, 52))
 	back.pressed.connect(leave)
 	back.grab_focus()
@@ -112,12 +148,20 @@ func _clear_panel() -> void:
 	panel = null
 
 func leave() -> void:
+	if phase == "leaving": return
 	phase = "leaving"
-	client.close()
 	world.disable()
+	await client.leave()
 	var offline := preload("res://bootstrap/client_flow.gd").new()
 	get_parent().add_child(offline)
 	queue_free()
 
 func _exit_tree() -> void:
 	client.close()
+
+func _begin_recovery(now: int) -> void:
+	phase = "reconnecting"
+	world.disable()
+	battle.process_mode = Node.PROCESS_MODE_DISABLED
+	_show_status("连接中断，正在恢复原席位…")
+	recovery.begin(client, port, now)

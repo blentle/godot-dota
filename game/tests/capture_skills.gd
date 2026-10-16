@@ -10,6 +10,9 @@ func _capture() -> void:
 	scene.set_physics_process(false)
 	scene.focus = scene.simulation.position
 	scene.camera_rig.refresh()
+	if "--upgrade-preview" in OS.get_cmdline_user_args():
+		scene.simulation.progression.grant(1000)
+		scene.simulation.submit_upgrade("area")
 	scene.command("summon")
 	scene.command("area")
 	scene._physics_process(0)

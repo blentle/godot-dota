@@ -1,0 +1,117 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://ui/war3/scripts/hud.gd" id="1"]
+[ext_resource type="PackedScene" path="res://ui/war3/scenes/resources.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://ui/war3/scenes/team_portraits.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://ui/war3/scenes/multiboard.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://ui/war3/scenes/minimap.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://ui/war3/scenes/hero_panel.tscn" id="6"]
+[ext_resource type="PackedScene" path="res://ui/war3/scenes/tooltip.tscn" id="7"]
+[ext_resource type="Script" path="res://ui/war3/scripts/floating_text_pool.gd" id="8"]
+
+[node name="War3HUD" type="Control"]
+layout_mode = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1024.0
+offset_bottom = 768.0
+mouse_filter = 2
+texture_filter = 1
+texture_repeat = 1
+script = ExtResource("1")
+
+
+[node name="Resources" parent="." instance=ExtResource("2")]
+layout_mode = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 248.0
+offset_bottom = 40.0
+mouse_filter = 0
+
+
+[node name="TeamPortraits" parent="." instance=ExtResource("3")]
+layout_mode = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 318.0
+offset_top = 8.0
+offset_right = 598.0
+offset_bottom = 56.0
+mouse_filter = 2
+
+
+[node name="Multiboard" parent="." instance=ExtResource("4")]
+layout_mode = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 676.0
+offset_top = 72.0
+offset_right = 1016.0
+offset_bottom = 340.0
+mouse_filter = 0
+
+
+[node name="Minimap" parent="." instance=ExtResource("5")]
+layout_mode = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 4.0
+offset_top = 572.0
+offset_right = 196.0
+offset_bottom = 764.0
+mouse_filter = 0
+
+
+[node name="HeroPanel" parent="." instance=ExtResource("6")]
+layout_mode = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 196.0
+offset_top = 552.0
+offset_right = 1024.0
+offset_bottom = 768.0
+mouse_filter = 0
+
+
+[node name="Tooltip" parent="." instance=ExtResource("7")]
+layout_mode = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 688.0
+offset_top = 368.0
+offset_right = 1008.0
+offset_bottom = 528.0
+mouse_filter = 2
+
+
+[node name="FloatingTextPool" type="Control" parent="."]
+layout_mode = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1024.0
+offset_bottom = 768.0
+mouse_filter = 2
+script = ExtResource("8")

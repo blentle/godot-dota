@@ -1,0 +1,85 @@
+[gd_scene load_steps=3 format=3]
+[ext_resource type="LabelSettings" path="res://ui/war3/assets/text_white.tres" id="white"]
+[ext_resource type="LabelSettings" path="res://ui/war3/assets/text_yellow.tres" id="yellow"]
+
+[node name="Resources" type="Control"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 591.0
+offset_top = 0.0
+offset_right = 1024.0
+offset_bottom = 28.0
+mouse_filter = 0
+
+
+[node name="GoldIcon" type="TextureRect" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 4.0
+offset_right = 21.0
+offset_bottom = 25.0
+mouse_filter = 2
+expand_mode = 1
+texture_filter = 1
+texture_repeat = 1
+
+[node name="Gold" type="Label" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 26.0
+offset_top = 4.0
+offset_right = 94.0
+offset_bottom = 25.0
+mouse_filter = 2
+label_settings = ExtResource("yellow")
+text = "0"
+clip_text = true
+
+[node name="LumberIcon" type="TextureRect" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 110.0
+offset_top = 4.0
+offset_right = 131.0
+offset_bottom = 25.0
+mouse_filter = 2
+expand_mode = 1
+texture_filter = 1
+texture_repeat = 1
+
+[node name="Lumber" type="Label" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 137.0
+offset_top = 4.0
+offset_right = 201.0
+offset_bottom = 25.0
+mouse_filter = 2
+label_settings = ExtResource("yellow")
+text = "0"
+clip_text = true
+
+[node name="Version" type="Label" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 224.0
+offset_top = 4.0
+offset_right = 416.0
+offset_bottom = 25.0
+mouse_filter = 2
+label_settings = ExtResource("white")
+text = "外观校对"
+clip_text = true

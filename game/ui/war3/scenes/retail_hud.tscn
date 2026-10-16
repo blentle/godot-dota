@@ -1,0 +1,250 @@
+[gd_scene load_steps=10 format=3]
+[ext_resource type="Script" path="res://ui/war3/scripts/retail_hud.gd" id="script"]
+[ext_resource type="PackedScene" path="res://ui/war3/scenes/retail_resources.tscn" id="resources"]
+[ext_resource type="PackedScene" path="res://ui/war3/scenes/retail_team.tscn" id="team"]
+[ext_resource type="PackedScene" path="res://ui/war3/scenes/multiboard.tscn" id="board"]
+[ext_resource type="PackedScene" path="res://ui/war3/scenes/minimap.tscn" id="map"]
+[ext_resource type="PackedScene" path="res://ui/war3/scenes/retail_hero.tscn" id="hero"]
+[ext_resource type="PackedScene" path="res://ui/war3/scenes/tooltip.tscn" id="tooltip"]
+[ext_resource type="Script" path="res://ui/war3/scripts/floating_text_pool.gd" id="pool"]
+[ext_resource type="PackedScene" path="res://ui/war3/scenes/retail_menu_action.tscn" id="action"]
+
+[node name="RetailHUD" type="Control"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1024.0
+offset_bottom = 768.0
+mouse_filter = 2
+clip_contents = true
+texture_filter = 1
+texture_repeat = 1
+script = ExtResource("script")
+
+[node name="BottomBlack" type="TextureRect" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 594.0
+offset_right = 1024.0
+offset_bottom = 768.0
+mouse_filter = 2
+z_index = -4
+expand_mode = 1
+
+[node name="MapBlack" type="TextureRect" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 563.0
+offset_right = 196.0
+offset_bottom = 768.0
+mouse_filter = 2
+z_index = -4
+expand_mode = 1
+
+[node name="Console" type="TextureRect" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1024.0
+offset_bottom = 1024.0
+mouse_filter = 2
+z_index = -1
+expand_mode = 1
+
+[node name="Clock" type="TextureRect" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 435.0
+offset_top = -7.0
+offset_right = 589.0
+offset_bottom = 70.0
+mouse_filter = 2
+expand_mode = 1
+
+[node name="BottomBlocker" type="Control" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 594.0
+offset_right = 1024.0
+offset_bottom = 768.0
+mouse_filter = 0
+
+
+[node name="TopBlocker" type="Control" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1024.0
+offset_bottom = 30.0
+mouse_filter = 0
+
+
+[node name="Resources" parent="." instance=ExtResource("resources")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 591.0
+offset_top = 0.0
+offset_right = 1024.0
+offset_bottom = 28.0
+mouse_filter = 0
+
+
+[node name="TeamPortraits" parent="." instance=ExtResource("team")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 4.0
+offset_top = 48.0
+offset_right = 52.0
+offset_bottom = 308.0
+mouse_filter = 2
+
+
+[node name="Multiboard" parent="." instance=ExtResource("board")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 676.0
+offset_top = 72.0
+offset_right = 1016.0
+offset_bottom = 340.0
+mouse_filter = 2
+
+
+[node name="Minimap" parent="." instance=ExtResource("map")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 5.0
+offset_top = 577.0
+offset_right = 197.0
+offset_bottom = 769.0
+mouse_filter = 0
+
+
+[node name="MapTexture" parent="Minimap" index="0"]
+z_index = 0
+
+[node name="Frame" parent="Minimap" index="1"]
+visible = false
+
+[node name="HeroPanel" parent="." instance=ExtResource("hero")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1024.0
+offset_bottom = 768.0
+mouse_filter = 2
+
+
+[node name="TopMenu0" parent="." instance=ExtResource("action")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 112.0
+offset_bottom = 30.0
+mouse_filter = 0
+
+
+[node name="TopMenu1" parent="." instance=ExtResource("action")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 112.0
+offset_top = 2.0
+offset_right = 221.0
+offset_bottom = 30.0
+mouse_filter = 0
+
+
+[node name="TopMenu2" parent="." instance=ExtResource("action")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 221.0
+offset_top = 2.0
+offset_right = 330.0
+offset_bottom = 30.0
+mouse_filter = 0
+
+
+[node name="TopMenu3" parent="." instance=ExtResource("action")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 330.0
+offset_top = 2.0
+offset_right = 439.0
+offset_bottom = 30.0
+mouse_filter = 0
+
+
+[node name="ScoreToggle" parent="." instance=ExtResource("action")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 884.0
+offset_top = 35.0
+offset_right = 1012.0
+offset_bottom = 63.0
+mouse_filter = 0
+
+
+[node name="Tooltip" parent="." instance=ExtResource("tooltip")]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 688.0
+offset_top = 368.0
+offset_right = 1008.0
+offset_bottom = 528.0
+mouse_filter = 2
+
+
+[node name="FloatingTextPool" type="Control" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1024.0
+offset_bottom = 768.0
+mouse_filter = 2
+script = ExtResource("pool")

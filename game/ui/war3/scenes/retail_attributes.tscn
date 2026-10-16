@@ -1,0 +1,134 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="LabelSettings" path="res://ui/war3/assets/text_white.tres" id="white"]
+
+[node name="Attributes" type="Control"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 100.0
+offset_bottom = 86.0
+mouse_filter = 2
+
+
+[node name="Strength" type="Control" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 100.0
+offset_bottom = 24.0
+mouse_filter = 2
+
+
+[node name="Label" type="Label" parent="Strength"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 60.0
+offset_bottom = 20.0
+mouse_filter = 2
+label_settings = ExtResource("white")
+text = "力量："
+clip_text = true
+
+[node name="Value" type="Label" parent="Strength"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 60.0
+offset_top = 0.0
+offset_right = 100.0
+offset_bottom = 20.0
+mouse_filter = 2
+label_settings = ExtResource("white")
+text = "—"
+clip_text = true
+
+[node name="Agility" type="Control" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 27.0
+offset_right = 100.0
+offset_bottom = 51.0
+mouse_filter = 2
+
+
+[node name="Label" type="Label" parent="Agility"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 60.0
+offset_bottom = 20.0
+mouse_filter = 2
+label_settings = ExtResource("white")
+text = "敏捷："
+clip_text = true
+
+[node name="Value" type="Label" parent="Agility"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 60.0
+offset_top = 0.0
+offset_right = 100.0
+offset_bottom = 20.0
+mouse_filter = 2
+label_settings = ExtResource("white")
+text = "—"
+clip_text = true
+
+[node name="Intelligence" type="Control" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 54.0
+offset_right = 100.0
+offset_bottom = 78.0
+mouse_filter = 2
+
+
+[node name="Label" type="Label" parent="Intelligence"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 60.0
+offset_bottom = 20.0
+mouse_filter = 2
+label_settings = ExtResource("white")
+text = "智力："
+clip_text = true
+
+[node name="Value" type="Label" parent="Intelligence"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 60.0
+offset_top = 0.0
+offset_right = 100.0
+offset_bottom = 20.0
+mouse_filter = 2
+label_settings = ExtResource("white")
+text = "—"
+clip_text = true

@@ -1,13 +1,13 @@
 # DotA 6.83d · Godot 重制工程
 
-当前阶段：离线训练原型，已加入单对手战斗与三路兵线演练，并在 macOS 运行；尚未完成原版 UI、正式英雄全集、完整对局或平台服务。
+当前阶段：M2 开发原型，含离线训练、三路兵线与本机十席完整胜负验证；已验证双席与十席服务器重启恢复。已在 macOS Apple Silicon 验证，尚未完成原版 UI、正式英雄全集、正式对战或平台服务。
 
 目标：先完成经典 Warcraft III DotA 6.83d 客户端与完整规则，再完成注册登录、房间、10 人匹配、本地启动和服务器部署。
 
 - 引擎锁定：**Godot 4.7.2 Standard / GDScript**。
 - 首发目标：Windows x86_64、macOS（Apple Silicon / Intel）、Linux x86_64 均提供游戏客户端和平台启动器；对战服务器部署于 Linux x86_64。
 - 游戏采用 3D 地形与单位、固定俯视相机和 2D HUD。
-- 本仓库不包含 Warcraft III / DotA 原始地图、美术、音频或已校对的英雄数据。
+- 已接入带来源摘要的经典控制台、英雄模型及图标转换资源，详见 [第三方美术说明](game/art/classic/NOTICE.md)。原始地图缓存不入库；正式英雄规则和音频尚未完成。
 
 ## 文档
 
@@ -18,17 +18,25 @@
 - [素材与参考来源](docs/sources.md)
 - [三平台交付矩阵](docs/platforms.md)
 - [M1 操作说明与限制](docs/m1-progress.md)
+- [经典原始美术、112 位英雄外观目录与当前验收边界](docs/classic-art-restoration.md)
+- [Godot 4.7.2 经典 HUD 组件夹具](docs/war3-hud-472.md)
 - [训练战斗操作与参数](docs/m2-combat.md)
 - [三路兵线、建筑与胜负演练](docs/m2-lanes.md)
 - [经济、商店与装备](docs/m2-economy.md)
 - [经验与等级成长](docs/m2-progression.md)
 - [范围技能与召唤守卫](docs/m2-skills.md)
+- [技能点与技能升级](docs/m2-skill-upgrades.md)
 - [选人、结算与重开](docs/m2-session.md)
 - [双进程网络适配验证](docs/m2-network.md)
+- [同一世界双玩家对局](docs/m2-shared-match.md)
+- [十客户端完整胜负验证](docs/m2-full-match.md)
+- [服务器进程重启恢复](docs/m2-server-restart.md)
 - [源码职责与责任链](docs/code-structure.md)
 - [永久开发约束](AGENTS.md)
 
 ## 当前骨架运行
+
+完整工程检查使用 `python3 tools/check_project.py --godot /实际路径/Godot`，追加 `--network` 覆盖独立会话、共享 2/4/10 席、网络故障及双席/十席服务器重启恢复测试；追加 `--full-match` 运行十客户端五分钟后推塔至结算的长局。工程检查基线见 [工程检查记录](docs/audit-2026-10-08.md)。
 
 安装指定版本后，在仓库根目录执行：
 
@@ -55,7 +63,7 @@ python3 tools/validate_content.py
 python3 -m unittest discover -s tests -v
 ```
 
-默认入口打开角色与模式选择页，提供近战卫兵、远程射手、施法学徒三种开发配置；它们不是正式英雄。三路演练基地摧毁后显示结算，可同角色重开或返回选人；单对手模式没有基地结算。`--training` 或 `--lanes` 可使用近战卫兵直接进入对应模式。
+默认入口打开 1024×768 原始暗夜精灵 HUD 训练场，当前训练规则不是正式英雄技能。`--classic-gallery` 可通过 PageUp/PageDown 切换 112 位英雄的地图外观，详见 [美术还原说明](docs/classic-art-restoration.md)。`--legacy-client` 保留旧角色与模式选择页，提供近战卫兵、远程射手、施法学徒三种开发配置；它们不是正式英雄。三路演练基地摧毁后显示结算，可同角色重开或返回选人；单对手模式没有基地结算。`--training` 或 `--lanes` 可使用近战卫兵直接进入对应模式。
 
 校验参数只检查版本后退出。`--server` 单独使用明确报错，尚无可用对战服务。操作：右键移动/攻击对手、A 追击、Q 训练震击、W 范围冲击、E 召唤守卫、方向键平移镜头、滚轮缩放、F1 返回单位、Esc 菜单。
 
@@ -82,6 +90,10 @@ tests/                   工程工具回归测试
 
 平台将在 M5 增加 `launcher/`、`services/platform/` 和 `deploy/`，避免在游戏边界未稳定时铺开多个空工程。
 
-本机网络开发验证可执行 `python3 tools/test_network_pair.py --godot /实际路径/Godot`；追加 `--scene` 验证战场、心跳和断线流程。手动启动 `godot --headless --path game --script res://tests/network_server.gd -- --port=27883` 后，可用 `godot --path game -- --connect-local=27883` 打开联网图形客户端。当前仅支持本机单席位，尚不能部署十人对战服务，默认入口仍为离线模式。
+本机网络开发验证可执行 `python3 tools/test_network_pair.py --godot /实际路径/Godot`；追加 `--scene` 验证战场、心跳和断线流程。手动启动 `godot --headless --path game --script res://tests/network_server.gd -- --port=27883` 后，可用 `godot --path game -- --connect-local=27883` 打开联网图形客户端。客户端按服务器快照插值单位与弹道，并呈现受击、挥砍和技能光环事件。默认服务器模式最多支持四个本机独立训练会话；同局多人使用下述共享模式。当前不能部署正式十人对战服务，默认游戏入口仍为离线模式。
 
 版本来源：[Godot 4.7.2 官方归档](https://godotengine.org/download/archive/4.7.2-stable/)。
+
+同局双玩家模式：服务端追加 `--shared`，再启动两个 `--connect-local=27883` 客户端。双方分别控制近卫和天灾英雄，共享兵线、建筑及胜负；详见 [双玩家运行说明](docs/m2-shared-match.md)。服务端追加 `--players=10` 可验证十席共享世界和装载屏障；尚无十人匹配或平台身份。
+
+经典 HUD 真实训练入口：`godot --path game -- --war3-training`。支持三种开发技能与真实状态同步；小地图已接入真实单位、地形和镜头交互；B 键商店、背包出售及命令卡技能学习菜单已接入；使用原始种族控制台、模型及图标，但地形和建筑仍是占位美术，完整视觉还原尚未验收，详见 [美术还原说明](docs/classic-art-restoration.md)。

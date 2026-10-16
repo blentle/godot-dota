@@ -26,14 +26,15 @@ func spawn_point() -> Variant:
 func create(at: Vector3) -> void:
 	serial += 1
 	var unit := Unit.new()
-	unit.id = "summon_%d" % serial
+	unit.id = "%s_summon_%d" % [combat.player.id, serial]
 	unit.owner_id = combat.player.id
 	unit.team = combat.player.team
 	unit.kind = "summon"
 	unit.spawn = at
-	unit.max_hp = 180
+	var rank_bonus: int = preload("res://simulation/skill_training.gd").bonus(combat.player, "summon")
+	unit.max_hp = 180 + 60 * rank_bonus
 	unit.max_mana = 0
-	unit.damage = 20
+	unit.damage = 20 + 8 * rank_bonus
 	unit.attack_range = 2
 	unit.attack_interval = 1.1
 	unit.radius = 0.45

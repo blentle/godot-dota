@@ -1,0 +1,7 @@
+[gd_resource type="SystemFont" format=3]
+
+[resource]
+font_names = PackedStringArray("SimSun", "Songti SC", "Noto Serif CJK SC")
+antialiasing = 0
+subpixel_positioning = 0
+multichannel_signed_distance_field = false
