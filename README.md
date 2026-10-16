@@ -18,6 +18,7 @@
 - [素材与参考来源](docs/sources.md)
 - [三平台交付矩阵](docs/platforms.md)
 - [M1 操作说明与限制](docs/m1-progress.md)
+- [Godot 4.7.2 经典 HUD 场景、脚本与坐标](docs/war3-hud-472.md)
 - [训练战斗操作与参数](docs/m2-combat.md)
 - [三路兵线、建筑与胜负演练](docs/m2-lanes.md)
 - [经济、商店与装备](docs/m2-economy.md)
@@ -93,3 +94,5 @@ tests/                   工程工具回归测试
 版本来源：[Godot 4.7.2 官方归档](https://godotengine.org/download/archive/4.7.2-stable/)。
 
 同局双玩家模式：服务端追加 `--shared`，再启动两个 `--connect-local=27883` 客户端。双方分别控制近卫和天灾英雄，共享兵线、建筑及胜负；详见 [双玩家运行说明](docs/m2-shared-match.md)。服务端追加 `--players=10` 可验证十席共享世界和装载屏障；尚无十人匹配或平台身份。
+
+经典 HUD 真实训练入口：`godot --path game -- --war3-training`。支持三种开发技能与真实状态同步；小地图已接入真实单位、地形和镜头交互；B 键商店和背包出售已接入，原版素材尚待校对，详见 [HUD 交付说明](docs/war3-hud-472.md)。
