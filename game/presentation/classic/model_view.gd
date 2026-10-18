@@ -4,6 +4,7 @@ extends Node3D
 const Tracks = preload("res://presentation/classic/animation_tracks.gd")
 const Materials = preload("res://presentation/classic/model_materials.gd")
 const Meshes = preload("res://presentation/classic/model_meshes.gd")
+const MaterialAnimation = preload("res://presentation/classic/material_animation.gd")
 var data: Dictionary
 var skeleton := Skeleton3D.new()
 var materials := Materials.new()
@@ -14,6 +15,7 @@ var clock := 0.0
 var global_clock := 0.0
 var frame := 0.0
 var animation_tags: PackedStringArray = []
+var material_animation := MaterialAnimation.new()
 
 func load_model(path: String, team := 1, tint := Color.WHITE) -> bool:
 	if not FileAccess.file_exists(path):
@@ -48,6 +50,7 @@ func load_model(path: String, team := 1, tint := Color.WHITE) -> bool:
 		var surface: MeshInstance3D = Meshes.create(geoset, bone_ids, skin, materials.material(int(geoset.MaterialID)))
 		add_child(surface)
 		surfaces.append(surface)
+	material_animation.bind(self)
 	# 原模型坐标 Z 向上、X 向前，转换为 Godot 的 Y 向上、-Z 向前。
 	rotation_degrees = Vector3(-90, 90, 0)
 	scale = Vector3.ONE * 0.025
@@ -101,14 +104,4 @@ func advance(delta: float) -> void:
 		skeleton.set_bone_pose_position(index, rest + sample(node.get("Translation"), Vector3.ZERO))
 		skeleton.set_bone_pose_rotation(index, sample(node.get("Rotation"), Quaternion.IDENTITY, true))
 		skeleton.set_bone_pose_scale(index, sample(node.get("Scaling"), Vector3.ONE))
-	for animation in data.GeosetAnims:
-		var index := int(animation.GeosetId)
-		if index >= 0 and index < surfaces.size():
-			surfaces[index].visible = float(sample(animation.get("Alpha"), 1.0)) > 0.01
-	for index in materials.cache:
-		var layers: Array = data.Materials[index].Layers
-		for layer_index in range(layers.size()):
-			var layer: Dictionary = layers[layer_index]
-			materials.cache[index][layer_index].albedo_color.a = float(sample(layer.get("Alpha"), 1.0))
-			if layer.TextureID is Dictionary:
-				materials.set_texture(materials.cache[index][layer_index], int(sample(layer.TextureID, 0)))
+	material_animation.advance()
