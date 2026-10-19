@@ -30,6 +30,7 @@ func run() -> void:
 		model.global_clock = 0
 		model.particles.reset()
 		model.ribbons.reset()
+		model.model_particles.reset()
 		model.advance(0)
 	portrait.camera_animation.advance()
 	var failed := false
@@ -47,6 +48,7 @@ func run() -> void:
 		var strips := 0
 		for emitter in scene.battle.hero.classic_model.ribbons.emitters: strips += emitter.batch.strips
 		print("当前飘带绘制段数：", strips)
+		print("当前旧式模型粒子数：", scene.battle.hero.classic_model.model_particles.active.size())
 	scene.queue_free()
 	await process_frame
 	quit(1 if failed else 0)
