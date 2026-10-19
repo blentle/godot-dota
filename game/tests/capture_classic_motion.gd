@@ -22,6 +22,7 @@ func run() -> void:
 	for model in [scene.battle.hero.classic_model, portrait.model]:
 		model.clock = 0
 		model.global_clock = 0
+		model.particles.reset()
 		model.advance(0)
 	portrait.camera_animation.advance()
 	var failed := false

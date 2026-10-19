@@ -1,0 +1,34 @@
+{
+  "source_revision": "bce1f9d87ab7d71e208624dbbdce208db5690d4f",
+  "source_map_sha256": "326d7ea8fb2bf20bd540259ebc3e80d398cf1be79fe1827691927c9008107495",
+  "counts": {
+    "models_with_particle2": 98,
+    "particle2_emitters": 305,
+    "legacy_emitters_not_implemented": 15,
+    "ribbon_emitters_not_implemented": 39,
+    "squirt_emitters": 31,
+    "model_space_emitters": 27,
+    "xy_quad_emitters": 34,
+    "tail_emitters": 69,
+    "atlas_emitters": 99
+  },
+  "filter_modes": {
+    "0": 79,
+    "1": 221,
+    "2": 4,
+    "4": 1
+  },
+  "status": "配置可读及基础表现已接入，不代表原版逐帧或像素验收",
+  "limits": {
+    "particles_per_model": 512,
+    "simulation_hz": 60,
+    "max_catchup_seconds": 2
+  },
+  "remaining": [
+    "旧 ParticleEmitter、RibbonEmitter 尚未实现",
+    "modulate2x 仍以乘色近似",
+    "发射节点的帧内运动插值及部分节点标志未完成",
+    "三轴非均匀缩放、拖尾 UV 方向与原版精确混合待逐模型核对",
+    "仅 macOS 实机检查，Windows、Linux 尚未验收"
+  ]
+}
