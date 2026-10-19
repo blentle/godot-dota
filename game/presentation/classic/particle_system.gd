@@ -4,6 +4,7 @@ extends Node3D
 const State = preload("res://presentation/classic/particle_state.gd")
 const Batch = preload("res://presentation/classic/particle_batch.gd")
 const Tracks = preload("res://presentation/classic/animation_tracks.gd")
+const Pose = preload("res://presentation/classic/effect_pose.gd")
 const CAPACITY := 512
 const STEP := 1.0/60.0
 var model: Node3D
@@ -16,6 +17,7 @@ var dropped := 0
 var dropped_time := 0.0
 var at_clock := 0.0
 var at_global := 0.0
+var pose := Pose.new()
 
 func bind(view: Node3D) -> void:
 	reset()
@@ -51,11 +53,13 @@ func advance(delta: float) -> void:
 	# 超过两秒的单次跳时只处理有界窗口，防止后台恢复时无上限追帧。
 	dropped_time += maxf(0, delta-2.0)
 	remainder += minf(delta, 2.0)
+	# 当前姿态供 ModelSpace 绘制使用；出生取样另走只读子步计算。
 	model.skeleton.force_update_all_bone_transforms()
 	while remainder + 0.000001 >= STEP:
 		remainder -= STEP
 		at_clock = model.clock - remainder*1000
 		at_global = model.global_clock - remainder*1000
+		pose.begin(model, at_clock, at_global)
 		_step()
 
 func _context(track: Variant) -> Vector2:
@@ -122,7 +126,8 @@ func _spawn(index: int) -> void:
 	var source: Dictionary = emitter.source
 	if float(source.LifeSpan) <= 0: return
 	var particle: RefCounted = free.pop_back()
-	var transform := transform_for(source)
+	# 世界空间粒子从出生子步的骨骼发射，不能全部挤在本帧最后一个姿态。
+	var transform: Transform3D = pose.transform_for(int(source.ObjectId))
 	var latitude := deg_to_rad(sample(source.Latitude, 0))
 	var rotation := Basis(Vector3(0, 0, 1), PI/2) * Basis(Vector3.UP, rng.randf_range(-latitude, latitude))
 	if not int(source.Flags) & 131072:
