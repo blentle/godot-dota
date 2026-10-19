@@ -41,7 +41,7 @@ def main():
         'status': '配置可读及基础表现已接入，不代表原版逐帧或像素验收',
         'limits': {'particles_per_model': 512, 'simulation_hz': 60, 'max_catchup_seconds': 2, 'ribbon_sections_per_emitter': 128, 'legacy_models_per_model': 64},
         'remaining': ['旧 ParticleEmitter 已接入基础模型抛射；经度、重力和朝向仍待原版逐帧验收；不递归创建子发射器', '飘带仍待原版逐帧验收', 'modulate2x 仍以乘色近似',
-                      '粒子发射节点子步骨骼取样及部分节点标志未完成；飘带已接入子步骨骼', '三轴非均匀缩放、拖尾 UV 方向与原版精确混合待逐模型核对',
+                      '三类发射器已接入子步骨骼；单位根节点帧内位移插值及部分节点标志未完成', '三轴非均匀缩放、拖尾 UV 方向与原版精确混合待逐模型核对',
                       '仅 macOS 实机检查，Windows、Linux 尚未验收']}
     target = ROOT / 'references/classic-particle-coverage.json'
     target.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
