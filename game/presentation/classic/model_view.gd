@@ -7,6 +7,7 @@ const Meshes = preload("res://presentation/classic/model_meshes.gd")
 const MaterialAnimation = preload("res://presentation/classic/material_animation.gd")
 const Particles = preload("res://presentation/classic/particle_system.gd")
 const Ribbons = preload("res://presentation/classic/ribbon_system.gd")
+const ModelParticles = preload("res://presentation/classic/model_particles.gd")
 var data: Dictionary
 var skeleton := Skeleton3D.new()
 var materials := Materials.new()
@@ -21,8 +22,9 @@ var animation_tags: PackedStringArray = []
 var material_animation := MaterialAnimation.new()
 var particles: Node3D
 var ribbons: Node3D
+var model_particles: Node3D
 
-func load_model(path: String, team := 1, tint := Color.WHITE) -> bool:
+func load_model(path: String, team := 1, tint := Color.WHITE, effects := true) -> bool:
 	if not FileAccess.file_exists(path):
 		push_error("未找到经典原始模型：" + path)
 		return false
@@ -59,12 +61,16 @@ func load_model(path: String, team := 1, tint := Color.WHITE) -> bool:
 	# 原模型坐标 Z 向上、X 向前，转换为 Godot 的 Y 向上、-Z 向前。
 	rotation_degrees = Vector3(-90, 90, 0)
 	scale = Vector3.ONE * 0.025
-	particles = Particles.new()
-	add_child(particles)
-	particles.bind(self)
-	ribbons = Ribbons.new()
-	add_child(ribbons)
-	ribbons.bind(self)
+	if effects:
+		particles = Particles.new()
+		add_child(particles)
+		particles.bind(self)
+		ribbons = Ribbons.new()
+		add_child(ribbons)
+		ribbons.bind(self)
+		model_particles = ModelParticles.new()
+		add_child(model_particles)
+		model_particles.bind(self)
 	play("Stand")
 	advance(0)
 	return true
@@ -119,3 +125,4 @@ func advance(delta: float) -> void:
 	material_animation.advance()
 	if particles != null: particles.advance(delta)
 	if ribbons != null: ribbons.advance(delta)
+	if model_particles != null: model_particles.advance(delta)

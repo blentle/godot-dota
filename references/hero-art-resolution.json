@@ -1,7 +1,7 @@
 {
   "map_sha256": "326d7ea8fb2bf20bd540259ebc3e80d398cf1be79fe1827691927c9008107495",
-  "requested": 1469,
-  "resolved": 1459,
+  "requested": 1481,
+  "resolved": 1471,
   "missing": [
     {
       "path": "units/creeps/razormane/razormane_portrait.mdx",

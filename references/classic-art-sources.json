@@ -1,7 +1,7 @@
 {
   "source": "https://github.com/WarRaft/War3.mpq",
   "revision": "bce1f9d87ab7d71e208624dbbdce208db5690d4f",
-  "note": "公开镜像的经典资源候选；原始作者为 Blizzard。版本与 DotA 映射仍须逐项校对。",
+  "note": "\u516c\u5f00\u955c\u50cf\u7684\u7ecf\u5178\u8d44\u6e90\u5019\u9009\uff1b\u539f\u59cb\u4f5c\u8005\u4e3a Blizzard\u3002\u7248\u672c\u4e0e DotA \u6620\u5c04\u4ecd\u987b\u9010\u9879\u6821\u5bf9\u3002",
   "files": [
     {
       "path": "buildings/nightelf/ancientprotector/ancientprotector_portrait.mdx",
@@ -9314,6 +9314,78 @@
       "bytes": 175942,
       "git_blob_sha": "5e895e5ebde3735924ae95e5b862b7292f9de494",
       "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/ui/widgets/console/undead/undead-console-buttonstates2.blp"
+    },
+    {
+      "path": "sharedmodels/bones1.mdx",
+      "bytes": 2788,
+      "git_blob_sha": "9f881f7f92d707d827e1923ffda91e6d796d2c67",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/sharedmodels/bones1.mdx"
+    },
+    {
+      "path": "sharedmodels/destroyer.blp",
+      "bytes": 73651,
+      "git_blob_sha": "df2c4b1793326acbf26a4dbd2b84aefaead96522",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/sharedmodels/destroyer.blp"
+    },
+    {
+      "path": "sharedmodels/feather1.blp",
+      "bytes": 5312,
+      "git_blob_sha": "0d640e372d096a33c04bbf626a51f01a1bfd1758",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/sharedmodels/feather1.blp"
+    },
+    {
+      "path": "sharedmodels/feather1.mdx",
+      "bytes": 1821,
+      "git_blob_sha": "c7311803386eb7361eb078b3964a3811a922fc2b",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/sharedmodels/feather1.mdx"
+    },
+    {
+      "path": "sharedmodels/feather2.mdx",
+      "bytes": 2133,
+      "git_blob_sha": "b9ad657450940a6567fd2b5f86920097da9e126c",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/sharedmodels/feather2.mdx"
+    },
+    {
+      "path": "sharedmodels/featherpurple.blp",
+      "bytes": 5206,
+      "git_blob_sha": "a0f8aaa7af8a13c0b04ddb2fd139d4981a5161ab",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/sharedmodels/featherpurple.blp"
+    },
+    {
+      "path": "sharedmodels/featherpurple.mdx",
+      "bytes": 2657,
+      "git_blob_sha": "d8fc853ac69bd9ffdb21b841ccf2b7c6fb71ccc0",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/sharedmodels/featherpurple.mdx"
+    },
+    {
+      "path": "sharedmodels/featherpurple1.mdx",
+      "bytes": 2657,
+      "git_blob_sha": "bae611401ca202ed3ebce7ba8cd6f3c48a17514f",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/sharedmodels/featherpurple1.mdx"
+    },
+    {
+      "path": "sharedmodels/featherpurple2.mdx",
+      "bytes": 2657,
+      "git_blob_sha": "781023ee8453c71fbec8256a7e0f6e8d264bb209",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/sharedmodels/featherpurple2.mdx"
+    },
+    {
+      "path": "sharedmodels/gutz1.mdx",
+      "bytes": 2365,
+      "git_blob_sha": "895ea4599f92ba2606e284f502e1e3dfcda7bd91",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/sharedmodels/gutz1.mdx"
+    },
+    {
+      "path": "sharedmodels/obsidianfeather.mdx",
+      "bytes": 1821,
+      "git_blob_sha": "281e869c02f4f789943671d29c7332f396f0b385",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/sharedmodels/obsidianfeather.mdx"
+    },
+    {
+      "path": "sharedmodels/rocks1.mdx",
+      "bytes": 2421,
+      "git_blob_sha": "7efc42a94212def6cbfd21a8ff4c33e3045b040b",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/sharedmodels/rocks1.mdx"
     }
   ]
 }

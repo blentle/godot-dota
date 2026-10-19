@@ -8142,6 +8142,66 @@
       "source": "ui/widgets/console/undead/undead-console-buttonstates2.blp",
       "output": "ui/widgets/console/undead/undead-console-buttonstates2.png",
       "source_sha": "5e895e5ebde3735924ae95e5b862b7292f9de494"
+    },
+    {
+      "source": "sharedmodels/bones1.mdx",
+      "output": "sharedmodels/bones1.json",
+      "source_sha": "9f881f7f92d707d827e1923ffda91e6d796d2c67"
+    },
+    {
+      "source": "sharedmodels/destroyer.blp",
+      "output": "sharedmodels/destroyer.png",
+      "source_sha": "df2c4b1793326acbf26a4dbd2b84aefaead96522"
+    },
+    {
+      "source": "sharedmodels/feather1.blp",
+      "output": "sharedmodels/feather1.png",
+      "source_sha": "0d640e372d096a33c04bbf626a51f01a1bfd1758"
+    },
+    {
+      "source": "sharedmodels/feather1.mdx",
+      "output": "sharedmodels/feather1.json",
+      "source_sha": "c7311803386eb7361eb078b3964a3811a922fc2b"
+    },
+    {
+      "source": "sharedmodels/feather2.mdx",
+      "output": "sharedmodels/feather2.json",
+      "source_sha": "b9ad657450940a6567fd2b5f86920097da9e126c"
+    },
+    {
+      "source": "sharedmodels/featherpurple.blp",
+      "output": "sharedmodels/featherpurple.png",
+      "source_sha": "a0f8aaa7af8a13c0b04ddb2fd139d4981a5161ab"
+    },
+    {
+      "source": "sharedmodels/featherpurple.mdx",
+      "output": "sharedmodels/featherpurple.json",
+      "source_sha": "d8fc853ac69bd9ffdb21b841ccf2b7c6fb71ccc0"
+    },
+    {
+      "source": "sharedmodels/featherpurple1.mdx",
+      "output": "sharedmodels/featherpurple1.json",
+      "source_sha": "bae611401ca202ed3ebce7ba8cd6f3c48a17514f"
+    },
+    {
+      "source": "sharedmodels/featherpurple2.mdx",
+      "output": "sharedmodels/featherpurple2.json",
+      "source_sha": "781023ee8453c71fbec8256a7e0f6e8d264bb209"
+    },
+    {
+      "source": "sharedmodels/gutz1.mdx",
+      "output": "sharedmodels/gutz1.json",
+      "source_sha": "895ea4599f92ba2606e284f502e1e3dfcda7bd91"
+    },
+    {
+      "source": "sharedmodels/obsidianfeather.mdx",
+      "output": "sharedmodels/obsidianfeather.json",
+      "source_sha": "281e869c02f4f789943671d29c7332f396f0b385"
+    },
+    {
+      "source": "sharedmodels/rocks1.mdx",
+      "output": "sharedmodels/rocks1.json",
+      "source_sha": "7efc42a94212def6cbfd21a8ff4c33e3045b040b"
     }
   ]
 }

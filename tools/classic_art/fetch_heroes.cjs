@@ -2,6 +2,9 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+const {execFile} = require('child_process');
+const {promisify} = require('util');
+const download = promisify(execFile);
 const root = path.resolve(__dirname, '../..');
 const deps = path.join(root, '.tools/classic-art/node_modules');
 const Archive = require(path.join(deps, 'mdx-m3-viewer/dist/cjs/parsers/mpq/archive')).default;
@@ -48,9 +51,10 @@ async function resolve({name, optional}) {
     if (!valid(data)) {
       for (let attempt = 0; attempt < 3; attempt++) {
         try {
-          const response = await fetch(entry.url, {signal:AbortSignal.timeout(90000)});
-          if (!response.ok) throw Error(`下载失败 ${response.status}: ${name}`);
-          data = Buffer.from(await response.arrayBuffer());
+          // curl 遵守系统代理；直接传参避免资源路径进入 shell。
+          const response = await download('curl', ['--fail', '--silent', '--show-error',
+            '--location', '--max-time', '90', entry.url], {encoding:'buffer', maxBuffer:32*1024*1024});
+          data = response.stdout;
           break;
         } catch (error) {
           if (attempt === 2) throw error;
@@ -70,6 +74,8 @@ async function resolve({name, optional}) {
     const model = war3.parseMDX(data.buffer.slice(data.byteOffset,data.byteOffset+data.byteLength));
     if (model.Version !== 800) throw Error('非经典格式：' + name);
     for (const texture of model.Textures) if (texture.Image) enqueue(texture.Image);
+    // 旧式发射器抛出独立模型；继续解析其网格和贴图，不能用精灵占位。
+    for (const emitter of model.ParticleEmitters || []) if (emitter.Path) enqueue(emitter.Path);
   }
 }
 async function main() {
@@ -87,7 +93,7 @@ async function main() {
     const batch = pending.splice(0, 8);
     await Promise.all(batch.map(resolve));
     completed += batch.length;
-    manifest.files = Array.from(entries.values()).sort((a,b) => a.path.localeCompare(b.path));
+    manifest.files = Array.from(entries.values());
     fs.writeFileSync(manifestPath, JSON.stringify(manifest,null,2)+'\n');
     console.log(`已解析 ${completed} 项，待解析 ${pending.length} 项`);
   }
