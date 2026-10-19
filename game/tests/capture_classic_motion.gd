@@ -15,14 +15,21 @@ func run() -> void:
 	scene.add_child(gallery)
 	gallery.bind(scene)
 	var prefix := "/tmp/classic-motion"
+	var action := "Stand"
 	for argument in OS.get_cmdline_user_args():
 		if argument.begins_with("--capture-prefix="): prefix = argument.trim_prefix("--capture-prefix=")
+		if argument.begins_with("--classic-action="): action = argument.trim_prefix("--classic-action=")
+		if argument.begins_with("--classic-zoom="):
+			scene.battle.camera_rig.zoom = clampf(float(argument.trim_prefix("--classic-zoom=")), 8, 60)
+			scene.battle.camera_rig.focus = scene.battle.hero.global_position
+	scene.battle.hero.classic_model.play(action, true)
 	var portrait: Control = scene.hud.get_node("HeroPanel/Portrait")
 	portrait.set_process(false)
 	for model in [scene.battle.hero.classic_model, portrait.model]:
 		model.clock = 0
 		model.global_clock = 0
 		model.particles.reset()
+		model.ribbons.reset()
 		model.advance(0)
 	portrait.camera_animation.advance()
 	var failed := false
@@ -37,6 +44,9 @@ func run() -> void:
 		var result := root.get_texture().get_image().save_png(path)
 		failed = failed or result != OK
 		print("确定时间点实机截图：", path, "，结果=", result)
+		var strips := 0
+		for emitter in scene.battle.hero.classic_model.ribbons.emitters: strips += emitter.batch.strips
+		print("当前飘带绘制段数：", strips)
 	scene.queue_free()
 	await process_frame
 	quit(1 if failed else 0)

@@ -20,6 +20,7 @@
 - [M1 操作说明与限制](docs/m1-progress.md)
 - [经典原始美术、112 位英雄外观目录与当前验收边界](docs/classic-art-restoration.md)
 - [原始英雄粒子基础表现与缺口](docs/classic-particles.md)
+- [原始飘带、挥砍轨迹与子步取样](docs/classic-ribbons.md)
 - [Godot 4.7.2 经典 HUD 组件夹具](docs/war3-hud-472.md)
 - [训练战斗操作与参数](docs/m2-combat.md)
 - [三路兵线、建筑与胜负演练](docs/m2-lanes.md)

@@ -58,3 +58,5 @@ python3 tools/classic_art/particle_coverage.py
 已导入资源还包含 15 个旧式 `ParticleEmitter`、39 个 `RibbonEmitter`，本轮尚未实现。发射节点在一帧内部的骨骼运动插值、部分节点标志、三轴非均匀缩放、拖尾 UV 方向及原版精确混合仍待逐模型校准。
 
 粒子密度、大小、颜色与光照尚未逐英雄对照原版截图/录像；本轮没有宣称达到 95% 或完整还原。地形、树与建筑仍为占位美术，整体 HUD 字体和部分坐标仍待验收。Windows、Linux 未实测。
+
+后续更新：RibbonEmitter 基础表现已接入，当前状态见 [飘带说明](classic-ribbons.md)；本页“尚未实现”描述保留为上一轮的阶段记录。

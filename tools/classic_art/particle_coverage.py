@@ -18,7 +18,10 @@ def main():
         counts['models_with_particle2'] += bool(emitters)
         counts['particle2_emitters'] += len(emitters)
         counts['legacy_emitters_not_implemented'] += len(model.get('ParticleEmitters', []))
-        counts['ribbon_emitters_not_implemented'] += len(model.get('RibbonEmitters', []))
+        counts['ribbon_emitters_basic'] += len(model.get('RibbonEmitters', []))
+        counts['models_with_ribbons'] += bool(model.get('RibbonEmitters', []))
+        for ribbon in model.get('RibbonEmitters', []):
+            assert 0 <= ribbon['MaterialID'] < len(model['Materials']), f'无效飘带材质：{path}'
         for entry in emitters:
             assert entry['FrameFlags'] in [1, 2, 3], f'未知头尾类型：{path}'
             assert 0 <= entry['TextureID'] < len(model['Textures']), f'无效纹理编号：{path}'
@@ -33,9 +36,9 @@ def main():
         'source_map_sha256': json.loads((ART / 'hero-catalog.json').read_text())['source_map_sha256'],
         'counts': dict(counts), 'filter_modes': dict(sorted(filters.items())),
         'status': '配置可读及基础表现已接入，不代表原版逐帧或像素验收',
-        'limits': {'particles_per_model': 512, 'simulation_hz': 60, 'max_catchup_seconds': 2},
-        'remaining': ['旧 ParticleEmitter、RibbonEmitter 尚未实现', 'modulate2x 仍以乘色近似',
-                      '发射节点的帧内运动插值及部分节点标志未完成', '三轴非均匀缩放、拖尾 UV 方向与原版精确混合待逐模型核对',
+        'limits': {'particles_per_model': 512, 'simulation_hz': 60, 'max_catchup_seconds': 2, 'ribbon_sections_per_emitter': 128},
+        'remaining': ['旧 ParticleEmitter 尚未实现；飘带仍待原版逐帧验收', 'modulate2x 仍以乘色近似',
+                      '粒子发射节点子步骨骼取样及部分节点标志未完成；飘带已接入子步骨骼', '三轴非均匀缩放、拖尾 UV 方向与原版精确混合待逐模型核对',
                       '仅 macOS 实机检查，Windows、Linux 尚未验收']}
     target = ROOT / 'references/classic-particle-coverage.json'
     target.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
