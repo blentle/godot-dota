@@ -5,17 +5,20 @@ const Tracks = preload("res://presentation/classic/animation_tracks.gd")
 const Materials = preload("res://presentation/classic/model_materials.gd")
 const Meshes = preload("res://presentation/classic/model_meshes.gd")
 const MaterialAnimation = preload("res://presentation/classic/material_animation.gd")
+const Particles = preload("res://presentation/classic/particle_system.gd")
 var data: Dictionary
 var skeleton := Skeleton3D.new()
 var materials := Materials.new()
 var bone_ids: Dictionary = {}
 var surfaces: Array[MeshInstance3D] = []
 var sequence := -1
+var action_serial := 0
 var clock := 0.0
 var global_clock := 0.0
 var frame := 0.0
 var animation_tags: PackedStringArray = []
 var material_animation := MaterialAnimation.new()
+var particles: Node3D
 
 func load_model(path: String, team := 1, tint := Color.WHITE) -> bool:
 	if not FileAccess.file_exists(path):
@@ -54,6 +57,9 @@ func load_model(path: String, team := 1, tint := Color.WHITE) -> bool:
 	# 原模型坐标 Z 向上、X 向前，转换为 Godot 的 Y 向上、-Z 向前。
 	rotation_degrees = Vector3(-90, 90, 0)
 	scale = Vector3.ONE * 0.025
+	particles = Particles.new()
+	add_child(particles)
+	particles.bind(self)
 	play("Stand")
 	advance(0)
 	return true
@@ -80,6 +86,7 @@ func play(prefix: String, restart := false) -> void:
 	if best >= 0 and (sequence != best or restart):
 		sequence = best
 		clock = 0
+		action_serial += 1
 
 func sample(track: Variant, fallback: Variant, quaternion := false) -> Variant:
 	if not track is Dictionary: return fallback if track == null else track
@@ -105,3 +112,4 @@ func advance(delta: float) -> void:
 		skeleton.set_bone_pose_rotation(index, sample(node.get("Rotation"), Quaternion.IDENTITY, true))
 		skeleton.set_bone_pose_scale(index, sample(node.get("Scaling"), Vector3.ONE))
 	material_animation.advance()
+	if particles != null: particles.advance(delta)
