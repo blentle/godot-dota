@@ -20,6 +20,8 @@ func run() -> void:
 		root.add_child(model)
 		if not model.load_model(path): failures += 1
 		else:
+			if model.particles == null or model.particles.emitters.size() != model.data.ParticleEmitters2.size(): failures += 1
+			if model.ribbons == null or model.ribbons.emitters.size() != model.data.RibbonEmitters.size(): failures += 1
 			model.animation_tags = PackedStringArray(paths[path])
 			for action in ["Stand", "Walk", "Attack", "Spell", "Death", "Portrait"]:
 				model.play(action, true)

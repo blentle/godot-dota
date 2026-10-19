@@ -6,6 +6,7 @@ const Materials = preload("res://presentation/classic/model_materials.gd")
 const Meshes = preload("res://presentation/classic/model_meshes.gd")
 const MaterialAnimation = preload("res://presentation/classic/material_animation.gd")
 const Particles = preload("res://presentation/classic/particle_system.gd")
+const Ribbons = preload("res://presentation/classic/ribbon_system.gd")
 var data: Dictionary
 var skeleton := Skeleton3D.new()
 var materials := Materials.new()
@@ -19,6 +20,7 @@ var frame := 0.0
 var animation_tags: PackedStringArray = []
 var material_animation := MaterialAnimation.new()
 var particles: Node3D
+var ribbons: Node3D
 
 func load_model(path: String, team := 1, tint := Color.WHITE) -> bool:
 	if not FileAccess.file_exists(path):
@@ -60,6 +62,9 @@ func load_model(path: String, team := 1, tint := Color.WHITE) -> bool:
 	particles = Particles.new()
 	add_child(particles)
 	particles.bind(self)
+	ribbons = Ribbons.new()
+	add_child(ribbons)
+	ribbons.bind(self)
 	play("Stand")
 	advance(0)
 	return true
@@ -113,3 +118,4 @@ func advance(delta: float) -> void:
 		skeleton.set_bone_pose_scale(index, sample(node.get("Scaling"), Vector3.ONE))
 	material_animation.advance()
 	if particles != null: particles.advance(delta)
+	if ribbons != null: ribbons.advance(delta)
