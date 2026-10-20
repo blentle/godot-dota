@@ -1,7 +1,7 @@
 {
   "source": "https://github.com/WarRaft/War3.mpq",
   "revision": "bce1f9d87ab7d71e208624dbbdce208db5690d4f",
-  "note": "\u516c\u5f00\u955c\u50cf\u7684\u7ecf\u5178\u8d44\u6e90\u5019\u9009\uff1b\u539f\u59cb\u4f5c\u8005\u4e3a Blizzard\u3002\u7248\u672c\u4e0e DotA \u6620\u5c04\u4ecd\u987b\u9010\u9879\u6821\u5bf9\u3002",
+  "note": "公开镜像的经典资源候选；原始作者为 Blizzard。版本与 DotA 映射仍须逐项校对。",
   "files": [
     {
       "path": "buildings/nightelf/ancientprotector/ancientprotector_portrait.mdx",
@@ -9386,6 +9386,42 @@
       "bytes": 2421,
       "git_blob_sha": "7efc42a94212def6cbfd21a8ff4c33e3045b040b",
       "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/sharedmodels/rocks1.mdx"
+    },
+    {
+      "path": "fonts/dfheimd.ttf",
+      "bytes": 2385036,
+      "git_blob_sha": "982bd879c27c731d2601ea8da988784e06f4b5b3",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/extract/Fonts/DFHeiMd.ttf"
+    },
+    {
+      "path": "fonts/frizqt__.ttf",
+      "bytes": 62316,
+      "git_blob_sha": "e4cefa9272f2b8269622245559880bdbb954118f",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/extract/Fonts/FRIZQT__.TTF"
+    },
+    {
+      "path": "fonts/nim_____.ttf",
+      "bytes": 143708,
+      "git_blob_sha": "eb2e8e141d257ca18c2a01607fcd6adf064030db",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/extract/Fonts/NIM_____.ttf"
+    },
+    {
+      "path": "fonts/dffn_b31.ttf",
+      "bytes": 4445744,
+      "git_blob_sha": "b7dae44779c5ace567f3fd26e8520fab6dcbb2af",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/extract/Fonts/dffn_b31.ttf"
+    },
+    {
+      "path": "fonts/dfst-m3u.ttf",
+      "bytes": 6221576,
+      "git_blob_sha": "26e40fddd7b745c47097905c27af24a73f702ba8",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/extract/Fonts/dfst-m3u.ttf"
+    },
+    {
+      "path": "fonts/tt5500m_.ttf",
+      "bytes": 5034348,
+      "git_blob_sha": "faf7a8c2c891fbc4a9332f65ae0a4dfc58206c96",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/extract/Fonts/tt5500m_.ttf"
     }
   ]
 }

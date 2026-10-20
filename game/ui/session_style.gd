@@ -5,13 +5,12 @@ const GOLD := Color("c6ab70")
 const TEXT := Color("e1d7bb")
 const MUTED := Color("aaa58e")
 
-# 界面只读共享字体，避免每个控件重复扫描系统字体而阻塞网络主循环。
-static var shared_font: SystemFont
+# 界面只读共享打包字体，避免每个控件重复扫描系统字体而阻塞网络主循环。
+static var shared_font: Font
 
-static func font() -> SystemFont:
+static func font() -> Font:
 	if shared_font == null:
-		shared_font = SystemFont.new()
-		shared_font.font_names = PackedStringArray(["PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC"])
+		shared_font = preload("res://ui/war3/assets/font.tres")
 	return shared_font
 
 static func box(fill: Color, border: Color) -> StyleBoxFlat:
