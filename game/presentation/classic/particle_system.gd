@@ -41,6 +41,7 @@ func reset() -> void:
 	active.clear()
 	for emitter in emitters:
 		emitter.batch.particles.clear()
+		emitter.batch.draw(null)
 		emitter.credit = 0.0
 		emitter.last = ""
 	remainder = 0

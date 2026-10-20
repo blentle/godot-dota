@@ -36,6 +36,7 @@ func reset() -> void:
 	for emitter in emitters:
 		emitter.pool.append_array(emitter.batch.sections)
 		emitter.batch.sections.clear()
+		emitter.batch.draw()
 		emitter.credit = 0.0
 		emitter.chain += 1
 		emitter.visible = false

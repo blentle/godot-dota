@@ -78,6 +78,12 @@ func load_model(path: String, team := 1, tint := Color.WHITE, effects := true) -
 static func vector(values: Array) -> Vector3:
 	return Vector3(values[0], values[1], values[2])
 
+func reset_effects() -> void:
+	# 传送和生命代次切换时清除旧世界轨迹，不改写动画时钟或权威状态。
+	if particles != null: particles.reset()
+	if ribbons != null: ribbons.reset()
+	if model_particles != null: model_particles.reset()
+
 func play(prefix: String, restart := false) -> void:
 	# 地图 animProps 可位于动作名称首尾；宙斯固定使用 alternate，而非默认山丘形态。
 	var best := -1
