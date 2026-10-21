@@ -20,6 +20,8 @@ func run() -> void:
 	scene.battle.set_physics_process(false)
 	var actor: RefCounted = scene.battle.simulation.combat.player
 	var before: Array = [actor.hp, actor.mana, actor.damage, actor.profile_id]
+	check(Catalog.find("Hmbr").display_name == "Zeus", "宙斯默认名应来自出现七次的 Zeus，而不是去重后的首个纪念名")
+	check(Catalog.find("Nfir").display_name == "Nevermore", "影魔默认名应保留原始专名频次")
 	var gallery := Gallery.new()
 	scene.add_child(gallery)
 	gallery.bind(scene)
@@ -29,6 +31,9 @@ func run() -> void:
 		check(scene.hud.visual_hero.id == code, "目录切换必须同步 HUD 外观")
 		check(scene.hud.get_node("HeroPanel/Portrait").character == code, "动态头像必须切换到相同英雄")
 		check(scene.battle.hero.classic_model.data.Version == 800, "必须读取原始经典模型")
+		var entry: Dictionary = scene.hud.visual_hero
+		check(scene.hud.get_node("HeroPanel/HeroName").text == entry.display_name, "姓名行应使用地图专名")
+		check(scene.hud.get_node("HeroPanel/Class").text == "第%d级 %s" % [actor.level, entry.name], "职业行应保留等级和称号，不能重复专名")
 		check(before == [actor.hp, actor.mana, actor.damage, actor.profile_id], "美术切换不能改写训练规则")
 		await process_frame
 	scene.queue_free()

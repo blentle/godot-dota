@@ -70,8 +70,9 @@ func apply_state(data: Dictionary) -> void:
 	$HeroPanel/Armor.text = "—"
 	var ratio: float = clampf(float(data.hero.get("hp", 0)) / maxf(1, float(data.hero.get("max_hp", 1))), 0, 1)
 	$HeroPanel/Health/Value.self_modulate = Color(minf(1, 2 - ratio*2), minf(1, ratio*2), 0)
-	$HeroPanel/HeroName.text = str(visual_hero.name)
-	$HeroPanel/Class.text = "第%d级 %s" % [int(data.hero.get("level", 1)), $HeroPanel/HeroName.text]
+	# 原版专名与英雄称号分行；校对模式用原始配置最常见专名，不伪造随机选名。
+	$HeroPanel/HeroName.text = str(visual_hero.get("display_name", visual_hero.name))
+	$HeroPanel/Class.text = "第%d级 %s" % [int(data.hero.get("level", 1)), str(visual_hero.name)]
 	var blocked: bool = data.get("commands_blocked", false)
 	for index in range(4): $HeroPanel.get_node("Command%d" % index).set_state(0, blocked or index == 3)
 	$HeroPanel/Attack.set_state(0, blocked)

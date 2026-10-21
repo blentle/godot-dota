@@ -8,6 +8,10 @@
       "proper_names": [
         "Rigwarl"
       ],
+      "proper_name_pool": [
+        "Rigwarl"
+      ],
+      "display_name": "Rigwarl",
       "model": "units/creeps/razormane/razormane.mdx",
       "icon": "replaceabletextures/commandbuttons/btnrazorback.blp",
       "animation_tags": [
@@ -45,6 +49,10 @@
       "proper_names": [
         "Luna Moonfang"
       ],
+      "proper_name_pool": [
+        "Luna Moonfang"
+      ],
+      "display_name": "Luna Moonfang",
       "model": "units/nightelf/huntress/huntress.mdx",
       "icon": "replaceabletextures/commandbuttons/btnhuntress.blp",
       "animation_tags": [
@@ -82,6 +90,10 @@
       "proper_names": [
         "Mangix"
       ],
+      "proper_name_pool": [
+        "Mangix"
+      ],
+      "display_name": "Mangix",
       "model": "units/creeps/pandarenbrewmaster/pandarenbrewmaster.mdx",
       "icon": "replaceabletextures/commandbuttons/btnpandarenbrewmaster.blp",
       "animation_tags": [
@@ -119,6 +131,10 @@
       "proper_names": [
         "Bradwarden"
       ],
+      "proper_name_pool": [
+        "Bradwarden"
+      ],
+      "display_name": "Bradwarden",
       "model": "units/creeps/centaurkhan/centaurkhan.mdx",
       "icon": "replaceabletextures/commandbuttons/btncentaurkhan.blp",
       "animation_tags": [
@@ -156,6 +172,10 @@
       "proper_names": [
         "Traxex"
       ],
+      "proper_name_pool": [
+        "Traxex"
+      ],
+      "display_name": "Traxex",
       "model": "units/creeps/bansheeranger/bansheeranger.mdx",
       "icon": "replaceabletextures/commandbuttons/btnbansheeranger.blp",
       "animation_tags": [
@@ -194,6 +214,16 @@
         "Knight Davion",
         "Trogdor"
       ],
+      "proper_name_pool": [
+        "Knight Davion",
+        "Knight Davion",
+        "Knight Davion",
+        "Knight Davion",
+        "Knight Davion",
+        "Trogdor",
+        "Knight Davion"
+      ],
+      "display_name": "Knight Davion",
       "model": "units/human/thecaptain/thecaptain.mdx",
       "icon": "replaceabletextures/commandbuttons/btnthecaptain.blp",
       "animation_tags": [
@@ -232,6 +262,16 @@
         "Magina",
         "BurNIng"
       ],
+      "proper_name_pool": [
+        "Magina",
+        "Magina",
+        "Magina",
+        "BurNIng",
+        "Magina",
+        "Magina",
+        "Magina"
+      ],
+      "display_name": "Magina",
       "model": "units/nightelf/herodemonhunter/herodemonhunter.mdx",
       "icon": "replaceabletextures/commandbuttons/btnherodemonhunter.blp",
       "animation_tags": [
@@ -270,6 +310,19 @@
         "Kardel Sharpeye",
         "Vasilij Zajcev"
       ],
+      "proper_name_pool": [
+        "Kardel Sharpeye",
+        "Kardel Sharpeye",
+        "Kardel Sharpeye",
+        "Kardel Sharpeye",
+        "Kardel Sharpeye",
+        "Kardel Sharpeye",
+        "Kardel Sharpeye",
+        "Kardel Sharpeye",
+        "Kardel Sharpeye",
+        "Vasilij Zajcev"
+      ],
+      "display_name": "Kardel Sharpeye",
       "model": "units/human/rifleman/rifleman.mdx",
       "icon": "replaceabletextures/commandbuttons/btnrifleman.blp",
       "animation_tags": [
@@ -307,6 +360,10 @@
       "proper_names": [
         "Purist Thunderwrath"
       ],
+      "proper_name_pool": [
+        "Purist Thunderwrath"
+      ],
+      "display_name": "Purist Thunderwrath",
       "model": "units/human/arthas/arthas.mdx",
       "icon": "replaceabletextures/commandbuttons/btnarthas.blp",
       "animation_tags": [
@@ -344,6 +401,10 @@
       "proper_names": [
         "Jah'rakal"
       ],
+      "proper_name_pool": [
+        "Jah'rakal"
+      ],
+      "display_name": "Jah'rakal",
       "model": "units/creeps/foresttrolltrapper/foresttrolltrapper.mdx",
       "icon": "replaceabletextures/commandbuttons/btnforesttroll.blp",
       "animation_tags": [
@@ -381,6 +442,10 @@
       "proper_names": [
         "Gondar"
       ],
+      "proper_name_pool": [
+        "Gondar"
+      ],
+      "display_name": "Gondar",
       "model": "units/other/dranaiakama/dranaiakama.mdx",
       "icon": "replaceabletextures/commandbuttons/btnakama.blp",
       "animation_tags": [
@@ -418,6 +483,10 @@
       "proper_names": [
         "Rhasta"
       ],
+      "proper_name_pool": [
+        "Rhasta"
+      ],
+      "display_name": "Rhasta",
       "model": "units/orc/heroshadowhunter/heroshadowhunter.mdx",
       "icon": "replaceabletextures/commandbuttons/btnshadowhunter.blp",
       "animation_tags": [
@@ -455,6 +524,10 @@
       "proper_names": [
         "Black Arachnia"
       ],
+      "proper_name_pool": [
+        "Black Arachnia"
+      ],
+      "display_name": "Black Arachnia",
       "model": "units/creeps/spiderblack/spiderblack.mdx",
       "icon": "replaceabletextures/commandbuttons/btnspiderblack.blp",
       "animation_tags": [
@@ -492,6 +565,10 @@
       "proper_names": [
         "Strygwyr"
       ],
+      "proper_name_pool": [
+        "Strygwyr"
+      ],
+      "display_name": "Strygwyr",
       "model": "units/orc/shaman/shaman.mdx",
       "icon": "replaceabletextures/commandbuttons/btnshaman.blp",
       "animation_tags": [
@@ -530,6 +607,21 @@
         "Mercurial",
         "qwerty-"
       ],
+      "proper_name_pool": [
+        "Mercurial",
+        "Mercurial",
+        "Mercurial",
+        "Mercurial",
+        "Mercurial",
+        "Mercurial",
+        "Mercurial",
+        "Mercurial",
+        "Mercurial",
+        "Mercurial",
+        "Mercurial",
+        "qwerty-"
+      ],
+      "display_name": "Mercurial",
       "model": "units/nightelf/spiritofvengeance/spiritofvengeance.mdx",
       "icon": "replaceabletextures/commandbuttons/btnvengeanceincarnate.blp",
       "animation_tags": [
@@ -567,6 +659,10 @@
       "proper_names": [
         "Viper"
       ],
+      "proper_name_pool": [
+        "Viper"
+      ],
+      "display_name": "Viper",
       "model": "units/creeps/netherdragon/netherdragon.mdx",
       "icon": "replaceabletextures/commandbuttons/btnnetherdragon.blp",
       "animation_tags": [
@@ -604,6 +700,10 @@
       "proper_names": [
         "Mortred"
       ],
+      "proper_name_pool": [
+        "Mortred"
+      ],
+      "display_name": "Mortred",
       "model": "units/nightelf/herowarden/herowarden.mdx",
       "icon": "replaceabletextures/commandbuttons/btnherowarden.blp",
       "animation_tags": [
@@ -642,6 +742,17 @@
         "Anub'arak",
         "A'noob Arak"
       ],
+      "proper_name_pool": [
+        "Anub'arak",
+        "Anub'arak",
+        "Anub'arak",
+        "Anub'arak",
+        "A'noob Arak",
+        "Anub'arak",
+        "Anub'arak",
+        "Anub'arak"
+      ],
+      "display_name": "Anub'arak",
       "model": "units/undead/herocryptlord/herocryptlord.mdx",
       "icon": "replaceabletextures/commandbuttons/btnherocryptlord.blp",
       "animation_tags": [
@@ -680,6 +791,17 @@
         "Clinkz",
         "Clinkz Eastwood"
       ],
+      "proper_name_pool": [
+        "Clinkz",
+        "Clinkz",
+        "Clinkz",
+        "Clinkz",
+        "Clinkz",
+        "Clinkz",
+        "Clinkz",
+        "Clinkz Eastwood"
+      ],
+      "display_name": "Clinkz",
       "model": "units/creeps/burningarcher/burningarcher.mdx",
       "icon": "replaceabletextures/commandbuttons/btnskeletonmage.blp",
       "animation_tags": [
@@ -717,6 +839,10 @@
       "proper_names": [
         "Anub'seran"
       ],
+      "proper_name_pool": [
+        "Anub'seran"
+      ],
+      "display_name": "Anub'seran",
       "model": "units/creeps/nerubianqueen/nerubianqueen.mdx",
       "icon": "replaceabletextures/commandbuttons/btnnerubianqueen.blp",
       "animation_tags": [
@@ -754,6 +880,10 @@
       "proper_names": [
         "Lesale Deathbringer"
       ],
+      "proper_name_pool": [
+        "Lesale Deathbringer"
+      ],
+      "display_name": "Lesale Deathbringer",
       "model": "units/critters/hydralisk/hydralisk.mdx",
       "icon": "replaceabletextures/commandbuttons/btnhydralisk.blp",
       "animation_tags": [
@@ -791,6 +921,10 @@
       "proper_names": [
         "Terrorblade"
       ],
+      "proper_name_pool": [
+        "Terrorblade"
+      ],
+      "display_name": "Terrorblade",
       "model": "units/nightelf/evilillidan/illidanevil.mdx",
       "icon": "replaceabletextures/commandbuttons/btnevilillidan.blp",
       "animation_tags": [
@@ -829,6 +963,20 @@
         "Nevermore",
         "YaphetS"
       ],
+      "proper_name_pool": [
+        "Nevermore",
+        "Nevermore",
+        "Nevermore",
+        "Nevermore",
+        "Nevermore",
+        "Nevermore",
+        "Nevermore",
+        "Nevermore",
+        "Nevermore",
+        "Nevermore",
+        "YaphetS"
+      ],
+      "display_name": "Nevermore",
       "model": "units/creeps/heroflamelord/heroflamelord.mdx",
       "icon": "replaceabletextures/commandbuttons/btnshade.blp",
       "animation_tags": [
@@ -871,6 +1019,19 @@
         "Meepo",
         "MeePwn"
       ],
+      "proper_name_pool": [
+        "Meepo",
+        "Meepo",
+        "Meepo",
+        "Meepo",
+        "Meepo",
+        "Meepo",
+        "Meepo",
+        "MeePwn",
+        "MeePwn",
+        "MeePwn"
+      ],
+      "display_name": "Meepo",
       "model": "units/creeps/koboldgeomancer/koboldgeomancer.mdx",
       "icon": "replaceabletextures/commandbuttons/btnkoboldgeomancer.blp",
       "animation_tags": [
@@ -909,6 +1070,17 @@
         "Merlini",
         "Zeus"
       ],
+      "proper_name_pool": [
+        "Merlini",
+        "Zeus",
+        "Zeus",
+        "Zeus",
+        "Zeus",
+        "Zeus",
+        "Zeus",
+        "Zeus"
+      ],
+      "display_name": "Zeus",
       "model": "units/human/heromountainking/heromountainking.mdx",
       "icon": "replaceabletextures/commandbuttons/btnavatar.blp",
       "animation_tags": [
@@ -946,6 +1118,10 @@
       "proper_names": [
         "Rylai Crestfall"
       ],
+      "proper_name_pool": [
+        "Rylai Crestfall"
+      ],
+      "display_name": "Rylai Crestfall",
       "model": "units/human/jaina/jaina.mdx",
       "icon": "replaceabletextures/commandbuttons/btnjaina.blp",
       "animation_tags": [
@@ -983,6 +1159,10 @@
       "proper_names": [
         "Lina Inverse"
       ],
+      "proper_name_pool": [
+        "Lina Inverse"
+      ],
+      "display_name": "Lina Inverse",
       "model": "units/human/sorceress/sorceress.mdx",
       "icon": "replaceabletextures/commandbuttons/btnsorceress.blp",
       "animation_tags": [
@@ -1021,6 +1201,17 @@
         "Ezalor",
         "Gandalf"
       ],
+      "proper_name_pool": [
+        "Ezalor",
+        "Ezalor",
+        "Ezalor",
+        "Ezalor",
+        "Ezalor",
+        "Ezalor",
+        "Gandalf",
+        "Ezalor"
+      ],
+      "display_name": "Ezalor",
       "model": "units/human/heroarchmage/heroarchmage.mdx",
       "icon": "replaceabletextures/commandbuttons/btnheroarchmage.blp",
       "animation_tags": [
@@ -1063,6 +1254,17 @@
         "Puck",
         "Kupu-Kupu"
       ],
+      "proper_name_pool": [
+        "Puck",
+        "Puck",
+        "Puck",
+        "Puck",
+        "Puck",
+        "Puck",
+        "Puck",
+        "Kupu-Kupu"
+      ],
+      "display_name": "Puck",
       "model": "units/nightelf/faeriedragon/faeriedragon.mdx",
       "icon": "replaceabletextures/commandbuttons/btnfaeriedragon.blp",
       "animation_tags": [
@@ -1100,6 +1302,10 @@
       "proper_names": [
         "Alleria"
       ],
+      "proper_name_pool": [
+        "Alleria"
+      ],
+      "display_name": "Alleria",
       "model": "units/creeps/sylvanuswindrunner/sylvanuswindrunner.mdx",
       "icon": "replaceabletextures/commandbuttons/btnsylvanuswindrunner.blp",
       "animation_tags": [
@@ -1139,6 +1345,17 @@
         "Chen",
         "Chechen"
       ],
+      "proper_name_pool": [
+        "Jackie Chen",
+        "Chen",
+        "Chen",
+        "Chen",
+        "Chen",
+        "Chen",
+        "Chen",
+        "Chechen"
+      ],
+      "display_name": "Chen",
       "model": "units/orc/herofarseer/herofarseer.mdx",
       "icon": "replaceabletextures/commandbuttons/btnherofarseer.blp",
       "animation_tags": [
@@ -1177,6 +1394,17 @@
         "Aiushtha",
         "Bambi"
       ],
+      "proper_name_pool": [
+        "Aiushtha",
+        "Aiushtha",
+        "Aiushtha",
+        "Aiushtha",
+        "Aiushtha",
+        "Aiushtha",
+        "Aiushtha",
+        "Bambi"
+      ],
+      "display_name": "Aiushtha",
       "model": "units/nightelf/dryad/dryad.mdx",
       "icon": "replaceabletextures/commandbuttons/btndryad.blp",
       "animation_tags": [
@@ -1214,6 +1442,10 @@
       "proper_names": [
         "Furion"
       ],
+      "proper_name_pool": [
+        "Furion"
+      ],
+      "display_name": "Furion",
       "model": "units/nightelf/malfurion/malfurionnostag.mdx",
       "icon": "replaceabletextures/commandbuttons/btnfurion.blp",
       "animation_tags": [
@@ -1251,6 +1483,10 @@
       "proper_names": [
         "Raijin Thunderkeg"
       ],
+      "proper_name_pool": [
+        "Raijin Thunderkeg"
+      ],
+      "display_name": "Raijin Thunderkeg",
       "model": "units/creeps/stormpandarenbrewmaster/stormpandarenbrewmaster.mdx",
       "icon": "replaceabletextures/commandbuttons/btnstorm.blp",
       "animation_tags": [
@@ -1288,6 +1524,10 @@
       "proper_names": [
         "Nortrom"
       ],
+      "proper_name_pool": [
+        "Nortrom"
+      ],
+      "display_name": "Nortrom",
       "model": "units/human/bloodelfspellthief/bloodelfspellthief.mdx",
       "icon": "replaceabletextures/commandbuttons/btnspellbreaker.blp",
       "animation_tags": [
@@ -1325,6 +1565,10 @@
       "proper_names": [
         "Thrall"
       ],
+      "proper_name_pool": [
+        "Thrall"
+      ],
+      "display_name": "Thrall",
       "model": "units/orc/thrall/thrall.mdx",
       "icon": "replaceabletextures/commandbuttons/btnthrall.blp",
       "animation_tags": [
@@ -1362,6 +1606,10 @@
       "proper_names": [
         "Rooftrellen"
       ],
+      "proper_name_pool": [
+        "Rooftrellen"
+      ],
+      "display_name": "Rooftrellen",
       "model": "buildings/nightelf/ancientprotector/ancientprotector.mdx",
       "icon": "replaceabletextures/commandbuttons/btntreant.blp",
       "animation_tags": [
@@ -1399,6 +1647,10 @@
       "proper_names": [
         "Tiny"
       ],
+      "proper_name_pool": [
+        "Tiny"
+      ],
+      "display_name": "Tiny",
       "model": "units/nightelf/mountaingiant/mountaingiant.mdx",
       "icon": "replaceabletextures/commandbuttons/btnmountaingiant.blp",
       "animation_tags": [
@@ -1436,6 +1688,10 @@
       "proper_names": [
         "Raigor Stonehoof"
       ],
+      "proper_name_pool": [
+        "Raigor Stonehoof"
+      ],
+      "display_name": "Raigor Stonehoof",
       "model": "units/orc/tauren/tauren.mdx",
       "icon": "replaceabletextures/commandbuttons/btntauren.blp",
       "animation_tags": [
@@ -1473,6 +1729,10 @@
       "proper_names": [
         "Rexxar"
       ],
+      "proper_name_pool": [
+        "Rexxar"
+      ],
+      "display_name": "Rexxar",
       "model": "units/creeps/beastmaster/beastmaster.mdx",
       "icon": "replaceabletextures/commandbuttons/btnbeastmaster.blp",
       "animation_tags": [
@@ -1513,6 +1773,18 @@
         "CoCo",
         "Captain Obvious"
       ],
+      "proper_name_pool": [
+        "Daelin Proudmoore",
+        "Daelin Proudmoore",
+        "Kunkka",
+        "CoCo",
+        "Daelin Proudmoore",
+        "Captain Obvious",
+        "Kunkka",
+        "Kunkka",
+        "Daelin Proudmoore"
+      ],
+      "display_name": "Daelin Proudmoore",
       "model": "units/other/proudmoore/proudmoore.mdx",
       "icon": "replaceabletextures/commandbuttons/btnproudmoore.blp",
       "animation_tags": [
@@ -1550,6 +1822,10 @@
       "proper_names": [
         "Sven"
       ],
+      "proper_name_pool": [
+        "Sven"
+      ],
+      "display_name": "Sven",
       "model": "units/demon/felgaurdblue/felgaurdblue.mdx",
       "icon": "replaceabletextures/commandbuttons/btnfelguardblue.blp",
       "animation_tags": [
@@ -1589,6 +1865,21 @@
         "Kaz Stonebul",
         "Cairne Bloodhoof"
       ],
+      "proper_name_pool": [
+        "Taur Thunderhorn",
+        "Kaz Stonebul",
+        "Cairne Bloodhoof",
+        "Cairne Bloodhoof",
+        "Cairne Bloodhoof",
+        "Cairne Bloodhoof",
+        "Cairne Bloodhoof",
+        "Cairne Bloodhoof",
+        "Cairne Bloodhoof",
+        "Cairne Bloodhoof",
+        "Cairne Bloodhoof",
+        "Cairne Bloodhoof"
+      ],
+      "display_name": "Cairne Bloodhoof",
       "model": "units/orc/herotaurenchieftain/herotaurenchieftain.mdx",
       "icon": "replaceabletextures/commandbuttons/btnherotaurenchieftain.blp",
       "animation_tags": [
@@ -1626,6 +1917,10 @@
       "proper_names": [
         "Razzil Darkbrew"
       ],
+      "proper_name_pool": [
+        "Razzil Darkbrew"
+      ],
+      "display_name": "Razzil Darkbrew",
       "model": "units/creeps/herogoblinalchemist/herogoblinalchemist.mdx",
       "icon": "replaceabletextures/commandbuttons/btnheroalchemist.blp",
       "animation_tags": [
@@ -1665,6 +1960,23 @@
         "Santelmo",
         "Weird Ball"
       ],
+      "proper_name_pool": [
+        "Io",
+        "Io",
+        "Io",
+        "Io",
+        "Io",
+        "Io",
+        "Io",
+        "Io",
+        "Io",
+        "Io",
+        "Io",
+        "Io",
+        "Santelmo",
+        "Weird Ball"
+      ],
+      "display_name": "Io",
       "model": "units/nightelf/wisp/wisp.mdx",
       "icon": "replaceabletextures/commandbuttons/btnwisphero.blp",
       "animation_tags": [
@@ -1706,6 +2018,10 @@
       "proper_names": [
         "Darchrow"
       ],
+      "proper_name_pool": [
+        "Darchrow"
+      ],
+      "display_name": "Darchrow",
       "model": "voidwalker.mdx",
       "icon": "replaceabletextures/commandbuttons/btnspell_shadow_summonvoidwalker.blp",
       "animation_tags": [
@@ -1743,6 +2059,10 @@
       "proper_names": [
         "Kel'Thuzad"
       ],
+      "proper_name_pool": [
+        "Kel'Thuzad"
+      ],
+      "display_name": "Kel'Thuzad",
       "model": "units/undead/herolich/herolich_v1.mdx",
       "icon": "replaceabletextures/commandbuttons/btnlichversion2.blp",
       "animation_tags": [
@@ -1780,6 +2100,10 @@
       "proper_names": [
         "Krobelus"
       ],
+      "proper_name_pool": [
+        "Krobelus"
+      ],
+      "display_name": "Krobelus",
       "model": "units/undead/banshee/banshee.mdx",
       "icon": "replaceabletextures/commandbuttons/btnbanshee.blp",
       "animation_tags": [
@@ -1817,6 +2141,10 @@
       "proper_names": [
         "Lion"
       ],
+      "proper_name_pool": [
+        "Lion"
+      ],
+      "display_name": "Lion",
       "model": "units/demon/chaoswarlock/chaoswarlock.mdx",
       "icon": "replaceabletextures/commandbuttons/btnlion.blp",
       "animation_tags": [
@@ -1854,6 +2182,10 @@
       "proper_names": [
         "Akasha"
       ],
+      "proper_name_pool": [
+        "Akasha"
+      ],
+      "display_name": "Akasha",
       "model": "units/demon/demonessblue/demonessblue.mdx",
       "icon": "replaceabletextures/commandbuttons/btnbluedemoness.blp",
       "animation_tags": [
@@ -1891,6 +2223,10 @@
       "proper_names": [
         "Pugna"
       ],
+      "proper_name_pool": [
+        "Pugna"
+      ],
+      "display_name": "Pugna",
       "model": "units/undead/skeletonmage/skeletonmage.mdx",
       "icon": "replaceabletextures/commandbuttons/btnpugna.blp",
       "animation_tags": [
@@ -1929,6 +2265,19 @@
         "Rotund'jere",
         "A Phoe Gyi"
       ],
+      "proper_name_pool": [
+        "Rotund'jere",
+        "Rotund'jere",
+        "Rotund'jere",
+        "Rotund'jere",
+        "Rotund'jere",
+        "Rotund'jere",
+        "Rotund'jere",
+        "Rotund'jere",
+        "Rotund'jere",
+        "A Phoe Gyi"
+      ],
+      "display_name": "Rotund'jere",
       "model": "units/undead/kelthuzadghost/kelthuzadghost.mdx",
       "icon": "replaceabletextures/commandbuttons/btnghostofkelthuzad.blp",
       "animation_tags": [
@@ -1966,6 +2315,10 @@
       "proper_names": [
         "Ish'kafel"
       ],
+      "proper_name_pool": [
+        "Ish'kafel"
+      ],
+      "display_name": "Ish'kafel",
       "model": "units/other/dranaimage/dranaimage.mdx",
       "icon": "replaceabletextures/commandbuttons/btndranaimage.blp",
       "animation_tags": [
@@ -2003,6 +2356,10 @@
       "proper_names": [
         "Harbinger"
       ],
+      "proper_name_pool": [
+        "Harbinger"
+      ],
+      "display_name": "Harbinger",
       "model": "units/undead/obsidianstatue/obsidianstatue.mdx",
       "icon": "replaceabletextures/commandbuttons/btndestroyer.blp",
       "animation_tags": [
@@ -2040,6 +2397,10 @@
       "proper_names": [
         "Atropos"
       ],
+      "proper_name_pool": [
+        "Atropos"
+      ],
+      "display_name": "Atropos",
       "model": "units/creeps/voidwalker/voidwalker.mdx",
       "icon": "replaceabletextures/commandbuttons/btnvoidwalker.blp",
       "animation_tags": [
@@ -2077,6 +2438,10 @@
       "proper_names": [
         "Demnok Lannik"
       ],
+      "proper_name_pool": [
+        "Demnok Lannik"
+      ],
+      "display_name": "Demnok Lannik",
       "model": "units/orc/orcwarlockguldan/orcwarlockguldan.mdx",
       "icon": "replaceabletextures/commandbuttons/btnguldan.blp",
       "animation_tags": [
@@ -2115,6 +2480,18 @@
         "Eredar",
         "Giblet"
       ],
+      "proper_name_pool": [
+        "Eredar",
+        "Eredar",
+        "Eredar",
+        "Eredar",
+        "Eredar",
+        "Eredar",
+        "Eredar",
+        "Eredar",
+        "Giblet"
+      ],
+      "display_name": "Eredar",
       "model": "units/demon/warlock/warlock.mdx",
       "icon": "replaceabletextures/commandbuttons/btnarchimonde.blp",
       "animation_tags": [
@@ -2153,6 +2530,22 @@
         "Ulfsaar",
         "Fuzzy Wuzzy"
       ],
+      "proper_name_pool": [
+        "Ulfsaar",
+        "Ulfsaar",
+        "Ulfsaar",
+        "Fuzzy Wuzzy",
+        "Ulfsaar",
+        "Ulfsaar",
+        "Ulfsaar",
+        "Fuzzy Wuzzy",
+        "Ulfsaar",
+        "Ulfsaar",
+        "Ulfsaar",
+        "Ulfsaar",
+        "Ulfsaar"
+      ],
+      "display_name": "Ulfsaar",
       "model": "units/creeps/furbolgtracker/furbolgtracker.mdx",
       "icon": "replaceabletextures/commandbuttons/btnfurbolgtracker.blp",
       "animation_tags": [
@@ -2190,6 +2583,10 @@
       "proper_names": [
         "Lanaya"
       ],
+      "proper_name_pool": [
+        "Lanaya"
+      ],
+      "display_name": "Lanaya",
       "model": "units/creeps/assassin/assassin.mdx",
       "icon": "replaceabletextures/commandbuttons/btnassassin.blp",
       "animation_tags": [
@@ -2228,6 +2625,13 @@
         "Shendelzare Silkwood",
         "820"
       ],
+      "proper_name_pool": [
+        "Shendelzare Silkwood",
+        "820",
+        "Shendelzare Silkwood",
+        "Shendelzare Silkwood"
+      ],
+      "display_name": "Shendelzare Silkwood",
       "model": "units/nightelf/vengeance/vengeance.mdx",
       "icon": "replaceabletextures/commandbuttons/btnavengingwatcher.blp",
       "animation_tags": [
@@ -2265,6 +2669,10 @@
       "proper_names": [
         "Xin"
       ],
+      "proper_name_pool": [
+        "Xin"
+      ],
+      "display_name": "Xin",
       "model": "units/creeps/firepandarenbrewmaster/firepandarenbrewmaster.mdx",
       "icon": "replaceabletextures/commandbuttons/btnfirebrewmaster.blp",
       "animation_tags": [
@@ -2303,6 +2711,21 @@
         "Mirana Nightshade",
         "Jumong"
       ],
+      "proper_name_pool": [
+        "Mirana Nightshade",
+        "Mirana Nightshade",
+        "Mirana Nightshade",
+        "Mirana Nightshade",
+        "Mirana Nightshade",
+        "Mirana Nightshade",
+        "Mirana Nightshade",
+        "Mirana Nightshade",
+        "Mirana Nightshade",
+        "Mirana Nightshade",
+        "Mirana Nightshade",
+        "Jumong"
+      ],
+      "display_name": "Mirana Nightshade",
       "model": "units/nightelf/heromoonpriestess/heromoonpriestess.mdx",
       "icon": "replaceabletextures/commandbuttons/btnpriestessofthemoon.blp",
       "animation_tags": [
@@ -2340,6 +2763,17 @@
       "proper_names": [
         "Syllabear"
       ],
+      "proper_name_pool": [
+        "Syllabear",
+        "Syllabear",
+        "Syllabear",
+        "Syllabear",
+        "Syllabear",
+        "Syllabear",
+        "Syllabear",
+        "Syllabear"
+      ],
+      "display_name": "Syllabear",
       "model": "units/nightelf/druidoftheclaw/druidoftheclaw.mdx",
       "icon": "replaceabletextures/commandbuttons/btndruidoftheclaw.blp",
       "animation_tags": [
@@ -2381,6 +2815,10 @@
       "proper_names": [
         "Yurnero"
       ],
+      "proper_name_pool": [
+        "Yurnero"
+      ],
+      "display_name": "Yurnero",
       "model": "units/demon/herochaosblademaster/herochaosblademaster.mdx",
       "icon": "replaceabletextures/commandbuttons/btnchaosblademaster.blp",
       "animation_tags": [
@@ -2418,6 +2856,10 @@
       "proper_names": [
         "Azwraith"
       ],
+      "proper_name_pool": [
+        "Azwraith"
+      ],
+      "display_name": "Azwraith",
       "model": "units/orc/hellscream/hellscream.mdx",
       "icon": "replaceabletextures/commandbuttons/btnhellscream.blp",
       "animation_tags": [
@@ -2456,6 +2898,19 @@
         "Rikimaru",
         "Riki Martin"
       ],
+      "proper_name_pool": [
+        "Rikimaru",
+        "Rikimaru",
+        "Rikimaru",
+        "Rikimaru",
+        "Rikimaru",
+        "Rikimaru",
+        "Rikimaru",
+        "Rikimaru",
+        "Rikimaru",
+        "Riki Martin"
+      ],
+      "display_name": "Rikimaru",
       "model": "units/creeps/satyrtrickster/satyrtrickster.mdx",
       "icon": "replaceabletextures/commandbuttons/btnsatyrtrickster.blp",
       "animation_tags": [
@@ -2493,6 +2948,10 @@
       "proper_names": [
         "Slithice"
       ],
+      "proper_name_pool": [
+        "Slithice"
+      ],
+      "display_name": "Slithice",
       "model": "units/naga/nagasiren/nagasiren.mdx",
       "icon": "replaceabletextures/commandbuttons/btnseawitch.blp",
       "animation_tags": [
@@ -2530,6 +2989,10 @@
       "proper_names": [
         "Morphling"
       ],
+      "proper_name_pool": [
+        "Morphling"
+      ],
+      "display_name": "Morphling",
       "model": "units/creeps/seaelemental/seaelemental.mdx",
       "icon": "replaceabletextures/commandbuttons/btnseaelemental.blp",
       "animation_tags": [
@@ -2571,6 +3034,10 @@
       "proper_names": [
         "Aurel Vlaicu"
       ],
+      "proper_name_pool": [
+        "Aurel Vlaicu"
+      ],
+      "display_name": "Aurel Vlaicu",
       "model": "units/human/gyrocopter/gyrocopter_v1.mdx",
       "icon": "replaceabletextures/commandbuttons/btnflyingmachine.blp",
       "animation_tags": [
@@ -2608,6 +3075,10 @@
       "proper_names": [
         "Huskar"
       ],
+      "proper_name_pool": [
+        "Huskar"
+      ],
+      "display_name": "Huskar",
       "model": "units/orc/headhunter/headhunter.mdx",
       "icon": "replaceabletextures/commandbuttons/btnheadhunterberserker.blp",
       "animation_tags": [
@@ -2645,6 +3116,10 @@
       "proper_names": [
         "Rattletrap"
       ],
+      "proper_name_pool": [
+        "Rattletrap"
+      ],
+      "display_name": "Rattletrap",
       "model": "units/creeps/herotinkerrobot/herotinkerrobot.mdx",
       "icon": "replaceabletextures/commandbuttons/btnclockwerkgoblin.blp",
       "animation_tags": [
@@ -2682,6 +3157,10 @@
       "proper_names": [
         "Ymir"
       ],
+      "proper_name_pool": [
+        "Ymir"
+      ],
+      "display_name": "Ymir",
       "model": "units/creeps/tuskarlord/tuskarlord.mdx",
       "icon": "replaceabletextures/commandbuttons/btntuskaarbrown.blp",
       "animation_tags": [
@@ -2719,6 +3198,10 @@
       "proper_names": [
         "Icarus"
       ],
+      "proper_name_pool": [
+        "Icarus"
+      ],
+      "display_name": "Icarus",
       "model": "units/human/phoenix/phoenix.mdx",
       "icon": "replaceabletextures/commandbuttons/btnphoenix.blp",
       "animation_tags": [
@@ -2760,6 +3243,10 @@
       "proper_names": [
         "Tresdin"
       ],
+      "proper_name_pool": [
+        "Tresdin"
+      ],
+      "display_name": "Tresdin",
       "model": "units/creeps/lordgarithos/lordgarithos.mdx",
       "icon": "replaceabletextures/commandbuttons/btngarithos.blp",
       "animation_tags": [
@@ -2798,6 +3285,15 @@
         "Rizzrak",
         "Oroku Saki"
       ],
+      "proper_name_pool": [
+        "Rizzrak",
+        "Rizzrak",
+        "Rizzrak",
+        "Rizzrak",
+        "Rizzrak",
+        "Oroku Saki"
+      ],
+      "display_name": "Rizzrak",
       "model": "units/creeps/irongolem/irongolem.mdx",
       "icon": "replaceabletextures/commandbuttons/btnjunkgolem.blp",
       "animation_tags": [
@@ -2835,6 +3331,10 @@
       "proper_names": [
         "Kaolin"
       ],
+      "proper_name_pool": [
+        "Kaolin"
+      ],
+      "display_name": "Kaolin",
       "model": "units/creeps/earthpandarenbrewmaster/earthpandarenbrewmaster.mdx",
       "icon": "replaceabletextures/commandbuttons/btnearthbrewmaster.blp",
       "animation_tags": [
@@ -2877,6 +3377,16 @@
         "Boush",
         "X!!"
       ],
+      "proper_name_pool": [
+        "Boush",
+        "Boush",
+        "Boush",
+        "Boush",
+        "Boush",
+        "X!!",
+        "Boush"
+      ],
+      "display_name": "Boush",
       "model": "units/creeps/herotinker/herotinker.mdx",
       "icon": "replaceabletextures/commandbuttons/btnherotinker.blp",
       "animation_tags": [
@@ -2915,6 +3425,15 @@
         "Squee Spleen and Spoon",
         "Double Joker"
       ],
+      "proper_name_pool": [
+        "Squee Spleen and Spoon",
+        "Squee Spleen and Spoon",
+        "Squee Spleen and Spoon",
+        "Squee Spleen and Spoon",
+        "Squee Spleen and Spoon",
+        "Double Joker"
+      ],
+      "display_name": "Squee Spleen and Spoon",
       "model": "units/creeps/goblinsapper/goblinsapper.mdx",
       "icon": "replaceabletextures/commandbuttons/btngoblinsapper.blp",
       "animation_tags": [
@@ -2956,6 +3475,10 @@
       "proper_names": [
         "Aggron Stonebreaker"
       ],
+      "proper_name_pool": [
+        "Aggron Stonebreaker"
+      ],
+      "display_name": "Aggron Stonebreaker",
       "model": "units/creeps/ogremagi/ogremagi.mdx",
       "icon": "replaceabletextures/commandbuttons/btnogremagi.blp",
       "animation_tags": [
@@ -2994,6 +3517,15 @@
         "Jakiro",
         "Double Dragon"
       ],
+      "proper_name_pool": [
+        "Jakiro",
+        "Jakiro",
+        "Jakiro",
+        "Jakiro",
+        "Double Dragon",
+        "Jakiro"
+      ],
+      "display_name": "Jakiro",
       "model": "units/nightelf/chimaera/chimaera.mdx",
       "icon": "replaceabletextures/commandbuttons/btnchimaera.blp",
       "animation_tags": [
@@ -3031,6 +3563,10 @@
       "proper_names": [
         "Rubick"
       ],
+      "proper_name_pool": [
+        "Rubick"
+      ],
+      "display_name": "Rubick",
       "model": "units/creeps/medivh/medivh.mdx",
       "icon": "replaceabletextures/commandbuttons/btnmedivh.blp",
       "animation_tags": [
@@ -3072,6 +3608,10 @@
       "proper_names": [
         "Dragonus"
       ],
+      "proper_name_pool": [
+        "Dragonus"
+      ],
+      "display_name": "Dragonus",
       "model": "units/creeps/windserpent/windserpent.mdx",
       "icon": "replaceabletextures/commandbuttons/btndragonhawk.blp",
       "animation_tags": [
@@ -3109,6 +3649,10 @@
       "proper_names": [
         "Nerif"
       ],
+      "proper_name_pool": [
+        "Nerif"
+      ],
+      "display_name": "Nerif",
       "model": "units/human/priest/priest_v1.mdx",
       "icon": "replaceabletextures/commandbuttons/btnpriest.blp",
       "animation_tags": [
@@ -3146,6 +3690,10 @@
       "proper_names": [
         "Nessaj"
       ],
+      "proper_name_pool": [
+        "Nessaj"
+      ],
+      "display_name": "Nessaj",
       "model": "units/demon/chaoswarlord/chaoswarlord.mdx",
       "icon": "replaceabletextures/commandbuttons/btnchaoswarlord.blp",
       "animation_tags": [
@@ -3183,6 +3731,10 @@
       "proper_names": [
         "Banehallow"
       ],
+      "proper_name_pool": [
+        "Banehallow"
+      ],
+      "display_name": "Banehallow",
       "model": "units/demon/kiljaeden/kiljaeden.mdx",
       "icon": "replaceabletextures/commandbuttons/btnkiljaedin.blp",
       "animation_tags": [
@@ -3220,6 +3772,10 @@
       "proper_names": [
         "King Leoric"
       ],
+      "proper_name_pool": [
+        "King Leoric"
+      ],
+      "display_name": "King Leoric",
       "model": "units/undead/skeleton/skeleton.mdx",
       "icon": "replaceabletextures/commandbuttons/btnskeletonarcher.blp",
       "animation_tags": [
@@ -3257,6 +3813,10 @@
       "proper_names": [
         "Abaddon"
       ],
+      "proper_name_pool": [
+        "Abaddon"
+      ],
+      "display_name": "Abaddon",
       "model": "units/undead/herodeathknight/herodeathknight.mdx",
       "icon": "replaceabletextures/commandbuttons/btnherodeathknight.blp",
       "animation_tags": [
@@ -3294,6 +3854,10 @@
       "proper_names": [
         "Slardar"
       ],
+      "proper_name_pool": [
+        "Slardar"
+      ],
+      "display_name": "Slardar",
       "model": "units/naga/nagaroyalguard/nagaroyalguard.mdx",
       "icon": "replaceabletextures/commandbuttons/btnnagamyrmidon.blp",
       "animation_tags": [
@@ -3332,6 +3896,16 @@
         "Mogul Kahn",
         "Mogul Kahnt Touch This"
       ],
+      "proper_name_pool": [
+        "Mogul Kahn",
+        "Mogul Kahn",
+        "Mogul Kahn",
+        "Mogul Kahn",
+        "Mogul Kahn",
+        "Mogul Kahn",
+        "Mogul Kahnt Touch This"
+      ],
+      "display_name": "Mogul Kahn",
       "model": "units/demon/chaoshellscream/chaoshellscream.mdx",
       "icon": "replaceabletextures/commandbuttons/btnchaosgrom.blp",
       "animation_tags": [
@@ -3369,6 +3943,10 @@
       "proper_names": [
         "Azgalor"
       ],
+      "proper_name_pool": [
+        "Azgalor"
+      ],
+      "display_name": "Azgalor",
       "model": "units/demon/heropitlord/heropitlord.mdx",
       "icon": "replaceabletextures/commandbuttons/btnpitlord.blp",
       "animation_tags": [
@@ -3406,6 +3984,10 @@
       "proper_names": [
         "Dirge"
       ],
+      "proper_name_pool": [
+        "Dirge"
+      ],
+      "display_name": "Dirge",
       "model": "units/creeps/zombie/zombie.mdx",
       "icon": "replaceabletextures/commandbuttons/btnzombie.blp",
       "animation_tags": [
@@ -3447,6 +4029,10 @@
       "proper_names": [
         "Pudge"
       ],
+      "proper_name_pool": [
+        "Pudge"
+      ],
+      "display_name": "Pudge",
       "model": "units/undead/abomination/abomination.mdx",
       "icon": "replaceabletextures/commandbuttons/btnabomination.blp",
       "animation_tags": [
@@ -3484,6 +4070,10 @@
       "proper_names": [
         "Balanar"
       ],
+      "proper_name_pool": [
+        "Balanar"
+      ],
+      "display_name": "Balanar",
       "model": "units/undead/tichondrius/tichondrius.mdx",
       "icon": "replaceabletextures/commandbuttons/btntichondrius.blp",
       "animation_tags": [
@@ -3522,6 +4112,17 @@
         "N'aix",
         "Gollum"
       ],
+      "proper_name_pool": [
+        "N'aix",
+        "N'aix",
+        "N'aix",
+        "N'aix",
+        "Gollum",
+        "N'aix",
+        "N'aix",
+        "N'aix"
+      ],
+      "display_name": "N'aix",
       "model": "units/undead/ghoul/ghoul.mdx",
       "icon": "replaceabletextures/commandbuttons/btnghoul.blp",
       "animation_tags": [
@@ -3559,6 +4160,10 @@
       "proper_names": [
         "Lucifer"
       ],
+      "proper_name_pool": [
+        "Lucifer"
+      ],
+      "display_name": "Lucifer",
       "model": "units/demon/doomguard/doomguard.mdx",
       "icon": "replaceabletextures/commandbuttons/btndoomguard.blp",
       "animation_tags": [
@@ -3600,6 +4205,10 @@
       "proper_names": [
         "Kaldr"
       ],
+      "proper_name_pool": [
+        "Kaldr"
+      ],
+      "display_name": "Kaldr",
       "model": "war3mapimported/icyghost.mdx",
       "icon": "replaceabletextures/commandbuttons/btnicyghost.blp",
       "animation_tags": [
@@ -3637,6 +4246,10 @@
       "proper_names": [
         "Leshrac the Malicious"
       ],
+      "proper_name_pool": [
+        "Leshrac the Malicious"
+      ],
+      "display_name": "Leshrac the Malicious",
       "model": "units/nightelf/herokeeperofthegroveghost/herokeeperofthegroveghost.mdx",
       "icon": "replaceabletextures/commandbuttons/btnkeeperghostblue.blp",
       "animation_tags": [
@@ -3674,6 +4287,10 @@
       "proper_names": [
         "Visage"
       ],
+      "proper_name_pool": [
+        "Visage"
+      ],
+      "display_name": "Visage",
       "model": "units/orc/spiritwyvern/spiritwyvern.mdx",
       "icon": "replaceabletextures/commandbuttons/btnspiritwyvern.blp",
       "animation_tags": [
@@ -3716,6 +4333,19 @@
         "Vol'Jin",
         "Moose"
       ],
+      "proper_name_pool": [
+        "Vol'Jin",
+        "Vol'Jin",
+        "Vol'Jin",
+        "Vol'Jin",
+        "Vol'Jin",
+        "Vol'Jin",
+        "Vol'Jin",
+        "Vol'Jin",
+        "Vol'Jin",
+        "Moose"
+      ],
+      "display_name": "Vol'Jin",
       "model": "units/orc/witchdoctor/witchdoctor.mdx",
       "icon": "replaceabletextures/commandbuttons/btnwitchdoctor.blp",
       "animation_tags": [
@@ -3753,6 +4383,10 @@
       "proper_names": [
         "Dazzle"
       ],
+      "proper_name_pool": [
+        "Dazzle"
+      ],
+      "display_name": "Dazzle",
       "model": "units/creeps/darktrollshadowpriest/darktrollshadowpriest.mdx",
       "icon": "replaceabletextures/commandbuttons/btndarktrollshadowpriest.blp",
       "animation_tags": [
@@ -3792,6 +4426,19 @@
         "Carl",
         "Kal-El"
       ],
+      "proper_name_pool": [
+        "Kael",
+        "Kael",
+        "Kael",
+        "Kael",
+        "Kael",
+        "Kael",
+        "Kael",
+        "Carl",
+        "Kal-El",
+        "Carl"
+      ],
+      "display_name": "Kael",
       "model": "units/human/herobloodelf/herobloodelf.mdx",
       "icon": "replaceabletextures/commandbuttons/btnherobloodelfprince.blp",
       "animation_tags": [
@@ -3829,6 +4476,18 @@
       "proper_names": [
         "Jin'zakk"
       ],
+      "proper_name_pool": [
+        "Jin'zakk",
+        "Jin'zakk",
+        "Jin'zakk",
+        "Jin'zakk",
+        "Jin'zakk",
+        "Jin'zakk",
+        "Jin'zakk",
+        "Jin'zakk",
+        "Jin'zakk"
+      ],
+      "display_name": "Jin'zakk",
       "model": "units/orc/battroll/battroll.mdx",
       "icon": "replaceabletextures/commandbuttons/btntrollbatrider.blp",
       "animation_tags": [
@@ -3870,6 +4529,10 @@
       "proper_names": [
         "Auroth"
       ],
+      "proper_name_pool": [
+        "Auroth"
+      ],
+      "display_name": "Auroth",
       "model": "units/undead/frostwyrm/frostwyrm.mdx",
       "icon": "replaceabletextures/commandbuttons/btnfrostwyrm.blp",
       "animation_tags": [
@@ -3907,6 +4570,10 @@
       "proper_names": [
         "Slark"
       ],
+      "proper_name_pool": [
+        "Slark"
+      ],
+      "display_name": "Slark",
       "model": "units/creeps/murlocnightcrawler/murlocnightcrawler.mdx",
       "icon": "replaceabletextures/commandbuttons/btnmurgulshadowcaster.blp",
       "animation_tags": [
@@ -3944,6 +4611,10 @@
       "proper_names": [
         "Medusa"
       ],
+      "proper_name_pool": [
+        "Medusa"
+      ],
+      "display_name": "Medusa",
       "model": "units/naga/ladyvashj/ladyvashj.mdx",
       "icon": "replaceabletextures/commandbuttons/btnnagaseawitch.blp",
       "animation_tags": [
@@ -3982,6 +4653,17 @@
         "Gorzerk",
         "Darkterror"
       ],
+      "proper_name_pool": [
+        "Gorzerk",
+        "Darkterror",
+        "Darkterror",
+        "Darkterror",
+        "Darkterror",
+        "Darkterror",
+        "Darkterror",
+        "Darkterror"
+      ],
+      "display_name": "Darkterror",
       "model": "units/creeps/facelessone/facelessone.mdx",
       "icon": "replaceabletextures/commandbuttons/btnfacelessone.blp",
       "animation_tags": [
@@ -4020,6 +4702,17 @@
         "Razor",
         "Gillette"
       ],
+      "proper_name_pool": [
+        "Razor",
+        "Razor",
+        "Razor",
+        "Razor",
+        "Razor",
+        "Razor",
+        "Razor",
+        "Gillette"
+      ],
+      "display_name": "Razor",
       "model": "units/creeps/revenant/revenant.mdx",
       "icon": "replaceabletextures/commandbuttons/btnrevenant.blp",
       "animation_tags": [
@@ -4057,6 +4750,10 @@
       "proper_names": [
         "Zet"
       ],
+      "proper_name_pool": [
+        "Zet"
+      ],
+      "display_name": "Zet",
       "model": "units/creeps/gnollwarden/gnollwarden.mdx",
       "icon": "replaceabletextures/commandbuttons/btngnollwarden.blp",
       "animation_tags": [
@@ -4094,6 +4791,10 @@
       "proper_names": [
         "Magnus"
       ],
+      "proper_name_pool": [
+        "Magnus"
+      ],
+      "display_name": "Magnus",
       "model": "units/creeps/magnataurblue/magnataurblue.mdx",
       "icon": "replaceabletextures/commandbuttons/btnbluemagnataur.blp",
       "animation_tags": [
@@ -4132,6 +4833,17 @@
         "Barathrum",
         "Roadrunner"
       ],
+      "proper_name_pool": [
+        "Barathrum",
+        "Barathrum",
+        "Barathrum",
+        "Barathrum",
+        "Barathrum",
+        "Roadrunner",
+        "Barathrum",
+        "Barathrum"
+      ],
+      "display_name": "Barathrum",
       "model": "units/orc/spiritwalker/spiritwalker.mdx",
       "icon": "replaceabletextures/commandbuttons/btnspiritwalker.blp",
       "animation_tags": [
@@ -4169,6 +4881,10 @@
       "proper_names": [
         "Leviathan"
       ],
+      "proper_name_pool": [
+        "Leviathan"
+      ],
+      "display_name": "Leviathan",
       "model": "units/creeps/seagiantgreen/seagiantgreen.mdx",
       "icon": "replaceabletextures/commandbuttons/btnseagiantgreen.blp",
       "animation_tags": [
@@ -4206,6 +4922,10 @@
       "proper_names": [
         "Crixalis"
       ],
+      "proper_name_pool": [
+        "Crixalis"
+      ],
+      "display_name": "Crixalis",
       "model": "units/creeps/archnathidgreen/archnathidgreen.mdx",
       "icon": "replaceabletextures/commandbuttons/btnarachnathidgreen.blp",
       "animation_tags": [
