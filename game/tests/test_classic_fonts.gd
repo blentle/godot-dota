@@ -23,5 +23,14 @@ func _initialize() -> void:
 	var sample := "力量 24  MP 240/240"
 	var width: float = font.get_string_size(sample, HORIZONTAL_ALIGNMENT_LEFT, -1, 13).x
 	check(width > 0 and width < 220, "字体测量应适合当前固定布局")
+	# 原生面板姓名/职业行宽 230；覆盖目录全部英雄，而非只测短样例。
+	var catalog: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://art/classic/hero-catalog.json"))
+	check(catalog.heroes.size() == 112, "字体检查必须覆盖完整英雄目录")
+	for hero in catalog.heroes:
+		for text in [hero.display_name, "第25级 "+hero.name]:
+			check(font.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, 13).x <= 230,
+				"英雄文字超出固定面板："+hero.id+" "+text)
+			for character in text:
+				check(font.has_char(character.unicode_at(0)), "英雄姓名/称号缺字："+hero.id+" "+character)
 	print("经典打包字体回归，失败数：", failures)
 	quit(1 if failures else 0)
