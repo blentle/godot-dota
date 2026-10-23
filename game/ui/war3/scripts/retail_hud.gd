@@ -18,6 +18,11 @@ func _ready() -> void:
 	$Resources/LumberIcon.texture = Art.texture("ui/feedback/resources/resourcelumber.png")
 	$HeroPanel/AttackIcon.texture = Art.texture("ui/widgets/console/human/infocard-attack-hero.png")
 	$HeroPanel/ArmorIcon.texture = Art.texture("ui/widgets/console/human/infocard-armor-hero.png")
+	# 原版属性图标沿用独立纹理，不再用文字标签代替；未知数值仍由快照留空。
+	var attribute_icons := {"Strength": "str", "Agility": "agi", "Intelligence": "int"}
+	for stat in attribute_icons:
+		$HeroPanel/Attributes.get_node(stat+"/Icon").texture = Art.texture(
+			"ui/widgets/console/human/infocard-heroattributes-%s.png" % attribute_icons[stat])
 	$HeroPanel/Portrait.set_hero(visual_hero)
 	for index in range(4):
 		var action: String = ["move", "stop", "hold", "patrol"][index]
