@@ -9422,6 +9422,18 @@
       "bytes": 5034348,
       "git_blob_sha": "faf7a8c2c891fbc4a9332f65ae0a4dfc58206c96",
       "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/extract/Fonts/tt5500m_.ttf"
+    },
+    {
+      "path": "textures/humanuitile-timeindicator.blp",
+      "bytes": 40728,
+      "git_blob_sha": "06f925bb1847e3b21743d13e8cb68a9e68023b3f",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/textures/humanuitile-timeindicator.blp"
+    },
+    {
+      "path": "textures/magicglow.blp",
+      "bytes": 5569,
+      "git_blob_sha": "26f4f14d0f2cb2998912dcb06d830ef5f803dbba",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/textures/magicglow.blp"
     }
   ]
 }

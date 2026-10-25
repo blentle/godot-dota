@@ -8202,6 +8202,16 @@
       "source": "sharedmodels/rocks1.mdx",
       "output": "sharedmodels/rocks1.json",
       "source_sha": "7efc42a94212def6cbfd21a8ff4c33e3045b040b"
+    },
+    {
+      "source": "textures/humanuitile-timeindicator.blp",
+      "output": "textures/humanuitile-timeindicator.png",
+      "source_sha": "06f925bb1847e3b21743d13e8cb68a9e68023b3f"
+    },
+    {
+      "source": "textures/magicglow.blp",
+      "output": "textures/magicglow.png",
+      "source_sha": "26f4f14d0f2cb2998912dcb06d830ef5f803dbba"
     }
   ]
 }

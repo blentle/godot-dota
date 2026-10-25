@@ -40,7 +40,8 @@ func load_model(path: String, team := 1, tint := Color.WHITE, effects := true) -
 	for node in data.Nodes:
 		var index := skeleton.get_bone_count()
 		bone_ids[int(node.ObjectId)] = index
-		skeleton.add_bone(str(node.Name) + "_" + str(node.ObjectId))
+		# 原始 UI 模型包含路径式名称；仅规范化运行时骨名，索引仍由 ObjectId 决定。
+		skeleton.add_bone(str(node.Name).replace(":", "_").replace("/", "_") + "_" + str(node.ObjectId))
 	for node in data.Nodes:
 		var index: int = bone_ids[int(node.ObjectId)]
 		var pivot := vector(node.PivotPoint)
