@@ -11,7 +11,7 @@ var visual_hero: Dictionary = Catalog.find("Hmbr")
 func _ready() -> void:
 	super._ready()
 	$Console.texture = Art.texture("console-%s.png" % console_race)
-	$Clock.texture = Art.texture("clock-%s.png" % console_race)
+	$Clock.configure_race(console_race)
 	$BottomBlack.texture = Art.texture("black.png")
 	$MapBlack.texture = Art.texture("black.png")
 	$Resources/GoldIcon.texture = Art.texture("ui/feedback/resources/resourcegold.png")
