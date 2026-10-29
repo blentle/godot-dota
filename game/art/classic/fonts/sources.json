@@ -1,0 +1,16 @@
+{
+  "revision": "bce1f9d87ab7d71e208624dbbdce208db5690d4f",
+  "status": "固定资源副本原始字体；简体语言包对应关系尚未实机验收",
+  "files": [
+    {
+      "file": "frizqt__.ttf",
+      "git_blob_sha": "e4cefa9272f2b8269622245559880bdbb954118f",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/extract/Fonts/FRIZQT__.TTF"
+    },
+    {
+      "file": "dfst-m3u.ttf",
+      "git_blob_sha": "26e40fddd7b745c47097905c27af24a73f702ba8",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/extract/Fonts/dfst-m3u.ttf"
+    }
+  ]
+}

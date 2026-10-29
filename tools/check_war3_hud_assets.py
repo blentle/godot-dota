@@ -27,8 +27,14 @@ def inspect() -> list[str]:
             if forbidden in source:
                 errors.append(f"禁止的布局或材质：{path.name} {forbidden}")
     font = (ROOT / "assets/font.tres").read_text(encoding="utf-8")
-    if "antialiasing = 0" not in font:
-        errors.append("字体未关闭抗锯齿")
+    if 'type="SystemFont"' in font:
+        errors.append("经典 HUD 不得依赖系统字体")
+    for name in ['frizqt__', 'dfst-m3u']:
+        settings = (ROOT.parents[1] / f'art/classic/fonts/{name}.ttf.import').read_text(encoding='utf-8')
+        for required in ['antialiasing=0', 'generate_mipmaps=false', 'allow_system_fallback=false',
+                         'subpixel_positioning=0', 'oversampling=1.0']:
+            if required not in settings:
+                errors.append(f'字体导入配置不符：{name} {required}')
     return errors
 
 

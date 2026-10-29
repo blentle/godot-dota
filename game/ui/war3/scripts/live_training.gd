@@ -46,6 +46,7 @@ func _refresh() -> void:
 	upgrades.blocked = shop.visible
 	if shop.visible or battle.paused or not battle.selected: upgrades.hide()
 	hud.get_node("HeroPanel/Portrait").paused = battle.paused
+	hud.get_node("Clock").paused = battle.paused
 	upgrades.sync_state()
 	var minimap: Control = hud.get_node("Minimap/MapTexture")
 	minimap.input_blocked = shop.visible

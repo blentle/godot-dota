@@ -1,7 +1,8 @@
-[gd_resource type="SystemFont" format=3]
+[gd_resource type="FontVariation" load_steps=3 format=3]
+
+[ext_resource type="FontFile" path="res://art/classic/fonts/frizqt__.ttf" id="latin"]
+[ext_resource type="FontFile" path="res://art/classic/fonts/dfst-m3u.ttf" id="chinese"]
 
 [resource]
-font_names = PackedStringArray("SimSun", "Songti SC", "Noto Serif CJK SC")
-antialiasing = 0
-subpixel_positioning = 0
-multichannel_signed_distance_field = false
+base_font = ExtResource("latin")
+fallbacks = Array[Font]([ExtResource("chinese")])

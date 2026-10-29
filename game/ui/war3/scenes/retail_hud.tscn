@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene load_steps=11 format=3]
 [ext_resource type="Script" path="res://ui/war3/scripts/retail_hud.gd" id="script"]
 [ext_resource type="PackedScene" path="res://ui/war3/scenes/retail_resources.tscn" id="resources"]
 [ext_resource type="PackedScene" path="res://ui/war3/scenes/retail_team.tscn" id="team"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" path="res://ui/war3/scenes/tooltip.tscn" id="tooltip"]
 [ext_resource type="Script" path="res://ui/war3/scripts/floating_text_pool.gd" id="pool"]
 [ext_resource type="PackedScene" path="res://ui/war3/scenes/retail_menu_action.tscn" id="action"]
+
+[ext_resource type="PackedScene" path="res://ui/war3/scenes/retail_clock.tscn" id="clock"]
 
 [node name="RetailHUD" type="Control"]
 anchor_left = 0.0
@@ -63,17 +65,7 @@ mouse_filter = 2
 z_index = -1
 expand_mode = 1
 
-[node name="Clock" type="TextureRect" parent="."]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 435.0
-offset_top = -7.0
-offset_right = 589.0
-offset_bottom = 70.0
-mouse_filter = 2
-expand_mode = 1
+[node name="Clock" parent="." instance=ExtResource("clock")]
 
 [node name="BottomBlocker" type="Control" parent="."]
 anchor_left = 0.0

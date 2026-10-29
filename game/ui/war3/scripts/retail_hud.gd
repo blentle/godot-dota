@@ -11,13 +11,18 @@ var visual_hero: Dictionary = Catalog.find("Hmbr")
 func _ready() -> void:
 	super._ready()
 	$Console.texture = Art.texture("console-%s.png" % console_race)
-	$Clock.texture = Art.texture("clock-%s.png" % console_race)
+	$Clock.configure_race(console_race)
 	$BottomBlack.texture = Art.texture("black.png")
 	$MapBlack.texture = Art.texture("black.png")
 	$Resources/GoldIcon.texture = Art.texture("ui/feedback/resources/resourcegold.png")
 	$Resources/LumberIcon.texture = Art.texture("ui/feedback/resources/resourcelumber.png")
 	$HeroPanel/AttackIcon.texture = Art.texture("ui/widgets/console/human/infocard-attack-hero.png")
 	$HeroPanel/ArmorIcon.texture = Art.texture("ui/widgets/console/human/infocard-armor-hero.png")
+	# 原版属性图标沿用独立纹理，不再用文字标签代替；未知数值仍由快照留空。
+	var attribute_icons := {"Strength": "str", "Agility": "agi", "Intelligence": "int"}
+	for stat in attribute_icons:
+		$HeroPanel/Attributes.get_node(stat+"/Icon").texture = Art.texture(
+			"ui/widgets/console/human/infocard-heroattributes-%s.png" % attribute_icons[stat])
 	$HeroPanel/Portrait.set_hero(visual_hero)
 	for index in range(4):
 		var action: String = ["move", "stop", "hold", "patrol"][index]
@@ -70,8 +75,9 @@ func apply_state(data: Dictionary) -> void:
 	$HeroPanel/Armor.text = "—"
 	var ratio: float = clampf(float(data.hero.get("hp", 0)) / maxf(1, float(data.hero.get("max_hp", 1))), 0, 1)
 	$HeroPanel/Health/Value.self_modulate = Color(minf(1, 2 - ratio*2), minf(1, ratio*2), 0)
-	$HeroPanel/HeroName.text = str(visual_hero.name)
-	$HeroPanel/Class.text = "第%d级 %s" % [int(data.hero.get("level", 1)), $HeroPanel/HeroName.text]
+	# 原版专名与英雄称号分行；校对模式用原始配置最常见专名，不伪造随机选名。
+	$HeroPanel/HeroName.text = str(visual_hero.get("display_name", visual_hero.name))
+	$HeroPanel/Class.text = "第%d级 %s" % [int(data.hero.get("level", 1)), str(visual_hero.name)]
 	var blocked: bool = data.get("commands_blocked", false)
 	for index in range(4): $HeroPanel.get_node("Command%d" % index).set_state(0, blocked or index == 3)
 	$HeroPanel/Attack.set_state(0, blocked)

@@ -1,5 +1,6 @@
 """从地图酒馆配置生成英雄外观目录；不把编辑器基础数值当作完整英雄规则。"""
 import json
+from collections import Counter
 import re
 from pathlib import Path
 from read_tables import sections, slk
@@ -37,6 +38,8 @@ def main():
     heroes = []
     for code in codes:
         visual, names, display = ui[code], strings[code], functions[code]
+        # 保留原始重复专名：重复次数是配置权重，不能在选默认显示名之前去重。
+        name_pool = [clean(value) for value in names.get('Propernames', '').split(',') if clean(value)]
         spells = []
         for ability in units.get(code, {}).get('heroAbilList', '').split(','):
             if not ability or ability == 'Aamk':
@@ -44,7 +47,9 @@ def main():
             spell = abilities.get(ability, {})
             spells.append({'id': ability, 'icon': resource(spell.get('ResearchArt', spell.get('Art', '')), '.blp')})
         heroes.append({'id': code, 'name': clean(names.get('Name', code)),
-            'proper_names': list(dict.fromkeys(clean(names.get('Propernames', '')).split(','))),
+            'proper_names': list(dict.fromkeys(name_pool)),
+            'proper_name_pool': name_pool,
+            'display_name': Counter(name_pool).most_common(1)[0][0] if name_pool else clean(names.get('Name', code)),
             'model': resource(visual.get('file', ''), '.mdx'),
             'icon': resource(display.get('Art', ''), '.blp'),
             'animation_tags': display.get('animProps', '').lower().split(','),

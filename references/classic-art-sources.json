@@ -9314,6 +9314,126 @@
       "bytes": 175942,
       "git_blob_sha": "5e895e5ebde3735924ae95e5b862b7292f9de494",
       "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/ui/widgets/console/undead/undead-console-buttonstates2.blp"
+    },
+    {
+      "path": "sharedmodels/bones1.mdx",
+      "bytes": 2788,
+      "git_blob_sha": "9f881f7f92d707d827e1923ffda91e6d796d2c67",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/sharedmodels/bones1.mdx"
+    },
+    {
+      "path": "sharedmodels/destroyer.blp",
+      "bytes": 73651,
+      "git_blob_sha": "df2c4b1793326acbf26a4dbd2b84aefaead96522",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/sharedmodels/destroyer.blp"
+    },
+    {
+      "path": "sharedmodels/feather1.blp",
+      "bytes": 5312,
+      "git_blob_sha": "0d640e372d096a33c04bbf626a51f01a1bfd1758",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/sharedmodels/feather1.blp"
+    },
+    {
+      "path": "sharedmodels/feather1.mdx",
+      "bytes": 1821,
+      "git_blob_sha": "c7311803386eb7361eb078b3964a3811a922fc2b",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/sharedmodels/feather1.mdx"
+    },
+    {
+      "path": "sharedmodels/feather2.mdx",
+      "bytes": 2133,
+      "git_blob_sha": "b9ad657450940a6567fd2b5f86920097da9e126c",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/sharedmodels/feather2.mdx"
+    },
+    {
+      "path": "sharedmodels/featherpurple.blp",
+      "bytes": 5206,
+      "git_blob_sha": "a0f8aaa7af8a13c0b04ddb2fd139d4981a5161ab",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/sharedmodels/featherpurple.blp"
+    },
+    {
+      "path": "sharedmodels/featherpurple.mdx",
+      "bytes": 2657,
+      "git_blob_sha": "d8fc853ac69bd9ffdb21b841ccf2b7c6fb71ccc0",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/sharedmodels/featherpurple.mdx"
+    },
+    {
+      "path": "sharedmodels/featherpurple1.mdx",
+      "bytes": 2657,
+      "git_blob_sha": "bae611401ca202ed3ebce7ba8cd6f3c48a17514f",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/sharedmodels/featherpurple1.mdx"
+    },
+    {
+      "path": "sharedmodels/featherpurple2.mdx",
+      "bytes": 2657,
+      "git_blob_sha": "781023ee8453c71fbec8256a7e0f6e8d264bb209",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/sharedmodels/featherpurple2.mdx"
+    },
+    {
+      "path": "sharedmodels/gutz1.mdx",
+      "bytes": 2365,
+      "git_blob_sha": "895ea4599f92ba2606e284f502e1e3dfcda7bd91",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/sharedmodels/gutz1.mdx"
+    },
+    {
+      "path": "sharedmodels/obsidianfeather.mdx",
+      "bytes": 1821,
+      "git_blob_sha": "281e869c02f4f789943671d29c7332f396f0b385",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/sharedmodels/obsidianfeather.mdx"
+    },
+    {
+      "path": "sharedmodels/rocks1.mdx",
+      "bytes": 2421,
+      "git_blob_sha": "7efc42a94212def6cbfd21a8ff4c33e3045b040b",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/sharedmodels/rocks1.mdx"
+    },
+    {
+      "path": "fonts/dfheimd.ttf",
+      "bytes": 2385036,
+      "git_blob_sha": "982bd879c27c731d2601ea8da988784e06f4b5b3",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/extract/Fonts/DFHeiMd.ttf"
+    },
+    {
+      "path": "fonts/frizqt__.ttf",
+      "bytes": 62316,
+      "git_blob_sha": "e4cefa9272f2b8269622245559880bdbb954118f",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/extract/Fonts/FRIZQT__.TTF"
+    },
+    {
+      "path": "fonts/nim_____.ttf",
+      "bytes": 143708,
+      "git_blob_sha": "eb2e8e141d257ca18c2a01607fcd6adf064030db",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/extract/Fonts/NIM_____.ttf"
+    },
+    {
+      "path": "fonts/dffn_b31.ttf",
+      "bytes": 4445744,
+      "git_blob_sha": "b7dae44779c5ace567f3fd26e8520fab6dcbb2af",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/extract/Fonts/dffn_b31.ttf"
+    },
+    {
+      "path": "fonts/dfst-m3u.ttf",
+      "bytes": 6221576,
+      "git_blob_sha": "26e40fddd7b745c47097905c27af24a73f702ba8",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/extract/Fonts/dfst-m3u.ttf"
+    },
+    {
+      "path": "fonts/tt5500m_.ttf",
+      "bytes": 5034348,
+      "git_blob_sha": "faf7a8c2c891fbc4a9332f65ae0a4dfc58206c96",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/extract/Fonts/tt5500m_.ttf"
+    },
+    {
+      "path": "textures/humanuitile-timeindicator.blp",
+      "bytes": 40728,
+      "git_blob_sha": "06f925bb1847e3b21743d13e8cb68a9e68023b3f",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/textures/humanuitile-timeindicator.blp"
+    },
+    {
+      "path": "textures/magicglow.blp",
+      "bytes": 5569,
+      "git_blob_sha": "26f4f14d0f2cb2998912dcb06d830ef5f803dbba",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/textures/magicglow.blp"
     }
   ]
 }
