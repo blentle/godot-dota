@@ -3,9 +3,11 @@ extends TextureRect
 
 const Model = preload("res://presentation/classic/model_view.gd")
 const Catalog = preload("res://presentation/classic/hero_catalog.gd")
+const CameraAnimation = preload("res://presentation/classic/portrait_camera.gd")
 var model: Node3D
 var character := ""
 var paused := false
+var camera_animation := CameraAnimation.new()
 
 func _ready() -> void:
 	texture = $Viewport.get_texture()
@@ -16,6 +18,7 @@ func set_character(name: String) -> void:
 func set_hero(hero: Dictionary) -> void:
 	texture = $Viewport.get_texture()
 	if character == hero.id: return
+	camera_animation.clear()
 	if is_instance_valid(model):
 		$Viewport/World.remove_child(model)
 		model.queue_free()
@@ -30,14 +33,9 @@ func set_hero(hero: Dictionary) -> void:
 	model.animation_tags = PackedStringArray(hero.animation_tags)
 	model.play("Portrait")
 	model.advance(0)
-	if model.data.Cameras.is_empty(): return
-	var camera: Dictionary = model.data.Cameras[0]
-	var view: Camera3D = $Viewport/World/Camera
-	view.fov = rad_to_deg(float(camera.FieldOfView))
-	view.near = float(camera.NearClip) * 0.025
-	view.far = float(camera.FarClip) * 0.025
-	view.global_position = model.to_global(Model.vector(camera.Position))
-	view.look_at(model.to_global(Model.vector(camera.TargetPosition)), Vector3.UP)
+	camera_animation.bind(model, $Viewport/World/Camera)
 
 func _process(delta: float) -> void:
-	if is_instance_valid(model) and not paused: model.advance(delta)
+	if is_instance_valid(model) and not paused:
+		model.advance(delta)
+		camera_animation.advance()

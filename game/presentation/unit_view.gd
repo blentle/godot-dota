@@ -15,6 +15,7 @@ var health: MeshInstance3D
 var health_back: MeshInstance3D
 var hit_remaining := 0.0
 var swing_remaining := 0.0
+var effect_continuity := preload("res://presentation/classic/effect_continuity.gd").new()
 
 func build(color: Color) -> void:
 	add_child(model)
@@ -56,6 +57,10 @@ func replace_classic_model() -> void:
 	action_remaining = 0
 
 func sync(state: RefCounted, selected: bool, delta: float, target: Vector3) -> void:
+	# 同一单位标识复活或位置突然跳变时，旧飘带/粒子不能跨出生点连接。
+	if effect_continuity.observe(state.position, state.life_id):
+		action_remaining = 0
+		if is_instance_valid(classic_model): classic_model.reset_effects()
 	var direction: Vector3 = state.position - position
 	position = state.position
 	if state.windup > 0: direction = target - position

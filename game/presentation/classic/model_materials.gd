@@ -7,6 +7,7 @@ var team := 1
 var cache: Dictionary = {}
 var textures: Dictionary = {}
 var tint := Color.WHITE
+var instances: Array = []
 
 func set_texture(material: StandardMaterial3D, index: int) -> void:
 	if index < 0 or index >= model.Textures.size(): return
@@ -31,13 +32,22 @@ func image_for(entry: Dictionary) -> Image:
 	return result
 
 func material(index: int) -> StandardMaterial3D:
-	if cache.has(index): return cache[index][0]
+	if cache.has(index):
+		var copies: Array[StandardMaterial3D] = []
+		for original in cache[index]:
+			var copy: StandardMaterial3D = original.duplicate()
+			copy.next_pass = null
+			if not copies.is_empty(): copies[-1].next_pass = copy
+			copies.append(copy)
+		instances.append({"id": index, "passes": copies})
+		return copies[0]
 	var passes: Array[StandardMaterial3D] = []
 	for layer in model.Materials[index].Layers:
 		var result := _layer_material(layer)
 		if not passes.is_empty(): passes[-1].next_pass = result
 		passes.append(result)
 	cache[index] = passes
+	instances.append({"id": index, "passes": passes})
 	return passes[0]
 
 func _layer_material(layer: Dictionary) -> StandardMaterial3D:
@@ -66,7 +76,7 @@ func _layer_material(layer: Dictionary) -> StandardMaterial3D:
 				result.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
 		1:
 			result.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
-			result.alpha_scissor_threshold = 0.5
+			result.alpha_scissor_threshold = 0.75
 		2: result.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 		3, 4:
 			result.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA

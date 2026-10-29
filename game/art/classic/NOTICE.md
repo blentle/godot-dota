@@ -10,3 +10,5 @@
 - `hero-catalog.json` 来自地图酒馆及单位配置，共 112 项。目录完整不等于 112 位英雄玩法或外观验收完成。
 
 转换工具依赖的 war3-model、mdx-m3-viewer、pngjs 保留各自许可证；安装位置为 `.tools/classic-art/node_modules`，不将第三方实现复制为自有业务代码。
+
+字体 `fonts/frizqt__.ttf` 与 `fonts/dfst-m3u.ttf` 同样来自上述固定资源副本，保留原始二进制及内嵌版权信息；来源记录在 `fonts/sources.json`，不适用镜像代码许可证。中文语言包对应关系尚未验收。

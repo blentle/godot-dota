@@ -2,7 +2,7 @@ extends Control
 ## 训练场景界面：呈现规则状态和命令入口，数值与美术均为开发版本。
 
 var battle: Node3D
-var font := SystemFont.new()
+var font: Font = preload("res://ui/war3/assets/font.tres")
 var notice := "右键移动 · 方向键移动镜头 · F1 返回单位"
 var menu: Panel
 const Minimap = preload("res://ui/minimap_view.gd")
@@ -26,7 +26,6 @@ const Catalog = preload("res://simulation/item_catalog.gd")
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
-	font.font_names = PackedStringArray(["PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "WenQuanYi Zen Hei"])
 	var top := Control.new()
 	top.position = Vector2.ZERO
 	top.size = Vector2(1280, 38)

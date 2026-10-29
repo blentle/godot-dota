@@ -1,5 +1,6 @@
 """校验经典资源输出的摘要、二次幂尺寸及模型/头像依赖；不替代实机视觉验收。"""
 import hashlib
+from collections import Counter
 import json
 from pathlib import Path
 import struct
@@ -16,6 +17,10 @@ def main():
         if hero['id'] in seen:
             errors.append('重复英雄代码：' + hero['id'])
         seen.add(hero['id'])
+        pool = hero.get('proper_name_pool', [])
+        expected = Counter(pool).most_common(1)[0][0] if pool else hero['name']
+        if hero.get('display_name') != expected or hero['proper_names'] != list(dict.fromkeys(pool)):
+            errors.append('英雄专名列表或默认显示名不一致：' + hero['id'])
         body = ART / hero['model'].replace('.mdx', '.json')
         portrait = ART / hero['model'].replace('.mdx', '_portrait.json')
         if body.exists() and not portrait.exists() and not json.loads(body.read_text()).get('Cameras'):
