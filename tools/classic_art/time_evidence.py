@@ -50,10 +50,19 @@ def build_report():
     entry_calls = extract_calls(script, targets=entry_names)
     # 保留人工核对所需的原始函数体；仅作证据，不解释或运行这些函数。
     source_functions = {}
-    for name in ['AR2', 'C02', 'CI2', 'XY2']:
+    for name in ['AR2', 'C02', 'CI2', 'XY2', 'RI2']:
         match = re.search(r'(?m)^function\s+'+name+r'\s+takes\b[\s\S]*?^endfunction\b', masked)
         if match:
             source_functions[name] = location(match)
+    registration_contexts = []
+    raw_lines = original.splitlines()
+    for match in re.finditer(r'\bfunction\s+(CI2|RI2)\b(?!\s+takes)', masked):
+        entry = location(match)
+        first = max(1, entry['line']-5)
+        entry.update({'callback': match[1], 'start_line': first,
+                      'context': '\n'.join(raw_lines[first-1:entry['line']]),
+                      'status': '邻近注册文本；不替代触发器身份及执行可达性分析'})
+        registration_contexts.append(entry)
     initializers = {name: [location(m) for m in re.finditer(r'\blocal\s+\w+\s+'+re.escape(name)+r'\s*=[^\n]*', masked)]
                     for name in variables}
     counts = dict(Counter(call['name'] for call in calls))
@@ -76,6 +85,7 @@ def build_report():
             'functions': functions, 'direct_entry_calls': entry_calls,
             'entry_scope': '时间函数及 VU2/BK2/C02/CI2 的直接调用；不证明完整可达性',
             'source_functions': source_functions,
+            'registration_contexts': registration_contexts,
             'variable_assignments': assignments,
             'local_initializers': initializers,
             'variable_scope_warning': '按标识符收集，不代表同一变量；局部声明可遮蔽同名全局变量，须结合函数归属阅读',

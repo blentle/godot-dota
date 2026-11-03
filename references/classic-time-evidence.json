@@ -402,8 +402,33 @@
       "line": 33403,
       "function": "XY2",
       "text": "function XY2 takes nothing returns boolean\nif(MY)!=\"\"and AL==false then\nset PE0=true\ncall W82(\"-\"+(MY),2)\nelse\ncall TriggerRegisterPlayerChatEvent(PF0,WO,\"-\",false)\nendif\nreturn false\nendfunction"
+    },
+    "RI2": {
+      "line": 40016,
+      "function": "RI2",
+      "text": "function RI2 takes nothing returns boolean\nset B0=true\ncall S0I(GetTriggeringTrigger())\nreturn false\nendfunction"
     }
   },
+  "registration_contexts": [
+    {
+      "line": 96575,
+      "function": "main",
+      "text": "function CI2",
+      "callback": "CI2",
+      "start_line": 96570,
+      "context": "call TriggerRegisterPlayerUnitEvent(t,CO[5],EVENT_PLAYER_HERO_LEVEL,Condition(function N1I))\ncall TriggerAddCondition(t,Condition(function BQ2))\nset t=null\nset t=CreateTrigger()\ncall TriggerRegisterPlayerChatEvent(t,WO,\"-test\",true)\ncall TriggerAddCondition(t,Condition(function CI2))",
+      "status": "邻近注册文本；不替代触发器身份及执行可达性分析"
+    },
+    {
+      "line": 97067,
+      "function": "main",
+      "text": "function RI2",
+      "callback": "RI2",
+      "start_line": 97062,
+      "context": "set TH=CreateTrigger()\ncall TriggerRegisterTimerExpireEvent(TH,E0[11])\ncall TriggerAddAction(TH,function TP2)\nset t=CreateTrigger()\ncall TriggerRegisterTimerEvent(t,14,false)\ncall TriggerAddCondition(t,Condition(function RI2))",
+      "status": "邻近注册文本；不替代触发器身份及执行可达性分析"
+    }
+  ],
   "variable_assignments": {
     "GW1": [
       {
