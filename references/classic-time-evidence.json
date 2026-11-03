@@ -375,6 +375,111 @@
       }
     ]
   },
+  "local_initializers": {
+    "GW1": [
+      {
+        "line": 7139,
+        "function": "GV1",
+        "text": "local real GW1=TimerGetElapsed(M)-N"
+      },
+      {
+        "line": 17791,
+        "function": "HDO",
+        "text": "local real GW1=(TimerGetElapsed(M))"
+      },
+      {
+        "line": 19821,
+        "function": "XZO",
+        "text": "local real GW1=(TimerGetElapsed(M))"
+      },
+      {
+        "line": 19969,
+        "function": "XRO",
+        "text": "local real GW1=(LoadReal(LY,(S5I),(442)))"
+      },
+      {
+        "line": 20029,
+        "function": "YIO",
+        "text": "local real GW1=(LoadReal(LY,(S5I),(442)))"
+      },
+      {
+        "line": 29005,
+        "function": "BC2",
+        "text": "local integer GW1=S2I(BD2)"
+      },
+      {
+        "line": 31536,
+        "function": "Z62",
+        "text": "local real GW1=(TimerGetElapsed(M))"
+      },
+      {
+        "line": 37503,
+        "function": "M12",
+        "text": "local integer GW1=20-(NPI-(NPI/20)*20)"
+      },
+      {
+        "line": 37744,
+        "function": "M42",
+        "text": "local integer GW1=20-(NPI-(NPI/20)*20)"
+      },
+      {
+        "line": 41244,
+        "function": "Q52",
+        "text": "local real GW1=(TimerGetElapsed(M))"
+      },
+      {
+        "line": 45057,
+        "function": "EH3",
+        "text": "local real GW1=(LoadReal(LY,(GetHandleId(P8I)),(805)))"
+      },
+      {
+        "line": 45079,
+        "function": "EZ3",
+        "text": "local real GW1=(LoadReal(LY,(GetHandleId(P8I)),(805)))"
+      },
+      {
+        "line": 51027,
+        "function": "MY3",
+        "text": "local real GW1=(LoadReal(LY,(S5I),(442)))"
+      },
+      {
+        "line": 53803,
+        "function": "Q03",
+        "text": "local real GW1=(TimerGetElapsed(M))"
+      },
+      {
+        "line": 56193,
+        "function": "A94",
+        "text": "local real GW1=(LoadReal(LY,(GetHandleId(P7I)),(786)))"
+      },
+      {
+        "line": 75626,
+        "function": "WX5",
+        "text": "local real GW1=(TimerGetElapsed(M))"
+      },
+      {
+        "line": 76494,
+        "function": "XY5",
+        "text": "local real GW1=(TimerGetElapsed(M))"
+      },
+      {
+        "line": 78217,
+        "function": "JK5",
+        "text": "local real GW1=(LoadReal(LY,(GetHandleId(P7I)),(681)))"
+      },
+      {
+        "line": 85077,
+        "function": "I56",
+        "text": "local real GW1=(LoadReal(LY,(S5I),(442)))"
+      },
+      {
+        "line": 89092,
+        "function": "EA6",
+        "text": "local real GW1=(LoadReal(LY,(S5I),(442)))"
+      }
+    ]
+  },
+  "variable_scope_warning": "按标识符收集，不代表同一变量；局部声明可遮蔽同名全局变量，须结合函数归属阅读",
   "models": {
     "human": {
       "path": "game/art/classic/ui/console/human/humanui-timeindicator.json",

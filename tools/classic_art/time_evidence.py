@@ -45,6 +45,8 @@ def build_report():
                         if v not in ['GAME_STATE_TIME_OF_DAY']})
     assignments = {name: [location(m) for m in re.finditer(r'\bset\s+'+re.escape(name)+r'\s*=[^\n]*', masked)]
                    for name in variables}
+    initializers = {name: [location(m) for m in re.finditer(r'\blocal\s+\w+\s+'+re.escape(name)+r'\s*=[^\n]*', masked)]
+                    for name in variables}
     counts = dict(Counter(call['name'] for call in calls))
     expected = {'SetFloatGameState': 4, 'SetTimeOfDayScale': 3, 'SuspendTimeOfDay': 14}
     if counts != expected:
@@ -62,7 +64,10 @@ def build_report():
     return {'map_sha256': archive['sha256'], 'extracted_sources': {name: files[name]['sha256'] for name in ['scripts/war3map.j', 'war3mapmisc.txt']},
             'line_numbering': 'CRLF/CR 正规化为 LF 后的 1 起始行号',
             'day_length_config': day[1] if day else None, 'counts': counts, 'calls': calls,
-            'functions': functions, 'variable_assignments': assignments, 'models': models,
+            'functions': functions, 'variable_assignments': assignments,
+            'local_initializers': initializers,
+            'variable_scope_warning': '按标识符收集，不代表同一变量；局部声明可遮蔽同名全局变量，须结合函数归属阅读',
+            'models': models,
             'unresolved': ['动态调用未建立完整调用图；直接引用不证明可达', '条件栈仅为语法上下文，不求解变量值',
                            '未验证引擎时间倍率语义及实际昼夜周期', '未建立实际地图时刻到模型动画帧映射',
                            '未执行 JASS，未将混淆函数猜测为模式或技能名称']}
