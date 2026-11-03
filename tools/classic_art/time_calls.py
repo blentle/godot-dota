@@ -31,9 +31,12 @@ def mask_source(source):
     return source, ''.join(result)
 
 
-def extract_calls(source):
+def extract_calls(source, targets=TARGETS):
     """提取准确调用及词法条件栈；上下文不等于可达性证明。"""
     original, masked = mask_source(source)
+    if not targets:
+        return []
+    pattern = re.compile(r'\bcall\s+('+'|'.join(re.escape(name) for name in targets)+r')\s*\(')
     raw_lines = original.splitlines()
     function = ''
     conditions = []
@@ -55,7 +58,7 @@ def extract_calls(source):
             if not conditions:
                 raise ValueError('endif 缺少 if')
             conditions.pop()
-        for match in re.finditer(r'\bcall\s+('+'|'.join(TARGETS)+r')\s*\(', line):
+        for match in pattern.finditer(line):
             start = offset+match.start()
             cursor = offset+match.end()
             depth = 1

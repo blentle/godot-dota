@@ -306,6 +306,73 @@
       "status": "直接引用线索；尚未证明运行时可达或模式/技能含义"
     }
   },
+  "direct_entry_calls": [
+    {
+      "function": "InitTrig_Map",
+      "line": 7452,
+      "name": "HA1",
+      "text": "call HA1()",
+      "conditions": []
+    },
+    {
+      "function": "C02",
+      "line": 29359,
+      "name": "BK2",
+      "text": "call BK2()",
+      "conditions": [
+        "if PE0==false then"
+      ]
+    },
+    {
+      "function": "W82",
+      "line": 33377,
+      "name": "VU2",
+      "text": "call VU2()",
+      "conditions": [
+        "if CN==false and BN==false then"
+      ]
+    },
+    {
+      "function": "YE2",
+      "line": 34010,
+      "name": "VU2",
+      "text": "call VU2()",
+      "conditions": []
+    },
+    {
+      "function": "KW2",
+      "line": 35859,
+      "name": "VU2",
+      "text": "call VU2()",
+      "conditions": []
+    },
+    {
+      "function": "L92",
+      "line": 36127,
+      "name": "KW2",
+      "text": "call KW2()",
+      "conditions": []
+    },
+    {
+      "function": "R02",
+      "line": 40006,
+      "name": "VU2",
+      "text": "call VU2()",
+      "conditions": [
+        "if J2 then"
+      ]
+    },
+    {
+      "function": "main",
+      "line": 96554,
+      "name": "BK2",
+      "text": "call BK2()",
+      "conditions": [
+        "if(bj_isSinglePlayer and AR2())then"
+      ]
+    }
+  ],
+  "entry_scope": "时间函数及 VU2/BK2 注册函数的一层直接调用；不证明完整可达性",
   "variable_assignments": {
     "GW1": [
       {

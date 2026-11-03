@@ -25,3 +25,12 @@ class TimeCallsTests(unittest.TestCase):
     def test_unclosed_string_rejected(self):
         with self.assertRaises(ValueError):
             extract_calls('call Print("missing)')
+
+    def test_requested_function_calls_keep_conditions(self):
+        source = ('function main takes nothing returns nothing\n'
+                  'if bj_isSinglePlayer and Allowed() then\n'
+                  'call RegisterClock()\nendif\nendfunction')
+        calls = extract_calls(source, targets=('RegisterClock',))
+        self.assertEqual(len(calls), 1)
+        self.assertEqual(calls[0]['conditions'], ['if bj_isSinglePlayer and Allowed() then'])
+        self.assertEqual(extract_calls(source, targets=()), [])

@@ -45,6 +45,9 @@ def build_report():
                         if v not in ['GAME_STATE_TIME_OF_DAY']})
     assignments = {name: [location(m) for m in re.finditer(r'\bset\s+'+re.escape(name)+r'\s*=[^\n]*', masked)]
                    for name in variables}
+    # 只扩展一层直接入口，不递归猜测完整触发链；复用相同词法条件扫描。
+    entry_names = sorted(set(functions) | {'VU2', 'BK2'})
+    entry_calls = extract_calls(script, targets=entry_names)
     initializers = {name: [location(m) for m in re.finditer(r'\blocal\s+\w+\s+'+re.escape(name)+r'\s*=[^\n]*', masked)]
                     for name in variables}
     counts = dict(Counter(call['name'] for call in calls))
@@ -64,7 +67,9 @@ def build_report():
     return {'map_sha256': archive['sha256'], 'extracted_sources': {name: files[name]['sha256'] for name in ['scripts/war3map.j', 'war3mapmisc.txt']},
             'line_numbering': 'CRLF/CR 正规化为 LF 后的 1 起始行号',
             'day_length_config': day[1] if day else None, 'counts': counts, 'calls': calls,
-            'functions': functions, 'variable_assignments': assignments,
+            'functions': functions, 'direct_entry_calls': entry_calls,
+            'entry_scope': '时间函数及 VU2/BK2 注册函数的一层直接调用；不证明完整可达性',
+            'variable_assignments': assignments,
             'local_initializers': initializers,
             'variable_scope_warning': '按标识符收集，不代表同一变量；局部声明可遮蔽同名全局变量，须结合函数归属阅读',
             'models': models,
