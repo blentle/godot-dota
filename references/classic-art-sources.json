@@ -9434,6 +9434,18 @@
       "bytes": 5569,
       "git_blob_sha": "26f4f14d0f2cb2998912dcb06d830ef5f803dbba",
       "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/textures/magicglow.blp"
+    },
+    {
+      "path": "ui/console/undead/undeadui-timeindicator.mdx",
+      "bytes": 49643,
+      "git_blob_sha": "ebb4f0d55376df4c00c18bbfb0aafccab489e4e3",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/ui/console/undead/undeadui-timeindicator.mdx"
+    },
+    {
+      "path": "ui/console/nightelf/nightelfui-timeindicator.mdx",
+      "bytes": 49643,
+      "git_blob_sha": "9493325bb5a2afc71335a76af809a02133410fff",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/ui/console/nightelf/nightelfui-timeindicator.mdx"
     }
   ]
 }

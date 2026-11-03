@@ -8212,6 +8212,16 @@
       "source": "textures/magicglow.blp",
       "output": "textures/magicglow.png",
       "source_sha": "26f4f14d0f2cb2998912dcb06d830ef5f803dbba"
+    },
+    {
+      "source": "ui/console/undead/undeadui-timeindicator.mdx",
+      "output": "ui/console/undead/undeadui-timeindicator.json",
+      "source_sha": "ebb4f0d55376df4c00c18bbfb0aafccab489e4e3"
+    },
+    {
+      "source": "ui/console/nightelf/nightelfui-timeindicator.mdx",
+      "output": "ui/console/nightelf/nightelfui-timeindicator.json",
+      "source_sha": "9493325bb5a2afc71335a76af809a02133410fff"
     }
   ]
 }

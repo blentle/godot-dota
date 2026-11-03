@@ -81,6 +81,8 @@ async function resolve({name, optional}) {
 async function main() {
   // UI 模型同样需要递归解析原始材质依赖，不能只下载模型本体。
   enqueue('ui/console/human/humanui-timeindicator.mdx');
+  enqueue('ui/console/nightelf/nightelfui-timeindicator.mdx');
+  enqueue('ui/console/undead/undeadui-timeindicator.mdx');
   for (const hero of catalog.heroes) {
     enqueue(hero.model);
     enqueue(hero.model.replace(/\.mdx$/, '_portrait.mdx'), true);
