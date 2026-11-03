@@ -324,6 +324,15 @@
       ]
     },
     {
+      "function": "CI2",
+      "line": 29365,
+      "name": "C02",
+      "text": "call C02()",
+      "conditions": [
+        "if B0==false and(bj_isSinglePlayer and AR2())==false then"
+      ]
+    },
+    {
       "function": "W82",
       "line": 33377,
       "name": "VU2",
@@ -372,7 +381,29 @@
       ]
     }
   ],
-  "entry_scope": "时间函数及 VU2/BK2 注册函数的一层直接调用；不证明完整可达性",
+  "entry_scope": "时间函数及 VU2/BK2/C02/CI2 的直接调用；不证明完整可达性",
+  "source_functions": {
+    "AR2": {
+      "line": 28872,
+      "function": "AR2",
+      "text": "function AR2 takes nothing returns boolean\nlocal integer x=0\nif GetPlayerSlotState(BO[1])==PLAYER_SLOT_STATE_EMPTY then\nset x=x+1\nendif\nif GetPlayerSlotState(BO[2])==PLAYER_SLOT_STATE_EMPTY then\nset x=x+1\nendif\nif GetPlayerSlotState(BO[3])==PLAYER_SLOT_STATE_EMPTY then\nset x=x+1\nendif\nif GetPlayerSlotState(BO[4])==PLAYER_SLOT_STATE_EMPTY then\nset x=x+1\nendif\nif GetPlayerSlotState(BO[5])==PLAYER_SLOT_STATE_EMPTY then\nset x=x+1\nendif\nif GetPlayerSlotState(CO[1])==PLAYER_SLOT_STATE_EMPTY then\nset x=x+1\nendif\nif GetPlayerSlotState(CO[2])==PLAYER_SLOT_STATE_EMPTY then\nset x=x+1\nendif\nif GetPlayerSlotState(CO[3])==PLAYER_SLOT_STATE_EMPTY then\nset x=x+1\nendif\nif GetPlayerSlotState(CO[4])==PLAYER_SLOT_STATE_EMPTY then\nset x=x+1\nendif\nif GetPlayerSlotState(CO[5])==PLAYER_SLOT_STATE_EMPTY then\nset x=x+1\nendif\nreturn x==9\nendfunction"
+    },
+    "C02": {
+      "line": 29357,
+      "function": "C02",
+      "text": "function C02 takes nothing returns nothing\nif PE0==false then\ncall BK2()\ncall S0I(GetTriggeringTrigger())\nendif\nendfunction"
+    },
+    "CI2": {
+      "line": 29363,
+      "function": "CI2",
+      "text": "function CI2 takes nothing returns boolean\nif B0==false and(bj_isSinglePlayer and AR2())==false then\ncall C02()\nendif\nreturn false\nendfunction"
+    },
+    "XY2": {
+      "line": 33403,
+      "function": "XY2",
+      "text": "function XY2 takes nothing returns boolean\nif(MY)!=\"\"and AL==false then\nset PE0=true\ncall W82(\"-\"+(MY),2)\nelse\ncall TriggerRegisterPlayerChatEvent(PF0,WO,\"-\",false)\nendif\nreturn false\nendfunction"
+    }
+  },
   "variable_assignments": {
     "GW1": [
       {
