@@ -1,0 +1,648 @@
+{
+  "source_map_sha256": "326d7ea8fb2bf20bd540259ebc3e80d398cf1be79fe1827691927c9008107495",
+  "sources": {
+    "war3map.doo": {
+      "bytes": 218340,
+      "sha256": "d197d00644add4cb7256d372fd9d1ab691c3eacd21a99f2648f235d45e568712"
+    },
+    "war3map.w3b": {
+      "bytes": 1466,
+      "sha256": "0147dba18af1a706008fc5db8b8064b66cc706f82a85c069347eca32842b3410"
+    }
+  },
+  "placed_counts": {
+    "ATtr": 2061,
+    "NTtw": 1551,
+    "LOsk": 30,
+    "APms": 33,
+    "NObt": 14,
+    "NTtc": 63,
+    "LOic": 18,
+    "ZPfw": 176,
+    "D00B": 227,
+    "YTlb": 193,
+    "CObl": 6,
+    "ARrk": 17,
+    "ZPsh": 452,
+    "COob": 2,
+    "LOth": 28,
+    "D000": 18,
+    "LOtz": 22,
+    "NRfs": 1,
+    "VOfl": 3,
+    "D001": 4,
+    "IOst": 8,
+    "LWw0": 21,
+    "CPct": 17,
+    "YTpb": 2,
+    "CPms": 12,
+    "AOsr": 39,
+    "LOfl": 8,
+    "AOnt": 34,
+    "D009": 17,
+    "JOgr": 9,
+    "LPwh": 1,
+    "NOfg": 3,
+    "NOfl": 7,
+    "AObd": 11,
+    "NOal": 5,
+    "ATtc": 1,
+    "AObr": 2,
+    "NOfp": 2,
+    "CRrk": 7,
+    "ZWfs": 6,
+    "LOsh": 2,
+    "NWrd": 1,
+    "LOlp": 2,
+    "AWfs": 6,
+    "COhs": 3,
+    "VOfs": 5,
+    "OOal": 1,
+    "CSbl": 3,
+    "AOob": 2,
+    "AOks": 1,
+    "AOgs": 1,
+    "AOsk": 1,
+    "LOpg": 5,
+    "NOok": 2,
+    "OOob": 1,
+    "LOca": 1,
+    "NOtb": 4,
+    "LOgr": 2,
+    "CPlp": 3,
+    "ASbc": 2,
+    "LOss": 1,
+    "ZWsf": 1,
+    "NSct": 1,
+    "ZPru": 1,
+    "CSbc": 2,
+    "APtv": 2,
+    "LOsc": 1,
+    "NWsd": 1,
+    "LObz": 6,
+    "OOsk": 3
+  },
+  "tree_candidates": [
+    {
+      "id": "ATtr",
+      "placed": 2061,
+      "variations": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": "NTtw",
+      "placed": 1551,
+      "variations": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    }
+  ],
+  "original_overrides": [
+    {
+      "oldId": "ATtr",
+      "newId": "\u0000\u0000\u0000\u0000",
+      "modifications": [
+        {
+          "id": "bvcr",
+          "variableType": 0,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": 190,
+          "u1": 0
+        },
+        {
+          "id": "bvcg",
+          "variableType": 0,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": 190,
+          "u1": 0
+        },
+        {
+          "id": "bvcb",
+          "variableType": 0,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": 190,
+          "u1": 0
+        },
+        {
+          "id": "bmas",
+          "variableType": 2,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": 1.100000023841858,
+          "u1": 0
+        }
+      ]
+    },
+    {
+      "oldId": "YTlb",
+      "newId": "\u0000\u0000\u0000\u0000",
+      "modifications": [
+        {
+          "id": "bptx",
+          "variableType": 3,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": "",
+          "u1": 0
+        }
+      ]
+    }
+  ],
+  "custom_overrides": [
+    {
+      "oldId": "YTpb",
+      "newId": "B000",
+      "modifications": [
+        {
+          "id": "bfil",
+          "variableType": 3,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": "Doodads\\Barrens\\Rocks\\BarrensFissure\\BarrensFissure0.mdl",
+          "u1": 808464450
+        }
+      ]
+    },
+    {
+      "oldId": "LTlt",
+      "newId": "B005",
+      "modifications": [
+        {
+          "id": "bnam",
+          "variableType": 3,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": "Sprout Tree",
+          "u1": 892350530
+        }
+      ]
+    },
+    {
+      "oldId": "LTlt",
+      "newId": "B007",
+      "modifications": [
+        {
+          "id": "bnam",
+          "variableType": 3,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": "Trap",
+          "u1": 925904962
+        },
+        {
+          "id": "bcat",
+          "variableType": 3,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": "P",
+          "u1": 925904962
+        },
+        {
+          "id": "bgsc",
+          "variableType": 1,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": 1,
+          "u1": 925904962
+        },
+        {
+          "id": "bdsn",
+          "variableType": 3,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": "",
+          "u1": 925904962
+        },
+        {
+          "id": "btil",
+          "variableType": 3,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": "*",
+          "u1": 925904962
+        },
+        {
+          "id": "bmis",
+          "variableType": 2,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": 1,
+          "u1": 925904962
+        },
+        {
+          "id": "bmas",
+          "variableType": 2,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": 1,
+          "u1": 925904962
+        },
+        {
+          "id": "btar",
+          "variableType": 3,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": "decoration",
+          "u1": 925904962
+        },
+        {
+          "id": "boch",
+          "variableType": 2,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": 0,
+          "u1": 925904962
+        },
+        {
+          "id": "blit",
+          "variableType": 0,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": 0,
+          "u1": 925904962
+        },
+        {
+          "id": "bflh",
+          "variableType": 2,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": 0,
+          "u1": 925904962
+        },
+        {
+          "id": "bshd",
+          "variableType": 3,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": "",
+          "u1": 925904962
+        },
+        {
+          "id": "btxf",
+          "variableType": 3,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": "",
+          "u1": 925904962
+        },
+        {
+          "id": "bfil",
+          "variableType": 3,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": "units\\nightelf\\Wisp\\Wisp.mdl",
+          "u1": 925904962
+        },
+        {
+          "id": "bvar",
+          "variableType": 0,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": 1,
+          "u1": 925904962
+        }
+      ]
+    },
+    {
+      "oldId": "DTg3",
+      "newId": "B001",
+      "modifications": [
+        {
+          "id": "bnam",
+          "variableType": 3,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": "Power Cog",
+          "u1": 825241666
+        },
+        {
+          "id": "bfil",
+          "variableType": 3,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": "buildings\\other\\PowerGenerator\\PowerGenerator.mdl",
+          "u1": 825241666
+        },
+        {
+          "id": "bsmm",
+          "variableType": 0,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": 0,
+          "u1": 825241666
+        },
+        {
+          "id": "bgpm",
+          "variableType": 3,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": "buildings\\other\\PowerGenerator\\PowerGenerator.mdl",
+          "u1": 825241666
+        },
+        {
+          "id": "bgsc",
+          "variableType": 1,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": 200,
+          "u1": 825241666
+        },
+        {
+          "id": "btar",
+          "variableType": 3,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": "structure",
+          "u1": 825241666
+        },
+        {
+          "id": "bshd",
+          "variableType": 3,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": "",
+          "u1": 825241666
+        },
+        {
+          "id": "bsel",
+          "variableType": 2,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": 200,
+          "u1": 825241666
+        },
+        {
+          "id": "bptx",
+          "variableType": 3,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": "PathTextures\\4x4Default.tga",
+          "u1": 825241666
+        },
+        {
+          "id": "bptd",
+          "variableType": 3,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": "",
+          "u1": 825241666
+        },
+        {
+          "id": "bhps",
+          "variableType": 2,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": 150,
+          "u1": 825241666
+        },
+        {
+          "id": "bcpr",
+          "variableType": 0,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": 0,
+          "u1": 825241666
+        },
+        {
+          "id": "bmas",
+          "variableType": 2,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": 0.75,
+          "u1": 825241666
+        },
+        {
+          "id": "bmis",
+          "variableType": 2,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": 0.75,
+          "u1": 825241666
+        },
+        {
+          "id": "barm",
+          "variableType": 3,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": "Ethereal",
+          "u1": 825241666
+        }
+      ]
+    },
+    {
+      "oldId": "LTlt",
+      "newId": "B002",
+      "modifications": [
+        {
+          "id": "bnam",
+          "variableType": 3,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": "Treant Tree",
+          "u1": 842018882
+        },
+        {
+          "id": "bptx",
+          "variableType": 3,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": "",
+          "u1": 842018882
+        },
+        {
+          "id": "bvcr",
+          "variableType": 0,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": 175,
+          "u1": 842018882
+        }
+      ]
+    },
+    {
+      "oldId": "LTlt",
+      "newId": "B003",
+      "modifications": [
+        {
+          "id": "bnam",
+          "variableType": 3,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": "Treant Tree Scourge",
+          "u1": 858796098
+        },
+        {
+          "id": "bptx",
+          "variableType": 3,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": "",
+          "u1": 858796098
+        },
+        {
+          "id": "bvcr",
+          "variableType": 0,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": 175,
+          "u1": 858796098
+        },
+        {
+          "id": "bfil",
+          "variableType": 3,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": "Doodads\\Terrain\\NorthrendTree\\NorthrendTree.mdl",
+          "u1": 858796098
+        },
+        {
+          "id": "btxf",
+          "variableType": 3,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": "ReplaceableTextures\\NorthrendTree\\NorthTree",
+          "u1": 858796098
+        },
+        {
+          "id": "bmmr",
+          "variableType": 0,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": 32,
+          "u1": 858796098
+        },
+        {
+          "id": "bmmb",
+          "variableType": 0,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": 32,
+          "u1": 858796098
+        },
+        {
+          "id": "bmmg",
+          "variableType": 0,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": 48,
+          "u1": 858796098
+        },
+        {
+          "id": "btxi",
+          "variableType": 0,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": 34,
+          "u1": 858796098
+        }
+      ]
+    },
+    {
+      "oldId": "LOcg",
+      "newId": "B004",
+      "modifications": [
+        {
+          "id": "btar",
+          "variableType": 3,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": "structure",
+          "u1": 875573314
+        },
+        {
+          "id": "barm",
+          "variableType": 3,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": "Ethereal",
+          "u1": 875573314
+        },
+        {
+          "id": "bsmm",
+          "variableType": 0,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": 0,
+          "u1": 875573314
+        },
+        {
+          "id": "bhps",
+          "variableType": 2,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": 100,
+          "u1": 875573314
+        }
+      ]
+    },
+    {
+      "oldId": "YTpb",
+      "newId": "B006",
+      "modifications": [
+        {
+          "id": "bfil",
+          "variableType": 3,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": "Doodads\\Icecrown\\Rocks\\Icecrown_Crystal\\Icecrown_Crystal0.mdl",
+          "u1": 909127746
+        },
+        {
+          "id": "bnam",
+          "variableType": 3,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": "Ice Blocker",
+          "u1": 909127746
+        },
+        {
+          "id": "bptx",
+          "variableType": 3,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": "PathTextures\\8x8Round.tga",
+          "u1": 909127746
+        },
+        {
+          "id": "bvcr",
+          "variableType": 0,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": 150,
+          "u1": 909127746
+        },
+        {
+          "id": "bvcg",
+          "variableType": 0,
+          "levelOrVariation": 0,
+          "dataPointer": 0,
+          "value": 150,
+          "u1": 909127746
+        }
+      ]
+    }
+  ],
+  "status": "地图放置与对象覆盖的静态证据；尚未解析经典基础对象表，不代表完整树木目录",
+  "unresolved": [
+    "ATtr/NTtw 的基础模型及替换纹理需与固定经典对象表合并",
+    "未将自定义对象与运行时生成树木的脚本调用关联",
+    "尚未改变训练树位、模型、障碍或可破坏规则"
+  ]
+}
