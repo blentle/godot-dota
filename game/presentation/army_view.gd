@@ -1,11 +1,12 @@
 extends Node3D
-## 批量单位表现：按规则标识维护视图，建筑倒塌后保留矮墩作为障碍提示。
+## 批量单位表现：原始塔消费状态和攻击事件，训练占位建筑倒塌保留矮墩。
 
 const UnitView = preload("res://presentation/unit_view.gd")
 const Geometry = preload("res://presentation/mesh_factory.gd")
 var views: Dictionary = {}
 var buildings: Dictionary = {}
 var bars: Dictionary = {}
+var building_units: Dictionary = {}
 var geometry := Geometry.new()
 var projectile_view := preload("res://presentation/projectile_view.gd").new()
 
@@ -20,7 +21,7 @@ func sync(combat: RefCounted, delta: float) -> void:
 			views.erase(id)
 	for unit in combat.units.values():
 		if unit.kind in ["tower", "base"]:
-			_sync_building(unit)
+			_sync_building(unit, delta)
 		elif unit.kind in ["creep", "summon"] or (unit.kind == "hero" and unit.id not in [combat.player.id, combat.enemy.id]):
 			if not views.has(unit.id):
 				var view := UnitView.new()
@@ -33,9 +34,13 @@ func sync(combat: RefCounted, delta: float) -> void:
 			var target: RefCounted = combat.units.get(unit.pending_target_id)
 			views[unit.id].sync(unit, false, delta, target.position if target != null else unit.position)
 
-func _sync_building(unit: RefCounted) -> void:
+func _sync_building(unit: RefCounted, delta: float) -> void:
 	if buildings.has(unit.position):
-		buildings[unit.position].scale.y = 1.0 if unit.alive() else 0.12
+		var view: Node3D = buildings[unit.position]
+		if view.has_method("sync_state"):
+			building_units[unit.id] = view
+			view.sync_state(unit, delta)
+		else: view.scale.y = 1.0 if unit.alive() else 0.12
 	if not bars.has(unit.id):
 		var bar := geometry.box(self, unit.position + Vector3(0, 7.8, 0), Vector3(3, 0.2, 0.2),
 			Color("7ecb9a") if unit.team == 0 else Color("d8735d"))
@@ -47,3 +52,4 @@ func react(event: Dictionary) -> void:
 	var id: String = event.get("target", event.actor)
 	if event.type == "swing": id = event.actor
 	if views.has(id): views[id].react(event)
+	if building_units.has(id): building_units[id].react(event)

@@ -93,7 +93,7 @@ func play(prefix: String, restart := false) -> void:
 		var words := str(data.Sequences[index].Name).to_lower().replace("-", " ").split(" ", false)
 		if not prefix.to_lower() in words: continue
 		var score := 0
-		for tag in ["alternate", "upgrade", "swim", "defend"]:
+		for tag in ["alternate", "upgrade", "first", "second", "swim", "defend"]:
 			if tag in words:
 				score += 10 if tag in animation_tags else -100
 			elif tag in animation_tags:
