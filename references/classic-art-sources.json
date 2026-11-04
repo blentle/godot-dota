@@ -9464,6 +9464,108 @@
       "bytes": 1368,
       "git_blob_sha": "9aa5a3dfcd368f8f6b34b16b422c23bb6275e287",
       "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/replaceabletextures/teamcolor/teamcolor06.blp"
+    },
+    {
+      "path": "doodads/terrain/ashentree/ashentree3.mdx",
+      "bytes": 6422,
+      "git_blob_sha": "6a08afbc579ecc5c333186faab8442e143b28a11",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/doodads/terrain/ashentree/ashentree3.mdx"
+    },
+    {
+      "path": "doodads/terrain/ashentree/ashentree2.mdx",
+      "bytes": 6422,
+      "git_blob_sha": "58a41c92304dfec6f7a700aaa681b891fe0e2f72",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/doodads/terrain/ashentree/ashentree2.mdx"
+    },
+    {
+      "path": "doodads/terrain/northrendtree/northrendtree0.mdx",
+      "bytes": 6624,
+      "git_blob_sha": "bfe3b7f5fa943b94e616826d6fb9763a32cac2ec",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/doodads/terrain/northrendtree/northrendtree0.mdx"
+    },
+    {
+      "path": "doodads/terrain/ashentree/ashentree1.mdx",
+      "bytes": 7094,
+      "git_blob_sha": "8bb1e67c7a396421f4d4cd8aa0f172cc46477ff1",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/doodads/terrain/ashentree/ashentree1.mdx"
+    },
+    {
+      "path": "doodads/terrain/ashentree/ashentree4.mdx",
+      "bytes": 7283,
+      "git_blob_sha": "14b8bdaa817c4a649144befe3bc589562dcb5c29",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/doodads/terrain/ashentree/ashentree4.mdx"
+    },
+    {
+      "path": "doodads/terrain/ashentree/ashentree0.mdx",
+      "bytes": 7100,
+      "git_blob_sha": "45287220601643176d5dc9dbeac1f6132143c9aa",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/doodads/terrain/ashentree/ashentree0.mdx"
+    },
+    {
+      "path": "units/destructabledata.slk",
+      "bytes": 195671,
+      "git_blob_sha": "de251ef6cf55ea9be741f97ee2aa53d833e5a6b3",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/units/destructabledata.slk"
+    },
+    {
+      "path": "doodads/terrain/northrendtree/northrendtree1.mdx",
+      "bytes": 6555,
+      "git_blob_sha": "6c685b3c3f31dd6b2f29943e72cb17c334b58469",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/doodads/terrain/northrendtree/northrendtree1.mdx"
+    },
+    {
+      "path": "doodads/terrain/northrendtree/northrendtree9.mdx",
+      "bytes": 6051,
+      "git_blob_sha": "178f59065b6f8b453ce62e9573f819d7e2a948b9",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/doodads/terrain/northrendtree/northrendtree9.mdx"
+    },
+    {
+      "path": "doodads/terrain/northrendtree/northrendtree3.mdx",
+      "bytes": 6624,
+      "git_blob_sha": "328fc6e7fc316d107a62aea166852331f4e0a649",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/doodads/terrain/northrendtree/northrendtree3.mdx"
+    },
+    {
+      "path": "doodads/terrain/northrendtree/northrendtree2.mdx",
+      "bytes": 6624,
+      "git_blob_sha": "9205b29eb944f2eab886a9f944310948e88a72f3",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/doodads/terrain/northrendtree/northrendtree2.mdx"
+    },
+    {
+      "path": "doodads/terrain/northrendtree/northrendtree7.mdx",
+      "bytes": 6051,
+      "git_blob_sha": "2b0ccfc0b7a9ecbdabdec5d2d5b9bf44f5bc92f6",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/doodads/terrain/northrendtree/northrendtree7.mdx"
+    },
+    {
+      "path": "doodads/terrain/northrendtree/northrendtree5.mdx",
+      "bytes": 6555,
+      "git_blob_sha": "05b22f63b3649563901fb334fa36cac04cad2628",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/doodads/terrain/northrendtree/northrendtree5.mdx"
+    },
+    {
+      "path": "doodads/terrain/northrendtree/northrendtree6.mdx",
+      "bytes": 6555,
+      "git_blob_sha": "1758631f2a9f6927b517541d0657a1c2a99fe5ee",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/doodads/terrain/northrendtree/northrendtree6.mdx"
+    },
+    {
+      "path": "doodads/terrain/northrendtree/northrendtree4.mdx",
+      "bytes": 6624,
+      "git_blob_sha": "c5add46209cd801bd8c4f3d66d719830012c0a16",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/doodads/terrain/northrendtree/northrendtree4.mdx"
+    },
+    {
+      "path": "doodads/terrain/northrendtree/northrendtree8.mdx",
+      "bytes": 5982,
+      "git_blob_sha": "45aad2e441fe891e2dd25f7f26a38d53b8c68c6f",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/doodads/terrain/northrendtree/northrendtree8.mdx"
+    },
+    {
+      "path": "replaceabletextures/northrendtree/northtree.blp",
+      "bytes": 75897,
+      "git_blob_sha": "a38f251efb78c1442522aa5a925bd849d96e5dce",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/replaceabletextures/northrendtree/northtree.blp"
     }
   ]
 }
