@@ -34,3 +34,7 @@
 输出 `/tmp/classic-tower-0.png`、`/tmp/classic-tower-1.png`，冻结规则后分别取近卫与天灾塔的固定视角。macOS Apple Silicon 实机可见原始大树及升级通灵塔，截图日志无 ERROR。树、道路和基地仍是占位，尺寸、朝向、队色与原版逐像素比对未完成；Windows、Linux 未验收。
 
 整工程统一规则/场景回归通过，追加升级形态专项通过；202 个自有源码文件均未超限。资源静态检查通过：112 位英雄、1356 张二次幂 PNG、1577 项来源摘要。独立只读审查未发现阻塞缺陷；当前攻击事件路由经过代码审查，专项测试直接调用塔视图，尚缺真实事件链及另一座塔不受影响的自动化断言。截图归档于 `references/previews/classic-towers/`。
+
+## 真实事件链回归补充
+
+新增 `test_classic_tower_events.gd`，实例化实际经典训练场，登记六座塔后通过 combat_event 信号发送攻击事件，覆盖 battlefield → army_view → building_units → tower_view。断言攻击者动作代次增加、目标塔动作不变、目标生命不变，以及零时间同步不推进动画。专项在 macOS Godot 4.7.2 通过，日志无 ERROR；203 个自有源码文件行数检查通过。该测试补齐上次审查中的事件路由缺口，不代表攻击时序或原版视觉已验收。
