@@ -8,6 +8,7 @@ var cache: Dictionary = {}
 var textures: Dictionary = {}
 var tint := Color.WHITE
 var instances: Array = []
+var replacements: Dictionary = {}
 
 func set_texture(material: StandardMaterial3D, index: int) -> void:
 	if index < 0 or index >= model.Textures.size(): return
@@ -18,6 +19,7 @@ func set_texture(material: StandardMaterial3D, index: int) -> void:
 
 func texture_path(entry: Dictionary) -> String:
 	var replaceable := int(entry.get("ReplaceableId", 0))
+	if replacements.has(replaceable): return ROOT + replacements[replaceable]
 	if replaceable == 1: return ROOT + "replaceabletextures/teamcolor/teamcolor%02d.png" % team
 	if replaceable == 2: return ROOT + "replaceabletextures/teamglow/teamglow%02d.png" % team
 	return ROOT + str(entry.get("Image", "")).replace("\\", "/").to_lower().replace(".blp", ".png")

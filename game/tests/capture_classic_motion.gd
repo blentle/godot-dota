@@ -9,6 +9,10 @@ func _initialize() -> void:
 
 func run() -> void:
 	scene = load("res://ui/war3/scenes/live_training.tscn").instantiate()
+	# 仅切换截图皮肤，不改变训练阵营或规则。
+	for argument in OS.get_cmdline_user_args():
+		if argument.begins_with("--clock-race="):
+			scene.get_node("Interface/HUD").console_race = argument.trim_prefix("--clock-race=")
 	root.add_child(scene)
 	scene.battle.set_physics_process(false)
 	var gallery := Gallery.new()
