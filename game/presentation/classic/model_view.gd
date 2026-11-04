@@ -24,7 +24,7 @@ var particles: Node3D
 var ribbons: Node3D
 var model_particles: Node3D
 
-func load_model(path: String, team := 1, tint := Color.WHITE, effects := true) -> bool:
+func load_model(path: String, team := 1, tint := Color.WHITE, effects := true, replacements: Dictionary = {}) -> bool:
 	if not FileAccess.file_exists(path):
 		push_error("未找到经典原始模型：" + path)
 		return false
@@ -35,6 +35,7 @@ func load_model(path: String, team := 1, tint := Color.WHITE, effects := true) -
 	materials.model = data
 	materials.team = team
 	materials.tint = tint
+	materials.replacements = replacements
 	skeleton.name = "Skeleton"
 	add_child(skeleton)
 	for node in data.Nodes:
