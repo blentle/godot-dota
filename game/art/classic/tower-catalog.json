@@ -1,0 +1,127 @@
+{
+  "source_map_sha256": "326d7ea8fb2bf20bd540259ebc3e80d398cf1be79fe1827691927c9008107495",
+  "sources": {
+    "units/unitui.slk": "93aaaf2c92223b392a8e2131e566cd39eb19c98ad21975128b23aa0d298fdc3d",
+    "units/nightelfunitfunc.txt": "70410cbc850127ab688811610f28075357d95ed4acba4b68dfda598e4ae52a75",
+    "units/undeadunitfunc.txt": "db440ae3193afd70560f0c17453f7a3ace360dcfbc8ab29d872cb36e00274d4f"
+  },
+  "status": "原始外观配置；训练场只使用一级外观，不实现原版建筑等级规则",
+  "towers": [
+    {
+      "id": "e00R",
+      "team": 0,
+      "level": 1,
+      "model": "buildings/nightelf/ancientprotector/ancientprotector.json",
+      "model_scale": 1.0,
+      "animation_tags": [],
+      "color": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "id": "e011",
+      "team": 0,
+      "level": 2,
+      "model": "buildings/nightelf/ancientprotector/ancientprotector.json",
+      "model_scale": 1.0,
+      "animation_tags": [],
+      "color": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "id": "e00S",
+      "team": 0,
+      "level": 3,
+      "model": "buildings/nightelf/ancientprotector/ancientprotector.json",
+      "model_scale": 1.0,
+      "animation_tags": [],
+      "color": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "id": "e019",
+      "team": 0,
+      "level": 4,
+      "model": "buildings/nightelf/ancientprotector/ancientprotector.json",
+      "model_scale": 1.0,
+      "animation_tags": [],
+      "color": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "id": "u00M",
+      "team": 1,
+      "level": 1,
+      "model": "buildings/undead/ziggurat/ziggurat.json",
+      "model_scale": 1.0,
+      "animation_tags": [
+        "upgrade",
+        "first"
+      ],
+      "color": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "id": "u00D",
+      "team": 1,
+      "level": 2,
+      "model": "buildings/undead/ziggurat/ziggurat.json",
+      "model_scale": 1.0,
+      "animation_tags": [
+        "upgrade",
+        "first"
+      ],
+      "color": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "id": "u00N",
+      "team": 1,
+      "level": 3,
+      "model": "buildings/undead/ziggurat/ziggurat.json",
+      "model_scale": 1.0,
+      "animation_tags": [
+        "upgrade",
+        "first"
+      ],
+      "color": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "id": "u00T",
+      "team": 1,
+      "level": 4,
+      "model": "buildings/undead/ziggurat/ziggurat.json",
+      "model_scale": 1.0,
+      "animation_tags": [
+        "upgrade",
+        "second"
+      ],
+      "color": [
+        255,
+        255,
+        255
+      ]
+    }
+  ]
+}

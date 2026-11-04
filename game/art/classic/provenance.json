@@ -8222,6 +8222,21 @@
       "source": "ui/console/nightelf/nightelfui-timeindicator.mdx",
       "output": "ui/console/nightelf/nightelfui-timeindicator.json",
       "source_sha": "9493325bb5a2afc71335a76af809a02133410fff"
+    },
+    {
+      "source": "buildings/undead/ziggurat/ziggurat.mdx",
+      "output": "buildings/undead/ziggurat/ziggurat.json",
+      "source_sha": "6268827c5636d22cc39dc329915a787605669811"
+    },
+    {
+      "source": "textures/bluesqglow.blp",
+      "output": "textures/bluesqglow.png",
+      "source_sha": "fe8620a323ed48036dc05381603a33077e53eead"
+    },
+    {
+      "source": "replaceabletextures/teamcolor/teamcolor06.blp",
+      "output": "replaceabletextures/teamcolor/teamcolor06.png",
+      "source_sha": "9aa5a3dfcd368f8f6b34b16b422c23bb6275e287"
     }
   ]
 }

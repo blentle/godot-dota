@@ -79,6 +79,11 @@ async function resolve({name, optional}) {
   }
 }
 async function main() {
+  // 防御塔使用地图指定的原始建筑模型，与英雄共用依赖及摘要校验。
+  enqueue('buildings/nightelf/ancientprotector/ancientprotector.mdx');
+  enqueue('buildings/undead/ziggurat/ziggurat.mdx');
+  enqueue('replaceabletextures/teamcolor/teamcolor06.blp');
+  enqueue('replaceabletextures/teamglow/teamglow06.blp');
   // UI 模型同样需要递归解析原始材质依赖，不能只下载模型本体。
   enqueue('ui/console/human/humanui-timeindicator.mdx');
   enqueue('ui/console/nightelf/nightelfui-timeindicator.mdx');

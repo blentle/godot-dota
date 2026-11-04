@@ -9446,6 +9446,24 @@
       "bytes": 49643,
       "git_blob_sha": "9493325bb5a2afc71335a76af809a02133410fff",
       "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/ui/console/nightelf/nightelfui-timeindicator.mdx"
+    },
+    {
+      "path": "buildings/undead/ziggurat/ziggurat.mdx",
+      "bytes": 70923,
+      "git_blob_sha": "6268827c5636d22cc39dc329915a787605669811",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/buildings/undead/ziggurat/ziggurat.mdx"
+    },
+    {
+      "path": "textures/bluesqglow.blp",
+      "bytes": 2208,
+      "git_blob_sha": "fe8620a323ed48036dc05381603a33077e53eead",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/textures/bluesqglow.blp"
+    },
+    {
+      "path": "replaceabletextures/teamcolor/teamcolor06.blp",
+      "bytes": 1368,
+      "git_blob_sha": "9aa5a3dfcd368f8f6b34b16b422c23bb6275e287",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/replaceabletextures/teamcolor/teamcolor06.blp"
     }
   ]
 }
