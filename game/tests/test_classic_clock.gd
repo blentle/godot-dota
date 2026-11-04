@@ -38,7 +38,28 @@ func run() -> void:
 	check(clock.get_node("Viewport/World").get_child_count()==2,"重复绑定不得积累旧模型")
 	check(clock.frame_race=="nightelf" and clock.dynamic,"重复绑定应保留近卫配置")
 	clock.configure_race("undead")
-	check(not clock.dynamic and not clock.texture is ViewportTexture,"未验证种族应保留静态入口")
+	check(clock.dynamic and clock.model.data.Source=="ui/console/undead/undeadui-timeindicator.mdx","天灾必须加载自己的原始模型")
+	for race in ["nightelf", "human", "undead"]:
+		clock.configure_race(race)
+		check(clock.model.data.Source=="ui/console/%s/%sui-timeindicator.mdx" % [race,race],"实际来源必须匹配种族")
+		var previous=clock.model
+		clock.advance(1)
+		var at: float=clock.model.clock
+		clock.configure_race(race)
+		check(clock.model==previous and clock.model.clock==at,"同种族配置必须幂等")
+	clock.paused=true
+	clock.configure_race("nightelf")
+	clock.advance(1)
+	check(clock.model.clock==0 and clock.paused,"暂停切换种族不得丢失暂停")
+	var previous=clock.model
+	clock.configure_race("../../unknown")
+	check(clock.model==previous,"非法种族不能拼接资源路径")
+	check(not clock.bind_model("res://missing-clock.json"),"无效绑定应明确失败")
+	clock.sample_sequence(0,15)
+	clock.advance(1)
+	check(clock.model==null and not clock.dynamic,"失败后不得推进半初始化模型")
+	clock.configure_race("human")
+	check(clock.dynamic,"失败后应可恢复有效模型")
 	clock.queue_free()
 	await process_frame
 	print("原始时钟回归，失败数：",failures)

@@ -6,6 +6,7 @@ var geometry := Geometry.new()
 var rng := RandomNumberGenerator.new()
 var simulation: RefCounted
 var building_views: Dictionary = {}
+var classic_art := false
 
 func build(world: RefCounted) -> void:
 	simulation = world
@@ -95,6 +96,15 @@ func _lane(points: Array) -> void:
 		road.rotation.y = atan2(b.x - a.x, b.z - a.z)
 
 func _tree(at: Vector3, height: float) -> void:
+	if classic_art:
+		var tree := preload("res://presentation/classic/tree_view.gd").new()
+		add_child(tree)
+		tree.position = at
+		var variation := absi(roundi(at.x * 17 + at.z * 31))
+		if tree.build(at.x >= at.z, variation, height):
+			simulation.block(at)
+			return
+		tree.free()
 	geometry.cylinder(self, at + Vector3(0, 1, 0), 0.25, 2, Color("514735"), 0.18)
 	var color := Color("294d31") if at.x < at.z else Color("3b4840")
 	for tier in range(3):
@@ -102,6 +112,16 @@ func _tree(at: Vector3, height: float) -> void:
 	simulation.block(at)
 
 func _tower(at: Vector3, color: Color) -> void:
+	if classic_art:
+		var tower := preload("res://presentation/classic/tower_view.gd").new()
+		add_child(tower)
+		tower.position = at
+		if tower.build(0 if at.x < 0 else 1):
+			building_views[at] = tower
+			simulation.block(at, 2)
+			return
+		tower.free()
+	# 原始资源加载失败时保留明确的训练占位，不影响规则障碍登记。
 	var first := get_child_count()
 	geometry.cylinder(self, at + Vector3(0, 0.3, 0), 1.9, 0.6, Color("7c7c69"))
 	geometry.cylinder(self, at + Vector3(0, 2, 0), 1.1, 3.4, Color("787d70"), 0.85)

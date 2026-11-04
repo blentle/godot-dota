@@ -1,0 +1,774 @@
+{
+  "map_sha256": "326d7ea8fb2bf20bd540259ebc3e80d398cf1be79fe1827691927c9008107495",
+  "extracted_sources": {
+    "scripts/war3map.j": "0cae7bde83b19b40f810b936a923112188cb1ff9b69632bde1cb6cbded127347",
+    "war3mapmisc.txt": "75d1a959a5ca1469df1531eb3837f1b5abc61f2fb031bcc4d61d7a3068a55ab8"
+  },
+  "line_numbering": "CRLF/CR 正规化为 LF 后的 1 起始行号",
+  "day_length_config": "300.0",
+  "counts": {
+    "SetFloatGameState": 4,
+    "SuspendTimeOfDay": 14,
+    "SetTimeOfDayScale": 3
+  },
+  "calls": [
+    {
+      "function": "HA1",
+      "line": 7389,
+      "name": "SetFloatGameState",
+      "text": "call SetFloatGameState(GAME_STATE_TIME_OF_DAY,6.00)",
+      "conditions": []
+    },
+    {
+      "function": "HA1",
+      "line": 7390,
+      "name": "SuspendTimeOfDay",
+      "text": "call SuspendTimeOfDay(false)",
+      "conditions": []
+    },
+    {
+      "function": "HA1",
+      "line": 7391,
+      "name": "SetTimeOfDayScale",
+      "text": "call SetTimeOfDayScale(0.5)",
+      "conditions": []
+    },
+    {
+      "function": "IU2",
+      "line": 27830,
+      "name": "SetFloatGameState",
+      "text": "call SetFloatGameState(GAME_STATE_TIME_OF_DAY,6.00)",
+      "conditions": [
+        "if r==0 then"
+      ]
+    },
+    {
+      "function": "IU2",
+      "line": 27831,
+      "name": "SuspendTimeOfDay",
+      "text": "call SuspendTimeOfDay(false)",
+      "conditions": [
+        "if r==0 then"
+      ]
+    },
+    {
+      "function": "IU2",
+      "line": 27832,
+      "name": "SetTimeOfDayScale",
+      "text": "call SetTimeOfDayScale(0.625)",
+      "conditions": [
+        "if r==0 then"
+      ]
+    },
+    {
+      "function": "BC2",
+      "line": 29009,
+      "name": "SetFloatGameState",
+      "text": "call SetFloatGameState(GAME_STATE_TIME_OF_DAY,GW1)",
+      "conditions": []
+    },
+    {
+      "function": "YE2",
+      "line": 34003,
+      "name": "SuspendTimeOfDay",
+      "text": "call SuspendTimeOfDay(false)",
+      "conditions": []
+    },
+    {
+      "function": "WU2",
+      "line": 34897,
+      "name": "SuspendTimeOfDay",
+      "text": "call SuspendTimeOfDay(true)",
+      "conditions": []
+    },
+    {
+      "function": "K12",
+      "line": 35456,
+      "name": "SuspendTimeOfDay",
+      "text": "call SuspendTimeOfDay(false)",
+      "conditions": [
+        "if KO2==0 then → elseif KO2==6 then"
+      ]
+    },
+    {
+      "function": "K72",
+      "line": 35552,
+      "name": "SuspendTimeOfDay",
+      "text": "call SuspendTimeOfDay(true)",
+      "conditions": []
+    },
+    {
+      "function": "KW2",
+      "line": 35855,
+      "name": "SuspendTimeOfDay",
+      "text": "call SuspendTimeOfDay(false)",
+      "conditions": []
+    },
+    {
+      "function": "L92",
+      "line": 36107,
+      "name": "SuspendTimeOfDay",
+      "text": "call SuspendTimeOfDay(false)",
+      "conditions": []
+    },
+    {
+      "function": "XH2",
+      "line": 36252,
+      "name": "SuspendTimeOfDay",
+      "text": "call SuspendTimeOfDay(true)",
+      "conditions": []
+    },
+    {
+      "function": "M22",
+      "line": 37669,
+      "name": "SuspendTimeOfDay",
+      "text": "call SuspendTimeOfDay(false)",
+      "conditions": [
+        "if KO2==0 then → elseif KO2==6 then"
+      ]
+    },
+    {
+      "function": "M32",
+      "line": 37689,
+      "name": "SuspendTimeOfDay",
+      "text": "call SuspendTimeOfDay(true)",
+      "conditions": []
+    },
+    {
+      "function": "M62",
+      "line": 37910,
+      "name": "SuspendTimeOfDay",
+      "text": "call SuspendTimeOfDay(false)",
+      "conditions": [
+        "if KO2==0 then → elseif KO2==6 then"
+      ]
+    },
+    {
+      "function": "MB2",
+      "line": 37979,
+      "name": "SuspendTimeOfDay",
+      "text": "call SuspendTimeOfDay(true)",
+      "conditions": []
+    },
+    {
+      "function": "main",
+      "line": 91541,
+      "name": "SetFloatGameState",
+      "text": "call SetFloatGameState(GAME_STATE_TIME_OF_DAY,6.00)",
+      "conditions": []
+    },
+    {
+      "function": "main",
+      "line": 91542,
+      "name": "SuspendTimeOfDay",
+      "text": "call SuspendTimeOfDay(false)",
+      "conditions": []
+    },
+    {
+      "function": "main",
+      "line": 91543,
+      "name": "SetTimeOfDayScale",
+      "text": "call SetTimeOfDayScale(0.5)",
+      "conditions": []
+    }
+  ],
+  "functions": {
+    "BC2": {
+      "direct_references": [
+        {
+          "line": 29151,
+          "function": "BK2",
+          "text": "function BC2"
+        }
+      ],
+      "status": "直接引用线索；尚未证明运行时可达或模式/技能含义"
+    },
+    "HA1": {
+      "direct_references": [
+        {
+          "line": 7452,
+          "function": "InitTrig_Map",
+          "text": "call HA1("
+        }
+      ],
+      "status": "直接引用线索；尚未证明运行时可达或模式/技能含义"
+    },
+    "IU2": {
+      "direct_references": [
+        {
+          "line": 32792,
+          "function": "VU2",
+          "text": "function IU2"
+        }
+      ],
+      "status": "直接引用线索；尚未证明运行时可达或模式/技能含义"
+    },
+    "K12": {
+      "direct_references": [
+        {
+          "line": 35564,
+          "function": "K72",
+          "text": "function K12"
+        }
+      ],
+      "status": "直接引用线索；尚未证明运行时可达或模式/技能含义"
+    },
+    "K72": {
+      "direct_references": [
+        {
+          "line": 35624,
+          "function": "X02",
+          "text": "function K72"
+        }
+      ],
+      "status": "直接引用线索；尚未证明运行时可达或模式/技能含义"
+    },
+    "KW2": {
+      "direct_references": [
+        {
+          "line": 36127,
+          "function": "L92",
+          "text": "call KW2("
+        }
+      ],
+      "status": "直接引用线索；尚未证明运行时可达或模式/技能含义"
+    },
+    "L92": {
+      "direct_references": [
+        {
+          "line": 36178,
+          "function": "LA2",
+          "text": "function L92"
+        }
+      ],
+      "status": "直接引用线索；尚未证明运行时可达或模式/技能含义"
+    },
+    "M22": {
+      "direct_references": [
+        {
+          "line": 37701,
+          "function": "M32",
+          "text": "function M22"
+        }
+      ],
+      "status": "直接引用线索；尚未证明运行时可达或模式/技能含义"
+    },
+    "M32": {
+      "direct_references": [
+        {
+          "line": 37738,
+          "function": "WP2",
+          "text": "function M32"
+        }
+      ],
+      "status": "直接引用线索；尚未证明运行时可达或模式/技能含义"
+    },
+    "M62": {
+      "direct_references": [
+        {
+          "line": 37936,
+          "function": "M72",
+          "text": "function M62"
+        }
+      ],
+      "status": "直接引用线索；尚未证明运行时可达或模式/技能含义"
+    },
+    "MB2": {
+      "direct_references": [
+        {
+          "line": 38038,
+          "function": "WQ2",
+          "text": "function MB2"
+        }
+      ],
+      "status": "直接引用线索；尚未证明运行时可达或模式/技能含义"
+    },
+    "WU2": {
+      "direct_references": [],
+      "status": "直接引用线索；尚未证明运行时可达或模式/技能含义"
+    },
+    "XH2": {
+      "direct_references": [],
+      "status": "直接引用线索；尚未证明运行时可达或模式/技能含义"
+    },
+    "YE2": {
+      "direct_references": [
+        {
+          "line": 34066,
+          "function": "YJ2",
+          "text": "function YE2"
+        }
+      ],
+      "status": "直接引用线索；尚未证明运行时可达或模式/技能含义"
+    },
+    "main": {
+      "direct_references": [],
+      "status": "直接引用线索；尚未证明运行时可达或模式/技能含义"
+    }
+  },
+  "direct_entry_calls": [
+    {
+      "function": "InitTrig_Map",
+      "line": 7452,
+      "name": "HA1",
+      "text": "call HA1()",
+      "conditions": []
+    },
+    {
+      "function": "C02",
+      "line": 29359,
+      "name": "BK2",
+      "text": "call BK2()",
+      "conditions": [
+        "if PE0==false then"
+      ]
+    },
+    {
+      "function": "CI2",
+      "line": 29365,
+      "name": "C02",
+      "text": "call C02()",
+      "conditions": [
+        "if B0==false and(bj_isSinglePlayer and AR2())==false then"
+      ]
+    },
+    {
+      "function": "W82",
+      "line": 33377,
+      "name": "VU2",
+      "text": "call VU2()",
+      "conditions": [
+        "if CN==false and BN==false then"
+      ]
+    },
+    {
+      "function": "YE2",
+      "line": 34010,
+      "name": "VU2",
+      "text": "call VU2()",
+      "conditions": []
+    },
+    {
+      "function": "KW2",
+      "line": 35859,
+      "name": "VU2",
+      "text": "call VU2()",
+      "conditions": []
+    },
+    {
+      "function": "L92",
+      "line": 36127,
+      "name": "KW2",
+      "text": "call KW2()",
+      "conditions": []
+    },
+    {
+      "function": "R02",
+      "line": 40006,
+      "name": "VU2",
+      "text": "call VU2()",
+      "conditions": [
+        "if J2 then"
+      ]
+    },
+    {
+      "function": "main",
+      "line": 96554,
+      "name": "BK2",
+      "text": "call BK2()",
+      "conditions": [
+        "if(bj_isSinglePlayer and AR2())then"
+      ]
+    }
+  ],
+  "entry_scope": "时间函数及 VU2/BK2/C02/CI2 的直接调用；不证明完整可达性",
+  "source_functions": {
+    "AR2": {
+      "line": 28872,
+      "function": "AR2",
+      "text": "function AR2 takes nothing returns boolean\nlocal integer x=0\nif GetPlayerSlotState(BO[1])==PLAYER_SLOT_STATE_EMPTY then\nset x=x+1\nendif\nif GetPlayerSlotState(BO[2])==PLAYER_SLOT_STATE_EMPTY then\nset x=x+1\nendif\nif GetPlayerSlotState(BO[3])==PLAYER_SLOT_STATE_EMPTY then\nset x=x+1\nendif\nif GetPlayerSlotState(BO[4])==PLAYER_SLOT_STATE_EMPTY then\nset x=x+1\nendif\nif GetPlayerSlotState(BO[5])==PLAYER_SLOT_STATE_EMPTY then\nset x=x+1\nendif\nif GetPlayerSlotState(CO[1])==PLAYER_SLOT_STATE_EMPTY then\nset x=x+1\nendif\nif GetPlayerSlotState(CO[2])==PLAYER_SLOT_STATE_EMPTY then\nset x=x+1\nendif\nif GetPlayerSlotState(CO[3])==PLAYER_SLOT_STATE_EMPTY then\nset x=x+1\nendif\nif GetPlayerSlotState(CO[4])==PLAYER_SLOT_STATE_EMPTY then\nset x=x+1\nendif\nif GetPlayerSlotState(CO[5])==PLAYER_SLOT_STATE_EMPTY then\nset x=x+1\nendif\nreturn x==9\nendfunction"
+    },
+    "C02": {
+      "line": 29357,
+      "function": "C02",
+      "text": "function C02 takes nothing returns nothing\nif PE0==false then\ncall BK2()\ncall S0I(GetTriggeringTrigger())\nendif\nendfunction"
+    },
+    "CI2": {
+      "line": 29363,
+      "function": "CI2",
+      "text": "function CI2 takes nothing returns boolean\nif B0==false and(bj_isSinglePlayer and AR2())==false then\ncall C02()\nendif\nreturn false\nendfunction"
+    },
+    "XY2": {
+      "line": 33403,
+      "function": "XY2",
+      "text": "function XY2 takes nothing returns boolean\nif(MY)!=\"\"and AL==false then\nset PE0=true\ncall W82(\"-\"+(MY),2)\nelse\ncall TriggerRegisterPlayerChatEvent(PF0,WO,\"-\",false)\nendif\nreturn false\nendfunction"
+    },
+    "RI2": {
+      "line": 40016,
+      "function": "RI2",
+      "text": "function RI2 takes nothing returns boolean\nset B0=true\ncall S0I(GetTriggeringTrigger())\nreturn false\nendfunction"
+    }
+  },
+  "registration_contexts": [
+    {
+      "line": 96575,
+      "function": "main",
+      "text": "function CI2",
+      "callback": "CI2",
+      "start_line": 96570,
+      "context": "call TriggerRegisterPlayerUnitEvent(t,CO[5],EVENT_PLAYER_HERO_LEVEL,Condition(function N1I))\ncall TriggerAddCondition(t,Condition(function BQ2))\nset t=null\nset t=CreateTrigger()\ncall TriggerRegisterPlayerChatEvent(t,WO,\"-test\",true)\ncall TriggerAddCondition(t,Condition(function CI2))",
+      "status": "邻近注册文本；不替代触发器身份及执行可达性分析"
+    },
+    {
+      "line": 97067,
+      "function": "main",
+      "text": "function RI2",
+      "callback": "RI2",
+      "start_line": 97062,
+      "context": "set TH=CreateTrigger()\ncall TriggerRegisterTimerExpireEvent(TH,E0[11])\ncall TriggerAddAction(TH,function TP2)\nset t=CreateTrigger()\ncall TriggerRegisterTimerEvent(t,14,false)\ncall TriggerAddCondition(t,Condition(function RI2))",
+      "status": "邻近注册文本；不替代触发器身份及执行可达性分析"
+    }
+  ],
+  "variable_assignments": {
+    "GW1": [
+      {
+        "line": 10588,
+        "function": "VJ1",
+        "text": "set GW1=I2S(H0)+\":0\"+I2S(Z0)"
+      },
+      {
+        "line": 10590,
+        "function": "VJ1",
+        "text": "set GW1=I2S(H0)+\":\"+I2S(Z0)"
+      },
+      {
+        "line": 24871,
+        "function": "QJO",
+        "text": "set GW1=I2S(BX1)+\":0\"+I2S(BY1)"
+      },
+      {
+        "line": 24873,
+        "function": "QJO",
+        "text": "set GW1=I2S(BX1)+\":\"+I2S(BY1)"
+      },
+      {
+        "line": 24876,
+        "function": "QJO",
+        "text": "set GW1=SX0+GW1+\"|r\""
+      },
+      {
+        "line": 25724,
+        "function": "U4O",
+        "text": "set GW1=I2S(BX1)+\":0\"+I2S(BY1)"
+      },
+      {
+        "line": 25726,
+        "function": "U4O",
+        "text": "set GW1=I2S(BX1)+\":\"+I2S(BY1)"
+      },
+      {
+        "line": 29007,
+        "function": "BC2",
+        "text": "set GW1=0"
+      },
+      {
+        "line": 31468,
+        "function": "FB2",
+        "text": "set GW1=I2S(H0)+\":0\"+I2S(Z0)"
+      },
+      {
+        "line": 31470,
+        "function": "FB2",
+        "text": "set GW1=I2S(H0)+\":\"+I2S(Z0)"
+      },
+      {
+        "line": 69239,
+        "function": "OD5",
+        "text": "set GW1=(LoadReal(LY,(GetHandleId(OF5)),(34)))"
+      },
+      {
+        "line": 69245,
+        "function": "OD5",
+        "text": "set GW1=(LoadReal(LY,(GetHandleId(OF5)),(34)))"
+      },
+      {
+        "line": 89118,
+        "function": "EA6",
+        "text": "set GW1=GW1-0.2"
+      }
+    ]
+  },
+  "local_initializers": {
+    "GW1": [
+      {
+        "line": 7139,
+        "function": "GV1",
+        "text": "local real GW1=TimerGetElapsed(M)-N"
+      },
+      {
+        "line": 17791,
+        "function": "HDO",
+        "text": "local real GW1=(TimerGetElapsed(M))"
+      },
+      {
+        "line": 19821,
+        "function": "XZO",
+        "text": "local real GW1=(TimerGetElapsed(M))"
+      },
+      {
+        "line": 19969,
+        "function": "XRO",
+        "text": "local real GW1=(LoadReal(LY,(S5I),(442)))"
+      },
+      {
+        "line": 20029,
+        "function": "YIO",
+        "text": "local real GW1=(LoadReal(LY,(S5I),(442)))"
+      },
+      {
+        "line": 29005,
+        "function": "BC2",
+        "text": "local integer GW1=S2I(BD2)"
+      },
+      {
+        "line": 31536,
+        "function": "Z62",
+        "text": "local real GW1=(TimerGetElapsed(M))"
+      },
+      {
+        "line": 37503,
+        "function": "M12",
+        "text": "local integer GW1=20-(NPI-(NPI/20)*20)"
+      },
+      {
+        "line": 37744,
+        "function": "M42",
+        "text": "local integer GW1=20-(NPI-(NPI/20)*20)"
+      },
+      {
+        "line": 41244,
+        "function": "Q52",
+        "text": "local real GW1=(TimerGetElapsed(M))"
+      },
+      {
+        "line": 45057,
+        "function": "EH3",
+        "text": "local real GW1=(LoadReal(LY,(GetHandleId(P8I)),(805)))"
+      },
+      {
+        "line": 45079,
+        "function": "EZ3",
+        "text": "local real GW1=(LoadReal(LY,(GetHandleId(P8I)),(805)))"
+      },
+      {
+        "line": 51027,
+        "function": "MY3",
+        "text": "local real GW1=(LoadReal(LY,(S5I),(442)))"
+      },
+      {
+        "line": 53803,
+        "function": "Q03",
+        "text": "local real GW1=(TimerGetElapsed(M))"
+      },
+      {
+        "line": 56193,
+        "function": "A94",
+        "text": "local real GW1=(LoadReal(LY,(GetHandleId(P7I)),(786)))"
+      },
+      {
+        "line": 75626,
+        "function": "WX5",
+        "text": "local real GW1=(TimerGetElapsed(M))"
+      },
+      {
+        "line": 76494,
+        "function": "XY5",
+        "text": "local real GW1=(TimerGetElapsed(M))"
+      },
+      {
+        "line": 78217,
+        "function": "JK5",
+        "text": "local real GW1=(LoadReal(LY,(GetHandleId(P7I)),(681)))"
+      },
+      {
+        "line": 85077,
+        "function": "I56",
+        "text": "local real GW1=(LoadReal(LY,(S5I),(442)))"
+      },
+      {
+        "line": 89092,
+        "function": "EA6",
+        "text": "local real GW1=(LoadReal(LY,(S5I),(442)))"
+      }
+    ]
+  },
+  "variable_scope_warning": "按标识符收集，不代表同一变量；局部声明可遮蔽同名全局变量，须结合函数归属阅读",
+  "models": {
+    "human": {
+      "path": "game/art/classic/ui/console/human/humanui-timeindicator.json",
+      "sha256": "22fdd2a78a97b2ccb4e64ab5dec8663f612fd538cf91c2195a1b2cfdd491824d",
+      "sequences": [
+        {
+          "name": "Stand",
+          "interval": [
+            0,
+            60000
+          ]
+        },
+        {
+          "name": "Stand Alternate",
+          "interval": [
+            67500,
+            127500
+          ]
+        }
+      ],
+      "texture_animations": [],
+      "textures": [
+        {
+          "ReplaceableId": 0,
+          "Image": "Textures\\GenericGlowFaded.blp",
+          "Flags": 0
+        },
+        {
+          "ReplaceableId": 0,
+          "Image": "Textures\\star3.blp",
+          "Flags": 0
+        },
+        {
+          "ReplaceableId": 0,
+          "Image": "Textures\\GenericGlow2_32.blp",
+          "Flags": 0
+        },
+        {
+          "ReplaceableId": 0,
+          "Image": "Textures\\HumanUITile-TimeIndicator.blp",
+          "Flags": 3
+        },
+        {
+          "ReplaceableId": 0,
+          "Image": "ui\\Console\\Human\\HumanUITile-TimeIndicatorFrame.blp",
+          "Flags": 0
+        },
+        {
+          "ReplaceableId": 0,
+          "Image": "Textures\\MagicGlow.blp",
+          "Flags": 0
+        }
+      ]
+    },
+    "nightelf": {
+      "path": "game/art/classic/ui/console/nightelf/nightelfui-timeindicator.json",
+      "sha256": "bcbabae43e25b2ac12e92b459b13b4020749626740eda665ebb22452e9501a3b",
+      "sequences": [
+        {
+          "name": "Stand",
+          "interval": [
+            0,
+            60000
+          ]
+        },
+        {
+          "name": "Stand Alternate",
+          "interval": [
+            67500,
+            127500
+          ]
+        }
+      ],
+      "texture_animations": [],
+      "textures": [
+        {
+          "ReplaceableId": 0,
+          "Image": "Textures\\GenericGlowFaded.blp",
+          "Flags": 0
+        },
+        {
+          "ReplaceableId": 0,
+          "Image": "Textures\\star3.blp",
+          "Flags": 0
+        },
+        {
+          "ReplaceableId": 0,
+          "Image": "Textures\\GenericGlow2_32.blp",
+          "Flags": 0
+        },
+        {
+          "ReplaceableId": 0,
+          "Image": "Textures\\HumanUITile-TimeIndicator.blp",
+          "Flags": 3
+        },
+        {
+          "ReplaceableId": 0,
+          "Image": "ui\\Console\\NightElf\\NightElfUITile-TimeIndicatorFrame.blp",
+          "Flags": 0
+        },
+        {
+          "ReplaceableId": 0,
+          "Image": "Textures\\MagicGlow.blp",
+          "Flags": 0
+        }
+      ]
+    },
+    "undead": {
+      "path": "game/art/classic/ui/console/undead/undeadui-timeindicator.json",
+      "sha256": "956bc14de11bfac3312c3cded69268afbfcd5530872e0d5d52e1512c632462d8",
+      "sequences": [
+        {
+          "name": "Stand",
+          "interval": [
+            0,
+            60000
+          ]
+        },
+        {
+          "name": "Stand Alternate",
+          "interval": [
+            67500,
+            127500
+          ]
+        }
+      ],
+      "texture_animations": [],
+      "textures": [
+        {
+          "ReplaceableId": 0,
+          "Image": "Textures\\GenericGlowFaded.blp",
+          "Flags": 0
+        },
+        {
+          "ReplaceableId": 0,
+          "Image": "Textures\\star3.blp",
+          "Flags": 0
+        },
+        {
+          "ReplaceableId": 0,
+          "Image": "Textures\\GenericGlow2_32.blp",
+          "Flags": 0
+        },
+        {
+          "ReplaceableId": 0,
+          "Image": "Textures\\HumanUITile-TimeIndicator.blp",
+          "Flags": 3
+        },
+        {
+          "ReplaceableId": 0,
+          "Image": "ui\\Console\\Undead\\UndeadUITile-TimeIndicatorFrame.blp",
+          "Flags": 0
+        },
+        {
+          "ReplaceableId": 0,
+          "Image": "Textures\\MagicGlow.blp",
+          "Flags": 0
+        }
+      ]
+    }
+  },
+  "unresolved": [
+    "动态调用未建立完整调用图；直接引用不证明可达",
+    "条件栈仅为语法上下文，不求解变量值",
+    "未验证引擎时间倍率语义及实际昼夜周期",
+    "未建立实际地图时刻到模型动画帧映射",
+    "未执行 JASS，未将混淆函数猜测为模式或技能名称"
+  ]
+}

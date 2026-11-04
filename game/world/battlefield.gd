@@ -39,6 +39,7 @@ var edge_scroll: bool:
 
 func _ready() -> void:
 	var terrain := Terrain.new()
+	terrain.classic_art = classic_art
 	add_child(terrain)
 	terrain.build(simulation)
 	if not remote and get_tree().get_meta("lane_mode", "--lanes" in OS.get_cmdline_user_args()):

@@ -7,13 +7,15 @@ func run() -> void:
 	root.add_child(clock)
 	clock.paused=true
 	var failed := false
-	for index in range(2):
-		for seconds in [0,15,30]:
-			clock.sample_sequence(index,seconds)
-			for frame in range(3): await process_frame
-			await RenderingServer.frame_post_draw
-			var result: int = clock.get_node("Viewport").get_texture().get_image().save_png("/tmp/classic-clock-%d-%d.png" % [index,seconds])
-			failed = failed or result != OK
+	for race in ["human", "nightelf", "undead"]:
+		clock.configure_race(race)
+		for index in range(2):
+			for seconds in [0,15,30]:
+				clock.sample_sequence(index,seconds)
+				for frame in range(3): await process_frame
+				await RenderingServer.frame_post_draw
+				var result: int = clock.get_node("Viewport").get_texture().get_image().save_png("/tmp/classic-clock-%s-%d-%d.png" % [race,index,seconds])
+				failed = failed or result != OK
 	clock.queue_free()
 	await process_frame
 	quit(1 if failed else 0)
