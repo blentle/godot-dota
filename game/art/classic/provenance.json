@@ -8317,6 +8317,67 @@
       "source": "replaceabletextures/northrendtree/northtree.blp",
       "output": "replaceabletextures/northrendtree/northtree.png",
       "source_sha": "a38f251efb78c1442522aa5a925bd849d96e5dce"
+    },
+    {
+      "source": "war3mapimported/final_export.mdx",
+      "output": "war3mapimported/final_export.json",
+      "source_sha": "02c28cff757337b6f7954d45658e41c527ba659f9f19ad989d9b9af803de8014",
+      "source_map_sha256": "326d7ea8fb2bf20bd540259ebc3e80d398cf1be79fe1827691927c9008107495"
+    },
+    {
+      "source": "doodads/cinematic/lichking/lichking.mdx",
+      "output": "doodads/cinematic/lichking/lichking.json",
+      "source_sha": "c7cc627daed63c0eeff6bc285998dad80f2b52cd"
+    },
+    {
+      "source": "doodads/ashenvale/structures/worldtree/worldtree256.blp",
+      "output": "doodads/ashenvale/structures/worldtree/worldtree256.png",
+      "source_sha": "c4ea371a60f9c63ad346bf4c435e56f1fe07b90b"
+    },
+    {
+      "source": "textures/deathsmug.blp",
+      "output": "textures/deathsmug.png",
+      "source_sha": "36ec668d80028902e13b63e44222996189d02a7b"
+    },
+    {
+      "source": "buildings/nightelf/entangledgoldmine/lightbush.blp",
+      "output": "buildings/nightelf/entangledgoldmine/lightbush.png",
+      "source_sha": "327f815cf7e2a7f76996593663abcd3612498caf"
+    },
+    {
+      "source": "textures/ashennatural.blp",
+      "output": "textures/ashennatural.png",
+      "source_sha": "f43103d9ae19f8847394edccd4c92efe5ed2a811"
+    },
+    {
+      "source": "buildings/nightelf/ancientoflore/ancientoflore.blp",
+      "output": "buildings/nightelf/ancientoflore/ancientoflore.png",
+      "source_sha": "fcd9500feeea7db7f9953803fea005f262427b85"
+    },
+    {
+      "source": "buildings/nightelf/altarofelders/altar.blp",
+      "output": "buildings/nightelf/altarofelders/altar.png",
+      "source_sha": "8a4bfa59debca0bfaa72f99cfc804a056d4491cc"
+    },
+    {
+      "source": "sharedmodels/teamglow00.tga",
+      "output": "sharedmodels/teamglow00.png",
+      "source_sha": "e5d9d55966a7309ed347aa30ef597d2c9bce53c3"
+    },
+    {
+      "source": "textures/crystalopaque.blp",
+      "output": "textures/crystalopaque.png",
+      "source_sha": "6f4b325c4b7f1b1657a050f679e6694e92f3b589"
+    },
+    {
+      "source": "textures/nerzularmor.blp",
+      "output": "textures/nerzularmor.png",
+      "source_sha": "86a671c35816fd76efdf7317f721b7d617e74e91"
+    },
+    {
+      "source": "textures/frozenthrone.blp",
+      "output": "textures/frozenthrone.png",
+      "source_sha": "f8c339ed5c0bd2d64970dbf8f8680390976d64f2"
     }
   ]
 }

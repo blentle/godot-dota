@@ -75,10 +75,20 @@ func _build_terrain() -> void:
 		var color := Color("7eaaad") if side == -1 else Color("b66f57")
 		var base := Vector3(side * 37, 0, -side * 37)
 		var first := get_child_count()
-		geometry.cylinder(self, base, 5.5, 0.4, Color("636a58"))
-		geometry.box(self, base + Vector3(0, 2, 0), Vector3(3.8, 4, 3.8), color.darkened(0.35))
-		geometry.cylinder(self, base + Vector3(0, 5.6, 0), 2.8, 3.8, color, 0)
-		_group_building(base, first)
+		var original: Node3D
+		if classic_art:
+			original = preload("res://presentation/classic/base_view.gd").new()
+			add_child(original)
+			original.position = base
+			if not original.build(0 if side == -1 else 1):
+				original.free()
+				original = null
+		if original != null: building_views[base] = original
+		else:
+			geometry.cylinder(self, base, 5.5, 0.4, Color("636a58"))
+			geometry.box(self, base + Vector3(0, 2, 0), Vector3(3.8, 4, 3.8), color.darkened(0.35))
+			geometry.cylinder(self, base + Vector3(0, 5.6, 0), 2.8, 3.8, color, 0)
+			_group_building(base, first)
 		simulation.block(base, 3)
 		for at in [Vector3(side * 37, 0, -side * 20), Vector3(side * 20, 0, -side * 37), Vector3(side * 20, 0, -side * 20)]:
 			_tower(at, color)

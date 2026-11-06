@@ -1,0 +1,35 @@
+{
+  "source_map_sha256": "326d7ea8fb2bf20bd540259ebc3e80d398cf1be79fe1827691927c9008107495",
+  "sources": {
+    "units/unitui.slk": "93aaaf2c92223b392a8e2131e566cd39eb19c98ad21975128b23aa0d298fdc3d",
+    "units/nightelfunitfunc.txt": "70410cbc850127ab688811610f28075357d95ed4acba4b68dfda598e4ae52a75",
+    "units/undeadunitfunc.txt": "db440ae3193afd70560f0c17453f7a3ace360dcfbc8ab29d872cb36e00274d4f"
+  },
+  "status": "原始基地外观；不表示训练基地规则或死亡动画已还原",
+  "bases": [
+    {
+      "id": "etol",
+      "team": 0,
+      "model": "war3mapimported/final_export.json",
+      "model_scale": 1.2,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "animation_tags": []
+    },
+    {
+      "id": "unpl",
+      "team": 1,
+      "model": "doodads/cinematic/lichking/lichking.json",
+      "model_scale": 1.0,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "animation_tags": []
+    }
+  ]
+}

@@ -35,6 +35,20 @@ def main():
     (ROOT/'game/art/classic/tower-catalog.json').write_text(
         json.dumps(report, ensure_ascii=False, indent=2)+'\n')
     print('已核对八项防御塔外观配置')
+    bases = []
+    for team, code in enumerate(['etol', 'unpl']):
+        row = ui[code]
+        bases.append({'id': code, 'team': team,
+                      'model': row['file'].replace('\\', '/').lower()+'.json',
+                      'model_scale': float(row['modelScale']),
+                      'color': [int(row.get(c, 255)) for c in ['red', 'green', 'blue']],
+                      'animation_tags': functions[code].get('Animprops', '').lower().split(',')
+                      if functions[code].get('Animprops') else []})
+    base_report = {'source_map_sha256': archive['sha256'], 'sources': report['sources'],
+                   'status': '原始基地外观；不表示训练基地规则或死亡动画已还原', 'bases': bases}
+    (ROOT/'game/art/classic/base-catalog.json').write_text(
+        json.dumps(base_report, ensure_ascii=False, indent=2)+'\n')
+    print('已核对两项基地外观配置')
 
 
 if __name__ == '__main__':

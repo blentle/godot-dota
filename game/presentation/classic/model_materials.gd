@@ -22,7 +22,7 @@ func texture_path(entry: Dictionary) -> String:
 	if replacements.has(replaceable): return ROOT + replacements[replaceable]
 	if replaceable == 1: return ROOT + "replaceabletextures/teamcolor/teamcolor%02d.png" % team
 	if replaceable == 2: return ROOT + "replaceabletextures/teamglow/teamglow%02d.png" % team
-	return ROOT + str(entry.get("Image", "")).replace("\\", "/").to_lower().replace(".blp", ".png")
+	return ROOT + str(entry.get("Image", "")).replace("\\", "/").to_lower().replace(".blp", ".png").replace(".tga", ".png")
 
 func image_for(entry: Dictionary) -> Image:
 	var path := texture_path(entry)

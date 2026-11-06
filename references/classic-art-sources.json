@@ -9566,6 +9566,78 @@
       "bytes": 75897,
       "git_blob_sha": "a38f251efb78c1442522aa5a925bd849d96e5dce",
       "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/replaceabletextures/northrendtree/northtree.blp"
+    },
+    {
+      "path": "war3mapimported/final_export.mdx",
+      "bytes": 36726,
+      "sha256": "02c28cff757337b6f7954d45658e41c527ba659f9f19ad989d9b9af803de8014",
+      "source_map_sha256": "326d7ea8fb2bf20bd540259ebc3e80d398cf1be79fe1827691927c9008107495"
+    },
+    {
+      "path": "doodads/cinematic/lichking/lichking.mdx",
+      "bytes": 51380,
+      "git_blob_sha": "c7cc627daed63c0eeff6bc285998dad80f2b52cd",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/doodads/cinematic/lichking/lichking.mdx"
+    },
+    {
+      "path": "doodads/ashenvale/structures/worldtree/worldtree256.blp",
+      "bytes": 105245,
+      "git_blob_sha": "c4ea371a60f9c63ad346bf4c435e56f1fe07b90b",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/doodads/ashenvale/structures/worldtree/worldtree256.blp"
+    },
+    {
+      "path": "textures/deathsmug.blp",
+      "bytes": 2653,
+      "git_blob_sha": "36ec668d80028902e13b63e44222996189d02a7b",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/textures/deathsmug.blp"
+    },
+    {
+      "path": "buildings/nightelf/entangledgoldmine/lightbush.blp",
+      "bytes": 31431,
+      "git_blob_sha": "327f815cf7e2a7f76996593663abcd3612498caf",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/buildings/nightelf/entangledgoldmine/lightbush.blp"
+    },
+    {
+      "path": "textures/ashennatural.blp",
+      "bytes": 78599,
+      "git_blob_sha": "f43103d9ae19f8847394edccd4c92efe5ed2a811",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/textures/ashennatural.blp"
+    },
+    {
+      "path": "buildings/nightelf/ancientoflore/ancientoflore.blp",
+      "bytes": 127195,
+      "git_blob_sha": "fcd9500feeea7db7f9953803fea005f262427b85",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/buildings/nightelf/ancientoflore/ancientoflore.blp"
+    },
+    {
+      "path": "buildings/nightelf/altarofelders/altar.blp",
+      "bytes": 93986,
+      "git_blob_sha": "8a4bfa59debca0bfaa72f99cfc804a056d4491cc",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/buildings/nightelf/altarofelders/altar.blp"
+    },
+    {
+      "path": "sharedmodels/teamglow00.tga",
+      "bytes": 3116,
+      "git_blob_sha": "e5d9d55966a7309ed347aa30ef597d2c9bce53c3",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/sharedmodels/teamglow00.tga"
+    },
+    {
+      "path": "textures/crystalopaque.blp",
+      "bytes": 41054,
+      "git_blob_sha": "6f4b325c4b7f1b1657a050f679e6694e92f3b589",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/textures/crystalopaque.blp"
+    },
+    {
+      "path": "textures/nerzularmor.blp",
+      "bytes": 275946,
+      "git_blob_sha": "86a671c35816fd76efdf7317f721b7d617e74e91",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/textures/nerzularmor.blp"
+    },
+    {
+      "path": "textures/frozenthrone.blp",
+      "bytes": 270314,
+      "git_blob_sha": "f8c339ed5c0bd2d64970dbf8f8680390976d64f2",
+      "url": "https://raw.githubusercontent.com/WarRaft/War3.mpq/bce1f9d87ab7d71e208624dbbdce208db5690d4f/lowercase/textures/frozenthrone.blp"
     }
   ]
 }

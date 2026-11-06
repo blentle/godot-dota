@@ -22,7 +22,18 @@ for (const entry of manifest.files) {
     : crypto.createHash('sha256').update(bytes).digest('hex') === entry.sha256;
   if (!valid) throw Error('原始文件摘要不符：' + entry.path);
   let output;
-  if (entry.path.endsWith('.blp')) {
+  if (entry.path.endsWith('.tga')) {
+    const Tga = require(path.join(root, '.tools/classic-art/node_modules/tga-js'));
+    const decoder = new Tga();
+    decoder.load(new Uint8Array(bytes));
+    const {width, height} = decoder.header;
+    const png = new PNG({width, height});
+    decoder.getImageData({width, height, data:png.data});
+    output = entry.path.replace(/\.tga$/, '.png');
+    const dest = path.join(target, output);
+    fs.mkdirSync(path.dirname(dest), {recursive:true});
+    fs.writeFileSync(dest, PNG.sync.write(png));
+  } else if (entry.path.endsWith('.blp')) {
     const decoded = war3.decodeBLP(buffer(file));
     const pixels = war3.getBLPImageData(decoded, 0);
     const png = new PNG({width: decoded.width, height: decoded.height});

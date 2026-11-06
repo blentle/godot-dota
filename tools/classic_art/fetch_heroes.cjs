@@ -79,6 +79,8 @@ async function resolve({name, optional}) {
   }
 }
 async function main() {
+  enqueue('war3mapimported/final_export.mdx');
+  enqueue('doodads/cinematic/lichking/lichking.mdx');
   enqueue('units/destructabledata.slk');
   for (const [name, count] of [['ashentree', 5], ['northrendtree', 10]]) {
     for (let index = 0; index < count; index++) enqueue(`doodads/terrain/${name}/${name}${index}.mdx`);
