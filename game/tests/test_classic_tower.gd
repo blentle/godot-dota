@@ -53,7 +53,7 @@ func run() -> void:
 	var towers := 0
 	for position in classic.building_views:
 		var view = classic.building_views[position]
-		if view.has_method("sync_state"): towers += 1
+		if view.get_script() == load("res://presentation/classic/tower_view.gd"): towers += 1
 	check(towers == 6, "仅六座防御塔替换为原始模型")
 	check(world.obstacles == baseline.obstacles, "外观替换不得改变障碍登记")
 	classic.free()

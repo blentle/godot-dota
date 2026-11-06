@@ -15,7 +15,8 @@ func run() -> void:
 	var failed := false
 	for team in [0, 1]:
 		var side := -1 if team == 0 else 1
-		scene.battle.focus = Vector3(side * 20, 0, -side * 20)
+		var distance := 37 if "--bases" in OS.get_cmdline_user_args() else 20
+		scene.battle.focus = Vector3(side * distance, 0, -side * distance)
 		for frame in range(12): await process_frame
 		await RenderingServer.frame_post_draw
 		var path := "%s-%d.png" % [prefix, team]
